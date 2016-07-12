@@ -1,0 +1,182 @@
+\newpage
+\section{Auswertung}
+\label{sec:auswertung}
+
+\subsection{Untersuchung eines Reflex-Klystrons}
+
+Tabelle~\ref{tab:V1TabI} zeigt die zur Erstellung eines Modendiagramms aufgenommenen Messwerte dreier verschiedener Moden des Klystrons.
+Das zugehörige Diagramm ist in Abbildung~\ref{fig:modenkurve} zu finden.
+Die Koeffizienten der dargestellten Parabeln werden gemäß der allgemeinen Vorschrift $A(U)=aU^2+bU+c$ durch eine Ausgleichsrechnung bestimmt und sind in Tabelle~\ref{tab:koeffizienten} zusammengefasst.\footnote{Zur Auswertung wird das Programm \texttt{python (Version 3.4.1)} verwendet.}
+
+\begin{table}[h]
+    \centering
+    \caption{Daten der Moden.}
+    \begin{tabular}{lcSSSr}
+        \toprule
+		                  &       & {1. Modus}  & {2. Modus}  & {3. Modus}  &       \\
+		\midrule
+		Reflektorspannung & $U_0$ & \SI{200}{}  & \SI{96}{}   & \SI{120}{}  & [V]   \\
+		                  & $U_1$ & \SI{190}{}  & \SI{90}{}   & \SI{110}{}  &       \\
+		                  & $U_2$ & \SI{205}{}  & \SI{105}{}  & \SI{124}{}  &       \\
+		Amplitude         & $A_0$ & \SI{1.08}{} & \SI{0.92}{} & \SI{1.13}{} & [V]   \\
+		Frequenz          & $f_0$ & \SI{9000}{} & \SI{9006}{} & \SI{9003}{} & [MHz] \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:V1TabI}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{build/plot_modenkurve.pdf}
+    \caption{Drei verschiedene Modenkurven des Klystrons.}
+    \label{fig:modenkurve}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \caption{Koeffizienten der Modenkurven.}
+    \begin{tabular}{cSSS}
+        \toprule
+		Modus & {$a$}           & {$b$}       & {$c$}          \\
+              & {[1/V]}         &             & {[V]}          \\
+        \midrule
+		1     & \SI{-2.16e-2}{} & \SI{8.53}{} & \SI{-8.41e2}{} \\
+        2     & \SI{-1.70e-2}{} & \SI{3.32}{} & \SI{-1.61e2}{} \\
+        3     & \SI{-2.83e-2}{} & \SI{6.61}{} & \SI{-3.85e2}{} \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:koeffizienten}
+\end{table}
+
+Die Messung bei elektronischer Abstimmung liefert die Werte in Tabelle~\ref{tab:V1TabII}.
+Die elektronische Bandbreite $\Delta f$ berechnet sich damit zu:
+%
+\begin{equation}
+    \Delta f=f'-f''=\SI{9015}{\mega\hertz}-\SI{8980}{\mega\hertz}=\SI{35}{\mega\hertz}.
+\end{equation}
+%
+Die elektronische Abstimmempfindlichkeit $A$ beträgt:
+%
+\begin{equation}
+    A=\frac{f'-f''}{U'-U''}=\frac{\SI{9015}{\mega\hertz}-\SI{8980}{\mega\hertz}}{\SI{209}{\volt}-\SI{192}{\volt}}\approx\SI{2.06}{\mega\hertz\per\volt}.
+\end{equation}
+
+\begin{table}[h]
+    \centering
+    \caption{Elektronische Abstimmung.}
+    \begin{tabular}{lcSSSr}
+        \toprule
+		Reflektorspannung & $U_R$ & \SI{200}{}  & \SI{209}{}  & \SI{192}{}  & [V]   \\
+		Frequenz          & $f$   & \SI{8998}{} & \SI{9015}{} & \SI{8980}{} & [MHz] \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:V1TabII}
+\end{table}
+
+\subsection{Messung von Frequenz, Wellenlänge und Dämpfung}
+
+Die im zweiten Versuchsteil aufgenommenen Messwerte sind in Tabelle~\ref{tab:V2TabI} zu finden.
+Die direkte Messung der Frequenz der höchsten Mode mit dem Frequenzmesser ergibt den Wert~$f_{\text{gemessen}}$.
+Zur Berechnung der Frequenz aus der Wellenlänge im freien Raum wird zunächst die Wellenlänge $\lambda_g$ im Hohlleiter bestimmt.
+Diese ergibt sich als das Doppelte des Abstandes der gemessenen Minima.
+Zusammen mit der Abmessung des Hohlleiters und der Formel~\eqref{eq:frequenz} des Theorieteils folgt:
+%
+\begin{equation}
+    f_{\text{berechnet}}=\SI{3e11}{\milli\metre\per\second}\sqrt{\frac{1}{(\SI{47.4}{\milli\metre})^2}+\frac{1}{4\cdot(\SI{22.8}{\milli\metre})^2}}\approx\SI{9129.1}{\mega\hertz}.
+\end{equation}
+
+\begin{table}[h]
+    \centering
+    \caption{Frequenz und Wellenlänge.}
+    \begin{tabular}{SSSSSS}
+        \toprule
+		{$f_{\text{gemessen}}$} & {1. Min}    & {2. Min}      & {$\lambda_g$} & {$a$}       & {$f_{\text{berechnet}}$} \\
+        {[MHz]}                 & {[mm]}      & {[mm]}        & {[mm]}        & {[mm]}      & {[MHz]}                  \\
+        \midrule
+		\SI{9000}{}             & \SI{57.2}{} & \SI{80.9}{}   & \SI{47.4}{}   & \SI{22.8}{} & \SI{9129.1}{}            \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:V2TabI}
+\end{table}
+
+Die Ergebnisse zur Dämpfungsmessung sind in Tabelle~\ref{tab:V2TabII} aufgeführt.
+Die Mikrometereinstellung wird so gewählt, dass sich die Dämpfung am SWR-Meter wie aufgeführt ergibt.
+Dann wird diese mit dem theoretischen Wert, der aus einer Eichkurve am Dämpfungsglied abzulesen ist, verglichen.
+Abbildung~\ref{fig:daempfungskurve} zeigt die Werte graphisch aufgetragen.\footnote{Zur Auswertung wird das Programm \texttt{python (Version 3.4.1)} verwendet.}
+Die Messergebnisse stimmen in vier Punkten mit den theoretischen Werten überein.
+
+\begin{table}[h]
+    \centering
+    \caption{Dämpfungsmessung.}
+    \begin{tabular}{SSS}
+        \toprule
+		{SWR-Meter} & {Mikrometereinstellung} & {Theoretischer Wert} \\
+        {[dB]}      & {[mm]}                  & {[dB]}               \\
+        \midrule
+		\SI{0}{}    & \SI{0.00}{}             & \SI{0}{}             \\
+        \SI{2}{}    & \SI{1.05}{}             & \SI{3}{}             \\
+        \SI{4}{}    & \SI{1.50}{}             & \SI{4.5}{}           \\
+        \SI{6}{}    & \SI{1.77}{}             & \SI{6}{}             \\
+        \SI{8}{}    & \SI{2.02}{}             & \SI{8}{}             \\
+        \SI{10}{}   & \SI{2.29}{}             & \SI{10}{}            \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:V2TabII}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{build/plot_daempfungskurve.pdf}
+    \caption{Dämpfungskurve.}
+    \label{fig:daempfungskurve}
+\end{figure}
+
+\subsection{Stehwellen-Messungen}
+
+Die Messwerte zu den drei verschiedenen Methoden der Stehwellenmessung sind in den Tabellen~\ref{tab:V3TabI} bis~\ref{tab:V3TabIII} aufgeführt.
+Bei der 3-dB-Methode berechnet sich die Wellenlänge im Hohlleiter als der doppelte Abstand der beiden ausgemessenen Minima.
+Das SWR berechnet sich zu:
+%
+\begin{equation}
+	\text{SWR}=\sqrt{1+\frac{1}{\sin^2\left(\frac{\pi(d_1-d_2)}{\lambda_g}\right)}}=\sqrt{1+\frac{1}{\sin^2\left(\frac{\pi(\SI{90.4}{\milli\metre}-\SI{88.4}{\milli\metre})}{\SI{49}{\milli\metre}}\right)}}\approx\SI{7.8}{}
+\end{equation}
+
+\begin{table}[h]
+    \centering
+    \caption{Die SWR-Meter-Methode.}
+    \begin{tabular}{lSSSSr}
+        \toprule
+		Sondentiefe & \SI{3}{}    & \SI{5}{}    & \SI{7}{}    & \SI{9}{}     & [mm] \\
+		SWR         & \SI{1.16}{} & \SI{1.58}{} & \SI{3.30}{} & {$\infty$} &      \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:V3TabI}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Die 3-dB-Methode.}
+    \begin{tabular}{SSSSSS}
+        \toprule
+		{$d_1$}     & {$d_2$}     & {1. Min}    & {2. Min}    & {$\lambda_g$} & {SWR}      \\
+        {[mm]}      & {[mm]}      & {[mm]}      & {[mm]}      & {[mm]}        &            \\
+        \midrule
+		\SI{90.4}{} & \SI{88.4}{} & \SI{69.7}{} & \SI{94.2}{} & \SI{49}{}     & \SI{7.8}{} \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:V3TabII}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Die Abschwächer-Methode.}
+    \begin{tabular}{SSSS}
+        \toprule
+		{$A_1$}   & {$A_2$}   & {$\Delta A$} & {SWR}     \\
+        {[dB]}    & {[dB]}    & {[dB]}       &           \\
+        \midrule
+		\SI{20}{} & \SI{44}{} & \SI{24}{}    & \SI{12}{} \\
+		\bottomrule
+	\end{tabular}
+    \label{tab:V3TabIII}
+\end{table}
