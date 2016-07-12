@@ -1,0 +1,78 @@
+\section{Theorie}
+\label{sec:theorie}
+%
+\subsection{Die klassische Theorie der Molwärme}
+%
+Betrachtet man das System des Festkörpers innerhalb der klassischen Physik, so ergibt sich für die Molwärme der Zusammenhang nach Dulong-Petit. Dazu wird angenommen, dass die Schwinger in den Gittern des Festkörpers räumlich fest sind und somit in 3 Freiheitsgraden schwingen können. Die Schwingungen dieser Atome sind dabei harmonische Schwingungen. Die mittlere kinetische Energie eines harmonischen Oszillators entspricht der mittleren potentiellen Energie. Pro Freiheitsgrad besitzt jedes Atom im Mittel die Energie $\sfrac{1}{2}kT$, sodass sich für alle Feiheitsgrade und die beiden Energieformen eine mittlere Energie von
+%
+\begin{equation}
+  \langle u\rangle=2\cdot 3\cdot\frac{1}{2}kT
+\end{equation}
+%
+pro Atom ergibt. Für ein Mol an Atomen im Festkörper ergibt sich über die passende thermodynamische Relation die material- und temperaturunabhängige Größe von $C_V=3R$.
+%
+\begin{equation}
+  C_V=\left(\frac{\partial}{\partial T}U\cdot N_L\right)_V=3R
+  \label{eq:CV}
+\end{equation}
+%
+Dieses Ergebnis deckt sich mit den experimentellen Beobachtungen allerdings lediglich für sehr hohe Temperaturen oder für Festkörper mit sehr hohen molaren Massen. Daher ist hier eine Verfeinerung der Theorie sinnvoll.
+%
+\subsection{Die Theorie nach Einstein}
+%
+Das Modell nach Einstein etwa berücksichtigt die Quantisierung der Energie. So wird hier angenommen, dass Energie zwischen den einzelnen Atomen im Festkörper nur in Einheiten von $\hbar\omega$ ausgetauscht werden kann. $\omega$ ist dabei die als einheitlich angenommene bei den Schwingern im Kristall vorliegende Frequenz. Die Wahrscheinlichkeit, dass nun ein Oszillator bei gegebener Temperatur $T$ im Gleichgewicht mit der Umgebung die Energie $n\hbar\omega$ besitzt, ist dabei nach Boltzmann verteilt.
+%
+\begin{equation}
+  W(n)=e^{-\frac{n\hbar\omega}{kT}}
+\end{equation}
+%
+Die Summation über alle Energien gewichtet mit ihrer Wahrscheinlichkeit ergibt eine mittlere Energie pro Atom von
+%
+\begin{equation}
+  \langle u\rangle_\text{Einstein}=\frac{\hbar\omega}{e^{\sfrac{\hbar\omega}{kT}}-1}\;\text{.}
+\end{equation}
+%
+Diese liegt unterhalb der klassisch vorhergesagten Energie. Über die oben bereits genannte thermodynamische Relation ergibt sich eine Molwärme, die bei hohen Temperaturen das im Experiment beobachtete asymptotische Streben gegen $3R$ zeigt und bei niedrigen Temperaturen die Abnahme der Molwärme modelliert. Allerdings liegt diese Modellation im Bereich niedriger Temperaturen noch nicht in der Nähe der experimentell bestimmten Werte.
+%
+\begin{equation}
+  C_V=3R\frac{1}{T²}\frac{\hbar²\omega²}{k²}\frac{e^{\frac{\hbar\omega}{kT}}}{(e^{\frac{\hbar\omega}{kT}}-1)²}
+\end{equation}
+%
+\subsection{Die Theorie nach Debye}
+%
+Das Modell nach Debye berücksichtigt nun, dass die Frequenzen der Eigenschwingungen der Atome im Festkörper nicht mehr einheitlich sind, sondern nach einer sogenannten Spektralverteilung $Z(\omega)$ verteilt sind. Dies spiegelt eine deutlich realitätsnähere Annahme wider. Das Modell berücksichtigt allerdings nicht die Frequenz- sowie die Richtungsabhängigkeit der Phasengeschwindigkeit einer elastischen Welle im Kristall und die Rolle der Leitungselektronen, welche allerdings erst bei sehr niedrigen Temperaturen nenneswert wird.
+Ein Kristall von endlichen Ausmessungen aus $N_L$ Atomen besitzt nur endlich viele verschiedene Schwingungsfrequenzen, nämlich $3N_L$ verschiedene. Daher muss das Integral über die Spektralverteilung auf diesen Wert konvergieren. Dies ist nur möglich, wenn es eine endliche Grenzfrequenz $\omega_D$ gibt. Es gilt also
+%
+\begin{equation}
+  \int_0^{\omega_\text{D}}Z(\omega)\upd\omega=3N_\text{L}\; .
+  \label{eq:konv}
+\end{equation}
+%
+Die Grenzfrequenz liegt je nach Berücksichtigung der Phasengeschwindigkeiten bei
+%
+\begin{equation}
+  \omega_D³=\frac{6\pi²v³N_L}{L³} \quad\text{oder}\quad \omega_D³=\frac{18\pi²N_L}{L³}\frac{v_l³v_{tr}³}{v_l³+2v_{tr}³}\;\text{.}
+  \label{eq:omega_D}
+\end{equation}
+%
+Die Dichte der Eigenschwingungen lässt sich auf dieselbe Weise allgemein als
+%
+\begin{equation}
+  Z(\omega)\mathup{d}\omega=\frac{3L³}{2\pi²v³}\omega²\mathup{d}\omega \quad\text{oder\quad} Z(\omega)\mathup{d}\omega=\frac{l³\omega²}{2\pi²}\frac{v_l³+2v_{tr}³}{v_l³v_{tr}³}\mathup{d}\omega
+  \label{eq:Z}
+\end{equation}
+%
+beschreiben. Aus den Gleichungen \eqref{eq:omega_D} und \eqref{eq:Z} folgt für die Frequenzverteilung $Z(\omega)$
+%
+\begin{equation}
+  Z(\omega)\mathup{d}\omega=\frac{9N_L}{\omega_D³}\omega²\mathup{d}\omega\;\text{.}
+\end{equation}
+%
+Es ergibt sich somit für die Molwärme nach Debye der Zusammenhang
+%
+\begin{equation}
+  C_V=9R\left(\frac{T}{\Theta_D}\right)³\int_0^{\frac{\Theta_D}{T}}\frac{x⁴e^x}{(e^x-1)²}\mathup{d}x\;\text{.}
+  \label{eq:debyetemperatur}
+\end{equation}
+%
+Aus der endlichen Debye-Frequenz lässt sich sofort auch eine Debye-Temperatur herleiten, ab welcher der Festkörper einer klassischen Beschreibung schon gut entspricht. Die Debye-Temperatur ist als $\Theta_D=\sfrac{\hbar\omega_D}{k}$ definiert und eine materialspezifische Größe. Die oben in Gleichung~\eqref{eq:Z} beschriebene Funktion allerdings stellt nun eine universell gültige Definition der Molwärme dar. Sie zeigt für große Temperaturen das beobachtete asymptotische Verhalten, beschreibt bei geringen Temperaturen allerdings das deutlich näher an den experimentellen Werten liegende "$T³$-Gesetz".
