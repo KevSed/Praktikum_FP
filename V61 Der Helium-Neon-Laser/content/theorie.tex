@@ -1,10 +1,15 @@
 \section{Theorie}
 \label{sec:theorie}
 
-Laser (Light Amplification by Stimulated Emission of Radiation) bestehen stets
-aus drei Hauptkomponenten: Pumpquelle, Resonator und aktives Lasermedium. Im
-Folgenden soll die Funktionsweise eines Laser sowie die Eigenschaften der
-Laserstrahlung kurz erläutert werden:
+Laser (Light Amplification by Stimulated Emission of Radiation) sind Quellen
+elektromagnetischer Strahlung, die kohärentes und monochromatisches Licht mit
+hoher Intensität emittieren. Laser bestehen stets aus drei Hauptkomponenten:
+Pumpquelle, Resonator und aktives Lasermedium. Im Folgenden soll die
+Funktionsweise eines Laser sowie die Eigenschaften der Laserstrahlung kurz
+erläutert werden:
+
+[Abb: Schemata für die Absorption und Emission eines
+Strahlungsfeldes~$\rho(\nu)$ bei einem \num{2}-Niveau-System.]
 
 Das Strahlungsspektrum eines Lasers wird durch die Eigenschaften des aktiven
 Lasermediums festgelegt. Ziel ist es, das Lasermedium so zu beeinflussen, dass
@@ -14,7 +19,58 @@ diskutierte, durch einfallende Photonen ausgelöste induzierte Emission. Zur
 Vereinfachung wird ein idealisiertes 2-Niveau-System eines Atoms im Lasermedium
 betrachtet. Gemäß der Maxwell-Boltzmann-Verteilung überwiegt im thermischen
 Gleichgewicht die Besetzung des Grundzustandes. Durch äußere Anregung, zum
-Beispiel in Form von elektrischer Entladung, werden Elektronen auf ein höheres
+Beispiel in Form von elektrischen Entladungen, werden Elektronen auf ein höheres
 Energieniveau gebracht. Tritt nun ein einfallendes Photon in Wechselwirkung mit
-dem angeregten Atom, so kann es zu einer induzierten Emission kommen. Dabei wir
+dem angeregten Atom, so kann es zu einer induzierten Emission kommen. Dabei wird
 ein weiteres Photon derselben Energie, Phase und Ausbreitungsrichtung abgegeben.
+Findet dieser Prozess häufig genug statt, so kommt es zu einer kaskadenartigen
+Verstärkung der Strahlung.
+[...]
+
+[Abb: Prinzipielle Funktionsweise eines Lasers.]
+
+Damit die Strahlung hinreichend verstärkt wird, ist es notwendig, dass der
+Laserstrahl das Medium mehrmals durchläuft. Dazu ist das Lasermedium innerhalb
+eines optischen Resonators positioniert. Der Resonator besteht aus zwei sich
+gegenüberstehenden Spiegeln, zwischen denen der Strahl hin und her läuft. Ein
+Spiegel ist als sogenannter Auskoppelspiegel realisiert, der für den Strahl
+teildurchlässig ist und durch den der Laserstrahl die Apparatur verlassen kann.
+Für den stabilen Betrieb muss die Verstärkung durch induzierte Emission des
+Strahls größer sein, als die Verluste an den Resonatorspiegeln. Dieses Kriterium
+ist erfüllt, wenn die Stabilitätsbedingung
+%
+\begin{equation}
+  0\leq g_1\cdot g_2<1
+  \label{eq:bedingung}
+\end{equation}
+%
+gilt. Die hierfür benötigten Parameter sind durch~$g_i=1-L/r_i$ gegeben,
+wobei~$r_i$ den Krümmungsradius des jeweiligen Spiegels und~$L$ die Gesamtlänge
+des Resonators beschreibt.
+
+Aufgrund der Größe des Resonators erfüllen viele Moden der im Resonator
+stehenden Welle die Resonanzbedingung. Angelehnt an die Theorie der Hohlleiter
+werden die~$\text{TEM}_{lpq}$-Moden beschrieben durch die Anzahl~$q$ der
+Wellenlängen im Resonator, sowie durch die Anzahl~$l$ und~$p$ der Wellenknoten
+in der~$x$- und~$y$-Richtung. Für einen konfokalen Resonator mit runden Spiegeln
+(Radius~$R$) ergibt sich die Intensitätsverteilung der Strahlung zu
+%
+\begin{gather}
+  I_{lpq}\propto\cos^2(l\varphi)\frac{(2\rho)^4}{(1+Z^2)^{(1+l)}}\left(L_p^q\right)^2\left(\frac{(2\rho)^2}{1+Z^2}\right)^2\exp\left(-\frac{2\rho^2}{1+Z^2}\right) \\
+  \shortintertext{mit}
+  \rho=\left(\frac{2\pi}{R\lambda}\right)^{1/2} \\
+  \shortintertext{und}
+  Z=\left(\frac{2}{R}\right)z.
+\end{gather}
+%
+Die Parameter~$l$ und~$p$ werden als transversale Modenzahl bezeichnet.
+Bei~$L_p^q(u)$ handelt es sich um die zugeordneten Laguerre-Polynome.
+
+Im hier durchgeführten Versuch wird ein Helium-Neon-Gaslaser verwendet, der als
+Lasermedium ein Gasgemisch aus Helium und Neon in einem Verhältnis von
+ungefähr~\num{5} zu~\num{1} bei geringem Druck~$(\approx\SI{133}{\pascal})$
+enthält. Die Besetzungsinversion wird durch elektrische Entladungen realisiert.
+Das eigentliche Lasermedium ist das Neon. Das Helium dient als Punpgas, welches
+durch die elektrischen Entladungen angeregt wird und Energie an die Neon-Atome
+durch Stöße zweiter Art abgibt. Helium-Neon-Laser arbeiten typischerweise bei
+einer Wellenlänge von~$\lambda=\SI{632.8}{\nano\metre}$.
