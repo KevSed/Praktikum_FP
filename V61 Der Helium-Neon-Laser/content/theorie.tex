@@ -10,7 +10,7 @@ erläutert werden:
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/fig_Übergänge.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/fig_Übergänge.pdf}
   \caption{Schemata für die Absorption und Emission eines
   Strahlungsfeldes~$\rho(\nu)$ bei einem \num{2}-Niveau-System.}
   \label{fig:Übergänge}
@@ -25,16 +25,39 @@ Vereinfachung wird ein idealisiertes 2-Niveau-System eines Atoms im Lasermedium
 betrachtet. Gemäß der Maxwell-Boltzmann-Verteilung überwiegt im thermischen
 Gleichgewicht die Besetzung des Grundzustandes. Durch äußere Anregung, zum
 Beispiel in Form von elektrischen Entladungen, werden Elektronen auf ein höheres
-Energieniveau gebracht. Tritt nun ein einfallendes Photon in Wechselwirkung mit
+Energieniveau gehoben. Tritt nun ein einfallendes Photon in Wechselwirkung mit
 dem angeregten Atom, so kann es zu einer induzierten Emission kommen. Dabei wird
 ein weiteres Photon derselben Energie, Phase und Ausbreitungsrichtung abgegeben.
 Findet dieser Prozess häufig genug statt, so kommt es zu einer kaskadenartigen
-Verstärkung der Strahlung.
-[...]
+Verstärkung der Strahlung. Weitere Wechselwirkungen sind die spontane Emission
+eines Photons durch ein angeregtes Elektron, welche nicht durch ein externes
+Photon ausgelöst wird, sowie die Absorption eines Photons durch eine Elektron.
+Das Verhältnis von Absorption (A), spontaner Emission (E) und induzierter
+Emission (IE) ist durch die drei Gleichungen
+%
+\begin{align}
+  \dot{N}_{\mathrm{A}}&=n_1\rho(\nu)B_{12}, \\
+  \dot{N}_{\mathrm{IE}}&=n_2\rho(\nu)B_{21} \\
+  \shortintertext{und}
+  \dot{N}_{\mathrm{E}}&=n_2A_{21}
+\end{align}
+%
+mit den Einsteinkoeffizienten~$A_{21}$, $B_{12}$ und~$B_{21}$ gegeben. $n_1$
+und~$n_2$ sind hierbei die Besetzungszahlen für den Grundzustand und den
+angeregten Zustand und~$\rho$ die Energiedichte des Strahlungfeldes. $\dot{N}$
+ist die Anzahl der Photonen, die pro Volumeneinheit und Sekunde abgegeben oder
+aufgenommen werden. Für den Fall, das sich Absorption und Emission vollständig
+kompensieren, gilt
+%
+\begin{align}
+  \frac{\mathrm{d}n_1}{\mathrm{d}t}&=-n_1B_{12}\rho+N_2B_{21}\rho+n_2A_{21} \\
+  \shortintertext{und}
+  \frac{\mathrm{d}n_2}{\mathrm{d}t}&=+N_1B_{12}\rho-n_2B_{21}\rho-n_2A_{21}.
+\end{align}
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/fig_Resonator.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/fig_Resonator.pdf}
   \caption{Prinzipielle Funktionsweise eines Lasers.}
   \label{fig:Resonator}
 \end{figure}
@@ -66,7 +89,7 @@ in der~$x$- und~$y$-Richtung. Für einen konfokalen Resonator mit runden Spiegel
 (Radius~$R$) ergibt sich die Intensitätsverteilung der Strahlung zu
 %
 \begin{gather}
-  I_{lpq}\propto\cos^2(l\varphi)\frac{(2\rho)^4}{(1+Z^2)^{(1+l)}}\left(L_p^q\right)^2\left(\frac{(2\rho)^2}{1+Z^2}\right)^2\exp\left(-\frac{2\rho^2}{1+Z^2}\right) \\
+  I_{lpq}\propto\cos^2(l\varphi)\frac{(2\rho)^4}{(1+Z^2)^{(1+l)}}\left(L_p^q\left(\frac{(2\rho)^2}{1+Z^2}\right)\right)^2\exp\left(-\frac{2\rho^2}{1+Z^2}\right) \\
   \shortintertext{mit}
   \rho=\left(\frac{2\pi}{R\lambda}\right)^{1/2} \\
   \shortintertext{und}
