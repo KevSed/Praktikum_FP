@@ -17,7 +17,7 @@ def f(x, r_1, r_2):
     return 1-x*(r_1+r_2)/(r_1*r_2)+x**2/(r_1*r_2)
 
 x = np.linspace(0, 140, 1000)
-plt.plot(x, f(x, r_1, r_2), 'r-', label='Verlauf von $g_1g_2$ für $r_1$={}mm, $r_2$={}mm'.format(r_1, r_2))
+plt.plot(x, f(x, r_1, r_2), 'r-', label='Verlauf von $g_1g_2$ für $r_1$={}cm, $r_2$={}cm'.format(r_1, r_2))
 plt.xlim(x.min(), x.max())
 plt.ylim(f(x, r_1, r_2).min()-0.4, f(x, r_1, r_2).max())
 plt.axhline(y=1, xmin=0, xmax=140, linewidth=1, color='k')
@@ -43,7 +43,7 @@ def f(x, r_1, r_2):
 
 
 x = np.linspace(0, 200, 1000)
-plt.plot(x, f(x, r_1, r_2), 'r-', label='Verlauf von $g_1g_2$ für $r_1$={}mm, $r_2$={}mm'.format(r_1, r_2))
+plt.plot(x, f(x, r_1, r_2), 'r-', label='Verlauf von $g_1g_2$ für $r_1$={}cm, $r_2$={}cm'.format(r_1, r_2))
 plt.xlim(x.min(), x.max())
 plt.ylim(f(x, r_1, r_2).min(), f(x, r_1, r_2).max()+0.2)
 plt.axhline(y=1, xmin=0, xmax=200, linewidth=1, color='k')
