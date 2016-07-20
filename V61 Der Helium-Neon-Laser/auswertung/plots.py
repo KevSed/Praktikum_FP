@@ -30,6 +30,7 @@ plt.axhline(y=0, xmin=0, xmax=140, linewidth=1, color='k')
 plt.ylabel(r"$g_1g_2$")
 plt.xlabel(r"$\mathrm{Resonanzlänge}\; L/\mathrm{mm}$")
 plt.legend(loc='best')
+plt.grid()
 plt.tight_layout()
 plt.savefig("plot_laser_{}_{}.pdf".format(r_1, r_2))
 plt.close()
@@ -60,12 +61,16 @@ plt.axhline(y=1, xmin=0, xmax=200, linewidth=1, color='k')
 plt.ylabel(r"$g_1g_2$")
 plt.xlabel(r"$\mathrm{Resonanzlänge}\; L/\mathrm{mm}$")
 plt.legend(loc='best')
+plt.grid()
 plt.tight_layout()
 plt.savefig("plot_laser_{}_{}.pdf".format(r_1, r_2))
 plt.close()
 #----------------------------------------------------------------------------
 
-# Messung der Polarisation des Laserlichtes mit einem Polarisationsfilter. Geplottet wird die Stromstärke einer Diode gegen den Winkel des Filters in °.
+########################################################################################################
+################################## P o l a r i s a t i o n #############################################
+# Messung der Polarisation des Laserlichtes mit einem Polarisationsfilter. Geplottet wird die Stromstärke einer Diode gegen den Winkel des
+# Filters in °.
 w, I = np.loadtxt('Daten_polarisation.txt', unpack = True)
 wrad = w*2*np.pi/360
 
@@ -91,14 +96,17 @@ t = np.linspace(wrad.min(), wrad.max(), 1000)
 plt.plot(wrad, I, 'b.', label='Daten')
 plt.plot(t, f(t, a, xo), 'r-', label='Ausgleichsrechnung')
 plt.xlim(wrad.min()-0.2, wrad.max()+0.2)
-plt.ylabel(r"Stromstärke $I/[\mu A]$")
-plt.xlabel(r"Polarisationswinkel $/[rad]$")
+plt.ylabel(r"Stromstärke $I/$µA")
+plt.xlabel(r"Polarisationswinkel $/rad$")
 plt.legend(loc='best')
+plt.grid()
 plt.tight_layout()
 plt.savefig("plot_polarisation.pdf")
 plt.close()
 
-# Messung der Polarisation des Laserlichtes mit einem Polarisationsfilter. Geplottet wird die Stromstärke einer Diode gegen den Winkel des Filters in °.
+########################################################################################################
+################################## Stabilität konkav ###################################################
+
 x, I = np.loadtxt('Daten_kk.txt', unpack = True)
 
 def f(x, m, b):
@@ -114,9 +122,10 @@ t = np.linspace(x.min(), x.max(), 1000)
 plt.plot(x, I, 'b.', label='Daten')
 plt.plot(t, f(t, m, b), 'r-', label='Ausgleichsgeraden')
 plt.xlim(x.min()-5, x.max()+5)
-plt.ylabel(r"Stromstärke $I/[\mu A]$")
-plt.xlabel(r"Resonatorlänge $/[cm]$")
+plt.ylabel(r"Stromstärke $I/$µA")
+plt.xlabel(r"Resonatorlänge $/cm$")
 plt.legend(loc='best')
+plt.grid()
 plt.tight_layout()
 plt.savefig("plot_kk.pdf")
 plt.close()
@@ -152,9 +161,10 @@ t = np.linspace(x.min(), x.max(), 1000)
 plt.plot(x, I, 'b.', label='Daten')
 plt.plot(t, f(t, a, b, c), 'r-', label='Ausgleichsrechnung')
 plt.xlim(x.min()-2, x.max()+2)
-plt.ylabel(r"Stromstärke $I/[\mu A]$")
-plt.xlabel(r"Abstand $/[cm]$")
+plt.ylabel(r"Stromstärke $I/$µA")
+plt.xlabel(r"Abstand $/cm$")
 plt.legend(loc='best')
+plt.grid()
 plt.tight_layout()
 plt.savefig("plot_Mode00.pdf")
 plt.close()
@@ -163,9 +173,9 @@ plt.close()
 ################################## M O D E  1 0 ########################################################
 
 x, I = np.loadtxt('Daten_Mode10.txt', unpack = True)
-
+################### WHY U NO WORK?!?! #########################################
 def f(x, I0, x0, w):
-    return I0*((8*(x-x0)**2)/(w**2))*np.exp(-((x-x0)**2)/(w**2))
+    return I0*(8*((x-x0)/w)**2)*np.exp(-((x-x0)/w)**2)
 
 params, cov = curve_fit(f, x, I)
 I0 = params[0]
@@ -177,21 +187,22 @@ w_err = np.sqrt(cov[2][2])
 
 print(
 """
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 Parameter der Ausgleichsrechnung: (I0*((8*(x-x0)**2)/(w**2))*np.exp(-((x-x0)**2)/(w**2))) Mode 10
 I0 = {}+-{}
 x0 = {}+-{}
 w = {}+-{}
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 """.format(I0, I0_err, x0, x0_err, w, w_err))
 
 t = np.linspace(x.min(), x.max(), 1000)
 plt.plot(t, f(t, I0, x0, w), 'r-', label='Ausgleichsrechnung')
 plt.plot(x, I, 'b.', label='Daten')
 plt.xlim(x.min()-2, x.max()+2)
-plt.ylabel(r"Stromstärke $I/[\mu A]$")
-plt.xlabel(r"Abstand $/[cm]$")
+plt.ylabel(r"Stromstärke $I/$µA")
+plt.xlabel(r"Abstand $/cm$")
 plt.legend(loc='best')
+plt.grid()
 plt.tight_layout()
 plt.savefig("plot_Mode10.pdf")
 plt.close()
