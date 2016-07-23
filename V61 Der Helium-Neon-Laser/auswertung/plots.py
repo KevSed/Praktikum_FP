@@ -4,6 +4,7 @@ import numpy as np
 import sys
 from scipy.optimize import curve_fit
 
+
 r_1 = 50 # mm
 r_2 = 70 # mm
 
@@ -137,7 +138,7 @@ plt.close()
 x, I = np.loadtxt('Daten_Mode00.txt', unpack = True)
 
 def f(x, a, b, c):
-    return a*np.exp(-((x-b)**2)/(c**2))
+    return a*np.exp(-2*((x-b)**2)/(c**2))
 
 params, cov = curve_fit(f, x, I)
 a = params[0]
@@ -175,9 +176,9 @@ plt.close()
 x, I = np.loadtxt('Daten_Mode10.txt', unpack = True)
 ################### WHY U NO WORK?!?! #########################################
 def f(x, I0, x0, w):
-    return I0*(8*((x-x0)/w)**2)*np.exp(-((x-x0)/w)**2)
+    return I0*(8*((x-x0)/w)**2)*np.exp(-2*((x-x0)/w)**2)
 
-params, cov = curve_fit(f, x, I)
+params, cov = curve_fit(f, x, I, p0=[33,20,13])
 I0 = params[0]
 I0_err = np.sqrt(cov[0][0])
 x0 = params[1]
