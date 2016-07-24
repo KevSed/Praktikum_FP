@@ -1,10 +1,11 @@
-﻿\section{Auswertung}
+\newpage
+\section{Auswertung}
 \label{sec:auswertung}
 \input{../fehlerrechnung.tex}
 %
 \subsection{Stabilität des Lasers}
 %
-Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser optisch nur dann stabil, wenn das Produkt~$g_1\cdot g_2\in[0,1)$ ist. Daher lassen sich Bedingungen an den Abstand der Resonatorspiegel stellen. Im ersten Versuchsteil werden zwei konkave Spiegel mit einem Krümmungsradius von jeweils~$\SI{140}{\centi\meter}$ verwendet. Über den Zusammenhang
+Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser optisch nur dann stabil, wenn das Produkt $g_1\cdot g_2\in[0,1)$ ist. Daher lassen sich Bedingungen an den abstand der Resonatorspiegel stellen. Im ersten Versuchsteil werden zwei konvexe Spiegel mit dem Krümmungsradius $\SI{140}{\centi\meter}$ verwendet. Über den Zusammenhang
 %
 \begin{equation}
   L_{1,2}=\frac{r_1+r_2}{2}\pm\sqrt{\frac{(r_1+r_2)^2}{4}-r_1r_2}
@@ -12,16 +13,27 @@ Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser op
 %
 folgt somit, dass der Laser für Resonatorlängen zwischen~$\SI{0}{\centi\meter}$ und~$\SI{280}{\centi\meter}$ optisch stabil ist, siehe Abbildung~\ref{fig:opt_stab}.
 %
-\begin{figure}[htb]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_laser_140_140.pdf}
   \caption{Bereich der Resonatorlänge~$L$, in welchem der Laser optisch stabil ist ($g_1\cdot g_2\in[0,1)$).}
   \label{fig:opt_stab}
 \end{figure}
 %
-Da die hier verwendete optische Bank lediglich~$\SI{250}{\centi\meter}$ lang ist, kann hier nur überprüft werden, ob die optische Stabilität am
+Da die hier verwedete optische Bank lediglich $\SI{250}{\centi\meter}$ lang ist, kann hier nur überprüft werden, ob die optische Stabilität am
 Rande der Bank noch besteht. Dies ist trotz großer Anfälligkeit bei kleinen Abweichungen der Linsen, die allerdings dem experimentellen Aufbau
-geschuldet sind, möglich.
+geschuldet sind, möglich. Eine Messung der Intensität des Laserstrahles in Abhängigkeit der Resonatorlänge ist in Abbildung~\ref{fig:kk}
+dargestellt. Es zeigt sich hierbei, dass der Laser bis etwa $\SI{1300}{\milli\meter}$ ununterbrochen mit hoher Leistung funktioniert.
+Die Verteilung der Intensitäten zeigt hierbei allerdings auch deutlich das angesprochene Problem: Die Schwankungen der Intensität aufgrund
+des experimentellen Aufbaus stellt sich als so stark heraus, dass eine kontinuierliche Messung bis an die Grenze der optischen Bank nicht
+durchführbar ist.
+%
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{auswertung/plot_kk.pdf}
+  \caption{Darstellung der an der Photodiode gemessenen Stromstärke als Maß für die Intensität des Laserlichtes in Abhängigkeit der Resonatorlänge. Es zeigen sich klar die großen Schwankungen aufgrund der experimentellen Ungenauigkeiten.}
+  \label{fig:kk}
+\end{figure}
 %
 \subsection{Vermessung der~$\text{TEM}_{00}$- und der~$\text{TEM}_{10}$-Mode}
 %
@@ -37,7 +49,7 @@ dem Zusammenhang
 %
 Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt werden. Das Ergebnis dieser Ausgleichsrechnung, sowie die Messwerte sind in Abbildung~\ref{fig:tem00} dargestellt.
 %
-\begin{figure}[htb]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_Mode00.pdf}
   \caption{Mit der Photodiode gemessene Stromstärke in Abhängigkeit des Ortes innerhalb des Resonators. Dazu die aus dem theoretischen Modell berechnete Verteilung der Ausgleichsrechnung.}
@@ -132,7 +144,7 @@ Die Verteilung dieser Intensität folgt dabei laut Theorie dem Zusammenhang
 %
 Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt werden. Das Ergebnis dieser Ausgleichsrechnung, sowie die Messwerte sind in Abbildung~\ref{fig:tem10} dargestellt.
 %
-\begin{figure}[htb]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_Mode10.pdf}
   \caption{Mit der Photodiode gemessene Stromstärke in Abhängigkeit des Ortes innerhalb des Resonators. Dazu die aus dem theoretischen Modell berechnete Verteilung der Ausgleichsrechnung.}
@@ -142,13 +154,14 @@ Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt 
 Die Ausgleichrechnung ergibt für diese Mode folgende Parameter:
 %
 \begin{align*}
-  I_0=&\SI{666(6)}{\micro\ampere} \\
-  x_0=&\SI{666(6)}{\centi\meter} \\
-  \omega=&\SI{666(6)}{\centi\meter}
+  I_0=&\SI{30.5(4)}{\micro\ampere} \\
+  x_0=&\SI{21.99(9)}{\centi\meter} \\
+  \omega=&\SI{14.9(1)}{\centi\meter}
 \end{align*}
 %
-Die Intensitätsverteilungen für die beiden betrachteten Moden spiegeln insgesamt ein gutes Bild der stehenden Wellen wieder. Die Winkelverteilung
-der Messwerte stimmt gut mit der Theorie überein und es lässt sich gut die höhere Ordnung der~$\text{TEM}_{10}$-Mode im Vergleich zur~$\text{TEM}_{00}$-Mode erkennen.
+Die Intensitätsverteilungen für die beiden betrachteten Moden spiegeln insgesamt ein gutes Bild der stehenden Wellen wider. Die Winkelverteilung
+der Messwerte stimmt gut mit der Theorie überein und es lässt sich gut die höhere Ordnung der $\text{TEM}_{10}$-Mode im Vergleich zur $\text{TEM}_{00}$-Mode erkennen.
+
 %
 \subsection{Untersuchung der Polarisation des Lasers}
 %
