@@ -4,35 +4,35 @@
 %
 \subsection{Stabilität des Lasers}
 %
-Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser optisch nur dann stabil, wenn das Produkt $g_1\cdot g_2\in[0,1)$ ist. Daher lassen sich BEdingungen an den abstand der Resonatorspiegel stellen. Im ersten Versuchsteil werden zwei konvexe Spiegel mit dem Krümmungsradius $\SI{140}{\centi\meter}$ verwendet. Über den Zusammenhang
+Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser optisch nur dann stabil, wenn das Produkt~$g_1\cdot g_2\in[0,1)$ ist. Daher lassen sich Bedingungen an den Abstand der Resonatorspiegel stellen. Im ersten Versuchsteil werden zwei konkave Spiegel mit einem Krümmungsradius von jeweils~$\SI{140}{\centi\meter}$ verwendet. Über den Zusammenhang
 %
 \begin{equation}
-  L_{1,2}=\frac{r_1+r_2}{2}\pm\sqrt{\frac{(r_1+r_2)²}{4}-r_1r_2}
+  L_{1,2}=\frac{r_1+r_2}{2}\pm\sqrt{\frac{(r_1+r_2)^2}{4}-r_1r_2}
 \end{equation}
 %
-folgt somit, dass der Laser für Resonatorlängen zwischen $\SI{0}{\centi\meter}$ und $\SI{280}{\centi\meter}$ optisch stabil ist, siehe Abbildung~\ref{fig:opt_stab}.
+folgt somit, dass der Laser für Resonatorlängen zwischen~$\SI{0}{\centi\meter}$ und~$\SI{280}{\centi\meter}$ optisch stabil ist, siehe Abbildung~\ref{fig:opt_stab}.
 %
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_laser_140_140.pdf}
-  \caption{Bereich der Resonatorlänge $L$, in welchem der Laser optisch stabil ist ($g_1\cdot g_2\in[0,1)$).}
+  \caption{Bereich der Resonatorlänge~$L$, in welchem der Laser optisch stabil ist ($g_1\cdot g_2\in[0,1)$).}
   \label{fig:opt_stab}
 \end{figure}
 %
-Da die hier verwedete optische Bank lediglich $\SI{250}{\centi\meter}$ lang ist, kann hier nur überprüft werden, ob die optische Stabilität am
-Rande der Bank noch besteht. Dies ist trotz großer Anfälligkeit bei kleinen Abweichungen der Lisen, die allerdings dem experimentellen Aufbau
+Da die hier verwendete optische Bank lediglich~$\SI{250}{\centi\meter}$ lang ist, kann hier nur überprüft werden, ob die optische Stabilität am
+Rande der Bank noch besteht. Dies ist trotz großer Anfälligkeit bei kleinen Abweichungen der Linsen, die allerdings dem experimentellen Aufbau
 geschuldet sind, möglich.
 %
-\subsection{Vermessung der $\text{TEM}_{00}$- und der $\text{TEM}_{10}$-Mode}
+\subsection{Vermessung der~$\text{TEM}_{00}$- und der~$\text{TEM}_{10}$-Mode}
 %
 Im Betrieb bilden sich im Resonator, wie in Abschnitt~\ref{sec:theorie} beschrieben, bestimmte Schwingungsmoden aus. Diese können durch
-schrittweise Vermessung untersucht werden. Zunächst wird die $\text{TEM}_{00}$-Grundmode untersucht. Diese bildet sich im Resonator ohne weitere
+schrittweise Vermessung untersucht werden. Zunächst wird die~$\text{TEM}_{00}$-Grundmode untersucht. Diese bildet sich im Resonator ohne weitere
 Störung durch einen Draht aus. Die Intensität des Lichtes an verschiedenen Punkten einer auf Höhe der Photodiode liegenden Ebene ist in
 Tabelle~\ref{tab:tem00} in Form der gemessenen Stromstärke der Photodiode aufgeführt. Die Verteilung dieser Intensität folgt dabei laut Theorie
 dem Zusammenhang
 %
 \begin{equation}
-  I(r)=I_0 \symup{e}^{\frac{-2(x-x_0)²}{\omega²}} \; .
+  I(r)=I_0\symup{e}^{\frac{-2(x-x_0)^2}{\omega^2}}.
 \end{equation}
 %
 Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt werden. Das Ergebnis dieser Ausgleichsrechnung, sowie die Messwerte sind in Abbildung~\ref{fig:tem00} dargestellt.
@@ -43,7 +43,6 @@ Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt 
   \caption{Mit der Photodiode gemessene Stromstärke in Abhängigkeit des Ortes innerhalb des Resonators. Dazu die aus dem theoretischen Modell berechnete Verteilung der Ausgleichsrechnung.}
   \label{fig:tem00}
 \end{figure}
-%
 %
 \begin{table}
   \centering
@@ -81,7 +80,7 @@ Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt 
   \label{tab:tem00}
 \end{table}
 %
-Die Ausgleichsrechnung ergibt folgende Parameter.
+Die Ausgleichsrechnung ergibt folgende Parameter:
 %
 \begin{align*}
   I_0=&\SI{370(3)}{\micro\ampere} \\
@@ -128,7 +127,7 @@ Zur Untersuchung der $\text{TEM}_{10}$-Mode wird diese durch Einbringen eines d�
 Die Verteilung dieser Intensität folgt dabei laut Theorie dem Zusammenhang
 %
 \begin{equation}
-  I(r)=I_0\cdot\frac{8(x-x_0)^2}{\omega^2}\cdot\symup{e}^{\frac{-2(x-x_0)²}{\omega²}} \; .
+  I(r)=I_0\cdot\frac{8(x-x_0)^2}{\omega^2}\cdot\symup{e}^{\frac{-2(x-x_0)^2}{\omega^2}}.
 \end{equation}
 %
 Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt werden. Das Ergebnis dieser Ausgleichsrechnung, sowie die Messwerte sind in Abbildung~\ref{fig:tem10} dargestellt.
@@ -140,7 +139,7 @@ Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt 
   \label{fig:tem10}
 \end{figure}
 %
-Die Ausgleichrechnung ergibt für diese Mode folgende Parameter.
+Die Ausgleichrechnung ergibt für diese Mode folgende Parameter:
 %
 \begin{align*}
   I_0=&\SI{666(6)}{\micro\ampere} \\
@@ -148,13 +147,13 @@ Die Ausgleichrechnung ergibt für diese Mode folgende Parameter.
   \omega=&\SI{666(6)}{\centi\meter}
 \end{align*}
 %
-Die Inensitätsverteilungen für die beiden betrachteten Moden spiegeln insgesamt ein gutes Bild der stehenden Wellen wider. Die Winkelverteilung
-der Messwerte stimmt gut mit der Theorie überein und es lässt sich gut die höhere Ordnung der $\text{TEM}_{10}$-Mode im Vergleich zur $\text{TEM}_{00}$-Mode erkennen.
+Die Intensitätsverteilungen für die beiden betrachteten Moden spiegeln insgesamt ein gutes Bild der stehenden Wellen wieder. Die Winkelverteilung
+der Messwerte stimmt gut mit der Theorie überein und es lässt sich gut die höhere Ordnung der~$\text{TEM}_{10}$-Mode im Vergleich zur~$\text{TEM}_{00}$-Mode erkennen.
 %
 \subsection{Untersuchung der Polarisation des Lasers}
 %
 Zur Bestimmung der Polarisation des Laserlichtes wird dieses durch einen Polarisationsfilter auf die Photodiode geleitet. Durch Variation
-des Polarisationswinkels in $10°$-Schritten kann das Verhalten der Intensität auf der Photodiode untersucht werden. Die unter den einzelnen
+des Polarisationswinkels in~$10°$-Schritten kann das Verhalten der Intensität auf der Photodiode untersucht werden. Die unter den einzelnen
 Winkeln gemessenen Photoströme sind in Tabelle~\ref{tab:polarisation} aufgeführt.
 %
 \begin{table}
@@ -197,39 +196,37 @@ Die Verteilung ist in Abbildung~\ref{fig:polarisation} grafisch dargestellt.
   \label{fig:polarisation}
 \end{figure}
 %
-Für die Daten zur Polarisation wird eine Ausgleichsrechnung dr Form
+Für die Daten zur Polarisation wird eine Ausgleichsrechnung der Form
 %
 \begin{equation}
   I(x)=I_0\cos(x_0+x)^2
 \end{equation}
 %
-durchgeführt. Die Ergebnisse lauten hierbei
+durchgeführt. Die Ergebnisse lauten hierbei:
 %
 \begin{align*}
   I_0=&\SI{687(8)}{\micro\ampere} \\
   x_0=&\SI{92.99(1)}{}
 \end{align*}
 %
-Es wird deutlich, dass das Laserlicht bei $\approx 1,2$ rad mit maximaler Intensität den Polarisationsfilter durchläuft.
+Es wird deutlich, dass das Laserlicht bei~$\approx 1,2$ rad mit maximaler Intensität den Polarisationsfilter durchläuft.
 %
 \subsection{Bestimmung der Wellenlänge des Lasers}
 %
 Zur Bestimmung der Wellenlänge wird das Laserlicht an einem Gitter gebeugt und das so entstehende Interferenzmuster untersucht.
-Aus den Abständen $a$ der $n$-ten Maxima in diesem Beugungsbild lässt sich zusammen mit der Gitterkonstante $g$ und dem Abstand $d$ des
+Aus den Abständen~$a$ der~$n$-ten Maxima in diesem Beugungsbild lässt sich zusammen mit der Gitterkonstante~$g$ und dem Abstand~$d$ des
 Gitters vom Schirm über den Zusammenhang
 %
 \begin{equation}
   \lambda=\frac{a}{n\cdot d\cdot g}
 \end{equation}
 %
-die Wellenlänge des Laserlichtes berechnen. In dieser Versuchsdurchführuung wird ein Gitter mit einer Gitterkonstanten von
-$g=\SI{80}{\per\milli\meter}$ verwendet und der Schirm dazu in einem Abstand von $d=\SI{1950}{\milli\meter}$ platziert. Die Abstände
-der Maxima $0.$ bis $4.$~Ordnung zueinander sind in Tabelle~\ref{tab:wellenlaenge} zusammen mit den daraus berechneten Wellenlängen
-$\lambda$ aufgeführt.
+die Wellenlänge des Laserlichtes berechnen. In dieser Versuchsdurchführuung wird ein Gitter mit einer Gitterkonstanten von~$g=\SI{80}{\per\milli\meter}$ verwendet und der Schirm dazu in einem Abstand von~$d=\SI{1950}{\milli\meter}$ platziert. Die Abstände
+der Maxima~$0.$ bis~$4.$~Ordnung zueinander sind in Tabelle~\ref{tab:wellenlaenge} zusammen mit den daraus berechneten Wellenlängen~$\lambda$ aufgeführt.
 %
 \begin{table}
   \centering
-  \caption{Abstände der Interferenzmaxima aufsteigender Ordnung voneinander und daraus berechnete Wellenlängen $\lambda$.}
+  \caption{Abstände der Interferenzmaxima aufsteigender Ordnung voneinander und die daraus berechnete Wellenlängen~$\lambda$.}
   \begin{tabular}{ccc}
     \toprule
     {Ordnung}  & {2a [mm]} & {$\lambda$ [nm]} \\
@@ -247,5 +244,5 @@ $\lambda$ aufgeführt.
 Die Wellenlänge, die sich als der Mittelwert dieser Wellenlängen ergibt, beträgt
 %
 \begin{equation}
-  \bar{\lambda}=\SI{638(4)}{\nano\meter} \; .
+  \bar{\lambda}=\SI{638(4)}{\nano\meter}.
 \end{equation}
