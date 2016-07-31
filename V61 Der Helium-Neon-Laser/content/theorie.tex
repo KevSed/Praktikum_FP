@@ -12,7 +12,7 @@ erläutert werden:
   \centering
   \includegraphics[width=0.9\textwidth]{figures/fig_Übergänge.pdf}
   \caption{Schemata für die Absorption und Emission eines
-  Strahlungsfeldes~$\rho(\nu)$ bei einem \num{2}-Niveau-System.}
+  Strahlungsfeldes~$\rho$ bei einem \num{2}-Niveau-System.}
   \label{fig:Übergänge}
 \end{figure}
 
@@ -25,35 +25,53 @@ Vereinfachung wird ein idealisiertes 2-Niveau-System eines Atoms im Lasermedium
 betrachtet. Gemäß der Maxwell-Boltzmann-Verteilung überwiegt im thermischen
 Gleichgewicht die Besetzung des Grundzustandes. Durch äußere Anregung, zum
 Beispiel in Form von elektrischen Entladungen, werden Elektronen auf ein höheres
-Energieniveau gehoben. Tritt nun ein einfallendes Photon in Wechselwirkung mit
-dem angeregten Atom, so kann es zu einer induzierten Emission kommen. Dabei wird
-ein weiteres Photon derselben Energie, Phase und Ausbreitungsrichtung abgegeben.
-Findet dieser Prozess häufig genug statt, so kommt es zu einer kaskadenartigen
-Verstärkung der Strahlung. Weitere Wechselwirkungen sind die spontane Emission
-eines Photons durch ein angeregtes Elektron, welche nicht durch ein externes
-Photon ausgelöst wird, sowie die Absorption eines Photons durch ein Elektron.
-Das Verhältnis von Absorption (A), spontaner Emission (E) und induzierter
-Emission (IE) ist durch die drei Gleichungen
+Energieniveau gehoben, wodurch das thermische Gleichgewicht gestört wird.
+Befinden sich mehr Elektronen im angeregten Zustand als im Grundzustand liegt
+Besetzungsinversion vor. Wie noch gezeigt wird, kann dieser Zustand in einem
+2-Niveau-System nicht realisiert werden. Tritt nun ein einfallendes Photon in
+Wechselwirkung mit dem angeregten Atom, so kann es zu einer induzierten Emission
+kommen. Dabei wird ein weiteres Photon derselben Energie, Phase und
+Ausbreitungsrichtung abgegeben. Findet dieser Prozess häufig genug statt, so
+kommt es zu einer kaskadenartigen Verstärkung der Strahlung. Weitere
+Wechselwirkungen sind die spontane Emission eines Photons durch ein angeregtes
+Elektron, welche nicht durch ein externes Photon ausgelöst wird, sowie die
+Absorption eines Photons durch ein Elektron. Das Verhältnis von Absorption (A),
+spontaner Emission (E) und induzierter Emission (IE) ist durch die drei
+Gleichungen
 %
 \begin{align}
-  \dot{N}_{\mathrm{A}}&=n_1\rho(\nu)B_{12}, \\
-  \dot{N}_{\mathrm{IE}}&=n_2\rho(\nu)B_{21} \\
+  \dot{N}_{\mathrm{A}}&=N_1\rho B_{12}, \\
+  \dot{N}_{\mathrm{IE}}&=N_2\rho B_{21} \\
   \shortintertext{und}
-  \dot{N}_{\mathrm{E}}&=n_2A_{21}
+  \dot{N}_{\mathrm{E}}&=N_2A_{21}
 \end{align}
 %
-mit den Einsteinkoeffizienten~$A_{21}$, $B_{12}$ und~$B_{21}$ gegeben. $n_1$
-und~$n_2$ sind hierbei die Besetzungszahlen für den Grundzustand und den
+mit den Einsteinkoeffizienten~$A_{21}$, $B_{12}$ und~$B_{21}$ gegeben. $N_1$
+und~$N_2$ sind hierbei die Besetzungszahlen für den Grundzustand und den
 angeregten Zustand und~$\rho$ die Energiedichte des Strahlungfeldes. $\dot{N}$
 ist die Anzahl der Photonen, die pro Volumeneinheit und Sekunde abgegeben oder
 aufgenommen werden. Für den Fall, das sich Absorption und Emission vollständig
 kompensieren, gilt
 %
 \begin{align}
-  \frac{\mathrm{d}n_1}{\mathrm{d}t}&=-n_1B_{12}\rho+N_2B_{21}\rho+n_2A_{21} \\
+  \frac{\mathrm{d}N_1}{\mathrm{d}t}&=-N_1B_{12}\rho+N_2B_{21}\rho+N_2A_{21} \\
   \shortintertext{und}
-  \frac{\mathrm{d}n_2}{\mathrm{d}t}&=+N_1B_{12}\rho-n_2B_{21}\rho-n_2A_{21}.
+  \frac{\mathrm{d}N_2}{\mathrm{d}t}&=+N_1B_{12}\rho-N_2B_{21}\rho-N_2A_{21}.
 \end{align}
+%
+Es zeigt sich, dass ein stabiler Laserbetrieb mit einem 2-Niveau-System nicht
+realisierbar ist, da keine Besetzungsinversion erreicht werden kann. Sobald die
+Hälfte aller Elektronen im oberen Energienivau sind stellt sich zwischen der
+Absorption eines Photons im unteren Energieniveau und der stimulierten Emission
+eines Photons im oberen Niveau ein Gleichgewicht ein. Durch die zusätzliche
+spontane Emission von Photonen wird jedoch auch diese Grenze nicht erreicht.
+
+Der einfachste Laser wird durch ein 3-Niveau-System beschrieben. Dabei werden
+die Elektronen vom Grundzustand in einen metastabilen Zustand angeregt, aus dem
+sie durch stimulierte Emission in einen kurzlebigen Zwischenzustand und dann in
+den Grundzustand übergehen. Es zeigt sich, dass in einem 3-Niveau-System
+Besetzungsinversion erreicht werden kann. Die Besetzungsinversion ist wichtig,
+damit die stimulierte Emission gegenüber der spontanen Emission überwiegt.
 
 \begin{figure}[htb]
   \centering
@@ -69,17 +87,18 @@ gegenüberstehenden Spiegeln, zwischen denen der Strahl hin und her läuft. Ein
 Spiegel ist als sogenannter Auskoppelspiegel realisiert, der für den Strahl
 teildurchlässig ist und durch den der Laserstrahl die Apparatur verlassen kann.
 Für den stabilen Betrieb muss die Verstärkung durch induzierte Emission des
-Strahls größer sein, als die Verluste an den Resonatorspiegeln. Dieses Kriterium
-ist erfüllt, wenn die Stabilitätsbedingung
+Strahls größer sein, als die Verluste an den Resonatorspiegeln. Ein rein
+geometrisches Kriterium an den Resonator ist gegeben durch die
+Stabilitätsbedingung
 %
 \begin{equation}
-  0\leq g_1\cdot g_2<1
+  0\leq g_1\cdot g_2<1.
   \label{eq:bedingung}
 \end{equation}
 %
-gilt. Die hierfür benötigten Parameter sind durch~$g_i=1-L/r_i$ gegeben,
-wobei~$r_i$ den Krümmungsradius des jeweiligen Spiegels und~$L$ die Gesamtlänge
-des Resonators beschreibt.
+Die hierfür benötigten Parameter sind durch~$g_i=1-L/r_i$ gegeben, wobei~$r_i$
+den Krümmungsradius des jeweiligen Spiegels und~$L$ die Gesamtlänge des
+Resonators beschreibt.
 
 Aufgrund der Größe des Resonators erfüllen viele Moden der im Resonator
 stehenden Welle die Resonanzbedingung. Angelehnt an die Theorie der Hohlleiter
