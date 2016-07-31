@@ -1,2 +1,92 @@
 ﻿\section{Auswertung}
 \label{sec:auswertung}
+
+\subsection{Fehlerrechnung}
+
+\input{../fehlerrechnung.tex}
+
+\subsection{Vorgehensweise}
+
+In einem ersten Schritt werden die Netzebenen verschiedener elementarer Gitter
+bestimmt, deren Reflexe nicht verschwinden. Dazu wird die Gleichung für die
+Strukturamplitude~\eqref{eq...} zugrunde gelegt. Durch Variation der
+Indices~$(hkl)$ werden die Kombinationen ausgemacht, für die Strukturamplitude
+nicht Null wird. In einem zweiten Schritt wird durch Einsetzen von
+Gleichung~\eqref{eq:...} in Gleichung~\eqref{eq:...} der Ausdruck
+
+
+
+für die Gitterkonstante aufgestellt. Die Normierung liefert den Zusammenhang
+
+
+
+Nun werden die normierten Wurzeln für die zulässigen Werte von~$N$ berechnet.
+Tabelle~\ref{tab:...} listet die verschiedenen Werte für die verschiedenen
+Gittertypen auf.
+
+
+
+Es wird nun versucht an Hand der experimentell angefertigten
+Debye-Scherrer-Aufnahmen die Quotienten~$d_1/d_i$ zu bestimmen. Durch Vergleich
+mit Tabelle~\ref{tab:...} kann dann auf den zugrundeliegenden Gittertyp
+geschlossen werden.
+
+Es erweist sich als vorteilhaft, dass der Umfang des
+Kameragehäuses~$\SI{360}{\milli\metre}$ beträgt, da die gemessenen Abstände der
+aufgenommenen Linien direkt als Winkelmaß~$2\theta$ in Grad übersetzt werden
+können. Die Messung der Linienabstände auf dem entwickelten Fotofilm erfolgt mit
+Hilfe eines Lineals. Als Ablesefehler wird~\SI{1}{\milli\metre} angenommen. Die
+Berechnung der Netzebenenabstände~$d$ erfolgt mit Hilfe der Bragg-Bedingung in
+Gleichung~\eqref{eq:...}. Dabei ist die Wellenlänge der Röntgenstrahlung
+mit~$\lambda=\SI{0}{\metre}$ gegeben. Der Wert ergibt sich durch Mittelung der
+Wellenlänge für die~$K_{\alpha}$- und die~$K_{\beta}$-Linie der verwendeten
+[...]-Röntgenquelle.
+
+Nach erfolgter Bestimmung des Gittertyps werden in einem weieren
+Auswertungsschritt die Gitterkonstanten der untersuchten Proben bestimmt. Dazu
+werden mit Hilfe von Gleichung~\eqref{eq:...} die Gitterkonstanten an Hand der
+verschiedenen Messpunkte bestimmt. Durch lineare Regression der Messwerte
+gegen~$\cos^2{\theta}$ kann dann der beste Wert für die Gitterkonstante als
+$y$-Achsenabschnitt bestimmt werden.
+
+\subsection{Untersuchung der Probe 8}
+
+\subsection{Untersuchung von Salz 2}
+
+Die Untersuchung von Salz 2 liefert die in Tabelle~\ref{tab:...}
+aufgeführten Ergebnisse. Es zeigt sich, dass die beobachteten Beugungsreflexe
+am besten durch ein $bcc$-Gitter erklärt werden können. Zwar fehlt der zur
+$...$-Ebene gehörige Reflex, doch kann dies auch aufgrund hoher Schwärzung dem
+schwer auszuwertenden Fotofilm geschuldet sein. Abbildung zeigt die berechneten
+Gitterkonstanten aufgtragen gegen~$\cos^2{\theta}$. Die lineare Regression
+der Form~$a=m\cdot\cos^2{\theta}+b$ liefert die Parameter
+
+\begin{figure}[h]
+  \centering
+  \caption{Eine Caption.}
+  \begin{tabular}{S[table-format=3(1)]
+                  S[table-format=2.1(1)]
+                  S[table-format=1.3(3)]
+                  S[table-format=1.2(2)]
+                  S[table-format=2]
+                  S[table-format=2.3]
+                  S[table-format=1.2(2)]}
+    \toprule
+    {$r$}  & {$\theta$} & {$d$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a$} \\
+    \midrule
+     31(1) & 15.5(5) & 2.89(9)  & 1       &  2 & 1     & 4.1(1)  \\
+     45(1) & 22.5(5) & 2.02(4)  & 1.43(5) &  4 & 1.414 & 4.03(8) \\
+     55(1) & 27.5(5) & 1.67(3)  & 1.73(6) &  6 & 1.732 & 4.09(7) \\
+     64(1) & 32.0(5) & 1.46(2)  & 1.98(7) &  8 & 2.000 & 4.12(6) \\
+     73(1) & 36.5(5) & 1.30(1)  & 2.23(7) & 10 & 2.236 & 4.10(5) \\
+     89(1) & 44.5(5) & 1.10(1)  & 2.62(9) & 14 & 2.646 & 4.12(4) \\
+    102(1) & 51.0(5) & 0.993(7) & 2.91(9) & 16 & 2.828 & 3.97(3) \\
+    106(1) & 53.0(5) & 0.966(6) & 3.0(1)  & 18 & 3.000 & 4.10(3) \\
+    114(1) & 57.0(5) & 0.920(5) & 3.1(1)  & 20 & 3.162 & 4.11(2) \\
+    123(1) & 61.5(5) & 0.878(4) & 3.3(1)  & 22 & 3.317 & 4.12(2) \\
+    133(1) & 66.5(5) & 0.841(3) & 3.4(1)  & 24 & 3.464 & 4.12(2) \\
+    145(1) & 72.5(5) & 0.809(2) & 3.6(1)  & 26 & 3.606 & 4.12(1) \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:salz2}
+\end{figure}
