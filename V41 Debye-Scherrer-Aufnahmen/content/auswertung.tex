@@ -9,26 +9,31 @@
 
 In einem ersten Schritt werden die Netzebenen verschiedener elementarer Gitter
 bestimmt, deren Reflexe nicht verschwinden. Dazu wird die Gleichung für die
-Strukturamplitude~\eqref{eq...} zugrunde gelegt. Durch Variation der
-Indices~$(hkl)$ werden die Kombinationen ausgemacht, für die Strukturamplitude
-nicht Null wird. In einem zweiten Schritt wird durch Einsetzen von
-Gleichung~\eqref{eq:...} in Gleichung~\eqref{eq:...} der Ausdruck
-
-
-
-für die Gitterkonstante aufgestellt. Die Normierung liefert den Zusammenhang
-
-
-
+Strukturamplitude~\eqref{eq:strukturamplitude} zugrunde gelegt. Durch Variation
+der Indizes~$(hkl)$ werden die Kombinationen ausgemacht, für die die
+Strukturamplitude nicht Null wird. In einem zweiten Schritt wird durch Einsetzen
+von Gleichung~\eqref{eq:d} in Gleichung~\eqref{eq:bragg} der Ausdruck
+%
+\begin{equation}
+  \frac{\lambda}{2\sin\theta}\sqrt{h^2+k^2+l^2}=d\sqrt{m}=a
+  \label{eq:a}
+\end{equation}
+%
+für die Gitterkonstante aufgestellt. Normieren liefert den Zusammenhang
+%
+\begin{equation}
+  \frac{d_1}{d_i}=\sqrt{\frac{m_i}{m_1}}.
+\end{equation}
+%
 Nun werden die normierten Wurzeln für die zulässigen Werte von~$N$ berechnet.
-Tabelle~\ref{tab:...} listet die verschiedenen Werte für die verschiedenen
+Tabelle~\ref{tab:theorie} listet die verschiedenen Werte für die verschiedenen
 Gittertypen auf.
 
-
+[Tabelle]
 
 Es wird nun versucht an Hand der experimentell angefertigten
 Debye-Scherrer-Aufnahmen die Quotienten~$d_1/d_i$ zu bestimmen. Durch Vergleich
-mit Tabelle~\ref{tab:...} kann dann auf den zugrundeliegenden Gittertyp
+mit Tabelle~\ref{tab:theorie} kann dann auf den zugrundeliegenden Gittertyp
 geschlossen werden.
 
 Es erweist sich als vorteilhaft, dass der Umfang des
@@ -37,29 +42,70 @@ aufgenommenen Linien direkt als Winkelmaß~$2\theta$ in Grad übersetzt werden
 können. Die Messung der Linienabstände auf dem entwickelten Fotofilm erfolgt mit
 Hilfe eines Lineals. Als Ablesefehler wird~\SI{1}{\milli\metre} angenommen. Die
 Berechnung der Netzebenenabstände~$d$ erfolgt mit Hilfe der Bragg-Bedingung in
-Gleichung~\eqref{eq:...}. Dabei ist die Wellenlänge der Röntgenstrahlung
+Gleichung~\eqref{eq:bragg}. Dabei ist die Wellenlänge der Röntgenstrahlung
 mit~$\lambda=\SI{0}{\metre}$ gegeben. Der Wert ergibt sich durch Mittelung der
 Wellenlänge für die~$K_{\alpha}$- und die~$K_{\beta}$-Linie der verwendeten
 [...]-Röntgenquelle.
 
-Nach erfolgter Bestimmung des Gittertyps werden in einem weieren
+Nach erfolgter Bestimmung des Gittertyps werden in einem weiteren
 Auswertungsschritt die Gitterkonstanten der untersuchten Proben bestimmt. Dazu
-werden mit Hilfe von Gleichung~\eqref{eq:...} die Gitterkonstanten an Hand der
-verschiedenen Messpunkte bestimmt. Durch lineare Regression der Messwerte
+werden mit Hilfe von Gleichung~\eqref{eq:a} die Gitterkonstanten an Hand der
+verschiedenen Messpunkte bestimmt. Durch einen linearen Fit der Messwerte
 gegen~$\cos^2{\theta}$ kann dann der beste Wert für die Gitterkonstante als
 $y$-Achsenabschnitt bestimmt werden.
 
 \subsection{Untersuchung der Probe 8}
 
+Die Untersuchung der Probe 8 liefert die in Tabelle~\ref{tab:probe8}
+aufgeführten Ergebnisse. Die beobachteten Beugungsreflexe können am besten durch
+ein $bcc$-Gitter erklärt werden können, auch wenn die zu den Ebenen~[...]
+gehörigen Beugungsreflexe fehlen. Abbildung zeigt die berechneten
+Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
+der Form~$a=m\cdot\cos^2{\theta}+b$ liefert die Parameter
+
+[Parameter]
+
+\begin{figure}[h]
+  \centering
+  \caption{Eine Caption.}
+  \begin{tabular}{S[table-format=3(1)]
+                  S[table-format=2.1(1)]
+                  S[table-format=1.3(3)]
+                  S[table-format=1.2(2)]
+                  S[table-format=2]
+                  S[table-format=2.3]
+                  S[table-format=1.2(2)]}
+    \toprule
+    {$r$}  & {$\theta$} & {$d$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a$} \\
+    \midrule
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:probe8}
+\end{figure}
+
 \subsection{Untersuchung von Salz 2}
 
-Die Untersuchung von Salz 2 liefert die in Tabelle~\ref{tab:...}
+Die Untersuchung von Salz 2 liefert die in Tabelle~\ref{tab:salz2}
 aufgeführten Ergebnisse. Es zeigt sich, dass die beobachteten Beugungsreflexe
 am besten durch ein $bcc$-Gitter erklärt werden können. Zwar fehlt der zur
 $...$-Ebene gehörige Reflex, doch kann dies auch aufgrund hoher Schwärzung dem
 schwer auszuwertenden Fotofilm geschuldet sein. Abbildung zeigt die berechneten
-Gitterkonstanten aufgtragen gegen~$\cos^2{\theta}$. Die lineare Regression
+Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
 der Form~$a=m\cdot\cos^2{\theta}+b$ liefert die Parameter
+
+[Parameter]
 
 \begin{figure}[h]
   \centering
