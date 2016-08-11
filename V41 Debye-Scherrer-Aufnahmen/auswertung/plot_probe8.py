@@ -28,6 +28,9 @@ m = params[0]
 b = params[1]
 Δb = np.sqrt(cov[1][1])
 
+print("m={}+-{}".format(m,Δm))
+print("b={}+-{}".format(b,Δb))
+
 x = np.linspace(0,1,2)
 plt.errorbar(f(c2), f(a), xerr=f(Δc2), yerr=f(Δa), fmt='kx', label='Ein Label')
 plt.plot(x, g(x, m, b), 'b-')

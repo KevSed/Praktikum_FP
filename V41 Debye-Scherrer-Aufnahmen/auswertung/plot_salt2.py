@@ -4,7 +4,7 @@ import numpy as np
 from scipy.optimize import curve_fit
 
 def f(x):
-    return [x for ind, x in enumerate(x) if ind!=6]
+    return [x for ind, x in enumerate(x) if True]
 
 r, Δr, Θ_deg, ΔΘ_deg, Θ_rad, ΔΘ_rad, d, Δd, d1di, Δd1di, N, bcc, diffbcc, Δdiffbcc, a, Δa, c2, Δc2 = np.genfromtxt('data_salt2.txt', unpack = True)
 x = np.linspace(0,11,12)
@@ -27,6 +27,9 @@ m = params[0]
 Δm = np.sqrt(cov[0][0])
 b = params[1]
 Δb = np.sqrt(cov[1][1])
+
+print("m={}+-{}".format(m,Δm))
+print("b={}+-{}".format(b,Δb))
 
 x = np.linspace(0,1,2)
 plt.errorbar(f(c2), f(a), xerr=f(Δc2), yerr=f(Δa), fmt='kx', label='Ein Label')

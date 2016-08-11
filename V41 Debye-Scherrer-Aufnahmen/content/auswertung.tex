@@ -164,19 +164,23 @@ Nach erfolgter Bestimmung des Gittertyps werden in einem weiteren
 Auswertungsschritt die Gitterkonstanten der untersuchten Proben bestimmt. Dazu
 werden mit Hilfe von Gleichung~\eqref{eq:a} die Gitterkonstanten an Hand der
 verschiedenen Messpunkte bestimmt. Durch einen linearen Fit der Messwerte
-gegen~$\cos^2{\theta}$ kann dann der beste Wert für die Gitterkonstante als
+gegen~$\cos^2\theta$ kann dann der beste Wert für die Gitterkonstante als
 $y$-Achsenabschnitt bestimmt werden.
 
 \subsection{Untersuchung der Probe 8}
 
 Die Untersuchung der Probe 8 liefert die in Tabelle~\ref{tab:probe8}
 aufgeführten Ergebnisse. Die beobachteten Beugungsreflexe können am besten durch
-ein $bcc$-Gitter erklärt werden können, auch wenn die zu den Ebenen~[...]
-gehörigen Beugungsreflexe fehlen. Abbildung zeigt die berechneten
-Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
+ein $bcc$-Gitter erklärt werden, auch wenn die zu den Ebenen~[...]
+gehörigen Beugungsreflexe fehlen. Abbildung~\ref{fig:probe8} zeigt die
+berechneten Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
 der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
-
-[Parameter]
+%
+\begin{align}
+  m&=\SI{0.6(3)}{\angstrom} \\
+  \shortintertext{und}
+  b&=\SI{5.5(2)}{\angstrom}. % 5.458236958790393+-0.22403756175973438
+\end{align}
 
 \begin{figure}[h]
   \centering
@@ -189,7 +193,7 @@ der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
                   S[table-format=1.3]
                   S[table-format=1.2(2)]}
     \toprule
-    {$r$}  & {$\theta$} & {$d$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a$} \\
+    {$r[\si{\milli\metre}]$} & {$\theta[\si{\degree}]$} & {$d[\si{\angstrom}]$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a[\si{\angstrom}]$} \\
     \midrule
      26.0(10) & 13.00(50) & 3.4(1)   & 1       &  3 & 1     & 5.9(2)  \\
      38.0(10) & 19.00(50) & 2.37(6)  & 1.45(7) &  8 & 1.633 & 6.7(2)  \\
@@ -209,17 +213,30 @@ der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
   \label{tab:probe8}
 \end{figure}
 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/plot_probe8_2.pdf}
+  \caption{Linearer Fit der berechneten Gitterkonstanten~$a$
+  gegen~$\cos^2\theta$ für die untersuchte Probe 8.}
+  \label{fig:probe8}
+\end{figure}
+
 \subsection{Untersuchung von Salz 2}
 
 Die Untersuchung von Salz 2 liefert die in Tabelle~\ref{tab:salz2}
 aufgeführten Ergebnisse. Es zeigt sich, dass die beobachteten Beugungsreflexe
-am besten durch ein $bcc$-Gitter erklärt werden können. Zwar fehlt der zur
-$...$-Ebene gehörige Reflex, doch kann dies auch aufgrund hoher Schwärzung dem
-schwer auszuwertenden Fotofilm geschuldet sein. Abbildung zeigt die berechneten
-Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
-der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
-
-[Parameter]
+am besten durch eine Cäsiumchlorid-Struktur erklärt werden können. Zwar fehlt
+der zur [...]-Ebene gehörige Reflex, doch kann dies auch aufgrund hoher
+Schwärzung dem schwer auszuwertenden Fotofilm geschuldet sein.
+Abbildung~\ref{fig:salz2} zeigt die berechneten Gitterkonstanten aufgetragen
+gegen~$\cos^2{\theta}$. Der lineare Fit der
+Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
+%
+\begin{align}
+  m&=\SI{0.05(5)}{\angstrom} \\
+  \shortintertext{und}
+  b&=\SI{4.11(3)}{\angstrom}. % 4.113558768731562+-0.027585537949311442
+\end{align}
 
 \begin{figure}[h]
   \centering
@@ -232,7 +249,7 @@ der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
                   S[table-format=1.3]
                   S[table-format=1.2(2)]}
     \toprule
-    {$r$}  & {$\theta$} & {$d$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a$} \\
+    {$r[\si{\milli\metre}]$} & {$\theta[\si{\degree}]$} & {$d[\si{\angstrom}]$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a[\si{\angstrom}]$} \\
     \midrule
      31(1) & 15.5(5) & 2.89(9)  & 1       &  2 & 1     & 4.1(1)  \\
      45(1) & 22.5(5) & 2.02(4)  & 1.43(5) &  4 & 1.414 & 4.03(8) \\
@@ -249,4 +266,12 @@ der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
     \bottomrule
   \end{tabular}
   \label{tab:salz2}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/plot_salt2_2.pdf}
+  \caption{Linearer Fit der berechneten Gitterkonstanten~$a$
+  gegen~$\cos^2\theta$ für das untersuchte Salz 2.}
+  \label{fig:salz2}
 \end{figure}
