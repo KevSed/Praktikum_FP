@@ -15,21 +15,134 @@ Strukturamplitude nicht Null wird. In einem zweiten Schritt wird durch Einsetzen
 von Gleichung~\eqref{eq:d} in Gleichung~\eqref{eq:bragg} der Ausdruck
 %
 \begin{equation}
-  \frac{\lambda}{2\sin\theta}\sqrt{h^2+k^2+l^2}=d\sqrt{m}=a
+  \frac{\lambda}{2\sin\theta}\sqrt{h^2+k^2+l^2}=d\sqrt{N}=a
   \label{eq:a}
 \end{equation}
 %
 für die Gitterkonstante aufgestellt. Normieren liefert den Zusammenhang
 %
 \begin{equation}
-  \frac{d_1}{d_i}=\sqrt{\frac{m_i}{m_1}}.
+  \frac{d_1}{d_i}=\sqrt{\frac{N_i}{N_1}}.
 \end{equation}
 %
 Nun werden die normierten Wurzeln für die zulässigen Werte von~$N$ berechnet.
 Tabelle~\ref{tab:theorie} listet die verschiedenen Werte für die verschiedenen
 Gittertypen auf.
 
-[Tabelle]
+\begin{figure}[h]
+  \centering
+  \caption{Miller-Indizes der Netzebenen mit nicht verschwindenden
+  Beugungsreflexen, sowie der Quotient $\sqrt{N_i/N_1}$ der jeweiligen Ebenen.}
+  \begin{subtable}{0.45\textwidth}
+    \centering
+    \caption{sc-Gitter}
+    \begin{tabular}{S[table-format=3]
+                    S[table-format=2]
+                    S[table-format=1.3]}
+      \toprule
+      {$hkl$}  & {$N$} & {$\sqrt{N_i/N_1}$} \\
+      \midrule
+      100 &  1 & 1.000 \\
+      110 &  2 & 1.414 \\
+      111 &  3 & 1.732 \\
+      200 &  4 & 2.000 \\
+      210 &  5 & 2.236 \\
+      211 &  6 & 2.449 \\
+      220 &  8 & 2.828 \\
+      221 &  9 & 3.000 \\
+      300 &  9 & 3.000 \\
+      310 & 10 & 3.162 \\
+      311 & 11 & 3.317 \\
+      222 & 12 & 3.464 \\
+      320 & 13 & 3.606 \\
+      321 & 14 & 3.742 \\
+      400 & 16 & 4.000 \\
+      \bottomrule
+    \end{tabular}
+  \end{subtable}
+  \begin{subtable}{0.45\textwidth}
+    \centering
+    \caption{bcc-Gitter}
+    \begin{tabular}{S[table-format=3]
+                    S[table-format=2]
+                    S[table-format=1.3]}
+      \toprule
+      {$hkl$}  & {$N$} & {$\sqrt{N_i/N_1}$} \\
+      \midrule
+      110 &  2 & 1.000 \\
+      200 &  4 & 1.414 \\
+      211 &  6 & 1.732 \\
+      220 &  8 & 2.000 \\
+      310 & 10 & 2.236 \\
+      222 & 12 & 2.449 \\
+      321 & 14 & 2.646 \\
+      400 & 16 & 2.828 \\
+      330 & 18 & 3.000 \\
+      411 & 18 & 3.000 \\
+      420 & 20 & 3.162 \\
+      332 & 22 & 3.317 \\
+      422 & 24 & 3.464 \\
+      431 & 26 & 3.606 \\
+      510 & 26 & 3.606 \\
+      \bottomrule
+    \end{tabular}
+  \end{subtable} \\ \vspace{1cm}
+  \begin{subtable}{0.45\textwidth}
+    \centering
+    \caption{fcc-Gitter}
+    \begin{tabular}{S[table-format=3]
+                    S[table-format=2]
+                    S[table-format=1.3]}
+      \toprule
+      {$hkl$}  & {$N$} & {$\sqrt{N_i/N_1}$} \\
+      \midrule
+      111 &  3 & 1.000 \\
+      200 &  4 & 1.155 \\
+      220 &  8 & 1.633 \\
+      311 & 11 & 1.915 \\
+      222 & 12 & 2.000 \\
+      400 & 16 & 2.309 \\
+      331 & 19 & 2.517 \\
+      420 & 20 & 2.582 \\
+      422 & 24 & 2.828 \\
+      333 & 27 & 3.000 \\
+      511 & 27 & 3.000 \\
+      440 & 32 & 3.266 \\
+      531 & 35 & 3.416 \\
+      442 & 36 & 3.464 \\
+      600 & 36 & 3.464 \\
+      \bottomrule
+    \end{tabular}
+  \end{subtable}
+  \begin{subtable}{0.45\textwidth}
+    \centering
+    \caption{Diamant-Gitter}
+    \begin{tabular}{S[table-format=3]
+                    S[table-format=2]
+                    S[table-format=1.3]}
+      \toprule
+      {$hkl$}  & {$N$} & {$\sqrt{N_i/N_1}$} \\
+      \midrule
+      111 &  3 & 1.000 \\
+      220 &  8 & 1.633 \\
+      311 & 11 & 1.915 \\
+      400 & 16 & 2.309 \\
+      331 & 19 & 2.517 \\
+      422 & 24 & 2.828 \\
+      333 & 27 & 3.000 \\
+      511 & 27 & 3.000 \\
+      440 & 32 & 3.266 \\
+      531 & 35 & 3.416 \\
+      620 & 40 & 3.651 \\
+      533 & 43 & 3.786 \\
+      444 & 48 & 4.000 \\
+      551 & 51 & 4.123 \\
+      711 & 51 & 4.123 \\
+      \bottomrule
+    \end{tabular}
+  \end{subtable}
+  \label{tab:theorie}
+\end{figure}
 
 Es wird nun versucht an Hand der experimentell angefertigten
 Debye-Scherrer-Aufnahmen die Quotienten~$d_1/d_i$ zu bestimmen. Durch Vergleich
@@ -43,9 +156,9 @@ können. Die Messung der Linienabstände auf dem entwickelten Fotofilm erfolgt m
 Hilfe eines Lineals. Als Ablesefehler wird~\SI{1}{\milli\metre} angenommen. Die
 Berechnung der Netzebenenabstände~$d$ erfolgt mit Hilfe der Bragg-Bedingung in
 Gleichung~\eqref{eq:bragg}. Dabei ist die Wellenlänge der Röntgenstrahlung
-mit~$\lambda=\SI{0}{\metre}$ gegeben. Der Wert ergibt sich durch Mittelung der
-Wellenlänge für die~$K_{\alpha}$- und die~$K_{\beta}$-Linie der verwendeten
-[...]-Röntgenquelle.
+mit~$\lambda=\SI{1.54286}{\angstrom}$ gegeben. Der Wert ergibt sich durch
+Mittelung der Wellenlänge für die~$K_{\alpha}$- und die~$K_{\beta}$-Linie der
+verwendeten Röntgenquelle mit Kupferanode.
 
 Nach erfolgter Bestimmung des Gittertyps werden in einem weiteren
 Auswertungsschritt die Gitterkonstanten der untersuchten Proben bestimmt. Dazu
@@ -61,35 +174,36 @@ aufgeführten Ergebnisse. Die beobachteten Beugungsreflexe können am besten dur
 ein $bcc$-Gitter erklärt werden können, auch wenn die zu den Ebenen~[...]
 gehörigen Beugungsreflexe fehlen. Abbildung zeigt die berechneten
 Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
-der Form~$a=m\cdot\cos^2{\theta}+b$ liefert die Parameter
+der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
 
 [Parameter]
 
 \begin{figure}[h]
   \centering
   \caption{Eine Caption.}
-  \begin{tabular}{S[table-format=3(1)]
-                  S[table-format=2.1(1)]
+  \begin{tabular}{S[table-format=3.1(1)]
+                  S[table-format=2.2(1)]
                   S[table-format=1.3(3)]
                   S[table-format=1.2(2)]
                   S[table-format=2]
-                  S[table-format=2.3]
+                  S[table-format=1.3]
                   S[table-format=1.2(2)]}
     \toprule
     {$r$}  & {$\theta$} & {$d$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a$} \\
     \midrule
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
+     26.0(10) & 13.00(50) & 3.4(1)   & 1       &  3 & 1     & 5.9(2)  \\
+     38.0(10) & 19.00(50) & 2.37(6)  & 1.45(7) &  8 & 1.633 & 6.7(2)  \\
+     53.0(10) & 26.50(50) & 1.73(3)  & 1.98(8) & 11 & 1.915 & 5.7(1)  \\
+     60.5(10) & 30.25(50) & 1.53(2)  & 2.24(9) & 16 & 2.309 & 6.13(9) \\
+     71.5(10) & 35.75(50) & 1.32(2)  & 2.6(1)  & 19 & 2.517 & 5.76(7) \\
+     78.5(10) & 39.25(50) & 1.22(1)  & 2.8(1)  & 24 & 2.828 & 5.97(6) \\
+     88.5(10) & 44.25(50) & 1.11(1)  & 3.1(1)  & 27 & 3.000 & 5.74(5) \\
+     95.5(10) & 47.75(50) & 1.042(8) & 3.3(1)  & 32 & 3.266 & 5.90(5) \\
+    105.5(10) & 52.75(50) & 0.969(6) & 3.5(1)  & 35 & 3.416 & 5.73(4) \\
+    112.5(10) & 56.25(50) & 0.928(5) & 3.7(1)  & 40 & 3.651 & 5.87(3) \\
+    124.5(10) & 62.25(50) & 0.872(4) & 3.9(1)  & 43 & 3.786 & 5.72(3) \\
+    133.5(10) & 66.75(50) & 0.840(3) & 4.1(2)  & 48 & 4.000 & 5.82(2) \\
+    151.5(10) & 75.75(50) & 0.796(2) & 4.3(2)  & 51 & 4.123 & 5.68(1) \\
     \bottomrule
   \end{tabular}
   \label{tab:probe8}
@@ -103,7 +217,7 @@ am besten durch ein $bcc$-Gitter erklärt werden können. Zwar fehlt der zur
 $...$-Ebene gehörige Reflex, doch kann dies auch aufgrund hoher Schwärzung dem
 schwer auszuwertenden Fotofilm geschuldet sein. Abbildung zeigt die berechneten
 Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
-der Form~$a=m\cdot\cos^2{\theta}+b$ liefert die Parameter
+der Form~$a(theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
 
 [Parameter]
 
@@ -115,7 +229,7 @@ der Form~$a=m\cdot\cos^2{\theta}+b$ liefert die Parameter
                   S[table-format=1.3(3)]
                   S[table-format=1.2(2)]
                   S[table-format=2]
-                  S[table-format=2.3]
+                  S[table-format=1.3]
                   S[table-format=1.2(2)]}
     \toprule
     {$r$}  & {$\theta$} & {$d$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a$} \\
