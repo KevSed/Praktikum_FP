@@ -10,7 +10,12 @@ Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser op
   L_{1,2}=\frac{r_1+r_2}{2}\pm\sqrt{\frac{(r_1+r_2)^2}{4}-r_1r_2}
 \end{equation}
 %
-folgt somit, dass der Laser für Resonatorlängen zwischen~$\SI{0}{\centi\meter}$ und~$\SI{280}{\centi\meter}$ optisch stabil ist, siehe Abbildung~\ref{fig:opt_stab}.
+folgt somit, dass der Laser für Resonatorlängen zwischen~$\SI{0}{\centi\meter}$ und~$\SI{280}{\centi\meter}$ optisch stabil ist, siehe
+Abbildung~\ref{fig:opt_stab}. Für die Konfiguration aus einem konvexen und einem planaren Spiegel (Krümmungsradius $r=\infty$) gilt dementsprechend
+%
+\begin{equation}
+  L_1=r_2\; , \quad L_2=0 \; .
+\end{equation}
 %
 \begin{figure}[h]
   \centering
@@ -19,10 +24,11 @@ folgt somit, dass der Laser für Resonatorlängen zwischen~$\SI{0}{\centi\meter}
   \label{fig:opt_stab}
 \end{figure}
 %
-Da die hier verwedete optische Bank lediglich $\SI{250}{\centi\meter}$ lang ist, kann hier nur überprüft werden, ob die optische Stabilität am
-Rande der Bank noch besteht. Dies ist trotz großer Anfälligkeit bei kleinen Abweichungen der Linsen, die allerdings dem experimentellen Aufbau
+Da die hier verwendete optische Bank lediglich $\SI{250}{\centi\meter}$ lang ist, kann nur überprüft werden, ob die optische Stabilität am
+Rande der Bank noch besteht. Dies ist trotz großer Anfälligkeit bei kleinen Abweichungen der Spiegel, die allerdings dem experimentellen Aufbau
 geschuldet sind, möglich. Eine Messung der Intensität des Laserstrahles in Abhängigkeit der Resonatorlänge ist in Abbildung~\ref{fig:kk}
-dargestellt. Es zeigt sich hierbei, dass der Laser bis etwa $\SI{1300}{\milli\meter}$ ununterbrochen mit hoher Leistung funktioniert.
+dargestellt. Es zeigt sich hierbei, dass der Laser über die zwei konvexen Spiegel bis etwa $\SI{1300}{\milli\meter}$ ununterbrochen mit hoher Leistung funktioniert.
+%%% WAS IST MIT DEM PLANAREN SPIEGEL?
 Die Verteilung der Intensitäten zeigt hierbei allerdings auch deutlich das angesprochene Problem: Die Schwankungen der Intensität aufgrund
 des experimentellen Aufbaus stellt sich als so stark heraus, dass eine kontinuierliche Messung bis an die Grenze der optischen Bank nicht
 durchführbar ist.
@@ -30,34 +36,34 @@ durchführbar ist.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_kk.pdf}
-  \caption{Darstellung der an der Photodiode gemessenen Stromstärke als Maß für die Intensität des Laserlichtes in Abhängigkeit der Resonatorlänge. Es zeigen sich klar die großen Schwankungen aufgrund der experimentellen Ungenauigkeiten.}
+  \caption{Konfiguration: Zwei konvexe Spiegel des Krümmungsradius $r=\SI{140}{\centi\meter}$. Darstellung der an der Photodiode gemessenen Stromstärke als Maß für die Intensität des Laserlichtes in Abhängigkeit der Resonatorlänge. Es zeigen sich klar die großen Schwankungen aufgrund der experimentellen Ungenauigkeiten.}
   \label{fig:kk}
 \end{figure}
 %
 \subsection{Vermessung der~$\text{TEM}_{00}$- und der~$\text{TEM}_{10}$-Mode}
 %
 Im Betrieb bilden sich im Resonator, wie in Abschnitt~\ref{sec:theorie} beschrieben, bestimmte Schwingungsmoden aus. Diese können durch
-schrittweise Vermessung untersucht werden. Zunächst wird die~$\text{TEM}_{00}$-Grundmode untersucht. Diese bildet sich im Resonator ohne weitere
-Störung durch einen Draht aus. Die Intensität des Lichtes an verschiedenen Punkten einer auf Höhe der Photodiode liegenden Ebene ist in
-Tabelle~\ref{tab:tem00} in Form der gemessenen Stromstärke der Photodiode aufgeführt. Die Verteilung dieser Intensität folgt dabei laut Theorie
+schrittweise Vermessung untersucht werden. Zunächst wird die~$\text{TEM}_{00}$-Mode untersucht. Diese bildet die sogenannte Grundmode und stellt die
+Mode dar, in welcher der Laser Hauptsächlich schwingt. Die Intensität des Lichtes an verschiedenen Punkten einer auf Höhe der Photodiode liegenden
+Ebene ist in Tabelle~\ref{tab:tem00} in Form der gemessenen Stromstärke der Photodiode aufgeführt. Die Verteilung dieser Intensität entspricht dabei
 dem Zusammenhang
 %
 \begin{equation}
   I(r)=I_0\symup{e}^{\frac{-2(x-x_0)^2}{\omega^2}}.
 \end{equation}
 %
-Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt werden. Das Ergebnis dieser Ausgleichsrechnung, sowie die Messwerte sind in Abbildung~\ref{fig:tem00} dargestellt.
+Sie stellt eine Gaußsche Verteilung dar. Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt werden. Das Ergebnis dieser Ausgleichsrechnung, sowie die Messwerte sind in Abbildung~\ref{fig:tem00} dargestellt.
 %
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_Mode00.pdf}
-  \caption{Mit der Photodiode gemessene Stromstärke in Abhängigkeit des Ortes innerhalb des Resonators. Dazu die aus dem theoretischen Modell berechnete Verteilung der Ausgleichsrechnung.}
+  \caption{Mit der Photodiode gemessene Stromstärke in Abhängigkeit des Ortes der Photodiode. Dazu die aus dem theoretischen Modell berechnete Verteilung der Ausgleichsrechnung.}
   \label{fig:tem00}
 \end{figure}
 %
 \begin{table}
   \centering
-  \caption{Mit der Photodiode gemessene Stromstärken und Orte innerhalb des Resonators (Nullpunkt willkürlich gewählt).}
+  \caption{Mit der Photodiode gemessene Stromstärken und Orte der Photodiode (Nullpunkt willkürlich gewählt).}
   \begin{tabular}{cccc}
     \toprule
     {x [cm]}  & {I [\mu A]} & {x [cm]}  & {I [\mu A]}     \\
@@ -96,14 +102,18 @@ Die Ausgleichsrechnung ergibt folgende Parameter:
 \begin{align*}
   I_0=&\SI{370(3)}{\micro\ampere} \\
   x_0=&\SI{26.83(7)}{\centi\meter} \\
-  \omega=&\SI{-10.2(1)}{\centi\meter}
+  \omega=&\SI{10.2(1)}{\centi\meter}
 \end{align*}
 %
-Zur Untersuchung der $\text{TEM}_{10}$-Mode wird diese durch Einbringen eines dünnen Drahtes in den Resonator erzeugt. Anschließend wird wie zuvor die Stromstärke an der Photodiode als Maß für die Intensität des Lichtes für verschiedene Positionen des Drahtes innerhalb des Resonators gemessen. Es ergeben sich die in Tabelle~\ref{tab:tem10} aufgeführten Werte für die Stromstärke.
+Zur Untersuchung der $\text{TEM}_{10}$-Mode wird ein dünner Draht in den Resonator gebracht. Dieser dient dazu, die Grundmode durch Störung zu
+unterdrücken. Befindet sich der Draht gerade am Schwingungsmaximum der Grundmode und stört diese somit maximal, so wird die $\text{TEM}_{10}$-Mode
+gerade minimal gestört, da sich an dieser Stelle ein Minimum befindet. Anschließend wird wie zuvor die Stromstärke an der Photodiode als Maß für die
+Intensität des Lichtes für verschiedene Positionen der Photodiode in einer zur Strahlrichtung parallelen Ebene gemessen. Es ergeben sich die in
+Tabelle~\ref{tab:tem10} aufgeführten Werte für die Stromstärke.
 %
 \begin{table}
   \centering
-  \caption{Mit der Photodiode gemessene Stromstärken und Orte innerhalb des Resonators (Nullpunkt willkürlich gewählt).}
+  \caption{Mit der Photodiode gemessene Stromstärken und Orte der Photodiode (Nullpunkt willkürlich gewählt).}
   \begin{tabular}{cccc}
     \toprule
     {x [cm]}  & {I [\mu A]} & {x [cm]}  & {I [\mu A]}     \\
@@ -135,10 +145,10 @@ Zur Untersuchung der $\text{TEM}_{10}$-Mode wird diese durch Einbringen eines d�
   \label{tab:tem10}
 \end{table}
 %
-Die Verteilung dieser Intensität folgt dabei laut Theorie dem Zusammenhang
+Die Verteilung dieser Intensität folgt dabei dem Zusammenhang
 %
 \begin{equation}
-  I(r)=I_0\cdot\frac{8(x-x_0)^2}{\omega^2}\cdot\symup{e}^{\frac{-2(x-x_0)^2}{\omega^2}}.
+  I(r)=I_0\cdot\frac{8(x-x_0)^2}{\omega^2}\cdot\symup{e}^{\frac{-2(x-x_0)^2}{\omega^2}}. % WO KOMMT DAS HER?
 \end{equation}
 %
 Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt werden. Das Ergebnis dieser Ausgleichsrechnung, sowie die Messwerte sind in Abbildung~\ref{fig:tem10} dargestellt.
@@ -146,7 +156,7 @@ Mit Hilfe dieser Funktionsvorschrift kann eine Ausgleichsrechnung durchgeführt 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_Mode10.pdf}
-  \caption{Mit der Photodiode gemessene Stromstärke in Abhängigkeit des Ortes innerhalb des Resonators. Dazu die aus dem theoretischen Modell berechnete Verteilung der Ausgleichsrechnung.}
+  \caption{Mit der Photodiode gemessene Stromstärke in Abhängigkeit des Ortes der Photodiode. Dazu die aus dem theoretischen Modell berechnete Verteilung der Ausgleichsrechnung.}
   \label{fig:tem10}
 \end{figure}
 %
@@ -158,8 +168,7 @@ Die Ausgleichrechnung ergibt für diese Mode folgende Parameter:
   \omega=&\SI{14.9(1)}{\centi\meter}
 \end{align*}
 %
-Die Intensitätsverteilungen für die beiden betrachteten Moden spiegeln insgesamt ein gutes Bild der stehenden Wellen wider. Die Winkelverteilung
-der Messwerte stimmt gut mit der Theorie überein und es lässt sich gut die höhere Ordnung der $\text{TEM}_{10}$-Mode im Vergleich zur $\text{TEM}_{00}$-Mode erkennen.
+Die Intensitätsverteilungen für die beiden betrachteten Moden spiegeln insgesamt ein gutes Bild der stehenden Wellen wider.
 
 %
 \subsection{Untersuchung der Polarisation des Lasers}
@@ -218,10 +227,10 @@ durchgeführt. Die Ergebnisse lauten hierbei:
 %
 \begin{align*}
   I_0=&\SI{687(8)}{\micro\ampere} \\
-  x_0=&\SI{92.99(1)}{}
+  x_0=&\SI{92.99(1)}{}\text{rad}
 \end{align*}
 %
-Es wird deutlich, dass das Laserlicht bei~$\approx 1,2$ rad mit maximaler Intensität den Polarisationsfilter durchläuft.
+Es wird deutlich, dass das Laserlicht bei~$\approx 1,2$ rad mit maximaler Intensität den Polarisationsfilter durchläuft und linear polarisiert ist.
 %
 \subsection{Bestimmung der Wellenlänge des Lasers}
 %
@@ -230,11 +239,13 @@ Aus den Abständen~$a$ der~$n$-ten Maxima in diesem Beugungsbild lässt sich zus
 Gitters vom Schirm über den Zusammenhang
 %
 \begin{equation}
-  \lambda=\frac{a}{n\cdot d\cdot g}
+  \lambda\approx\frac{a}{n\cdot d\cdot g}
 \end{equation}
 %
-die Wellenlänge des Laserlichtes berechnen. In dieser Versuchsdurchführuung wird ein Gitter mit einer Gitterkonstanten von~$g=\SI{80}{\per\milli\meter}$ verwendet und der Schirm dazu in einem Abstand von~$d=\SI{1950}{\milli\meter}$ platziert. Die Abstände
-der Maxima~$0.$ bis~$4.$~Ordnung zueinander sind in Tabelle~\ref{tab:wellenlaenge} zusammen mit den daraus berechneten Wellenlängen~$\lambda$ aufgeführt.
+die Wellenlänge des Laserlichtes berechnen. Allerdings gilt diese Beziehung näherungsweise nur im Bereich von kleinen Winkeln. In dieser
+Versuchsdurchführuung wird ein Gitter mit einer Gitterkonstanten von~$g=\SI{80}{\per\milli\meter}$ verwendet und der Schirm dazu in einem Abstand
+von~$d=\SI{1950}{\milli\meter}$ platziert. Die Abstände der Maxima~$0.$ bis~$4.$~Ordnung zueinander sind in Tabelle~\ref{tab:wellenlaenge} zusammen mit
+den daraus berechneten Wellenlängen~$\lambda$ aufgeführt.
 %
 \begin{table}
   \centering

@@ -53,9 +53,12 @@ Maximale Länge :                       L=0 oder {}
 def f(x, r_1, r_2):
     return 1-x*(r_1+r_2)/(r_1*r_2)+x**2/(r_1*r_2)
 
+def g(x, r_2):
+    return 1-x/r_2
 
 x = np.linspace(0, 280, 1000)
 plt.plot(x, f(x, r_1, r_2), 'r-', label='Verlauf von $g_1g_2$ für $r_1$={}cm, $r_2$={}cm'.format(r_1, r_2))
+plt.plot(x, g(x, r_2), 'b-', label='Verlauf von $g_1g_2$ für $r_1=\infty$cm, $r_2$={}cm'.format(r_1, r_2))
 plt.xlim(x.min(), x.max())
 plt.ylim(f(x, r_1, r_2).min(), f(x, r_1, r_2).max()+0.2)
 plt.axhline(y=1, xmin=0, xmax=200, linewidth=1, color='k')
@@ -121,7 +124,7 @@ b_err = np.sqrt(cov[1][1])
 
 t = np.linspace(x.min(), x.max(), 1000)
 plt.plot(x, I, 'b.', label='Daten')
-plt.plot(t, f(t, m, b), 'r-', label='Ausgleichsgeraden')
+# plt.plot(t, f(t, m, b), 'r-', label='Ausgleichsgeraden')
 plt.xlim(x.min()-5, x.max()+5)
 plt.ylabel(r"Stromstärke $I/$µA")
 plt.xlabel(r"Resonatorlänge $/cm$")
@@ -159,11 +162,11 @@ c = {}+-{}
 """.format(a, a_err, b, b_err, c, c_err))
 
 t = np.linspace(x.min(), x.max(), 1000)
-plt.plot(x, I, 'b.', label='Daten')
+plt.plot(x, I, 'b.', label='Daten $TEM_{00}$-Mode')
 plt.plot(t, f(t, a, b, c), 'r-', label='Ausgleichsrechnung')
 plt.xlim(x.min()-2, x.max()+2)
 plt.ylabel(r"Stromstärke $I/$µA")
-plt.xlabel(r"Abstand $/cm$")
+plt.xlabel(r"Abstand $/mm$")
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
@@ -198,10 +201,10 @@ w = {}+-{}
 
 t = np.linspace(x.min(), x.max(), 1000)
 plt.plot(t, f(t, I0, x0, w), 'r-', label='Ausgleichsrechnung')
-plt.plot(x, I, 'b.', label='Daten')
+plt.plot(x, I, 'b.', label='Daten $TEM_{10}$-Mode')
 plt.xlim(x.min()-2, x.max()+2)
 plt.ylabel(r"Stromstärke $I/$µA")
-plt.xlabel(r"Abstand $/cm$")
+plt.xlabel(r"Abstand $/mm$")
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
