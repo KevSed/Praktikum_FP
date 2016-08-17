@@ -16,14 +16,14 @@ Abbildung~\ref{fig:opt_stab}. Für die Konfiguration aus einem konvexen und eine
 \begin{equation}
   L_1=r_2\; , \quad L_2=0 \; .
 \end{equation}
-%
-\begin{figure}[h]
+
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_laser_140_140.pdf}
   \caption{Bereich der Resonatorlänge~$L$, in welchem der Laser optisch stabil ist ($g_1\cdot g_2\in[0,1)$).}
   \label{fig:opt_stab}
 \end{figure}
-%
+
 Da die hier verwendete optische Bank lediglich $\SI{250}{\centi\meter}$ lang ist, kann nur überprüft werden, ob die optische Stabilität am
 Rande der Bank noch besteht. Dies ist trotz großer Anfälligkeit bei kleinen Abweichungen der Spiegel, die allerdings dem experimentellen Aufbau
 geschuldet sind, möglich. Eine Messung der Intensität des Laserstrahles in Abhängigkeit der Resonatorlänge ist in Abbildung~\ref{fig:kk}
@@ -44,7 +44,7 @@ durchführbar ist.
 %
 Im Betrieb bilden sich im Resonator, wie in Abschnitt~\ref{sec:theorie} beschrieben, bestimmte Schwingungsmoden aus. Diese können durch
 schrittweise Vermessung untersucht werden. Zunächst wird die~$\text{TEM}_{00}$-Mode untersucht. Diese bildet die sogenannte Grundmode und stellt die
-Mode dar, in welcher der Laser Hauptsächlich schwingt. Die Intensität des Lichtes an verschiedenen Punkten einer auf Höhe der Photodiode liegenden
+Mode dar, in welcher der Laser hauptsächlich schwingt. Die Intensität des Lichtes an verschiedenen Punkten einer auf Höhe der Photodiode liegenden
 Ebene ist in Tabelle~\ref{tab:tem00} in Form der gemessenen Stromstärke der Photodiode aufgeführt. Die Verteilung dieser Intensität entspricht dabei
 dem Zusammenhang
 %
@@ -246,7 +246,12 @@ die Wellenlänge des Laserlichtes berechnen. Allerdings gilt diese Beziehung nä
 Versuchsdurchführuung wird ein Gitter mit einer Gitterkonstanten von~$g=\SI{80}{\per\milli\meter}$ verwendet und der Schirm dazu in einem Abstand
 von~$d=\SI{1950}{\milli\meter}$ platziert. Die Abstände der Maxima~$0.$ bis~$4.$~Ordnung zueinander sind in Tabelle~\ref{tab:wellenlaenge} zusammen mit
 den daraus berechneten Wellenlängen~$\lambda$ aufgeführt.
+Die Wellenlänge, die sich als der Mittelwert dieser Wellenlängen ergibt, beträgt
 %
+\begin{equation}
+  \bar{\lambda}=\SI{638(4)}{\nano\meter}.
+\end{equation}
+
 \begin{table}
   \centering
   \caption{Abstände der Interferenzmaxima aufsteigender Ordnung voneinander und die daraus berechnete Wellenlängen~$\lambda$.}
@@ -263,9 +268,3 @@ den daraus berechneten Wellenlängen~$\lambda$ aufgeführt.
 	\end{tabular}
   \label{tab:wellenlaenge}
 \end{table}
-%
-Die Wellenlänge, die sich als der Mittelwert dieser Wellenlängen ergibt, beträgt
-%
-\begin{equation}
-  \bar{\lambda}=\SI{638(4)}{\nano\meter}.
-\end{equation}
