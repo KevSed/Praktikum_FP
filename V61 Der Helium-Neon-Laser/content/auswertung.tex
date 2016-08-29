@@ -4,18 +4,20 @@
 %
 \subsection{Stabilität des Lasers}
 %
-Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser optisch nur dann stabil, wenn das Produkt $g_1\cdot g_2\in[0,1)$ ist. Daher lassen sich Bedingungen an den Abstand der Resonatorspiegel stellen. Im ersten Versuchsteil werden zwei konvexe Spiegel mit dem Krümmungsradius $\SI{140}{\centi\meter}$ verwendet. Über den Zusammenhang
+Wie in Abschnitt~\ref{sec:theorie} beschrieben, ist der hier verwendete Laser optisch nur dann stabil, wenn das Produkt $g_1\cdot g_2\in[0,1)$ ist. Daher lassen sich Bedingungen an den Abstand der Resonatorspiegel stellen. Im ersten Versuchsteil werden zwei konkave Spiegel mit dem Krümmungsradius $\SI{140}{\centi\meter}$ verwendet. Über den Zusammenhang
 %
 \begin{equation}
   L_{1,2}=\frac{r_1+r_2}{2}\pm\sqrt{\frac{(r_1+r_2)^2}{4}-r_1r_2}
 \end{equation}
 %
 folgt somit, dass der Laser für Resonatorlängen zwischen~$\SI{0}{\centi\meter}$ und~$\SI{280}{\centi\meter}$ optisch stabil ist, siehe
-Abbildung~\ref{fig:opt_stab}. Für die Konfiguration aus einem konvexen und einem planaren Spiegel (Krümmungsradius $r=\infty$) gilt dementsprechend
+Abbildung~\ref{fig:opt_stab}. Für die Konfiguration aus einem konkaven und einem planaren Spiegel (Krümmungsradius $r=\infty$) gilt dementsprechend
 %
 \begin{equation}
   L_1=r_2\; , \quad L_2=0 \; .
 \end{equation}
+%
+Daraus folgt, dass der Stabilitätsbereich zwischen~\SI{0}{\centi\metre} und~$r_2$ \si{\centi\metre} liegt.
 
 \begin{figure}[htb]
   \centering
@@ -24,19 +26,18 @@ Abbildung~\ref{fig:opt_stab}. Für die Konfiguration aus einem konvexen und eine
   \label{fig:opt_stab}
 \end{figure}
 
-Da die hier verwendete optische Bank lediglich $\SI{250}{\centi\meter}$ lang ist, kann nur überprüft werden, ob die optische Stabilität am
+Da die hier verwendete optische Bank lediglich $\SI{250}{\centi\meter}$ lang ist, kann für die beiden konkaven Spiegel nur überprüft werden, ob die optische Stabilität am
 Rande der Bank noch besteht. Dies ist trotz großer Anfälligkeit bei kleinen Abweichungen der Spiegel, die allerdings dem experimentellen Aufbau
 geschuldet sind, möglich. Eine Messung der Intensität des Laserstrahles in Abhängigkeit der Resonatorlänge ist in Abbildung~\ref{fig:kk}
-dargestellt. Es zeigt sich hierbei, dass der Laser über die zwei konvexen Spiegel bis etwa $\SI{1300}{\milli\meter}$ ununterbrochen mit hoher Leistung funktioniert.
-WAS IST MIT DEM PLANAREN SPIEGEL?
-Die Verteilung der Intensitäten zeigt hierbei allerdings auch deutlich das angesprochene Problem: Die Schwankungen der Intensität aufgrund
+dargestellt. Es zeigt sich hierbei, dass der Laser über die zwei konkaven Spiegel bis etwa $\SI{1300}{\milli\meter}$ ununterbrochen mit hoher Leistung funktioniert.
+Die Verteilung der Intensität zeigt hierbei allerdings auch deutlich das angesprochene Problem: Die Schwankungen der Intensität aufgrund
 des experimentellen Aufbaus stellt sich als so stark heraus, dass eine kontinuierliche Messung bis an die Grenze der optischen Bank nicht
-durchführbar ist.
-%
+durchführbar ist. Aufgrund der hohen Schwankungen wurde auf die Aufnahme einer Messreihe für einen konkaven und einen planaren Spiegel verzichtet.
+
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{auswertung/plot_kk.pdf}
-  \caption{Konfiguration: Zwei konvexe Spiegel des Krümmungsradius $r=\SI{140}{\centi\meter}$. Darstellung der an der Photodiode gemessenen Stromstärke als Maß für die Intensität des Laserlichtes in Abhängigkeit der Resonatorlänge. Es zeigen sich klar die großen Schwankungen aufgrund der experimentellen Ungenauigkeiten.}
+  \caption{Konfiguration: Zwei konkave Spiegel des Krümmungsradius $r=\SI{140}{\centi\meter}$. Darstellung der an der Photodiode gemessenen Stromstärke als Maß für die Intensität des Laserlichtes in Abhängigkeit der Resonatorlänge. Es zeigen sich klar die großen Schwankungen aufgrund der experimentellen Ungenauigkeiten.}
   \label{fig:kk}
 \end{figure}
 %
@@ -44,7 +45,7 @@ durchführbar ist.
 %
 Im Betrieb bilden sich im Resonator, wie in Abschnitt~\ref{sec:theorie} beschrieben, bestimmte Schwingungsmoden aus. Diese können durch
 schrittweise Vermessung untersucht werden. Zunächst wird die~$\text{TEM}_{00}$-Mode untersucht. Diese bildet die sogenannte Grundmode und stellt die
-Mode dar, in welcher der Laser hauptsächlich schwingt. Die Intensität des Lichtes an verschiedenen Punkten einer auf Höhe der Photodiode liegenden
+Mode dar, in welcher der Laser hauptsächlich schwingt und die geringsten Verluste entstehen. Die Intensität des Lichtes an verschiedenen Punkten einer auf Höhe der Photodiode liegenden
 Ebene ist in Tabelle~\ref{tab:tem00} in Form der gemessenen Stromstärke der Photodiode aufgeführt. Die Verteilung dieser Intensität entspricht dabei
 dem Zusammenhang
 %
