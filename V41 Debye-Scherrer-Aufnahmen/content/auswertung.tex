@@ -35,7 +35,7 @@ Gittertypen auf.
   Beugungsreflexen, sowie der Quotient $\sqrt{N_i/N_1}$ der jeweiligen Ebenen.}
   \begin{subtable}{0.45\textwidth}
     \centering
-    \caption{sc-Gitter}
+    \caption{sc-Gitter, Cäsiumchlorid-Struktur}
     \begin{tabular}{S[table-format=3]
                     S[table-format=2]
                     S[table-format=1.3]}
@@ -89,7 +89,7 @@ Gittertypen auf.
   \end{subtable} \\ \vspace{1cm}
   \begin{subtable}{0.45\textwidth}
     \centering
-    \caption{fcc-Gitter}
+    \caption{fcc-Gitter, Fluorit- und Steinsalz-Struktur}
     \begin{tabular}{S[table-format=3]
                     S[table-format=2]
                     S[table-format=1.3]}
@@ -116,7 +116,7 @@ Gittertypen auf.
   \end{subtable}
   \begin{subtable}{0.45\textwidth}
     \centering
-    \caption{Diamant-Gitter}
+    \caption{Diamant-Gitter, Zinkblende-Struktur}
     \begin{tabular}{S[table-format=3]
                     S[table-format=2]
                     S[table-format=1.3]}
@@ -154,10 +154,12 @@ Kameragehäuses~$\SI{360}{\milli\metre}$ beträgt, da die gemessenen Abstände d
 aufgenommenen Linien direkt als Winkelmaß~$2\theta$ in Grad übersetzt werden
 können. Die Messung der Linienabstände auf dem entwickelten Fotofilm erfolgt mit
 Hilfe eines Lineals. Als Ablesefehler wird~\SI{1}{\milli\metre} angenommen. Die
-Berechnung der Netzebenenabstände~$d$ erfolgt mit Hilfe der Bragg-Bedingung in
+Austrittsöffnung der Kamera, an der die Röntgenstrahlung gestoppt wird, ist auf
+dem Film mit einem Strich markiert.
+Die Berechnung der Netzebenenabstände~$d$ erfolgt mit Hilfe der Bragg-Bedingung in
 Gleichung~\eqref{eq:bragg}. Dabei ist die Wellenlänge der Röntgenstrahlung
 mit~$\lambda=\SI{1.54286}{\angstrom}$ gegeben. Der Wert ergibt sich durch
-Mittelung der Wellenlänge für die~$K_{\alpha}$- und die~$K_{\beta}$-Linie der
+Mittelung der Wellenlänge für die~$K_{\alpha,1}$- und die~$K_{\alpha,2}$-Linie der
 verwendeten Röntgenquelle mit Kupferanode.
 
 Nach erfolgter Bestimmung des Gittertyps werden in einem weiteren
@@ -170,21 +172,27 @@ $y$-Achsenabschnitt bestimmt werden.
 \subsection{Untersuchung der Probe 8}
 
 Die Untersuchung der Probe 8 liefert die in Tabelle~\ref{tab:probe8}
-aufgeführten Ergebnisse. Die beobachteten Beugungsreflexe können am besten durch
-ein Diamant-Gitter erklärt werden. Abbildung~\ref{fig:probe8} zeigt die
+aufgeführten Ergebnisse. Dabei werden für kleine Radien, also kleine Beugungswinkel,
+Doppelringe beobachtet, die durch das Vorhandensein der zwei unterschiedlichen
+Wellenlängen erklärt werden können. Die Doppelringe für sehr große Beugungswinkel
+sind Resultat einer unbekannten Störung. Im Folgenden werden stets die Mittelwerte
+der beiden gemessenen Radien betrachtet. Die beobachteten Beugungsreflexe können am besten durch
+ein Diamant-Gitter oder eine Zinkblende-Struktur erklärt werden.
+Abbildung~\ref{fig:probe8} zeigt die
 berechneten Gitterkonstanten aufgetragen gegen~$\cos^2{\theta}$. Der lineare Fit
 der Form~$a(\theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
 %
 \begin{align}
-  m&=\SI{0.6(3)}{\angstrom} \\
+  m&=\SI{-0.07(1)}{\angstrom} \\
   \shortintertext{und}
-  b&=\SI{5.5(2)}{\angstrom}. % 5.458236958790393+-0.22403756175973438
+  b&=\SI{5.677(8)}{\angstrom}.
 \end{align}
 
 \begin{figure}[h]
   \centering
-  \caption{Gemessene und berechnete Größen zur Untersuchung von Probe 8. Es wird
-  eine Diamant-Struktur vermutet.}
+  \caption{Gemessene und berechnete Größen zur Untersuchung von Probe 8.
+  Bei dem ersten Tabelleneintrag handelt es sich um den berechneten Mittelwert der Doppelringstrukur.
+  Es wird eine Diamant- oder eine Zinkblende-Struktur vermutet.}
   \begin{tabular}{S[table-format=3.1(1)]
                   S[table-format=2.2(1)]
                   S[table-format=1.3(3)]
@@ -195,19 +203,19 @@ der Form~$a(\theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
     \toprule
     {$r[\si{\milli\metre}]$} & {$\theta[\si{\degree}]$} & {$d[\si{\angstrom}]$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a[\si{\angstrom}]$} \\
     \midrule
-     26.0(10) & 13.00(50) & 3.4(1)   & 1       &  3 & 1     & 5.9(2)  \\
-     38.0(10) & 19.00(50) & 2.37(6)  & 1.45(7) &  8 & 1.633 & 6.7(2)  \\
-     53.0(10) & 26.50(50) & 1.73(3)  & 1.98(8) & 11 & 1.915 & 5.7(1)  \\
-     60.5(10) & 30.25(50) & 1.53(2)  & 2.24(9) & 16 & 2.309 & 6.13(9) \\
-     71.5(10) & 35.75(50) & 1.32(2)  & 2.6(1)  & 19 & 2.517 & 5.76(7) \\
-     78.5(10) & 39.25(50) & 1.22(1)  & 2.8(1)  & 24 & 2.828 & 5.97(6) \\
-     88.5(10) & 44.25(50) & 1.11(1)  & 3.1(1)  & 27 & 3.000 & 5.74(5) \\
-     95.5(10) & 47.75(50) & 1.042(8) & 3.3(1)  & 32 & 3.266 & 5.90(5) \\
-    105.5(10) & 52.75(50) & 0.969(6) & 3.5(1)  & 35 & 3.416 & 5.73(4) \\
-    112.5(10) & 56.25(50) & 0.928(5) & 3.7(1)  & 40 & 3.651 & 5.87(3) \\
-    124.5(10) & 62.25(50) & 0.872(4) & 3.9(1)  & 43 & 3.786 & 5.72(3) \\
-    133.5(10) & 66.75(50) & 0.840(3) & 4.1(2)  & 48 & 4.000 & 5.82(2) \\
-    151.5(10) & 75.75(50) & 0.796(2) & 4.3(2)  & 51 & 4.123 & 5.68(1) \\
+     27.5(10) & 13.75(50) & 3.2(1)   & 1.00(5) &  3 & 1     & 5.6(2)  \\
+     46.0(10) & 23.00(50) & 1.97(4)  & 1.64(7) &  8 & 1.633 & 5.6(1)  \\
+     54.0(10) & 27.00(50) & 1.70(3)  & 1.91(8) & 11 & 1.915 & 5.64(10)\\
+     66.5(10) & 33.25(50) & 1.41(2)  & 2.31(9) & 16 & 2.309 & 5.63(7) \\
+     73.0(10) & 36.50(50) & 1.30(2)  & 2.50(9) & 19 & 2.517 & 5.65(7) \\
+     84.0(10) & 42.00(50) & 1.15(1)  & 2.8(1)  & 24 & 2.828 & 5.65(5) \\
+     90.5(10) & 45.25(50) & 1.086(9) & 2.9(1)  & 27 & 3.000 & 5.64(5) \\
+    101.0(10) & 50.50(50) & 1.000(7) & 3.2(1)  & 32 & 3.266 & 5.66(4) \\
+    107.5(10) & 53.75(50) & 0.957(6) & 3.4(1)  & 35 & 3.416 & 5.66(4) \\
+    119.0(10) & 59.50(50) & 0.895(4) & 3.6(1)  & 40 & 3.651 & 5.66(3) \\
+    126.5(10) & 63.25(50) & 0.864(4) & 3.8(1)  & 43 & 3.786 & 5.66(2) \\
+    141.5(10) & 70.75(50) & 0.817(2) & 4.0(1)  & 48 & 4.000 & 5.66(2) \\
+    153.0(10) & 76.50(50) & 0.793(2) & 4.1(1)  & 51 & 4.123 & 5.67(1) \\
     \bottomrule
   \end{tabular}
   \label{tab:probe8}
@@ -215,7 +223,7 @@ der Form~$a(\theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.8\textwidth]{build/plot_probe8_2.pdf}
+  \includegraphics[width=0.8\textwidth]{build/plot_probe8_2_2.pdf}
   \caption{Linearer Fit der berechneten Gitterkonstanten~$a$
   gegen~$\cos^2\theta$ für die untersuchte Probe 8.}
   \label{fig:probe8}
@@ -224,7 +232,8 @@ der Form~$a(\theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
 \subsection{Untersuchung von Salz 2}
 
 Die Untersuchung von Salz 2 liefert die in Tabelle~\ref{tab:salz2}
-aufgeführten Ergebnisse. Es zeigt sich, dass die beobachteten Beugungsreflexe
+aufgeführten Ergebnisse. Die Auswertung ist aufgrund der hohen Schwärzung des Fotofilms erschwert.
+Es zeigt sich, dass die beobachteten Beugungsreflexe
 am besten durch eine Cäsiumchlorid-Struktur erklärt werden können. Zwar fehlt
 der zur [222]-Ebene gehörige Reflex, doch kann dies auch aufgrund hoher
 Schwärzung dem schwer auszuwertenden Fotofilm geschuldet sein.
@@ -241,7 +250,7 @@ Form~$a(\theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
 \begin{figure}[h]
   \centering
   \caption{Gemessene und untersuchte Größen zur Untersuchung von Salz 2. Es wird
-  eine Cäsiumchlorid-Struktur vermutet.}
+  ein sc-Gitter oder eine Cäsiumchlorid-Struktur vermutet.}
   \begin{tabular}{S[table-format=3(1)]
                   S[table-format=2.1(1)]
                   S[table-format=1.3(3)]
@@ -252,7 +261,7 @@ Form~$a(\theta)=m\cdot\cos^2{\theta}+b$ liefert die Parameter
     \toprule
     {$r[\si{\milli\metre}]$} & {$\theta[\si{\degree}]$} & {$d[\si{\angstrom}]$} & {$d_1/d_i$} & {$N$} & {$\sqrt{N_i/N_1}$} & {$a[\si{\angstrom}]$} \\
     \midrule
-     31(1) & 15.5(5) & 2.89(9)  & 1       &  2 & 1     & 4.1(1)  \\
+     31(1) & 15.5(5) & 2.89(9)  & 1.00(4) &  2 & 1     & 4.1(1)  \\
      45(1) & 22.5(5) & 2.02(4)  & 1.43(5) &  4 & 1.414 & 4.03(8) \\
      55(1) & 27.5(5) & 1.67(3)  & 1.73(6) &  6 & 1.732 & 4.09(7) \\
      64(1) & 32.0(5) & 1.46(2)  & 1.98(7) &  8 & 2.000 & 4.12(6) \\
