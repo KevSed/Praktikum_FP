@@ -1,26 +1,30 @@
-Die in der Auswertung verwendeten Mittelwerte mehrfach gemessener Größen sind gemäß der Gleichung
+Die in der Auswertung verwendeten Mittelwerte mehrfach gemessener Größen sind
+gemäß der Gleichung
 %
 \begin{equation}
     \bar{x}=\frac{1}{n}\sum_{i=1}^n x_i
     \label{eq:mittelwert}
 \end{equation}
 %
-bestimmt.
-Die Standardabweichung des Mittelwertes ergibt sich dabei zu
+bestimmt. Die Standardabweichung des Mittelwertes ergibt sich dabei zu
 %
 \begin{equation}
     \symup{\Delta}\bar{x}=\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}.
     \label{eq:standardabweichung}
 \end{equation}
 %
-Resultiert eine Größe über eine Gleichung aus zwei anderen fehlerbehafteten Größen, so berechnet sich der Gesamtfehler nach der Gaußschen Fehlerfortpflanzung zu
+Resultiert eine Größe über eine Gleichung aus zwei anderen fehlerbehafteten
+Größen, so berechnet sich der Gesamtfehler nach der Gaußschen
+Fehlerfortpflanzung zu
 %
 \begin{equation}
     \symup{\Delta}f(x_1,x_2,...,x_n)=\sqrt{\left(\frac{\partial f}{\partial x_1}\symup{\Delta}x_1\right)^2+\left(\frac{\partial f}{\partial x_2}\symup{\Delta}x_2\right)^2+ \dotsb +\left(\frac{\partial f}{\partial x_n}\symup{\Delta}x_n\right)^2}.
     \label{eq:fehlerfortpflanzung}
 \end{equation}
 %
-Alle in der Auswertung angegebenen Größen sind stets auf die erste signifikante Stelle des Fehlers gerundet.
-Setzt sich eine Größe über mehrere Schritte aus anderen Größen zusammen, so wird erst am Ende gerundet, um Fehler zu vermeiden.
-Zur Auswertung wird die Programmiersprache \texttt{python (Version 3.4.1)}
-mit den Bibliothekserweiterungen \texttt{numpy}, \texttt{scipy} und \texttt{matplotlib} zur Erstellung der Grafiken und linearen Regressionen verwendet.
+Alle in der Auswertung angegebenen Größen sind stets auf die erste signifikante
+Stelle des Fehlers gerundet. Setzt sich eine Größe über mehrere Schritte aus
+anderen Größen zusammen, so wird erst am Ende gerundet, um Fehler zu vermeiden.
+Zur Auswertung wird die Programmiersprache \texttt{python (Version 3.5.1)} mit
+den Bibliothekserweiterungen \texttt{numpy}~\cite{numpy},
+\texttt{scipy}~\cite{scipy} und \texttt{matplotlib}~\cite{matplotlib} verwendet.
