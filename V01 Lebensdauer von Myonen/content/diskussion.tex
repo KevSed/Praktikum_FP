@@ -3,9 +3,29 @@
 
 \subsection{Kalibrierung und vorbereitende Messungen}
 
+Die Bestimmung der optimalen Verzögerungszeit liefert die in
+Abbildung~\ref{fig:verzoegerung} dargestellten Zählraten.
+Bei~$T_{\symup{VZ}}=\SI{5.5}{\nano\second}$ wird ein recht deutliches Maximum
+gemessen, obwohl eigentlich aufgrund der Breite des Diskriminatorimpulses ein
+Plateau erwartet wird. Jedoch liegen die Zählraten insgesamt eng beieinander
+und sind mit Fehlern behaftet, deren Größe der Schwankung zwischen den
+verschiedenen Messwerten nahekommt. Somit kann die Nichtbeobachtung eines
+Plateaus auch das Resultat statistischer Ungenauigkeiten sein.
+
+Die Raten werden durch Zählen der Impulse in einem~\SI{20}{\second}-Intervall
+bestimmt. Eine längere Zählzeit würde zu einem präziseren Ergebnis führen.
+Zur Zeitmessung wird eine von Hand bediente Stoppuhr verwendet. Dies führt
+aufgrund der menschlichen Reaktionszeit zu weiteren Fehlern, die das Ergebnis
+beeinflussen.
+
+Die Kalibrierung der Zeitachse des Vielkanalanalysators erfolgt mit Hilfe einer
+linearen Regression. Die Unsicherheiten der berechneten Steigung ist
+mit~\SI{0.02}{\percent} sehr klein. Dies spricht für eine gute Qualität der
+Kalibrierung.
+
 \subsection{Bestimmung der mittleren Lebensdauer eines Myons}
 
-Im Versuch wurde die mittlere Lebensdauer eines Myons zu
+Im Versuch wird die mittlere Lebensdauer eines Myons zu
 %
 \begin{equation}
   \tau=\SI{2.118(17)}{\micro\second}
@@ -18,3 +38,14 @@ bestimmt. Der Literaturwert~\cite[14]{pdg} beträgt
 \end{equation}
 %
 woraus sich eine relative Abweichung von~\SI{3.6}{\percent} ergibt.
+
+Der erwartete Untergrund wird zu~$U_0=\num{5.221(3)}$ Ereignisse pro Kanal
+bestimmt. Der gemessene Untergrund, der sich aus der Ausgleichsrechnung der
+Messwerte ergibt, beträgt hingegen~$U_0=\num{3.76(24)}$ Ereignisse pro Kanal.
+Somit passen Erwartung und Messung des Untergrundes nicht sehr gut zusammen.
+
+Insgesamt werden~\num{50068} Stoppimpulse bei~\num{4179917} Startimpulsen
+vom Zählwerk gemessen. Die Addition aller Impulse, die der Vielkanalanalysator
+an den Rechner geleitet hat, ergibt jedoch nur~\num{42543} Impulse. Die
+beobachtete Differenz von~\num{7525} Impulsen lässt auf Fehler am
+Vielkanalanalysator oder an der Übertragungsleitung schließen.
