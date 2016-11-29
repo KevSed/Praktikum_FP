@@ -1,10 +1,15 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
-\input{../fehlerrechnung.tex}
+Alle in der Auswertung angegebenen Größen sind stets auf die erste signifikante
+Stelle des Fehlers gerundet. Setzt sich eine Größe über mehrere Schritte aus
+anderen Größen zusammen, so wird erst am Ende gerundet, um Fehler zu vermeiden.
+Zur Auswertung wird die Programmiersprache \texttt{python (Version 3.5.1)} mit
+den Bibliothekserweiterungen \texttt{numpy}~\cite{numpy},
+\texttt{scipy}~\cite{scipy} und \texttt{matplotlib}~\cite{matplotlib} verwendet.
 
-Die aufgenommenen Messwerte sind mit einer Poisson-Unsicherheit behaftet. Bei~$N$
-erfassten Spannungsimpulsen wird ein Fehler von~$\sqrt{N}$ angenommen.
+Die aufgenommenen Messwerte sind mit einer Poisson-Unsicherheit behaftet.
+Bei~$N$ erfassten Spannungsimpulsen wird ein Fehler von~$\sqrt{N}$ angenommen.
 
 \subsection{Justierung und Überprüfung der Koinzidenzapparatur}
 
@@ -17,7 +22,7 @@ Zur Bestimmung der optimalen Verzögerung wird in einer Messreihe die Zählrate 
 Abhängigkeit der Verzögerungszeit bestimmt. Die Messwerte sind in
 Tabelle~\ref{tab:verzoegerung} aufgeführt und in
 Abbildung~\ref{fig:verzoegerung} dargestellt. Es zeigt sich, dass eine relative
-Verzögerung von~$T_{symup{VZ}}=\SI{5.5}{\nano\second}$ zu einer maximalen
+Verzögerung von~$T_{\symup{VZ}}=\SI{5.5}{\nano\second}$ zu einer maximalen
 Zählrate führt. Im Folgenden wird diese Verzögerungszeit verwendet.
 
 \begin{table}[htb]
@@ -211,8 +216,8 @@ ergibt sich als Inverses der Zerfallskonstante~$\lambda$ zu
   \label{eq:ergebnis}
 \end{equation}
 %
-Die Abbildungen~\ref{fig:spektrum2} und~\ref{fig:spektrum3} zeigen die
-Ausgleichsfunktion zusammen mit den Messwerten.
+Die Abbildung~\ref{fig:spektrum3} zeigt die Ausgleichsfunktion zusammen mit den
+Messwerten.
 
 \begin{figure}[htb]
   \centering
@@ -224,16 +229,8 @@ Ausgleichsfunktion zusammen mit den Messwerten.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.8\textwidth]{analysis/spektrum2.pdf}
-  \caption{Messwerte zur Berechnung der mittleren Lebensdauer von Myonen und
-  Ausgleichsfunktion.}
-  \label{fig:spektrum2}
-\end{figure}
-
-\begin{figure}[htb]
-  \centering
   \includegraphics[width=0.8\textwidth]{analysis/spektrum3.pdf}
   \caption{Messwerte zur Berechnung der mittleren Lebensdauer von Myonen und
-  Ausgleichsfunktion (logarithmisch skaliert).}
+  Ausgleichsfunktion.}
   \label{fig:spektrum3}
 \end{figure}
