@@ -18,12 +18,14 @@ geschalteten Diskriminatoren liefern ab einer nicht näher bestimmten eingehende
 Spannungsschwelle~\SI{20}{\nano\second} breite Spannungsimpulse mit einer festen
 Höhe von~\SI{1.3}{\volt}.
 
-Zur Bestimmung der optimalen Verzögerung wird in einer Messreihe die Zählrate in
-Abhängigkeit der Verzögerungszeit bestimmt. Die Messwerte sind in
-Tabelle~\ref{tab:verzoegerung} aufgeführt und in
-Abbildung~\ref{fig:verzoegerung} dargestellt. Es zeigt sich, dass eine relative
-Verzögerung von~$T_{\symup{VZ}}=\SI{5.5}{\nano\second}$ zu einer maximalen
-Zählrate führt. Im Folgenden wird diese Verzögerungszeit verwendet.
+Zur Bestimmung der optimalen Verzögerung wird die Zählrate in Abhängigkeit der
+Verzögerungszeit bestimmt. Die dazu aufgenommenen Messwerte, das heißt die in
+einer Zeitspanne von~\SI{20}{\second} gemessene Anzahl an Spannungsimpulsen,
+sind in Tabelle~\ref{tab:verzoegerung} aufgeführt.
+Abbildung~\ref{fig:verzoegerung} zeigt die berechnete Zählrate aufgetragen gegen
+die Verzögerungszeit. Es zeigt sich, dass eine relative Verzögerung
+von~$T_{\symup{VZ}}=\SI{5.5}{\nano\second}$ zu einer maximalen Zählrate führt.
+Im Folgenden wird diese Verzögerungszeit verwendet.
 
 \begin{table}[htb]
   \centering
@@ -63,7 +65,9 @@ in~\SI{60}{\second} gemessen. Dies entspricht einer gemittelten Rate
 von~\num{78.2(5)} Impulsen pro Sekunde. Am Ausgang der Koinzidenzapparatur
 werden~\num{1752} Impulse in~\SI{60}{\second} gemessen, was einer Rate
 von~\num{29.2} Impulsen pro Sekunde entspricht. Die Rate wird somit um
-rund~\SI{62}{\percent} durch die Koinzidenzschaltung gedämpft.
+rund~\SI{62}{\percent} durch die Koinzidenzschaltung gedämpft, wobei es sich bei
+den unterdrückten Impulse in erster Linie um Impulse handelt, die durch das
+unkorrelierte thermische Rauschen der Sekundärelektronenvervielfacher entstehen.
 
 \subsection{Zeitkalibrierung des Vielkanalanalysators}
 
@@ -105,9 +109,14 @@ Gerade
   \label{eq:kalibrierung}
 \end{equation}
 %
-wobei~$\symup{c}$ für die Nummer des Kanals steht.
+wobei~$\symup{c}$ für die Nummer des Kanals steht.\footnote{Die lineare
+Regression wird mit Hilfe der Funktion~\texttt{curve\_fit} aus der
+Bibliothek~\texttt{scipy.optimize} durchgeführt. Da nicht alle Kanäle
+fehlerbehaftet sind, wird die Regression nur mit den Mittelwerten durchgeführt.}
 Abbildung~\ref{fig:kalibrierung} zeigt die aufgenommen Messwerte sowie die
-berechnete Regressionsgerade.
+berechnete Regressionsgerade. Für die Kanäle außerhalb der gemessenen
+Stützstellen ergibt sich die Zeitdifferenz durch Extrapolation der
+Regressionsgeraden.
 
 \begin{table}[htb]
   \centering
@@ -134,15 +143,17 @@ berechnete Regressionsgerade.
   \centering
   \includegraphics[width=0.8\textwidth]{analysis/kalibrierung.pdf}
   \caption{Messung zur Zeitkalibrierung des Vielkanalanalysators. Neben den
-  Messwerten ist auch die berechnete Regressionsgerade aufgetragen.}
+  Messwerten ist auch die berechnete Regressionsgerade aufgetragen. Bei der
+  Berechnung der Regressionsgeraden werden die Fehler auf die Kanalnummern nicht
+  berücksichtigt.}
   \label{fig:kalibrierung}
 \end{figure}
 
 \subsection{Abschätzung des Untergrundes}
 
 Insgesamt wurden~$N_{\symup{S}}=\num{4179917(2044)}$ Startimpulse bei einer
-Gesamtmesszeit von~\SI{152016}{\second} registriert. Die daraus resultierende
-Rate beträgt
+Messzeit von~\SI{152016}{\second} registriert. Die daraus resultierende Rate
+beträgt
 %
 \begin{equation}
   \langle N_{\symup{S}}\rangle=\SI{27.50(1)}{\per\second}.
@@ -150,26 +161,30 @@ Rate beträgt
 \end{equation}
 %
 Die Anzahl der Untergrundkandidaten bestimmt sich aus der Wahrscheinlichkeit,
-dass innerhalb der Suchzeit~$T_{\symup{S}}=\SI{20}{\micro\second}$, die durch
-ein Myon gestartet wurde, ein weiteres Myon vom Detektor registriert wird. Dabei
-folgt die Wahrscheinlichkeit einer Poissonverteilung. Somit ergibt sich die
-Anzahl~$N_{\symup{F}}$ der registrierten Fehlereignisse zu
+dass innerhalb der Suchzeit, die durch ein Myon gestartet wurde, ein weiteres
+Myon vom Detektor registriert wird. Dabei folgt die Wahrscheinlichkeit einer
+Poissonverteilung. Die Suchzeit wird am Gerät
+auf~$T_{\symup{S}}=\SI{20}{\micro\second}$ eingestellt. Die Betrachtung der
+Messwerte zeigt jedoch, dass ab einer Zeitdifferenz
+von~$T_{\symup{S}}=\SI{15.580(3)}{\micro\second}$ (dies entspricht nach
+Gleichung~\eqref{eq:kalibrierung} dem Kanal~\num{343}) keine Ereignisse mehr
+detektiert werden. Somit ist davon auszugehen, dass es sich hierbei um die
+tatsächliche Suchzeit handelt. Die Anzahl~$N_{\symup{F}}$ der registrierten
+Fehlereignisse ergibt sich zu
 %
 \begin{equation}
-  N_{\symup{F}}(k=1)=N_{\symup{S}}\cdot\frac{\left(T_{\symup{S}}\langle N_{\symup{S}}\rangle\right)^k}{k!}\exp\left(T_{\symup{S}}\langle N_{\symup{S}}\rangle\right)=\num{2297(1)}.
+  N_{\symup{F}}(k=1)=N_{\symup{S}}\cdot\frac{\left(T_{\symup{S}}\langle N_{\symup{S}}\rangle\right)^k}{k!}\exp\left(T_{\symup{S}}\langle N_{\symup{S}}\rangle\right)=\num{1791(2)}.
   \label{eq:untergrund_gesamt}
 \end{equation}
 %
 Unter der Annahme, dass sich der erwartete Untergrund statistisch auf alle
 Kanäle gleichverteilt, lässt sich der Untergrund pro Kanal bestimmen. Dabei
-werden bei der Berechnung die Kanäle~\num{441} bis~\num{511} nicht berücksichtigt, da
-diese Kanäle gemäß Gleichung~\ref{eq:kalibrierung} Zeitdifferenzen erfassen, die
-die Suchzeit~$T_{\symup{S}}$ übersteigen. Umgerechnet auf die
-verbleibenden~\num{440} Kanäle ergibt sich der erwartete mittlere Untergrund pro
-Kanal zu
+werden bei der Berechnung die Kanäle~\num{343} bis~\num{511} aus oben genannten
+Gründen nicht berücksichtigt. Umgerechnet auf die verbleibenden~\num{343} Kanäle
+ergibt sich der erwartete mittlere Untergrund pro Kanal zu
 %
 \begin{equation}
-  U_0=\num{5.221(3)}
+  U_0=\num{5.223(5)}
   \label{eq:untergrund_kanal}
 \end{equation}
 %
@@ -188,20 +203,22 @@ bestimmen zu können, wird eine Funktion der Form
   \label{eq:fitfunktion}
 \end{equation}
 %
-an die Messwerte angepasst. Hierbei ist~$c$ wieder die Kanalnummer. Für die
-Anpassung werden die Kanäle~\num{0} bis~\num{2}, sowie die Kanäle~\num{12}
-bis~\num{18} ausgeschlossen, da sie zu stark vom exponentiellen Verlauf
-abweichen und somit als Folge eines fehlerhaften Versuchsaufbaus interpretiert
-werden können. Eine weitere Diskussion der Abweichungen findet sich in
-Abschnitt~\ref{sec:diskussion}. Desweiteren werden erneut die Kanäle~\num{441}
+an die Messwerte angepasst. Hierbei ist~$c$ wieder die Kanalnummer. Die
+Anpassung im Bezug auf die Kanalnummern erweist sich als vorteilhaft, da bei
+dieser keine Fehler in den~$x$-Werten auftreten. Für die Anpassung werden die
+Kanäle~\num{0} bis~\num{2}, sowie die Kanäle~\num{12} bis~\num{18}
+ausgeschlossen, da sie zu stark vom exponentiellen Verlauf abweichen und somit
+als Folge eines fehlerhaften Versuchsaufbaus interpretiert werden können. Eine
+weitere Diskussion der Abweichungen findet sich in
+Abschnitt~\ref{sec:diskussion}. Des Weiteren werden erneut die Kanäle~\num{343}
 bis~\num{511} aus oben genannten Gründen ausgeschlossen. Die Anpassung der
 verbleibenden Messwerte an die Funktion in Gleichung~\ref{eq:fitfunktion}
 liefert die Parameter
 %
 \begin{align}
-  N_0&=\num{727(8)} \\
-  \lambda_c&=\num{0.02144(18)} \\
-  U_0&=\num{3.76(24)}
+  N_0&=\num{725(7)} \\
+  \lambda_c&=\num{0.02141(17)} \\
+  U_0&=\num{3.75(24)}
   \label{eq:fitparameter}
 \end{align}
 %
@@ -212,7 +229,7 @@ Gleichung~\ref{eq:kalibrierung}. Die mittlere Lebensdauer~$\tau$ eines Myons
 ergibt sich als Inverses der Zerfallskonstante~$\lambda$ zu
 %
 \begin{equation}
-  \tau=\SI{2.118(17)}{\micro\second}
+  \tau=\SI{2.121(17)}{\micro\second}
   \label{eq:ergebnis}
 \end{equation}
 %
