@@ -67,11 +67,9 @@ def frequency2bandwidth(f, key):
     if (f > 2):
       return ufloat(0.15 * f - 0.3, 0.0)
 
-def normVoltage(U, VS, VN):
-  # Berechne Gesamtverstärkung (ohne Quadrierung)
-  V = VS * VN
-  # Normiere alle Spannungen auf Verstärkung 1
-  return U * (1 / V) ** 2
+def normVoltage(U, VS, VN, VZ = 1):
+  # Normiere alle Spannungen auf Verstärkung VZ
+  return U * (VZ / (VS * VN)) ** 2
 
 def linear(x, m, b):
   return m * x + b
@@ -120,7 +118,7 @@ U = [2.172, 4.292, 6.376, 8.624, 11.536, 14.352, 21, 23.2, 27, 29.5, 32.9, 35, 3
 plt.plot(R, U, 'rx')
 plt.show()
 
-# Frequenzspektrum - Oxydkathode
+# Oxydkathode - Frequenzspektrum
 
 ν, VS, VN, U = np.genfromtxt('oxydkathode.txt', unpack=True)
 Δν = [frequency2bandwidth(x, 'Oxydkathode') for x in ν]
@@ -146,7 +144,7 @@ m = ufloat(params[0], errors[0])
 b = ufloat(params[1], errors[1])
 print(m)
 
-# Frequenzspektrum - Reinmetallkathode
+# Reinmetallkathode - Frequenzspektrum
 
 ν, VS, VN, U = np.genfromtxt('reinmetallkathode.txt', unpack=True)
 Δν = [frequency2bandwidth(x, 'Reinmetallkathode') for x in ν]
