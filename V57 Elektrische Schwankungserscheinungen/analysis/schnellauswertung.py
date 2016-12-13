@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
+import pprint
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif', size=16)
 
@@ -80,7 +81,7 @@ f = [1.078, 1.586, 2.036, 2.530, 3.021, 3.485, 3.955, 4.444, 4.963, 5.424, 5.915
 U = [0.0204, 0.02225, 0.0785, 0.36, 1.265, 2.86, 4.79, 5.86, 5.48, 4.32, 2.97, 1.856, 1.169, 0.7325, 0.443, 0.31575, 0.208, 0.13975, 0.098, 1.99, 3.89, 5.51, 5.78, 4.77, 3.29]
 
 plt.plot(f, U, 'rx')
-plt.show()
+#plt.show()
 
 # Einfachschaltung - schwacher Widerstand
 
@@ -88,35 +89,37 @@ R = [50, 102, 152, 207, 251, 303, 353, 404, 451, 501, 555, 605, 652, 704, 752, 8
 U = [0.049, 0.064, 0.078, 0.093, 0.104, 0.114, 0.129, 0.144, 0.152, 0.167, 0.185, 0.194, 0.208, 0.222, 0.237, 0.250, 0.261, 0.274, 0.283, 0.296]
 
 plt.plot(R, U, 'rx')
-plt.show()
+#plt.show()
 
 # Einfachschaltung - starker Widerstand
 
 R = [1330, 5320, 10240, 15030, 19600, 25100, 30800, 35100, 40600, 44700, 50700, 56300, 60000, 64800, 70100, 76600, 80200, 85700, 91700, 95200, 97300]
 U = [0.384, 1.378, 2.816, 4.012, 5.584, 6.764, 8.425, 17.3, 11.8, 12.3, 13.675, 17.85, 19.5, 18.275, 21.3, 26.2, 24.5, 26.2, 30.1, 33.6, 36.7]
 plt.plot(R,U, 'rx')
-plt.show()
+#plt.show()
 
 # Korrelatorschaltung - Eichmessung
 
 f = [1.088, 1.609, 2.071, 2.564, 3.034, 3.523, 4.033, 4.480, 4.943, 5.484, 5.976, 6.424, 6.920, 7.410, 7.926, 8.481, 9.064, 9.559, 9.940, 4.211, 4.750, 5.246, 5.755, 5.072, 5.182]
 U = [0.92, 1.68, 2.8, 5.072, 9.08, 18.4, 47.0, 145.25, 717.0, 265.0, 87.25, 43.0, 24.8, 17.45, 11.5, 9.16, 7.0, 6.0, 528, 70, 354, 600, 134.75, 863, 727]
 plt.plot(f, U, 'rx')
-plt.show()
+#plt.show()
 
 # Korrelatorschaltung - schwacher Widerstand
 
 R = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 995]
 U = [0.06, 0.09, 0.068, 0.08992, 0.10912, 0.132, 0.1528, 0.179, 0.206, 0.225, 0.251, 0.270, 0.297, 0.313, 0.330, 0.364, 0.385, 0.408, 0.425, 0.450]
 plt.plot(R, U, 'rx')
-plt.show()
+#plt.show()
 
 # Korrelatorschaltung - starker Widerstand
 
 R = [5070, 10130, 15120, 20000, 25000, 30000, 40100, 44900, 50300, 54300, 60300, 64900, 70200, 74900, 80300, 85100, 90100, 95200]
 U = [2.172, 4.292, 6.376, 8.624, 11.536, 14.352, 21, 23.2, 27, 29.5, 32.9, 35, 37.9, 40.5, 44.1, 47.3, 53.2, 56.4]
 plt.plot(R, U, 'rx')
-plt.show()
+#plt.show()
+plt.cla()
+plt.clf()
 
 # Oxydkathode - Frequenzspektrum
 
@@ -134,7 +137,11 @@ plt.yscale('log')
 plt.grid()
 plt.legend(loc='best')
 plt.tight_layout()
-plt.show()
+plt.title('Oxydkathode - Frequenzspektrum')
+plt.savefig('oxydkathode_frequenzspektrum.pdf')
+plt.cla()
+plt.clf()
+#plt.show()
 
 # Bestimmung des Exponenten alpha
 
@@ -142,7 +149,30 @@ params, cov = curve_fit(linear, np.log(ν), np.log(noms(W)))
 errors = np.sqrt(np.diag(cov))
 m = ufloat(params[0], errors[0])
 b = ufloat(params[1], errors[1])
-print(m)
+
+# Reinmetallkathode - Charakteristische Linien
+
+U = [10, 18, 25, 35, 43, 60, 75, 92, 110, 125]
+
+I60 = [0.4, 0.45, 0.45, 0.49, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+I62 = [0.6, 0.7, 0.7, 0.7, 0.7, 0.72, 0.72, 0.75, 0.75, 0.76]
+I64 = [0.8, 0.9, 0.9, 0.92, 0.92, 0.97, 0.98, 1.0, 1.0, 1.0]
+I65 = [0.9, 1.2, 1.21, 1.24, 1.25, 1.28, 1.3, 1.31, 1.31, 1.33]
+
+plt.plot(U, I60, 'rx', label=r'$I_{\mathrm{H}}=0.60\mathrm{A}$')
+plt.plot(U, I62, 'bx', label=r'$I_{\mathrm{H}}=0.62\mathrm{A}$')
+plt.plot(U, I64, 'gx', label=r'$I_{\mathrm{H}}=0.64\mathrm{A}$')
+plt.plot(U, I65, 'kx', label=r'$I_{\mathrm{H}}=0.65\mathrm{A}$')
+plt.xlabel(r'$U\,/\,\mathrm{V}$')
+plt.ylabel(r'$I\,/\,\mathrm{mA}$')
+plt.ylim(0.4, 1.8)
+plt.grid()
+plt.legend(loc='best')
+plt.title('Reinmetallkathode - Charakteristische Linien')
+plt.savefig('reinmetallkathode_linien.pdf')
+plt.cla()
+plt.clf()
+#plt.show()
 
 # Reinmetallkathode - Frequenzspektrum
 
@@ -153,12 +183,28 @@ R = 4680
 W = [x / (R ** 2 * y) for x, y in zip(U, Δν)]
 
 plt.plot(ν, noms(W), 'rx')
+plt.xlabel(r'$\nu\,/\,\mathrm{Hz}$')
+plt.ylabel(r'$W(\nu)\,/\,\mathrm{A^2s}$')
 plt.xscale('log')
 plt.yscale('log')
-plt.show()
+plt.title('Reinmetallkathode - Frequenzspektrum')
+plt.savefig('reinmetallkathode_frequenzspektrum.pdf')
+plt.cla()
+plt.clf()
+#plt.show()
 
 # Bestimmung der Elementarladung
 
-I = U / R **2
-plt.plot(ν, I, 'rx')
-plt.show()
+I = (U/1000000) / R **2
+params, cov = curve_fit(linear, noms(Δν), I)
+print(params)
+x = np.linspace(0, 25000)
+plt.plot(noms(Δν), I, 'rx')
+#plt.plot(x, linear(x,*params), 'b-')
+plt.xlabel(r'$\Delta\nu\,/\,\mathrm{Hz}$')
+plt.ylabel(r'$\bar{I}^2\,/\,\mathrm{A^2}$')
+plt.title('Reinmetallkathode - Elementarladung')
+plt.savefig('reinmetallkathode_elementarladung.pdf')
+plt.cla()
+plt.clf()
+#plt.show()
