@@ -1,10 +1,10 @@
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from funktionen import *
-import sys
 
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif', size=16)
@@ -100,41 +100,38 @@ plt.savefig('reinmetallkathode_frequenzspektrum.pdf')
 plt.cla()
 plt.clf()
 
-sys.exit()
+I = (U / 10000000) / R ** 2
+    # Hier wird noch die Vor- und Linearverstärkung herausgerechnet. Besser nochmal anschauen...
+I0 = 1e-3
 
+Δν1 = np.append(Δν[Δν > 14000], Δν[Δν == 11600])
+I1 = np.append(I[Δν > 14000], I[Δν == 11600])
+Δν2 = np.append(Δν[Δν < 11500], Δν[Δν == 12100])
+I2 = np.append(I[Δν < 11500], I[Δν == 12100])
 
+params1, cov1 = curve_fit(linearFunction, noms(Δν1), I1)
+errors1 = np.sqrt(np.diag(cov1))
+m1 = ufloat(params1[0], errors1[0])
+b1 = ufloat(params1[1], errors1[1])
+print('Die Elementarladung wird im hochfrequenten Bereich zu {} bestimmt'.format(m1 / (2 * I0)))
 
+params2, cov2 = curve_fit(linearFunction, noms(Δν2), I2)
+errors2 = np.sqrt(np.diag(cov2))
+m2 = ufloat(params2[0], errors2[0])
+b2 = ufloat(params2[1], errors2[1])
+print('Der Elementarladung wird im niederfrequenten Bereich zu {} bestimmt'.format(m2 / (2 * I0)))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Bestimmung der Elementarladung
-
-I = (U/1000000) / R **2
-params, cov = curve_fit(linear, noms(Δν), I)
-print(params)
-x = np.linspace(0, 25000)
-plt.plot(noms(Δν), I, 'rx')
-#plt.plot(x, linear(x,*params), 'b-')
+x1 = np.linspace(noms(min(Δν1)), noms(max(Δν1)), 2)
+x2 = np.linspace(noms(min(Δν2)), noms(max(Δν2)), 2)
+plt.plot(noms(Δν1), I1, 'rx')
+plt.plot(noms(Δν2), I2, 'bx')
+plt.plot(x1, linearFunction(x1, *params1), 'r-')
+plt.plot(x2, linearFunction(x2, *params2), 'b-')
 plt.xlabel(r'$\Delta\nu\,/\,\mathrm{Hz}$')
 plt.ylabel(r'$\bar{I}^2\,/\,\mathrm{A^2}$')
+plt.grid()
+plt.tight_layout()
 plt.title('Reinmetallkathode - Elementarladung')
 plt.savefig('reinmetallkathode_elementarladung.pdf')
 plt.cla()
 plt.clf()
-#plt.show()
