@@ -25,7 +25,12 @@ sind in Tabelle~\ref{tab:verzoegerung} aufgeführt.
 Abbildung~\ref{fig:verzoegerung} zeigt die berechnete Zählrate aufgetragen gegen
 die Verzögerungszeit. Es zeigt sich, dass eine relative Verzögerung
 von~$T_{\symup{VZ}}=\SI{5.5}{\nano\second}$ zu einer maximalen Zählrate führt.
-Im Folgenden wird diese Verzögerungszeit verwendet.
+Im Folgenden wird diese Verzögerungszeit verwendet. Mit Hilfe der wenigen
+aufgenommenen Messwerte ist es nicht möglich, die
+Auflösungszeit~$\symup{\Delta}t$ der Koinzidenzapparatur zu bestimmen. Unter der
+Annahme, dass in Abbildung~\ref{fig:verzoegerung} ein Plateau zu sehen ist, kann
+die Auflösungszeit nur mit~$\symup{\Delta}t>\SI{20}{\nano\second}$ abgeschätzt
+werden.
 
 \begin{table}[htb]
   \centering
@@ -112,10 +117,11 @@ Gerade
 wobei~$\symup{c}$ für die Nummer des Kanals steht.\footnote{Die lineare
 Regression wird mit Hilfe der Funktion~\texttt{curve\_fit} aus der
 Bibliothek~\texttt{scipy.optimize} durchgeführt. Da nicht alle Kanäle
-fehlerbehaftet sind, wird die Regression nur mit den Mittelwerten durchgeführt.}
-Abbildung~\ref{fig:kalibrierung} zeigt die aufgenommen Messwerte sowie die
-berechnete Regressionsgerade. Für die Kanäle außerhalb der gemessenen
-Stützstellen ergibt sich die Zeitdifferenz durch Extrapolation der
+fehlerbehaftet sind, wird die Regression nur mit den Mittelwerten durchgeführt.
+Die Fehler der Parameter ergeben sich dann ausschließlich aus den Fehlern der
+Regressionrechnung.} Abbildung~\ref{fig:kalibrierung} zeigt die aufgenommen
+Messwerte sowie die berechnete Regressionsgerade. Für die Kanäle außerhalb der
+gemessenen Stützstellen ergibt sich die Zeitdifferenz durch Extrapolation der
 Regressionsgeraden.
 
 \begin{table}[htb]
