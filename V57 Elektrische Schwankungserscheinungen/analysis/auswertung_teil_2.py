@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
+from uncertainties import unumpy as unp
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from funktionen import *
 
@@ -13,8 +14,9 @@ plt.rc('font', family='serif', size=16)
 ### Oxydkathode
 ################################################################################
 
-ν, VS, VN, U = np.genfromtxt('oxydkathode.txt', unpack = True)
+ν, VS, VN, U, ΔU = np.genfromtxt('oxydkathode.txt', unpack = True)
 Δν = frequency2bandwidth(ν, 'Oxydkathode')
+U = unp.uarray(U, ΔU)
 U = normVoltage(U, VS, VN)
     # Vielleicht zwecks Übersichtlichkeit besser auf VZ = 100 normieren. Mal schauen...
 R = 2200
@@ -33,7 +35,7 @@ plt.savefig('oxydkathode_frequenzspektrum.pdf')
 plt.cla()
 plt.clf()
 
-params, cov = curve_fit(linearFunction, np.log(ν[-16:]), np.log(noms(W[-16:])))
+params, cov = curve_fit(linearFunction, np.log(ν[-16:]), np.log(noms(W[-16:])), sigma = np.log(stds(W[-16:])))
     # Wähle hier und im Folgenden mit [-16:] alle Werte mit f < 1000 Hz aus
 errors = np.sqrt(np.diag(cov))
 m = ufloat(params[0], errors[0])
@@ -81,8 +83,9 @@ plt.savefig('reinmetallkathode_linien.pdf')
 plt.cla()
 plt.clf()
 
-ν, VS, VN, U = np.genfromtxt('reinmetallkathode.txt', unpack = True)
+ν, VS, VN, U, ΔU = np.genfromtxt('reinmetallkathode.txt', unpack = True)
 Δν = frequency2bandwidth(ν, 'Reinmetallkathode')
+U = unp.uarray(U, ΔU)
 U = normVoltage(U, VS, VN)
 R = 4680
 W = U / (R ** 2 * Δν)
@@ -109,13 +112,13 @@ I1 = np.append(I[Δν > 14000], I[Δν == 11600])
 Δν2 = np.append(Δν[Δν < 11500], Δν[Δν == 12100])
 I2 = np.append(I[Δν < 11500], I[Δν == 12100])
 
-params1, cov1 = curve_fit(linearFunction, noms(Δν1), I1)
+params1, cov1 = curve_fit(linearFunction, noms(Δν1), noms(I1))
 errors1 = np.sqrt(np.diag(cov1))
 m1 = ufloat(params1[0], errors1[0])
 b1 = ufloat(params1[1], errors1[1])
 print('Die Elementarladung wird im hochfrequenten Bereich zu {} bestimmt'.format(m1 / (2 * I0)))
 
-params2, cov2 = curve_fit(linearFunction, noms(Δν2), I2)
+params2, cov2 = curve_fit(linearFunction, noms(Δν2), noms(I2))
 errors2 = np.sqrt(np.diag(cov2))
 m2 = ufloat(params2[0], errors2[0])
 b2 = ufloat(params2[1], errors2[1])
@@ -123,8 +126,8 @@ print('Der Elementarladung wird im niederfrequenten Bereich zu {} bestimmt'.form
 
 x1 = np.linspace(noms(min(Δν1)), noms(max(Δν1)), 2)
 x2 = np.linspace(noms(min(Δν2)), noms(max(Δν2)), 2)
-plt.plot(noms(Δν1), I1, 'rx')
-plt.plot(noms(Δν2), I2, 'bx')
+plt.plot(noms(Δν1), noms(I1), 'rx')
+plt.plot(noms(Δν2), noms(I2), 'bx')
 plt.plot(x1, linearFunction(x1, *params1), 'r-')
 plt.plot(x2, linearFunction(x2, *params2), 'b-')
 plt.xlabel(r'$\Delta\nu\,/\,\mathrm{Hz}$')
