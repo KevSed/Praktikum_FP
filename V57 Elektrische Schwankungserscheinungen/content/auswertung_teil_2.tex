@@ -6,26 +6,50 @@ was außerhalb des Sättigungsbereichs liegt. Die Spannungen, die bei gegebener
 Mittenfrequenz des Band- bzw. Selektivverstärkers am Arbeitswiderstand der
 Kathode abfallen, sind in Tabelle~\ref{tab:oxydkathode} gezeigt.
 
-Gemäß Formel~\ref{...} in Abschnitt~\ref{...} berechnet sich die
+Gemäß Formel~\ref{...} in Abschnitt~\ref{sec:theorie} berechnet sich die
 Frequenzverteilung aus den mittleren Rauschspannungsquadraten zu
 %
 \begin{equation}
   W(\nu)=\frac{\bar{U}^2}{R^2\symup{\Delta}\nu}
 \end{equation}
 %
-Die benötigten Bandbreiten~$\symup{\Delta}\nu$ bestimmen sich mit Hilfe einer
-gegebenen empirisch ermittelten Tabelle, die dem Anhang beigefügt ist.
-Abbildung~\ref{...} zeigt die Frequenzverteilung~$W$ aufgetragen gegen die
-Mittenfrequenz~$\nu$. Der in Abschnitt~\ref{...} beschriebene Funkel-Effekt ist besonders im niederfrequenten Bereich des Spektrums dominant. Zur Bestimmung des Exponenten~$\alpha$ in der Formel für den Funkel-Effekt
+Die benötigten Bandbreiten~$\symup{\Delta}\nu$ bestimmen sich mit Hilfe der
+Werte aus einer gegebenen empirisch ermittelten Tabelle, die dem Anhang
+beigefügt ist. Abbildung~\ref{fig:oxydkathode_frequenzspektrum} zeigt die
+Frequenzverteilung~$W$ aufgetragen gegen die Mittenfrequenz~$\nu$. Der in
+Abschnitt~\ref{sec:theorie} beschriebene Funkel-Effekt ist besonders im
+niederfrequenten Bereich des Spektrums dominant. Zur Bestimmung des
+Exponenten~$\alpha$ in der Formel für den Funkel-Effekt
 %
 \begin{equation}
-  W(\nu)\prop\frac{I_0^2}{\nu^{\alpha}}
+  W(\nu)\propto\frac{I_0^2}{\nu^{\alpha}}
 \end{equation}
 %
-wird für den linearen Anteil der Frequenzverteilung eine Ausgleichsrechnung durchgeführt. Der Exponent~$\alpha$ wird damit zu
+wird für den linearen Anteil der Frequenzverteilung eine Ausgleichsrechnung
+durchgeführt. Abbildung~\ref{fig:oxydkathode_frequenzspektrum_linearer_teil}
+zeigt den linearen Teil der Frequenzverteilung, sowie die Ausgleichsgerade. Der
+Exponent~$\alpha$ wird damit zu
 %
 \begin{equation}
-  \alpha=\num{0(0)}
+  \alpha=\num{1.092(28)}
 \end{equation}
 %
 bestimmt.
+
+\begin{figure}
+  \includegraphics{analysis/oxydkathode_frequenzspektrum.pdf}
+  \caption{Frequenzverteilung des Stromrauschens einer Oxydkathode. Zur besseren
+  Übersichtlichkeit sind die Unsicherheiten der Messwerte nicht mit
+  eingezeichnet.}
+  \label{fig:oxydkathode_frequenzspektrum}
+\end{figure}
+
+\begin{figure}
+  \includegraphics{analysis/oxydkathode_frequenzspektrum_linearer_teil.pdf}
+  \caption{Linearer Anteil der Frequenzverteilung des Stromrauschens einer
+  Oxydkathode. Aus der Steigung der Ausgleichsgeraden wird der Exponent~$\alpha$
+  in der Formel für den Funkel-Effekt bestimmt.}
+  \label{fig:oxydkathode_frequenzspektrum_linearer_teil}
+\end{figure}
+
+\subsection{Untersuchung des Stromrauschens einer Reinmetallkathode}
