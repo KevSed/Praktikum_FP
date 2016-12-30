@@ -3,8 +3,8 @@
 Im Folgenden wird das Stromrauschen einer Oxydkathode genauer untersucht. Die
 Kathode wird mit einem Kathodenstrom von~$I=\SI{1}{\milli\ampere}$ betrieben,
 was außerhalb des Sättigungsbereichs liegt. Die Spannungen, die bei gegebener
-Mittenfrequenz des Band- bzw. Selektivverstärkers am Arbeitswiderstand der
-Kathode abfallen, sind in Tabelle~\ref{tab:oxydkathode} gezeigt.
+Mittenfrequenz~$\nu$ des Band- bzw. Selektivverstärkers am Arbeitswiderstand~$R$
+der Kathode abfallen, sind in Tabelle~\ref{tab:oxydkathode} gezeigt.
 
 Gemäß Formel~\ref{...} in Abschnitt~\ref{sec:theorie} berechnet sich die
 Frequenzverteilung aus den mittleren Rauschspannungsquadraten zu
@@ -14,12 +14,11 @@ Frequenzverteilung aus den mittleren Rauschspannungsquadraten zu
 \end{equation}
 %
 Die benötigten Bandbreiten~$\symup{\Delta}\nu$ bestimmen sich mit Hilfe der
-Werte aus einer gegebenen empirisch ermittelten Tabelle.
+Werte für~$\nu$ aus einer gegebenen empirisch ermittelten Tabelle.
 Abbildung~\ref{fig:oxydkathode_frequenzspektrum} zeigt die
-Frequenzverteilung~$W$ aufgetragen gegen die Mittenfrequenz~$\nu$. Der in
-Abschnitt~\ref{sec:theorie} beschriebene Funkel-Effekt ist besonders im
-niederfrequenten Bereich des Spektrums dominant. Zur Bestimmung des
-Exponenten~$\alpha$ in der Formel für den Funkel-Effekt
+Frequenzverteilung~$W$. Der in Abschnitt~\ref{sec:theorie} beschriebene
+Funkel-Effekt ist besonders im niederfrequenten Bereich des Spektrums dominant.
+Zur Bestimmung des Exponenten~$\alpha$ in der Formel für den Funkel-Effekt
 %
 \begin{equation}
   W(\nu)\propto\frac{I_0^2}{\nu^{\alpha}}
@@ -53,3 +52,74 @@ bestimmt.
 \end{figure}
 
 \subsection{Untersuchung des Stromrauschens einer Reinmetallkathode}
+
+Abschließend wird noch das Stromrauschen einer Reinmetallkathode untersucht.
+Dazu werden zunächst die charakterisitischen Linien der Kathode aufgenommen, um
+zu überprüfen, bei welcher Anodenspannung die Kathode im gesättigten Betrieb
+arbeitet. Dieser Betrieb ist erreicht, wenn die Erhöhung der Anodenspannung
+nicht mehr zu einer Erhöhung des Anodenstroms führt.
+Abbildung~\ref{fig:reinmetallkathode_linien} zeigt den Anodenstrom aufgetragen
+gegen die Anodenspannung bei festen Heizströmen. Ab einer Anodenspannung von
+ungefähr~\SI{90}{\volt} arbeitet die Kathode im gesättigten Betrieb. Für die
+folgenden Versuchsteile wird als Anodenspannung~\SI{120}{\volt} gewählt.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{analysis/reinmetallkathode_linien.pdf}
+  \caption{Charakteristische Linien der Reinmetallkathode bei verschiedenen
+  Heizströmen. Ab einer Anodenspannung von ungefähr~\SI{90}{\volt} arbeitet die
+  Kathode im gesättigten Betrieb.}
+  \label{fig:reinmetallkathode_linien}
+\end{figure}
+
+Tabelle~\ref{...} zeigt analog zu den vorherigen Versuchsteilen die
+aufgenommenen Spannungen~$U$ bei gegebener Mittenfrequenz~$\nu$.
+Abbildung~\ref{fig:reinmetallkathode_frequenzspektrum} zeigt die
+Frequenzverteilung. Wie bei der Oxydkathode sind zwei Bereiche erkennbar. Für
+niedrige Frequenzen ist die Verteilung linear abnehmend. In diesem Bereich
+dominiert der Funkel-Effekt. Für größere Frequenzen ab~\SI{100}{\hertz} ist die
+Verteilung annähernd konstant, da hier das frequenzunabhängige weiße Rauschen
+maßgeblich ist.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{analysis/reinmetallkathode_frequenzspektrum.pdf}
+  \caption{Frequenzverteilung des Stromrauschens einer Reinmetallkathode. Zur
+  besseren Übersichtlichkeit sind die Unsicherheiten der Messwerte nicht mit
+  eingezeichnet.}
+  \label{fig:reinmetallkathode_frequenzspektrum}
+\end{figure}
+
+Zur Bestimmung der Elementarladung~$e_0$ wird nun das mittlere
+Rauschstromquadrat~$\bar{I}^2$ gegen die Bandbreite~$\symup{\Delta}\nu$
+aufgetragen, denn aus Gleichung~\eqref{...} wird ein linearer Zusammenhang
+erwartet. Mit Hilfe der linearen Steigung kann dann auf die Elementarladung
+geschlossen werden. Abbildung~\ref{...} zeigt die gemessenen Punkte. Da für
+niedrige (NF) und hohe (HF) Frequenzen deutlich andere lineare Verläufe zu
+erkennen sind, wird für die beiden Bereiche unabhängig voneinander eine
+Ausgleichsrechnung durchgeführt. Es ergibt sich
+%
+\begin{align}
+    \bar{I}^2_{\symup{NF}}&=\SI{0.0(0)}{\ampere\squared\second}+\SI{0.0(0)}{\ampere\squared} \\
+    \bar{I}^2_{\symup{HF}}&=\SI{0.0(0)}{\ampere\squared\second}+\SI{0.0(0)}{\ampere\squared}
+\end{align}
+%
+Die Steigungen~$m$ der Geraden sind gemäß Gleichung~\eqref{...} gegeben durch
+%
+\begin{equation}
+  m=2e_0I_0
+\end{equation}
+%
+Der anliegende Anodengleichstrom beträgt~$I_0=\SI{0}{\milli\ampere}$. Daraus
+ergibt sich die Elementarladung zu
+%
+\begin{align}
+  e_{0\symup{, NF}}&=\SI{0.0(0)e-19}{\coulomb} \\
+  e_{0\symup{, HF}}&=\SI{0.0(0)e-19}{\coulomb}
+\end{align}
+%
+Die Abweichung der beiden Werte...
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{analysis/reinmetallkathode_elementarladung.pdf}
+  \caption{Eine Caption.}
+  \label{fig:reinmetallkathode_elementarladung}
+\end{figure}
