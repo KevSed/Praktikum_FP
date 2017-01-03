@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
+from funktionen import *
+
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif', size=16)
 
@@ -10,76 +12,100 @@ plt.rc('font', family='serif', size=16)
 
 # Einfachschaltung - Eichmessung
 
-f, VN, U = np.genfromtxt('eichmessung.txt', unpack='True')
+f, VN, U = np.genfromtxt('einfachschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000 * f
-U = korrEigenrauschen(U, VN)
+U = correctSelfNoise(U, VN)
 U = normVoltage(U, 1, VN)
 
 def durchlasskoeff(U, V_l = 10, U_sin = 150e-3):
     return U * np.sqrt(2)/(V_l * U_sin**2)
 
-integral = np.trapz(durchlasskoeff(U), f)
-print(integral)
+integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
+print(integral) #Fehler? Erstmal 2%
 
-plt.plot(f, durchlasskoeff(U), 'rx')
-#plt.show()
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+plt.plot(f/1000, 1/max(durchlasskoeff(U))*durchlasskoeff(U), 'bx')
+plt.xlabel(r"Frequenz"r'$\,\nu\,/\,\mathrm{kHz}$')
+plt.ylabel(r"Durchlasskoeffizient"r'\,$\beta$')
+plt.ylim(0,1.1)
+plt.grid()
+plt.text(0.8, 0.9,'Integral={:3f}'.format(integral), horizontalalignment='center', verticalalignment='center', transform = ax.transAxes)
+plt.tight_layout()
+plt.savefig('durchlasskoeffizient.pdf')
 plt.cla()
 plt.clf()
 
 # Einfachschaltung - schwacher Widerstand
 
-R, VN, U = np.genfromtxt('einfachschaltung_r_daten.txt', unpack='True')
+R, VN, U = np.genfromtxt('einfachschaltung_schwacher_widerstand.txt', unpack='True')
 
-plt.plot(R, U, 'rx')
-#plt.show()
+U = correctSelfNoise(U, VN)
+U = normVoltage(U, 1000, VN)
 
-params, cov = curve_fit(linear, R, U)
+plt.plot(R, U, 'rx', label='Messwerte')
+plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
+plt.ylabel(r"Spannung"r'\,$U\,/\,\mathrm{V}$')
+plt.grid()
+params, cov = curve_fit(linearFunction, R, U)
 x = np.linspace(min(R), max(R), 2)
-plt.plot(x, linear(x, *params), 'b-')
-#plt.show()
+plt.plot(x, linearFunction(x, *params), 'b-', label='Lineare Regression')
+plt.legend(loc = 'best')
+plt.tight_layout()
+plt.savefig('einfachschaltung_schwacher_widerstand.pdf')
 plt.cla()
 plt.clf()
+
+m_w = ufloat(params[0], np.sqrt(cov[0][0]))
+T = ufloat(293, 5) #K
+Δν = ufloat(3533.4, 3533.4/50)
+k_w = params[0]*1/(4*T*Δν)
+
 print('''
 Schwacher Widerstand:
 ----------------------------
-m = {}+-{} [V^2/R]
-b = {}+-{} [V^2]
-'''.format(params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1])))
+m   = {}+-{} [V^2/R]
+b   = {}+-{} [V^2]
+k_w = {}
+'''.format(params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
+
 
 # Einfachschaltung - starker Widerstand
 
-R, VN, U = np.genfromtxt('einfachschaltung_R_daten.txt', unpack='True')
+R, VN, U = np.genfromtxt('einfachschaltung_starker_widerstand.txt', unpack='True')
 U = normVoltage(U, 1, VN)
-
 plt.plot(R, U, 'rx')
-#plt.show()
 
-params, cov = curve_fit(linear, np.delete(R, [7, 20]), np.delete(U, [7, 20]))
+
+params, cov = curve_fit(linearFunction, np.delete(R, [7, 20]), np.delete(U, [7, 20]))
 x = np.linspace(min(R), max(R), 2)
-plt.plot(x, linear(x, *params), 'b-')
-#plt.show()
+plt.plot(x, linearFunction(x, *params), 'b-')
 plt.cla()
 plt.clf()
+
+m_s = ufloat(params[0], np.sqrt(cov[0][0]))
+k_s = params[0]*1/(4*T*Δν)
+
 print('''
-Schwacher Widerstand:
+Starker Widerstand:
 ----------------------------
-m = {}+-{} [V^2/R]
-b = {}+-{} [V^2]
-'''.format(params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1])))
+m  = {}+-{} [V^2/R]
+b  = {}+-{} [V^2]
+k_s = {}
+'''.format(params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_s))
 
 # Korrelatorschaltung - Eichmessung
-f, VN, U = np.genfromtxt('eichmessung_korrelator.txt', unpack='True')
+f, VN, U = np.genfromtxt('korrelatorschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000*f
 U = normVoltage(U, 1, VN)
 plt.plot(f, U, 'rx')
 
-#plt.show()
 
-params, cov = curve_fit(korrEich, f, durchlasskoeff(U), p0=[0.1, 1, 5000])
+params, cov = curve_fit(correlatorCalibrationCurve, f, durchlasskoeff(U), p0=[0.1, 1, 5000])
 x = np.linspace(min(f), max(f), 100)
-print(params)
-plt.plot(x, korrEich(x, *params), 'b-')
-plt.show()
+plt.plot(x, correlatorCalibrationCurve(x, *params), 'b-')
+#plt.show()
 
 
 # Korrelatorschaltung - schwacher Widerstand

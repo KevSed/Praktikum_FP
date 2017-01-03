@@ -1,2 +1,115 @@
 \section{Auswertung}
 \label{sec:auswertung}
+
+\subsection{Kalibrationsmessung der Einfachschaltung}
+%
+Zur Kalibrationsmessung der Einfachschaltung wird eine Sinusspannung an die
+Vorverstärker gelegt. Diese besitzt dabei eine Spannungspitze von
+$\SI{150}{\milli\volt}$ und ist in ihrer Frequenz variabel. Der untersuchte
+Frequenzbereich verläuft von etwa $\SI{1}{\kilo\hertz}$ bis
+$\SI{10}{\kilo\hertz}$. Die am Ausgang der Schaltung gemessene Spannung
+$U_\text{gemessen}$ wird einheitlich durch den Vorverstärker um den Faktor
+\num{1000} und durch den Gleichspannungsverstärker um den Faktor \num{10}
+verstärkt, sowie zur besseren Messung variabel von einem Nachverstärker.
+Aufgrund dessen muss die Spannung auf eine einheitliche Größe $U_\text{einh}$
+umgerechnet werden.\\
+%
+Die Messwerte, sowie die berechneten, auf eine Verstärkung von \num{100}
+vereinheitlichten Spannungen sind in Tabelle~\ref{tab:1fach_kalib} aufgeführt.
+Aus den so bestimmten Spannungen lässt sich der Durchlasskoeffizient $\beta$
+nach dem folgenden Zusammenhang \eqref{eq:beta} berechnen.
+%
+\begin{equation}
+  \beta= \frac{U_\text{einh} \cdot \sqrt{2}}{V_g \cdot U_\text{sin}^2}
+  \label{eq:beta}
+\end{equation}
+%
+Die Gesamtverstärkung $V_g$ setzt sich hierbei wie oben bereits beschrieben aus
+der Vorverstärkung von \num{1000}, sowie der Gleichspannungsverstärkung von
+\num{10} und der variablen Nachverstärkung $V_N$ zusammen. Letztere ist bereits
+durch die Vereinheitlichung der Spannungen berücksichtigt, sodass $V_g$ den Wert
+\num{10} hat. (Ist das nun riktik? Steht so im python-script. +Fehler)
+Die frequenzabhängige Verteilung des Durchlasskoeffizienten ist in
+Abbildung~\ref{fig:beta} dargestellt.
+%
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{analysis/durchlasskoeffizient.pdf}
+  \caption{Normierte Durchlasskurve der Kalibrationsmessung der Einfachschaltung.}
+  \label{fig:beta}
+\end{figure}
+%
+Die Bandweite $\upD\nu$ der Frequenz resultiert aus dem Integral dieser
+Verteilung. Dieses wird mit Hilfe der Trapezregel numerisch bestimmt. Es ergibt
+sich:
+%
+\begin{equation}
+  \upD\nu=\SI{3533.4}{\hertz}
+\end{equation}
+%
+\subsection{Bestimmung des Eigenrauschens der Einfachschaltung}
+%
+Um die im folgenden beschriebenen Messungen möglichst frei von systematischen
+Fehlern zu halten, muss das Eigenrauschen des verwendeten Verstärkers bestimmt
+werden. Dieses wird anschließend aus den gemessenen Spannungen entfernt. Zur
+Messung der Rauschspannungen $U_R$ wird am Vorverstärker ein Kurzschluss
+eingesetzt und so bei variabler Verstärkung $V_N$ gemessen. Die Messwerte sind
+in Tabelle~\ref{tab:eigenrauschen} aufgeführt. Im Folgenden sind die zur
+Auswertung verwendeten Spannungen stets um das zugehörige Eigenrauschen
+korrigiert.
+%
+\subsection{Untersuchung des thermischen Rauschens via Einfachschaltung}
+%
+Zur Untersuchung des in Abschnitt~\ref{sec:theorie} beschriebenen thermischen
+Rauschens, wird ein variabler Widerstand mit der Einfachschaltung verbunden. Mit
+Hilfe dieses Widerstandes wird das Rauschspannungsquadrat für verschiedene
+Widerstände gemessen. Aus dem Verhalten dieses Rauschens lässt sich die
+\textsc{Boltzmann}-Konstante $k_\text{B}$ bestimmen. [Bezug aus Theorie] \\
+Die Messung wird, um einen weiteren Bereich abzudecken, für zwei verschiedene
+Widerstandsbereiche durchgeführt. Dazu werden zwei variable Widerstände mit
+$\SI{50}{\ohm}$ - $\SI{1000}{\ohm}$ sowie $\SI{1}{\kilo\ohm}$ -
+$\SI{100}{\kilo\ohm}$ verwendet. Die erste Messung mit dem geringeren Widerstand
+ergibt die in Tabelle~\ref{tab:1fach_schwach} aufgeführten Messwerte. Hierbei
+ist keine Vereinheitlichung der Spannungen notwendig, da die Nachverstärkung
+konstant \num{1000} beträgt. Die Messung anhand des größeren Widerstandes ergibt
+die in Tabelle~\ref{tab:1fach_stark} aufgeführten Messwerte. Hier ist eine
+Vereinheitlichung aufgrund der Nachverstärkung notwendig. \\
+Durch lineare Ausgleichsrechnung für das mittlere Spannungsquadrat lassen sich
+nun gemäß der Funktionsvorschrift
+%
+\begin{equation}
+  \bar{U}^2(R)=m\cdot R + b
+\end{equation}
+%
+die Parameter der linearen Funktionen bestimmen. Diese werden anschließend
+verwendet, um mit Hilfe der \textsc{Nyquist}-Beziehung~\eqref{eq:nyquist} die
+\textsc{Boltzmann}-Konstante zu bestimmen. Die Ergebnisse der Ausgleichsrechnung
+lauten
+%
+\begin{align*}
+  m_\text{schwach}&=\SI{26.1(1)e-5}{\volt\squared\per\ohm} \quad &b_\text{schwach}=\SI{37.3(8)e-3}{\volt\squared} \\ m_\text{stark}&=\SI{3.3(1)e-10}{\volt\squared\per\ohm} \quad &b_\text{stark}=\SI{-1.2(6)e-06}{\volt\squared}.
+\end{align*}
+%
+Die Meswerte, sowie die Ergebnisse der Ausgleichsrechnung sind in den Abbildungen~\ref{fig:r_schwach} und \ref{fig:r_stark} dargestellt.
+%
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{analysis/einfachschaltung_schwacher_widerstand.pdf}
+  \caption{Rauschspannungsquadrate für verschiedene Widerstände des schwachen Widerstandes.}
+  \label{fig:r_schwach}
+\end{figure}
+%
+%
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{analysis/einfachschaltung_starker_widerstand.pdf}
+  \caption{Rauschspannungsquadrate für verschiedene Widerstände des starken Widerstandes.}
+  \label{fig:r_stark}
+\end{figure}
+%
+
+Aus der \textsc{Nyquist}-Beziehung lässt sich die $k_B$ nun bestimmen:
+%
+\begin{align*}
+  k_B=&\frac{\bar{U^2}}{R}\cdot\frac{1}{4\cdot T\cdot R\upD\nu} \\
+     =&m\cdot2,4148\cdot10^{-7} \\
+  \leadsto &k_\text{stark}= \\
+  \leadsto &k_\text{schwach}=
+\end{align*}

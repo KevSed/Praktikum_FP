@@ -3,6 +3,107 @@
 
 \begin{table}
   \centering
+  \begin{tabular}{S[table-format=1.3]
+                  S[table-format=3.0]
+                  S[table-format=1.3]
+                  S[table-format=1.4]}
+    \toprule
+    {$\nu$\/\text{kHz}} & {$V_{\symup{N}}$} & {$U_{\symup{gemessen}}$} & {$U_{\symup{einh}}$} \\
+    \midrule
+    1.078 & 500 & 0.51  & 0.204  \\
+    1.586 & 200 & 0.089 & 0.02225\\
+    2.036 & 200 & 0.314 & 0.0785 \\
+    2.530 & 200 & 1.44  & 0.36   \\
+    3.021 & 200 & 5.06  & 1.265  \\
+    3.267 & 100 & 1.99  & 1.99   \\
+    3.485 & 100 & 2.86  & 2.86   \\
+    3.725 & 100 & 3.89  & 3.89   \\
+    3.955 & 100 & 4.79  & 4.79   \\
+    4.205 & 100 & 5.51  & 5.51   \\
+    4.444 & 100 & 5.86  & 5.86   \\
+    4.773 & 100 & 5.78  & 5.78   \\
+    4.963 & 100 & 5.48  & 5.48   \\
+    5.263 & 100 & 4.77  & 4.77   \\
+    5.424 & 100 & 4.32  & 4.32   \\
+    5.793 & 100 & 3.29  & 3.29   \\
+    5.915 & 100 & 2.97  & 2.97   \\
+    6.432 & 100 & 1.856 & 1.856  \\
+    6.916 & 100 & 1.169 & 1.169  \\
+    7.445 & 200 & 2.93  & 0.7325 \\
+    8.016 & 200 & 1.772 & 0.443  \\
+    8.412 & 200 & 1.263 & 0.31575\\
+    8.895 & 200 & 0.832 & 0.208  \\
+    9.432 & 200 & 0.559 & 0.13925\\
+    9.936 & 200 & 0.392 & 0.098  \\
+    \bottomrule
+  \end{tabular}
+\caption{Messdaten der Kalibrationsmessung der Einfachschaltung bei einer
+konstanten Vorverstärkung von \num{1000} und Gleichspannungsverstärkung von
+\num{10}. Die Spannungen sind auf eine Nachverstärkung von \num{100}
+vereinheilicht.}
+  \label{tab:1fach_kalib}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{SS}
+    \toprule
+    {$V_{\symup{N}}$} & {$U_{\symup{R}}$} \\
+    \midrule
+    1     & 3.1   \\
+    2     & 3.0   \\
+    5     & 3.1   \\
+    10    & 3.1   \\
+    20    & 3.0   \\
+    50    & 3.0   \\
+    100   & 3.0   \\
+    200   & 3.9   \\
+    500   & 11.6  \\
+    1000  & 36.2  \\
+    \bottomrule
+  \end{tabular}
+\caption{Messdaten zur Bestimmung des Eigenrauschens des verwendeten
+Verstärkers. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer
+Gleichspannungsverstärkung von $V_==10$.}
+  \label{tab:eigenrauschen}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{SSS}
+    \toprule
+    {$R\/\,\symup{\Omega}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}\/\,\symup{V}$}\\
+    \midrule
+    50  & 1000  & 0.049 \\
+    102 & 1000  & 0.064 \\
+    152 & 1000  & 0.078 \\
+    207 & 1000  & 0.093 \\
+    251 & 1000  & 0.104 \\
+    303 & 1000  & 0.114 \\
+    353 & 1000  & 0.129 \\
+    404 & 1000  & 0.144 \\
+    451 & 1000  & 0.152 \\
+    501 & 1000  & 0.167 \\
+    555 & 1000  & 0.185 \\
+    605 & 1000  & 0.194 \\
+    652 & 1000  & 0.208 \\
+    704 & 1000  & 0.222 \\
+    752 & 1000  & 0.237 \\
+    807 & 1000  & 0.250 \\
+    855 & 1000  & 0.261 \\
+    908 & 1000  & 0.274 \\
+    949 & 1000  & 0.283 \\
+    995 & 1000  & 0.296 \\
+    \bottomrule
+  \end{tabular}
+\caption{Messdaten zur Bestimmung des Eigenrauschens des verwendeten
+Verstärkers. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer
+Gleichspannungsverstärkung von $V_==10$.}
+  \label{tab:1fach_schwach}
+\end{table}
+
+\begin{table}
+  \centering
   \begin{tabular}{S[table-format=6.0]
                   S[table-format=2.0]
                   S[table-format=2.0]

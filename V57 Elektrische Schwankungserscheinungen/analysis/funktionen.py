@@ -75,8 +75,8 @@ def correctSelfNoise(U, VN):
     if (VN ==  500): return U - 0.0116
     if (VN == 1000): return U - 0.0362
 
-def normVoltage(U, VS, VN, VZ = 1):
-    return U * (VZ / (VS * VN)) ** 2
+def normVoltage(U, VV, VN, VZ = 1, VG=10):
+    return U * (VZ / (VG * VV * VN)) ** 2
 
 def linearFunction(x, m, b):
     return m * x + b
