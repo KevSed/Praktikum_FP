@@ -75,12 +75,16 @@ k_w = {}
 
 R, VN, U = np.genfromtxt('einfachschaltung_starker_widerstand.txt', unpack='True')
 U = normVoltage(U, 1, VN)
-plt.plot(R, U, 'rx')
-
 
 params, cov = curve_fit(linearFunction, np.delete(R, [7, 20]), np.delete(U, [7, 20]))
 x = np.linspace(min(R), max(R), 2)
-plt.plot(x, linearFunction(x, *params), 'b-')
+plt.plot(R, U, 'rx', label='Messwerte')
+plt.plot(x, linearFunction(x, *params), 'b-', label='Lineare Regression')
+plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
+plt.ylabel(r"Spannung"r'\,$U\,/\,\mathrm{V}$')
+plt.legend(loc = 'best')
+plt.tight_layout()
+plt.savefig('einfachschaltung_starker_widerstand.pdf')
 plt.cla()
 plt.clf()
 
