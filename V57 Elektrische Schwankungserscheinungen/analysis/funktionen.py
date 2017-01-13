@@ -76,10 +76,13 @@ def correctSelfNoise(U, VN):
     if (VN == 1000): return U - 0.0362
 
 def normVoltage(U, VV, VN, VZ = 1, VG=10):
-    return U * (VZ / (VG * VV * VN)) ** 2
+    return U * (VZ / (VG * (VV * VN)**2))
 
 def linearFunction(x, m, b):
     return m * x + b
 
-def correlatorCalibrationCurve(f, A, Q, f0):
-    return A /Q ** 2 * 1 / ((f / f0) ** 2 + (f0 / f) ** 2 + 1 / Q ** 2 - 2)
+def correlatorCalibrationCurve(f, A, f0, Q=10):
+    return A /(Q ** 2) * 1 / ((f / f0) ** 2 + (f0 / f) ** 2 + 1 / Q ** 2 - 2)
+
+def durchlasskoeff(U, V_l = 10, U_sin = 150e-3):
+    return U * np.sqrt(2)/(V_l * U_sin**2)
