@@ -30,21 +30,23 @@ zeigt den linearen Teil der Frequenzverteilung, sowie die Ausgleichsgerade. Der
 Exponent~$\alpha$ wird damit zu
 %
 \begin{equation}
-  \alpha=\num{1.092(28)}
+  \alpha=\num{1.091(28)}
 \end{equation}
 %
 bestimmt.
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{analysis/oxydkathode_frequenzspektrum.pdf}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{analysis/oxydkathode_frequenzspektrum.pdf}
   \caption{Frequenzverteilung des Stromrauschens einer Oxydkathode. Zur besseren
   Übersichtlichkeit sind die Unsicherheiten der Messwerte nicht mit
   eingezeichnet.}
   \label{fig:oxydkathode_frequenzspektrum}
 \end{figure}
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{analysis/oxydkathode_frequenzspektrum_linearer_teil.pdf}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{analysis/oxydkathode_frequenzspektrum_linearer_teil.pdf}
   \caption{Linearer Anteil der Frequenzverteilung des Stromrauschens einer
   Oxydkathode. Aus der Steigung der Ausgleichsgeraden wird der Exponent~$\alpha$
   in der Formel für den Funkel-Effekt bestimmt.}
@@ -63,8 +65,9 @@ gegen die Anodenspannung bei festen Heizströmen. Ab einer Anodenspannung von
 ungefähr~\SI{90}{\volt} arbeitet die Kathode im gesättigten Betrieb. Für die
 folgenden Versuchsteile wird als Anodenspannung~\SI{120}{\volt} gewählt.
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{analysis/reinmetallkathode_linien.pdf}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{analysis/reinmetallkathode_linien.pdf}
   \caption{Charakteristische Linien der Reinmetallkathode bei verschiedenen
   Heizströmen. Ab einer Anodenspannung von ungefähr~\SI{90}{\volt} arbeitet die
   Kathode im gesättigten Betrieb.}
@@ -80,8 +83,9 @@ dominiert der Funkel-Effekt. Für größere Frequenzen ab~\SI{100}{\hertz} ist d
 Verteilung annähernd konstant, da hier das frequenzunabhängige weiße Rauschen
 maßgeblich ist.
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{analysis/reinmetallkathode_frequenzspektrum.pdf}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{analysis/reinmetallkathode_frequenzspektrum.pdf}
   \caption{Frequenzverteilung des Stromrauschens einer Reinmetallkathode. Zur
   besseren Übersichtlichkeit sind die Unsicherheiten der Messwerte nicht mit
   eingezeichnet.}
@@ -92,14 +96,14 @@ Zur Bestimmung der Elementarladung~$e_0$ wird nun das mittlere
 Rauschstromquadrat~$\bar{I}^2$ gegen die Bandbreite~$\symup{\Delta}\nu$
 aufgetragen, denn aus Gleichung~\eqref{...} wird ein linearer Zusammenhang
 erwartet. Mit Hilfe der linearen Steigung kann dann auf die Elementarladung
-geschlossen werden. Abbildung~\ref{...} zeigt die gemessenen Punkte. Da für
-niedrige (NF) und hohe (HF) Frequenzen deutlich andere lineare Verläufe zu
-erkennen sind, wird für die beiden Bereiche unabhängig voneinander eine
-Ausgleichsrechnung durchgeführt. Es ergibt sich
+geschlossen werden. Abbildung~\ref{fig:reinmetallkathode_elementarladung} zeigt
+die gemessenen Punkte. Da für niedrige (NF) und hohe (HF) Frequenzen deutlich
+andere lineare Verläufe zu erkennen sind, wird für die beiden Bereiche
+unabhängig voneinander eine Ausgleichsrechnung durchgeführt. Es ergibt sich
 %
 \begin{align}
-    \bar{I}^2_{\symup{NF}}&=\SI{0.0(0)}{\ampere\squared\second}+\SI{0.0(0)}{\ampere\squared} \\
-    \bar{I}^2_{\symup{HF}}&=\SI{0.0(0)}{\ampere\squared\second}+\SI{0.0(0)}{\ampere\squared}
+    \bar{I}^2_{\symup{NF}}&=\SI{3.188(21)e-22}{\ampere\squared\second}+\SI{1.8(9)e-20}{\ampere\squared} \\
+    \bar{I}^2_{\symup{HF}}&=\SI{2.38(19)e-22}{\ampere\squared\second}+\SI{5(4)e-19}{\ampere\squared}
 \end{align}
 %
 Die Steigungen~$m$ der Geraden sind gemäß Gleichung~\eqref{...} gegeben durch
@@ -115,11 +119,11 @@ ergibt sich die Elementarladung zu
   e_{0\symup{, NF}}&=\SI{1.594(10)e-19}{\coulomb} \\
   e_{0\symup{, HF}}&=\SI{1.19(9)e-19}{\coulomb}
 \end{align}
-%
-Die Abweichung der beiden Werte...
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{analysis/reinmetallkathode_elementarladung.pdf}
-  \caption{Eine Caption.}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{analysis/reinmetallkathode_elementarladung.pdf}
+  \caption{Rauschstromquadrat aufgetragen gegen die Frequenzbreite. Es sind zwei
+  lineare Verläufe zu erkennen.}
   \label{fig:reinmetallkathode_elementarladung}
 \end{figure}

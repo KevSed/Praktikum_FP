@@ -17,11 +17,10 @@ plt.rc('font', family='serif', size=16)
 ν, VS, VN, U, ΔU = np.genfromtxt('oxydkathode.txt', unpack = True)
 Δν = frequency2bandwidth(ν, 'Oxydkathode')
 U = unp.uarray(U, ΔU)
-U = normVoltage(U, VS, VN)
-    # Vielleicht zwecks Übersichtlichkeit besser auf VZ = 100 normieren. Mal schauen...
+U = normVoltage(U, VN, VS=VS)
 R = 2200
 W = U / (R ** 2 * Δν)
-
+print(U)
 plt.plot(ν, noms(W), 'rx', label = 'Messdaten')
 plt.xlabel(r'$\nu\,/\,\mathrm{Hz}$')
 plt.ylabel(r'$W(\nu)\,/\,\mathrm{A^2s}$')
@@ -83,7 +82,7 @@ plt.clf()
 ν, VS, VN, U, ΔU = np.genfromtxt('reinmetallkathode.txt', unpack = True)
 Δν = frequency2bandwidth(ν, 'Reinmetallkathode')
 U = unp.uarray(U, ΔU)
-U = normVoltage(U, VS, VN)
+U = normVoltage(U, VN, VS=VS)
 R = 4680
 W = U / (R ** 2 * Δν)
 
@@ -99,8 +98,7 @@ plt.savefig('reinmetallkathode_frequenzspektrum.pdf')
 plt.cla()
 plt.clf()
 
-I = (U / 10000000) / R ** 2
-    # Hier wird noch die Vor- und Linearverstärkung herausgerechnet. Besser nochmal anschauen...
+I = U / R ** 2
 I0 = 1e-3
 
 Δν1 = np.append(Δν[Δν > 14000], Δν[Δν == 11600])
@@ -112,12 +110,16 @@ params1, cov1 = curve_fit(linearFunction, noms(Δν1), noms(I1))
 errors1 = np.sqrt(np.diag(cov1))
 m1 = ufloat(params1[0], errors1[0])
 b1 = ufloat(params1[1], errors1[1])
+print(m1)
+print(b1)
 print('Die Elementarladung wird im hochfrequenten Bereich zu {} bestimmt'.format(m1 / (2 * I0)))
 
 params2, cov2 = curve_fit(linearFunction, noms(Δν2), noms(I2))
 errors2 = np.sqrt(np.diag(cov2))
 m2 = ufloat(params2[0], errors2[0])
 b2 = ufloat(params2[1], errors2[1])
+print(m2)
+print(b2)
 print('Der Elementarladung wird im niederfrequenten Bereich zu {} bestimmt'.format(m2 / (2 * I0)))
 
 x1 = np.linspace(noms(min(Δν1)), noms(max(Δν1)), 2)
