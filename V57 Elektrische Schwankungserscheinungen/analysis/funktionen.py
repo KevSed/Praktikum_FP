@@ -84,5 +84,5 @@ def linearFunction(x, m, b):
 def correlatorCalibrationCurve(f, A, f0, Q=10):
     return A /(Q ** 2) * 1 / ((f / f0) ** 2 + (f0 / f) ** 2 + 1 / Q ** 2 - 2)
 
-def durchlasskoeff(U, V_l = 10, U_sin = 150e-3):
+def durchlasskoeff(U, V_l = 1, U_sin = 150e-3):
     return U * np.sqrt(2)/(V_l * U_sin**2)

@@ -10,7 +10,7 @@ plt.rc('font', family='serif', size=16)
 
 #TODO: Fehler auf die Spannungen berücksichtigen
 
-# Einfachschaltung - Eichmessung
+# Einfachschaltung - Eichmessung.
 
 f, VN, U = np.genfromtxt('data/einfachschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000 * f
@@ -110,6 +110,19 @@ plt.plot(f, U, 'rx')
 integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
 Δν = ufloat(integral, integral/50)
 
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+plt.plot(f/1000, 1/max(durchlasskoeff(U))*durchlasskoeff(U), 'bx')
+plt.xlabel(r"Frequenz"r'$\,\nu\,/\,\mathrm{kHz}$')
+plt.ylabel(r"Durchlasskoeffizient"r'\,$\beta$')
+plt.ylim(0,1.1)
+plt.grid()
+plt.text(0.8, 0.9,'Integral={:3f}'.format(integral), horizontalalignment='center', verticalalignment='center', transform = ax.transAxes)
+plt.tight_layout()
+plt.savefig('durchlasskoeffizient_korr.pdf')
+plt.cla()
+plt.clf()
 
 print('''
 Korrelatorschaltung:
