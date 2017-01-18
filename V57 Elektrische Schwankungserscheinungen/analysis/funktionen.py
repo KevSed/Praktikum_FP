@@ -86,3 +86,8 @@ def correlatorCalibrationCurve(f, A, f0, Q=10):
 
 def durchlasskoeff(U, V_l = 1, U_sin = 150e-3):
     return U * np.sqrt(2)/(V_l * U_sin**2)
+
+k = 1.38064852e-23 #Boltzmann
+
+def Rauschzahl(U, R, T, Δν): # U genormt
+    return U /(4 * k * T * R * Δν)

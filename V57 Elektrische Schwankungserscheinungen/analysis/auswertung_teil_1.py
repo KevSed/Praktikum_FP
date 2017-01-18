@@ -15,9 +15,7 @@ plt.rc('font', family='serif', size=16)
 f, VN, U = np.genfromtxt('data/einfachschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000 * f
 U = correctSelfNoise(U, VN)
-U = normVoltage(U, 1, VN)
-
-
+U = normVoltage(U, VN)
 
 integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
 print('Integral = {}'.format(integral)) #Fehler? Erstmal 2%
@@ -41,7 +39,7 @@ plt.clf()
 R, VN, U = np.genfromtxt('data/einfachschaltung_schwacher_widerstand.txt', unpack='True')
 
 U = correctSelfNoise(U, VN)
-U = normVoltage(U, 1000, VN)
+U = normVoltage(U, VN)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
@@ -75,7 +73,7 @@ k_w = {}
 # Einfachschaltung - starker Widerstand
 
 R, VN, U = np.genfromtxt('data/einfachschaltung_starker_widerstand.txt', unpack='True')
-U = normVoltage(U, 1000, VN)
+U = normVoltage(U, VN)
 
 params, cov = curve_fit(linearFunction, np.delete(R, [7, 20]), np.delete(U, [7, 20]))
 x = np.linspace(min(R), max(R), 2)
@@ -104,7 +102,7 @@ k_s = {}
 # Korrelatorschaltung - Eichmessung
 f, VN, U = np.genfromtxt('data/korrelatorschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000*f
-U = normVoltage(U, 1, VN)
+U = normVoltage(U, VN)
 plt.plot(f, U, 'rx')
 
 integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
@@ -136,7 +134,7 @@ Integral = {}
 R, VN, U = np.genfromtxt('data/korrelatorschaltung_schwacher_widerstand.txt', unpack='True')
 
 #U = correctSelfNoise(U, VN)
-U = normVoltage(U, 1000, VN)
+U = normVoltage(U, VN)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
@@ -164,11 +162,19 @@ b   = {}+-{} [V^2]
 k_w = {}
 '''.format(Δν, params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
 
+# Rauschzahl
+
+F_korr = Rauschzahl(U[9], R[9], T, Δν)
+print('''
+Rauschzahl der Korrelatorschaltung für den Widerstand R={} Ohm und eine Temperatur von T={}K: {}
+'''.format(R[9], T, F_korr))
+
+
 # Korrelatorschaltung - starker Widerstand
 
 R, VN, U = np.genfromtxt('data/korrelatorschaltung_starker_widerstand.txt', unpack='True')
 
-U = normVoltage(U, 1000, VN)
+U = normVoltage(U, VN)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
@@ -193,5 +199,5 @@ Starker Widerstand:
 ----------------------------
 m   = {}+-{} [V^2/R]
 b   = {}+-{} [V^2]
-k_w = {}
+k_s = {}
 '''.format(Δν, params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
