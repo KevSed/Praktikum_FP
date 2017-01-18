@@ -1,6 +1,8 @@
 \section{Auswertung}
 \label{sec:auswertung}
-
+%
+\input{../fehlerrechnung.tex}
+%
 \subsection{Kalibrationsmessung der Einfachschaltung}
 %
 Zur Kalibrationsmessung der Einfachschaltung wird eine Sinusspannung an die
@@ -11,7 +13,7 @@ $\SI{10}{\kilo\hertz}$. Die am Ausgang der Schaltung gemessene Spannung
 $U_\text{gemessen}$ wird einheitlich durch den Vorverstärker um den Faktor
 \num{1000} und durch den Gleichspannungsverstärker um den Faktor \num{10}
 verstärkt, sowie zur besseren Messung variabel von einem Nachverstärker.
-Aufgrund dessen muss die Spannung auf eine einheitliche Größe $U_\text{einh}$
+Aufgrund dessen muss die Spannung auf eine einheitliche Größe $U_\text{einheitlich}$
 umgerechnet werden.\\
 %
 Die Messwerte, sowie die berechneten, auf eine Nachverstärkung von \num{1}
@@ -39,6 +41,7 @@ Die frequenzabhängige Verteilung des Durchlasskoeffizienten ist in
 Abbildung~\ref{fig:beta} dargestellt.
 %
 \begin{figure}
+  \centering
   \includegraphics[width=0.8\textwidth]{analysis/durchlasskoeffizient.pdf}
   \caption{Normierte Durchlasskurve der Kalibrationsmessung der Einfachschaltung.}
   \label{fig:beta}
@@ -99,6 +102,7 @@ lauten
 Die Meswerte, sowie die Ergebnisse der Ausgleichsrechnung sind in den Abbildungen~\ref{fig:r_schwach} und \ref{fig:r_stark} dargestellt.
 %
 \begin{figure}
+  \centering
   \includegraphics[width=0.8\textwidth]{analysis/einfachschaltung_schwacher_widerstand.pdf}
   \caption{Rauschspannungsquadrate für verschiedene Widerstände des schwachen Widerstandes.}
   \label{fig:r_schwach}
@@ -106,6 +110,7 @@ Die Meswerte, sowie die Ergebnisse der Ausgleichsrechnung sind in den Abbildunge
 %
 %
 \begin{figure}
+  \centering
   \includegraphics[width=0.8\textwidth]{analysis/einfachschaltung_starker_widerstand.pdf}
   \caption{Rauschspannungsquadrate für verschiedene Widerstände des starken Widerstandes.}
   \label{fig:r_stark}
@@ -132,6 +137,7 @@ Die Kalibrationsmessung der Korrelatorschaltung wird wie die Kalibration der Ein
 Der Verlauf der analog zu oben berechneten Durchlasskurve ist in Abbildung~\ref{fig:korr_beta} dargestellt.
 %
 \begin{figure}
+  \centering
   \includegraphics[width=0.8\textwidth]{analysis/durchlasskoeffizient_korr.pdf}
   \caption{Normierte Durchlasskurve der Korrelatorschaltung.}
   \label{fig:korr_beta}
@@ -147,16 +153,16 @@ Das Integral dieser Verteilung ergibt wiederum die Bandweite $\upD\nu$ dieser Sc
 %
 Das thermische Rauschen wird mit Hilfe eines variablen Widerstandes untersucht. Dieser wird wie oben an den Anfang der Verstärkerkette geschlossen und die Ausgangsspannungen bei variablemn Widerstand gemessen. Die Messung wird für zwei Widerstände der Messbereiche $\SI{0}{\ohm}$ - $\SI{1000}{\ohm}$, sowie $\SI{0}{\ohm}$ - $\SI{100}{\kilo\ohm}$ durchgeführt. Die Messwerte sind in Tabelle~\ref{tab:schwach_korr} und Tabelle~\ref{tab:stark_korr} aufgeführt.
 Für die Verteilungen der vereinheitlichten Rauschspannungsquadrate werden lineare Regressionen durchgeführt. Die Ergebnisse sind in Abbildung~\ref{fig:korr_schwach} und Abbildung~\ref{fig:korr_stark} dargestellt.
-
 %
 \begin{figure}
+  \centering
   \includegraphics[width=0.8\textwidth]{analysis/korrelatorschaltung_schwacher_widerstand.pdf}
   \caption{Verteilung des Rauschspannungsquadrates der Korrelatorschaltung für variable Widerstände des schwachen Widerstandes.}
   \label{fig:korr_schwach}
 \end{figure}
 %
-%
 \begin{figure}
+  \centering
   \includegraphics[width=0.8\textwidth]{analysis/korrelatorschaltung_starker_widerstand.pdf}
   \caption{Verteilung des Rauschspannungsquadrates der Korrelatorschaltung für variable Widerstände des schwachen Widerstandes.}
   \label{fig:korr_stark}
