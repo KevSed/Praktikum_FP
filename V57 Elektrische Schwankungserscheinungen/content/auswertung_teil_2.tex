@@ -6,8 +6,8 @@ was außerhalb des Sättigungsbereichs liegt. Die Spannungen, die bei gegebener
 Mittenfrequenz~$\nu$ des Band- bzw. Selektivverstärkers am Arbeitswiderstand~$R$
 der Kathode abfallen, sind in Tabelle~\ref{tab:oxydkathode} gezeigt.
 
-Gemäß Formel~\ref{...} in Abschnitt~\ref{sec:theorie} berechnet sich die
-Frequenzverteilung aus den mittleren Rauschspannungsquadraten zu
+Gemäß Abschnitt~\ref{sec:theorie} berechnet sich die Frequenzverteilung aus den
+mittleren Rauschspannungsquadraten zu
 %
 \begin{equation}
   W(\nu)=\frac{\bar{U}^2}{R^2\symup{\Delta}\nu}
@@ -74,7 +74,7 @@ folgenden Versuchsteile wird als Anodenspannung~\SI{120}{\volt} gewählt.
   \label{fig:reinmetallkathode_linien}
 \end{figure}
 
-Tabelle~\ref{...} zeigt analog zu den vorherigen Versuchsteilen die
+Tabelle~\ref{tab:reinmetallkathode} zeigt analog zu den vorherigen Versuchsteilen die
 aufgenommenen Spannungen~$U$ bei gegebener Mittenfrequenz~$\nu$.
 Abbildung~\ref{fig:reinmetallkathode_frequenzspektrum} zeigt die
 Frequenzverteilung. Wie bei der Oxydkathode sind zwei Bereiche erkennbar. Für
@@ -94,19 +94,21 @@ maßgeblich ist.
 
 Zur Bestimmung der Elementarladung~$e_0$ wird nun das mittlere
 Rauschstromquadrat~$\bar{I}^2$ gegen die Bandbreite~$\symup{\Delta}\nu$
-aufgetragen, denn aus Gleichung~\eqref{...} wird ein linearer Zusammenhang
-erwartet. Mit Hilfe der linearen Steigung kann dann auf die Elementarladung
-geschlossen werden. Abbildung~\ref{fig:reinmetallkathode_elementarladung} zeigt
-die gemessenen Punkte. Da für niedrige (NF) und hohe (HF) Frequenzen deutlich
-andere lineare Verläufe zu erkennen sind, wird für die beiden Bereiche
-unabhängig voneinander eine Ausgleichsrechnung durchgeführt. Es ergibt sich
+aufgetragen, denn aus Gleichung~\eqref{eq:schottky} wird ein linearer
+Zusammenhang erwartet. Mit Hilfe der linearen Steigung kann dann auf die
+Elementarladung geschlossen werden.
+Abbildung~\ref{fig:reinmetallkathode_elementarladung} zeigt die gemessenen
+Punkte. Da für niedrige (NF) und hohe (HF) Frequenzen deutlich andere lineare
+Verläufe zu erkennen sind, wird für die beiden Bereiche unabhängig voneinander
+eine Ausgleichsrechnung durchgeführt. Es ergibt sich
 %
 \begin{align}
     \bar{I}^2_{\symup{NF}}&=\SI{3.188(21)e-22}{\ampere\squared\second}+\SI{1.8(9)e-20}{\ampere\squared} \\
     \bar{I}^2_{\symup{HF}}&=\SI{2.38(19)e-22}{\ampere\squared\second}+\SI{5(4)e-19}{\ampere\squared}
 \end{align}
 %
-Die Steigungen~$m$ der Geraden sind gemäß Gleichung~\eqref{...} gegeben durch
+Die Steigungen~$m$ der Geraden sind gemäß Gleichung~\eqref{eq:schottky} gegeben
+durch
 %
 \begin{equation}
   m=2e_0I_0
