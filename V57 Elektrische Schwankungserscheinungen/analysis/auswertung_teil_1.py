@@ -25,6 +25,7 @@ ax = fig.add_subplot(111)
 
 plt.plot(f/1000, 1/max(durchlasskoeff(U))*durchlasskoeff(U), 'bx')
 plt.xlabel(r"Frequenz"r'$\,\nu\,/\,\mathrm{kHz}$')
+
 plt.ylabel(r"Durchlasskoeffizient"r'\,$\beta$')
 plt.ylim(0,1.1)
 plt.grid()
@@ -69,8 +70,16 @@ b   = {}+-{} [V^2]
 k_w = {}
 '''.format(Δν, params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
 
+# Rauschzahl
+# -----------------------------------------------------------------------------
+i = 9
+F_korr = Rauschzahl(U[i], R[i], T, Δν)
+print('''
+Rauschzahl der Einfachschaltung für den Widerstand R={} Ohm und eine Temperatur von T={}K: {}
+'''.format(R[i], T, F_korr))
 
 # Einfachschaltung - starker Widerstand
+# -----------------------------------------------------------------------------
 
 R, VN, U = np.genfromtxt('data/einfachschaltung_starker_widerstand.txt', unpack='True')
 U = normVoltage(U, VN)
@@ -97,13 +106,19 @@ Starker Widerstand:
 m  = {}+-{} [V^2/R]
 b  = {}+-{} [V^2]
 k_s = {}
-'''.format(params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_s))
 
+
+
+'''.format(params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_s))
+#
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#
 # Korrelatorschaltung - Eichmessung
+# -----------------------------------------------------------------------------
 f, VN, U = np.genfromtxt('data/korrelatorschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000*f
 U = normVoltage(U, VN)
-plt.plot(f, U, 'rx')
 
 integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
 Δν = ufloat(integral, integral/50)
@@ -130,10 +145,9 @@ Integral = {}
 
 
 # Korrelatorschaltung - schwacher Widerstand
-
+# -----------------------------------------------------------------------------
 R, VN, U = np.genfromtxt('data/korrelatorschaltung_schwacher_widerstand.txt', unpack='True')
 
-#U = correctSelfNoise(U, VN)
 U = normVoltage(U, VN)
 
 plt.plot(R, U, 'rx', label='Messwerte')
@@ -163,15 +177,16 @@ k_w = {}
 '''.format(Δν, params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
 
 # Rauschzahl
-
-F_korr = Rauschzahl(U[9], R[9], T, Δν)
+# -----------------------------------------------------------------------------
+i = 10
+F_korr = Rauschzahl(U[i], R[i], T, Δν)
 print('''
 Rauschzahl der Korrelatorschaltung für den Widerstand R={} Ohm und eine Temperatur von T={}K: {}
-'''.format(R[9], T, F_korr))
+'''.format(R[i], T, F_korr))
 
 
 # Korrelatorschaltung - starker Widerstand
-
+# -----------------------------------------------------------------------------
 R, VN, U = np.genfromtxt('data/korrelatorschaltung_starker_widerstand.txt', unpack='True')
 
 U = normVoltage(U, VN)
@@ -190,7 +205,7 @@ plt.cla()
 plt.clf()
 
 m_w = ufloat(params[0], np.sqrt(cov[0][0]))
-k_w = params[0]*1/(4*T*Δν)
+k_w = params[0]/(4*T*Δν)
 
 print('''
 Frequenzband: Δν = {}

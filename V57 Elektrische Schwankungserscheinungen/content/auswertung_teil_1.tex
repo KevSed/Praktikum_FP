@@ -36,7 +36,7 @@ Die Gesamtverstärkung $V_g$ setzt sich hierbei wie oben bereits beschrieben aus
 der Vorverstärkung von \num{1000}, sowie der Gleichspannungsverstärkung $V_{=}$ von
 \num{10} und der variablen Nachverstärkung $V_N$ zusammen. Da alle Verstärkungen bereits
 durch die Vereinheitlichung der Spannungen berücksichtigt sind, hat $V_g$ den Wert
-\num{1}. \textbf{(Meiner Meinung nach passt das dann so.)} Die effektive Spannung aus dem angelegten Wechselstrom ergibt sich über den Faktor $\sqrt{2}$.
+\num{1}. Die effektive Spannung aus dem angelegten Wechselstrom ergibt sich über den Faktor $\sqrt{2}$.
 Die frequenzabhängige Verteilung des Durchlasskoeffizienten ist in
 Abbildung~\ref{fig:beta} dargestellt.
 %
@@ -52,10 +52,11 @@ Verteilung. Dieses wird mit Hilfe der Trapezregel numerisch bestimmt. Es ergibt
 sich:
 %
 \begin{equation}
-  \upD\nu=\SI{3530(7)}{\hertz}\; ,
+  \upD\nu=\SI{3500(70)}{\hertz}\; ,
 \end{equation}
 %
 wobei der Fehler durch die numerische Berechnung auf etwa $\SI{2}{\percent}$ geschätzt ist.
+
 \subsection{Bestimmung des Eigenrauschens der Einfachschaltung}
 %
 Um die im folgenden beschriebenen Messungen möglichst frei von systematischen
@@ -73,7 +74,7 @@ Zur Untersuchung des in Abschnitt~\ref{sec:theorie} beschriebenen thermischen
 Rauschens, wird ein variabler Widerstand mit der Einfachschaltung verbunden. Mit
 Hilfe dieses Widerstandes wird das Rauschspannungsquadrat für verschiedene
 Widerstände gemessen. Aus dem Verhalten dieses Rauschens lässt sich die
-\textsc{Boltzmann}-Konstante $k_\text{B}$ bestimmen. [Bezug aus Theorie] \\
+\textsc{Boltzmann}-Konstante $k_\text{B}$ bestimmen. Gleichung~\eqref{eq:boltzmann} verknüpft die beiden Größen. \\
 Die Messung wird, um einen weiteren Bereich abzudecken, für zwei verschiedene
 Widerstandsbereiche durchgeführt. Dazu werden zwei variable Widerstände mit
 $\SI{50}{\ohm}$ - $\SI{1000}{\ohm}$ sowie $\SI{1}{\kilo\ohm}$ -
@@ -91,7 +92,7 @@ nun gemäß der Funktionsvorschrift
 \end{equation}
 %
 die Parameter der linearen Funktionen bestimmen. Diese werden anschließend
-verwendet, um mit Hilfe der \textsc{Nyquist}-Beziehung~\eqref{eq:nyquist} die
+verwendet, um mit Hilfe der \textsc{Nyquist}-Beziehung~\eqref{eq:boltzmann} die
 \textsc{Boltzmann}-Konstante zu bestimmen. Die Ergebnisse der Ausgleichsrechnung
 lauten
 %
@@ -133,7 +134,7 @@ Hierbei wird die Temperatur mit $T=\SI{293(5)}{\kelvin}$ beschrieben. Für $k_{B
 %
 \subsection{Kalibrationsmessung der Korrelatorschaltung}
 %
-Die Kalibrationsmessung der Korrelatorschaltung wird wie die Kalibration der Einfachschaltung mit Hilfe einer Sinusspannung gleicher Amplitude durchgeführt. An die Eingänge der Verstärkerkette wird allerdings im Unterschied zur ersten Kalibrationsmessung ein 1:1000-Abschwächer gelegt. Die Ausgangsspannungen werden analog für variable Frequenz $f$ vermessen und sind in Tabelle~\ref{tab:korr_eich} aufgeführt.
+Die Kalibrationsmessung der Korrelatorschaltung wird wie die Kalibration der Einfachschaltung mit Hilfe einer Sinusspannung gleicher Amplitude durchgeführt. An die Eingänge der Verstärkerkette wird allerdings im Unterschied zur ersten Kalibrationsmessung ein 1:1000-Abschwächer gelegt. Die Ausgangsspannungen werden analog für variable Frequenz $f$ vermessen und sind in Tabelle~\ref{tab:kalib_korr} aufgeführt.
 Der Verlauf der analog zu oben berechneten Durchlasskurve ist in Abbildung~\ref{fig:korr_beta} dargestellt.
 %
 \begin{figure}
@@ -171,14 +172,34 @@ Für die Verteilungen der vereinheitlichten Rauschspannungsquadrate werden linea
 Die Ergebnisse der Regression lauten:
 %
 \begin{align*}
-  m_\text{schwach}&=\SI{260(1)e-19}{\volt\squared\per\ohm} \quad &b_\text{schwach}=\SI{370(8)e-17}{\volt\squared} \\ m_\text{stark}&=\SI{3.3(2)e-18}{\volt\squared\per\ohm} \quad &b_\text{stark}=\SI{-10(9)e-14}{\volt\squared}.
+  m_\text{schwach}&=\SI{1.08(2)e-15}{\volt\squared\per\ohm} \quad &b_\text{schwach}=\SI{4(1)e-14}{\volt\squared} \\ m_\text{stark}&=\SI{1.49(3)e-15}{\volt\squared\per\ohm} \quad &b_\text{stark}=\SI{-10(2)e-12}{\volt\squared}.
 \end{align*}
 %
 Daraus ergeben sich über die \textsc{Nyquist}-Beziehung folgende Werte für $k_\text{B}$.
 %
 \begin{align}
-  \text{stark:}\quad k_{B}=&\SI{3.25(9)e-23}{\joule\second} \\
-  \text{schwach:}\quad k_{B}=&\SI{2.49(7)e-23}{\joule\second}
+  \text{stark:}\quad k_{B}=&\SI{1.42(4)e-21}{\joule\second} \\
+  \text{schwach:}\quad k_{B}=&\SI{1.02(3)e-21}{\joule\second}
 \end{align}
 %
 \subsection{Bestimmung der Rauschzahlen}
+
+Die Rauschzahlen der beiden Verstärkerketten beschreiben die Stärke des Eigenrauschens. Sie lassen sich nach der Formel
+%
+\begin{equation}
+  F(Z,T)=\frac{\bar{U^2}}{4kTR\upD\nu V_\text{ges}}
+\end{equation}
+%
+mit dem Fehler
+%
+\begin{align*}
+  (\upD F)^2=&\left(\frac{\upD \bar{U^2}}{4kTR\upD\nu V_\text{ges}}\right)^2+\left(\frac{-\upD \bar{U^2}\upD k}{4k^2TR\upD\nu V_\text{ges}}\right)^2+\left(\frac{-\upD \bar{U^2}\upD T}{4kT^2R\upD\nu V_\text{ges}}\right)^2 \\
+  &+\left(\frac{-\upD \bar{U^2}\upD(\upD\nu)}{4kTR(\upD\nu)^2 V_\text{ges}}\right)^2
+\end{align*}
+%
+berechnen. Die Ergebnisse für beide Verstärkerketten bei einer geschätzten Temperatur von $\SI{293(5)}{\kelvin}$ und Widerständen von $R=\SI{501}{\ohm}$ für die Einfachschaltung, sowie $R=\SI{550}{\ohm}$ für die Korrelatorschaltung lauten:
+%
+\begin{align*}
+  F_\text{einf}&=0,46\,\pm\,0,01 \\
+  F_\text{korr}&=79\,\pm\,2
+\end{align*}
