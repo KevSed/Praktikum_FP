@@ -118,7 +118,7 @@ k_s = {}
 # -----------------------------------------------------------------------------
 f, VN, U = np.genfromtxt('data/korrelatorschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000*f
-U = normVoltage(U, VN)
+U = normVoltage(U, VN, VS=10)
 
 integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
 Δν = ufloat(integral, integral/50)
@@ -148,7 +148,7 @@ Integral = {}
 # -----------------------------------------------------------------------------
 R, VN, U = np.genfromtxt('data/korrelatorschaltung_schwacher_widerstand.txt', unpack='True')
 
-U = normVoltage(U, VN)
+U = normVoltage(U, VN, VS=10)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
@@ -189,7 +189,7 @@ Rauschzahl der Korrelatorschaltung für den Widerstand R={} Ohm und eine Tempera
 # -----------------------------------------------------------------------------
 R, VN, U = np.genfromtxt('data/korrelatorschaltung_starker_widerstand.txt', unpack='True')
 
-U = normVoltage(U, VN)
+U = normVoltage(U, VN, VS=10)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
