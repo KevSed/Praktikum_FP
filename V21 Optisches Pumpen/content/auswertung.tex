@@ -1,2 +1,119 @@
 \section{Auswertung}
 \label{sec:auswertung}
+
+Alle in der Auswertung angegebenen Größen sind stets auf die erste signifikante
+Stelle des Fehlers gerundet. Setzt sich eine Größe über mehrere Schritte aus
+anderen Größen zusammen, so wird erst am Ende gerundet, um Fehler zu vermeiden.
+Zur Auswertung wird die Programmiersprache \texttt{python (Version 3.5.1)} mit
+den Bibliothekserweiterungen \texttt{numpy}~\cite{numpy},
+\texttt{scipy}~\cite{scipy} und \texttt{matplotlib}~\cite{matplotlib} verwendet.
+
+\subsection{Kompensation des Erdmagnetfeldes}
+Die Vertikalfeldspule wird verwendet um die vertikale Komponente des
+Erdmagnetfeldes zu kompensieren. Das Magnetfeld eines Helmholtzspulenpaares
+beträgt in Abhängigkeit des Spulenstroms~$I$, der Windungszahl pro Spule~$N$ und
+dem Spulenradius~$R$
+%
+\begin{equation}
+  B = \mu_0\frac{8\cdot IN}{\sqrt{125}\cdot R}
+  \label{eq:bfeld}
+\end{equation}
+%
+Für die gegebene Vertikalspule gilt~$N=20$ und $R=\SI{11.735}{\centi\metre}$.
+Bei einem eingestellten Spulenstrom von~$\SI{245}{\milli\ampere}$ wird der
+Einfluss des Erdmagnetfeldes minimal. Daraus ergibt sich die vertikale
+Komponente des Erdmagnetfeldes zu~$B_{\bot}=\SI{37.55}{\micro\tesla}$.
+
+\subsection{Bestimmung der Landé-Faktoren und der Kernspins}
+Tabelle~\ref{tab:magnetfeld} zeigt die RF-Frequenzen zusammen mit den
+eingestellten Strömen für die Horizontalfeld- und die Sweepspule, bei denen die
+Transparenz der Zelle ein lokales Minimum hat. Aus den Strömen wird das
+Gesamtmagnetfeld~$B$ berechnet, wobei Gleichung~\eqref{eq:bfeld} verwendet wird.
+Für die Horizontalfeldspule gilt~$N=154$ und~$R=\SI{15.79}{\centi\metre}$. Die
+Kenngrößen der Sweepspule sind durch~$N=11$ und~$R=\SI{16.39}{\centi\metre}$
+gegeben.
+%
+\begin{table}[htb]
+  \centering
+  \caption{Eine Caption.}
+  \begin{tabular}{S[table-format=4.0]|
+                  S[table-format=3.0]
+                  S[table-format=3.0]
+                  S[table-format=3.2]|
+                  S[table-format=3.0]
+                  S[table-format=3.0]
+                  S[table-format=3.2]}
+    \toprule
+    & \multicolumn{3}{c}{\ce{^87Rb}} & \multicolumn{3}{c}{\ce{^85Rb}} \\
+    {$\displaystyle\frac{\nu}{\si{\kilo\hertz}}$} &
+    {$\displaystyle\frac{I_{\symup{H}}}{\si{\milli\ampere}}$} &
+    {$\displaystyle\frac{I_{\symup{S}}}{\si{\milli\ampere}}$} &
+    {$\displaystyle\frac{B}{\si{\micro\tesla}}$} &
+    {$\displaystyle\frac{I_{\symup{H}}}{\si{\milli\ampere}}$} &
+    {$\displaystyle\frac{I_{\symup{S}}}{\si{\milli\ampere}}$} &
+    {$\displaystyle\frac{B}{\si{\micro\tesla}}$} \\
+    \midrule
+     100 &   0 & 475 &  28.67 &   0 & 595 &  35.91 \\
+     200 &  30 & 320 &  45.62 &  30 & 560 &  60.10 \\
+     300 &  30 & 550 &  59.50 &  30 & 900 &  80.62 \\
+     400 &  66 & 265 &  73.87 &  66 & 740 & 102.54 \\
+     500 &  81 & 264 &  86.97 &  81 & 855 & 122.63 \\
+     600 & 102 & 205 & 101.82 & 102 & 905 & 144.07 \\
+     700 & 126 &  87 & 115.75 & 126 & 912 & 165.53 \\
+     800 & 126 & 324 & 130.05 & 165 & 716 & 187.91 \\
+     900 & 159 & 122 & 146.80 & 195 & 633 & 209.21 \\
+    1000 & 165 & 244 & 159.42 & 210 & 761 & 230.09 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:magnetfeld}
+\end{table}
+%
+Eine lineare Regression des Magnetfeldes gegen die eingestellte Frequenz liefert
+%
+\begin{align}
+  B_{87}&=\SI{1.441(11)e-7}{\tesla\per\kilo\hertz}\cdot\nu+\SI{1.56(7)e-5}{\tesla} \\
+  B_{85}&=\SI{2.144(9)e-7}{\tesla\per\kilo\hertz}\cdot\nu+\SI{1.59(6)e-5}{\tesla}
+\end{align}
+%
+\begin{table}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{analysis/magnetfeld.pdf}
+  \caption{Eine Caption.}
+  \label{fig:magnetfeld}
+\end{table}
+%
+Gemäß Gleichung~\eqref{...} folgen daraus die Landé-Faktoren
+%
+\begin{align}
+  g_{\text{F,87}}&=\num{0.496(4)} \\
+  g_{\text{F,85}}&=\num{0.3332(15)}
+\end{align}
+%
+Die Bestimmung der Landé-Faktoren~$g_{\symup{F}}$ ermöglicht die Berechnung der
+Kernspins der beiden Rubidiumisotope. Dazu wird zunächst mit Hilfe von
+Gleichung~\eqref{...} der Landé-Faktor~$g_{\symup{J}}$ berechnet.
+Mit~$S=\sfrac{1}{2}$,~$L=0$ und~$J=\sfrac{1}{2}$
+folgt~$g_{\symup{J}}=\num{2.0023}$. Für den Kernspin gilt
+%
+\begin{equation*}
+  I=\frac{g_{\symup{J}}}{2g_{\symup{F}}}-\frac{1}{2}
+\end{equation*}
+%
+Daraus folgen
+%
+\begin{align}
+  I_{87}&=\num{1.520(16)} \\
+  I_{85}&=\num{2.505(13)}
+\end{align}
+
+\subsection{Bestimmung des Isotopenverhältnisses}
+Abbildung~\ref{fig:signalbild} zeigt ein typisches Signalbild bei einer
+RF-Frequenz von
+%
+\begin{table}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{analysis/signalbild.png}
+  \caption{Eine Caption.}
+  \label{fig:signalbild}
+\end{table}
+%
