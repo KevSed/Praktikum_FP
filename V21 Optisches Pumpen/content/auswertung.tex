@@ -35,7 +35,8 @@ gegeben.
 %
 \begin{table}[htb]
   \centering
-  \caption{Eine Caption.}
+  \caption{Gemessene Stromstärken und berechnetes Magnetfeld für~$\ce{^87Rb}$
+  und~$\ce{^85Rb}$ bei eingestellter Hochfrequenz.}
   \begin{tabular}{S[table-format=4.0]|
                   S[table-format=3.0]
                   S[table-format=3.0]
@@ -75,14 +76,14 @@ Eine lineare Regression des Magnetfeldes gegen die eingestellte Frequenz liefert
   B_{85}&=\SI{2.144(9)e-7}{\tesla\per\kilo\hertz}\cdot\nu+\SI{1.59(6)e-5}{\tesla}
 \end{align}
 %
-\begin{table}[htb]
+\begin{figure}[htb]
   \centering
   \includegraphics[width=0.75\textwidth]{analysis/magnetfeld.pdf}
-  \caption{Eine Caption.}
+  \caption{Horizontales Magnetfeld aufgetragen gegen die Frequenz.}
   \label{fig:magnetfeld}
-\end{table}
+\end{figure}
 %
-Gemäß Gleichung~\eqref{...} folgen daraus die Landé-Faktoren
+Gemäß Gleichung~\eqref{eq:übergangsenergie} folgen daraus die Landé-Faktoren
 %
 \begin{align}
   g_{\text{F,87}}&=\num{0.496(4)} \\
@@ -91,7 +92,7 @@ Gemäß Gleichung~\eqref{...} folgen daraus die Landé-Faktoren
 %
 Die Bestimmung der Landé-Faktoren~$g_{\symup{F}}$ ermöglicht die Berechnung der
 Kernspins der beiden Rubidiumisotope. Dazu wird zunächst mit Hilfe von
-Gleichung~\eqref{...} der Landé-Faktor~$g_{\symup{J}}$ berechnet.
+Gleichung~\eqref{eq:gj} der Landé-Faktor~$g_{\symup{J}}$ berechnet.
 Mit~$S=\sfrac{1}{2}$,~$L=0$ und~$J=\sfrac{1}{2}$
 folgt~$g_{\symup{J}}=\num{2.0023}$. Für den Kernspin gilt
 %
@@ -108,12 +109,116 @@ Daraus folgen
 
 \subsection{Bestimmung des Isotopenverhältnisses}
 Abbildung~\ref{fig:signalbild} zeigt ein typisches Signalbild bei einer
-RF-Frequenz von
+Hochfrequenz von~$\SI{100}{\kilo\hertz}$. Dabei entspricht das
+Amplitudenverhältnis der beiden beobachteten Transparenzminima dem
+Isotopenverhältnis der untersuchten Probe.
+%
+\begin{equation}
+  \frac{N\left(\ce{^85Rb}\right)}{N\left(\ce{^87Rb}\right)}
+  =\frac{\num{4.4(2)}}{\num{2.2(2)}}
+  =\num{2.0(2)}
+\end{equation}
+%
+Die angegebenen Fehler resultieren aus einer Ungenauigkeit beim Ablesen der
+Amplituden und entsprechen dem Abstand zwischen zwei Hilfsgitterlinien.
+%
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{analysis/signalbild.png}
+  \caption{Oszilloskopbild eines typischen Signals
+  bei~$\SI{100}{\kilo\hertz}$.}
+  \label{fig:signalbild}
+\end{figure}
+%
+\subsection{Untersuchung des quadratischen Zeeman-Effektes}
+Im Folgenden wird der Einfluss des quadratischen Zeeman-Effekte untersucht. Dazu
+wird Formel~\eqref{eq:zeemanenergie} betrachtet, wobei für eine obere
+Abschätzung das größte verwendete Magnetfeld eingesetzt und~$M_{\symup{F}}=0$
+gesetzt wird. Die Hyperfeinstrukturaufspaltung des Grundzustandes ist durch
+%
+\begin{align}
+  \symup{\Delta}E_{\text{Hy,87}}&=\SI{4.53e-24}{\joule} \\
+  \symup{\Delta}E_{\text{Hy,85}}&=\SI{2.01e-24}{\joule}
+\end{align}
+%
+gegeben. Für die Zeeman-Energie folgt dann in linearer Näherung
+%
+\begin{align}
+  U_{\text{HF,87,linear}}&=\SI{7.33(6)e-28}{\joule} \\
+  U_{\text{HF,85,linear}}&=\SI{7.110(31)e-28}{\joule}
+\end{align}
+%
+und in quadratischer Näherung
+%
+\begin{align}
+  U_{\text{HF,87,quadratisch}}&=\SI{1.186(18)e-31}{\joule} \\
+  U_{\text{HF,85,quadratisch}}&=\SI{2.515(22)e-31}{\joule}
+\end{align}
+%
+\subsection{Untersuchung der transienten Effekte}
+%
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{analysis/anstieg.png}
+  \caption{Oszilloskopbild bei angelegter Rechteckspannung.}
+  \label{fig:anstieg}
+\end{figure}
+%
+Abbildung~\ref{fig:anstieg} zeigt den exponentiellen Anstieg der Transparenz
+der Zelle auf der~$\ce{^85Rb}$-Resonanz beim Anlegen einer Rechteckspannung.
+Die aufgenommenen Messwerte zur Untersuchung der Abhängigkeit von
+Schwingungsperiode und angelegter Hochfrequenzamplitude sind in
+Tabelle~\ref{tab:periodendauer} aufgeführt. Die Anpassung von
+Hyperbelfunktionen der Form
+%
+\begin{equation}
+  T=a+\frac{b}{U-c}
+\end{equation}
+%
+an die Messwerte liefert
+%
+\begin{align}
+  T_{87}&=\SI{0.021(10)}{\milli\second}+\frac{\SI{2.18(6)}{\milli\second\volt}}{U-\SI{0.000(24)}{\volt}} \\
+  T_{85}&=\SI{0.043(11)}{\milli\second}+\frac{\SI{3.10(6)}{\milli\second\volt}}{U-\SI{0.049(17)}{\volt}}
+\end{align}
+%
+Es folgt das Verhältnis
+%
+\begin{equation}
+  \frac{b_{85}}{b_{87}}=\frac{\num{3.10(6)}}{\num{2.18(6)}}=\num{1.42(5)}
+\end{equation}
 %
 \begin{table}[htb]
   \centering
-  \includegraphics[width=0.75\textwidth]{analysis/signalbild.png}
-  \caption{Eine Caption.}
-  \label{fig:signalbild}
+  \caption{Gemessene Periodendauern für~$\ce{^87Rb}$ und~$\ce{^85Rb}$ bei
+  eingestellter Hochfrequenzamplitude.}
+  \begin{tabular}{S[table-format=1.3]
+    S[table-format=1.3]
+    S[table-format=1.3]|
+    S[table-format=1.3]
+    S[table-format=1.3]
+    S[table-format=1.3]}
+    \toprule
+    {$\displaystyle\frac{U}{\si{\volt}}$} &
+    {$\displaystyle\frac{T_{87}}{\si{\milli\second}}$} &
+    {$\displaystyle\frac{T_{85}}{\si{\milli\second}}$} &
+    {$\displaystyle\frac{U}{\si{\volt}}$} &
+    {$\displaystyle\frac{T_{87}}{\si{\milli\second}}$} &
+    {$\displaystyle\frac{T_{85}}{\si{\milli\second}}$} \\
+    \midrule
+    1.000 & 2.20  & 3.30  & 6.000 & 0.376 & 0.553 \\
+    2.000 & 1.12  & 1.64  & 7.000 & 0.324 & 0.480 \\
+    3.000 & 0.756 & 1.09  & 8.000 & 0.285 & 0.422 \\
+    4.000 & 0.570 & 0.825 & 9.000 & 0.271 & 0.398 \\
+    5.000 & 0.448 & 0.660 & 9.756 & 0.263 & 0.385 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:periodendauer}
 \end{table}
 %
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{analysis/periodendauer.pdf}
+  \caption{Periodendauer aufgetragen gegen die Hochfrequenzamplitude.}
+  \label{fig:periodendauer}
+\end{figure}

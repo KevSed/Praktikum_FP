@@ -107,7 +107,7 @@ Mf = 0
 print('Linear 85:', U(gF85, Bg[1][9]), 'J, Linear 87:', U(gF87, Bg[0][9]) ,'J')
 print('Quadratisch 85:', U2(gF85, Bg[1][9], Mf, EHy85), 'J, Quadratisch 87:', U2(gF87, Bg[0][9], Mf, EHy87) ,'J')
 
-print('Abgelesenes Isotopenverhältnis Rb-85/Rb-87:', ufloat(1,0)/ufloat(1,0))
+print('Abgelesenes Isotopenverhältnis Rb-85/Rb-87:', ufloat(4.4,0.2)/ufloat(2.2,0.2))
 
 plt.plot(f, Bg[1] * 10**3, 'bx', label = r'Rb-85')
 plt.plot(f, Bg[0] * 10**3, 'rx', label = r'Rb-87')
@@ -119,6 +119,8 @@ plt.xlabel(r'$\nu\,/\,\mathrm{kHz}$')
 plt.legend()
 plt.tight_layout()
 plt.savefig('magnetfeld.pdf')
+plt.cla()
+plt.clf()
 
 df = pd.read_csv('TEK0001.CSV', header = None, names = ['t', 'U'], usecols = [3, 4])
 df = df.loc[(df['t'] >= 0) & (df['t'] <= 0.025)]
@@ -136,6 +138,8 @@ x = np.linspace(min(t), max(t), 1000)
 plt.plot(df['t'], df['U'], 'b.', markersize = 1)
 plt.plot(x, exp(x, *params85))
 plt.savefig('anstieg.pdf')
+plt.cla()
+plt.clf()
 
 U = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 9.756])
 T87 = np.array([6.6, 5.6, 1.49, 1.14, 3.58, 3.38, 3.56, 3.7, 3.52, 0.788])
@@ -144,7 +148,8 @@ n87 = np.array([3, 5, 2, 2, 8, 9, 11, 13, 13, 3])
 n85 = np.array([4, 4, 3, 4, 2, 3, 4, 4, 9, 8])
 T87 /= n87
 T85 /= n85
-
+print(T87)
+print(T85)
 param_bounds = ([0, 0, 0], [np.inf, np.inf, np.inf])
 params85, covariance85 = curve_fit(hyp, U, T85, p0 = (0.3, 2.7, 0.3), bounds = param_bounds)
 errors85 = np.sqrt(np.diag(covariance85))
@@ -158,6 +163,8 @@ a87 = ufloat(params87[0], errors87[0])
 b87 = ufloat(params87[1], errors87[1])
 c87 = ufloat(params87[2], errors87[2])
 
+print(a87, b87, c87)
+print(a85, b85, c85)
 print('b85/b87', b85/b87)
 
 x = np.logspace(-1, 1.1)
@@ -173,3 +180,5 @@ plt.ylim(0, 7)
 plt.legend()
 plt.tight_layout()
 plt.savefig('periodendauer.pdf')
+plt.cla()
+plt.clf()
