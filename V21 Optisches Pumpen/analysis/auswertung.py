@@ -137,7 +137,7 @@ c85 = ufloat(params85[2], errors85[2])
 x = np.linspace(min(t), max(t), 1000)
 plt.plot(df['t'], df['U'], 'b.', markersize = 1)
 plt.plot(x, exp(x, *params85))
-plt.savefig('anstieg.pdf')
+#plt.savefig('anstieg.pdf')
 plt.cla()
 plt.clf()
 
