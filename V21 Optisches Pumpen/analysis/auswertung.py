@@ -122,7 +122,7 @@ plt.savefig('magnetfeld.pdf')
 plt.cla()
 plt.clf()
 
-df = pd.read_csv('TEK0001.CSV', header = None, names = ['t', 'U'], usecols = [3, 4])
+df = pd.read_csv('daten.CSV', header = None, names = ['t', 'U'], usecols = [3, 4])
 df = df.loc[(df['t'] >= 0) & (df['t'] <= 0.025)]
 df['U'] = df['U'] - df['U'].max()
 t = df['t']
