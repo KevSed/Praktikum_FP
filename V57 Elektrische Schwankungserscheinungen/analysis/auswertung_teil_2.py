@@ -20,6 +20,7 @@ U = unp.uarray(U, ΔU)
 U = normVoltage(U, VN, VS=VS)
 R = 2200
 W = U / (R ** 2 * Δν)
+print(W*1e21)
 plt.plot(ν, noms(W), 'rx', label = 'Messdaten')
 plt.xlabel(r'$\nu\,/\,\mathrm{Hz}$')
 plt.ylabel(r'$W(\nu)\,/\,\mathrm{A^2s}$')
@@ -85,6 +86,8 @@ print(normVoltage(U, VN, VS=VS, VZ=(50*1000*10))*10)
 U = normVoltage(U, VN, VS=VS)
 R = 4680
 W = U / (R ** 2 * Δν)
+print(Δν)
+print(W*1e21)
 
 plt.plot(ν, noms(W), 'rx', label = 'Messdaten')
 plt.xlabel(r'$\nu\,/\,\mathrm{Hz}$')
