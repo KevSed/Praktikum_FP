@@ -6,17 +6,17 @@ Atomkern. Auf diesen Schalen besitzen sie feste Energien, zwischen welchen
 allerdings Übergänge stattfinden können. Dazu muss Energie, die exakt der
 Differenz der Niveaus entspricht von den Elektronen abgegeben oder aufgenommen
 werden. Dies geschieht über die Aufnahme oder Abgabe von Photonen der
-passenenden Frequenz. Die äußeren Niveaus, also jene mit den größten Energien,
+passenden Frequenz. Die äußeren Niveaus, also jene mit den größten Energien,
 sind dabei je nach Temperatur unterschiedlich besetzt. Die Besetzungszahl eines
-Niveaus ist dabei Boltzmann-verteilt, sodass für das Verhältnis der
+Niveaus folgt dabei einer Boltzmann Verteilung, sodass für das Verhältnis der
 Besetzungszahlen zweier Niveaus gilt:
 %
 \begin{equation}
-  \frac{N_2}{N_1}=\frac{\symup{g_2}}{\symup{g_1}}\frac{e^{-\sfrac{W_2}{\symup{k_B}T}}}{e^{-\sfrac{W_1}{\symup{k_B}T}}}
+  \frac{N_2}{N_1}=\frac{g_2}{g_1}\frac{\exp\left(-\sfrac{W_2}{\symup{k_B}T}\right)}{\exp(-\sfrac{W_1}{\symup{k_B}T})}
 \end{equation}
 %
-Hierbei beschreiben die $W_i$ die Energien der Zustände, die $\symup{g_i}$ die
-Lande-Faktoren, welche beschrieben wieviele Zustände zu der entsprechenden
+Hierbei beschreiben die $W_i$ die Energien der Zustände, die $g_{\symup{i}}$ die
+Lande-Faktoren, welche beschreiben, wie viele Zustände zu der entsprechenden
 Energie gehören, sowie $\symup{k_B}$ die Boltzmann-Konstante und $T$ die
 Temperatur. \\
 Mit Hilfe des optischen Pumpens kann eine Abweichung von dieser Verteilung
@@ -31,45 +31,48 @@ Energieabstand $\symup{h}\nu=W_2-W_1$ der Niveaus messen.
 Die Verteilung der Elektronen auf verschiedene Energieniveaus innerhalb des
 Atomes folgt aus Auswahlregeln verschiedener Quantenzahlen. Aus dem
 Gesamtdrehimpuls $\vec{J}$ der Elektronenhülle folgt ein magnetisches Moment
-$\vec{\mu}_J=-\symup{g_J}\symup{\mu_B}\vec{J}$. Der Faktor $\symup{g_J}$
+$\vec{\mu}_J=-g_{\symup{J}}\mu_{\symup{B}}\vec{J}$. Der Faktor $g_{\symup{J}}$
 berücksichtigt dabei, dass das Gesamtmoment aus Spin $S$ und Drehimpuls $L$
 folgt. Es gilt
 %
 \begin{align*}
-  |\vec{\mu_J}|=&\symup{g_J}\symup{\mu_B}\sqrt{J(J+1)}, \;\text{wobei} \\
-  |\vec{\mu_L}|=&-\symup{\mu_B}\sqrt{L(L+1)} \;\text{und} \\
-  |\vec{\mu_S}|=&-\symup{g_S}\symup{\mu_B}\sqrt{S(S+1)} \, .
+  |\vec{\mu}_J|=&g_{\symup{J}}\mu_{\symup{B}}\sqrt{J(J+1)},\;\text{wobei} \\
+  |\vec{\mu}_L|=&-\mu_{\symup{B}}\sqrt{L(L+1)}\;\text{und} \\
+  |\vec{\mu}_S|=&-g_{\symup{S}}\mu_{\symup{B}}\sqrt{S(S+1)}\;.
 \end{align*}
 %
-Das Gesamtdrehmoment $\vec{\mu_J}$ der Elektronenhülle präzediert dabei um den
+Das Gesamtdrehmoment $\vec{\mu}_J$ der Elektronenhülle präzediert dabei um den
 Gesamtdrehimpuls $\vec{J}$. Daher trägt stets nur der parallele Anteil dieses
-Drehimpulses zum magnetischen Moment bei. $\symup{g_J}$ ist also abhängig von
+Drehimpulses zum magnetischen Moment bei. $g_{\symup{J}}$ ist also abhängig von
 $J$, $S$ und $L$. Wird ein äußeres Magnetfeld angelegt, so spaltet sich das
 Spektrum weiter auf. Es gilt
 %
 \begin{equation}
-  U_\text{mag}=-\vec{\mu_J}\cdot\vec{B}
+  U_\text{mag}=-\vec{\mu}_J\cdot\vec{B}
 \end{equation}
 %
 Hieraus folgt eine Richtungsquantelung der Energie:
 %
 \begin{equation}
-  U_\text{mag}=\symup{g_J}\symup{\mu_B}B\cdot M_J\, ,\quad M_J\in[-J,J]
+  U_\text{mag}=g_{\symup{J}}\mu_{\symup{B}}B\cdot M_J,\quad M_J\in[-J,J]
 \end{equation}
 %
 Bei Anlegen eines äußeren Magnetfeldes wird also über den Zeeman-Effekt jedes
 Energieniveau in $2J+1$ Unterniveaus aufgespalten. Die Anzahl der so
-entstehenden Niveaus ist abhängig von der sich aus Gesamtdrehimpuls der
-Elektronenhülle $J$ und dem Kernspin $I$ ergebene Gesamtdrehimpuls $F$ des
+entstehenden Niveaus ist abhängig von dem sich aus Gesamtdrehimpuls der
+Elektronenhülle $J$ und dem Kernspin $I$ ergebenden Gesamtdrehimpuls $F$ des
 Atomes.
 %
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.75\textwidth]{figures/Aufspaltung.jpg}
-  \caption{Aufspaltung der Energieniveaus innerhalb eines Atomes. Dargestellt sind die Feinstrukturaufspaltung durch den Elektronenspin, die Hyperfeinstrukturaufspaltung durch den Kernspin, sowie die Zeeman-Aufspaltung durch ein äußeres Magnetfeld.}
+  \caption{Aufspaltung der Energieniveaus innerhalb eines Atomes. Dargestellt
+  sind die Feinstrukturaufspaltung durch den Elektronenspin, die
+  Hyperfeinstrukturaufspaltung durch den Kernspin, sowie die Zeeman-Aufspaltung
+  durch ein äußeres Magnetfeld.}
   \label{fig:aufspaltung}
 \end{figure}
-%
+
 \subsection{Optisches Pumpen}
 %
 Zum Verständnis des Verfahrens des optischen Pumpens wird ein Beispiel-System
@@ -80,10 +83,12 @@ $^2P_{\sfrac{1}{2}}$, sowie $^2P_{\sfrac{3}{2}}$.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.9\textwidth]{figures/Beispiel.jpg}
-  \caption{Aufspaltung der $S$- und $P$-Niveaus eines Beispiel-Atomes. Rechts: Zeeman-Aufspaltung des $^2P_{\sfrac{1}{2}}$- sowie des $^2S_{\sfrac{1}{2}}$-Niveaus.}
+  \caption{Aufspaltung der $S$- und $P$-Niveaus eines Beispiel-Atomes. Rechts:
+  Zeeman-Aufspaltung des $^2P_{\sfrac{1}{2}}$- sowie des
+  $^2S_{\sfrac{1}{2}}$-Niveaus.}
   \label{fig:beispiel}
 \end{figure}
-%
+
 Die Energieniveaus, sowie deren Aufspaltung im Magnetfeld sind in
 Abbildung~\ref{fig:beispiel} skizziert. Das bei den rechts skizzierten
 Übergängen emittierte Licht besitzt spezielle Polarisationseigenschaften. Das
@@ -92,7 +97,7 @@ $\vec{s}\nparallel\vec{k}$), während das $\sigma^-$-Licht linkszirkular
 polarisiert ist (also $\vec{s}\parallel\vec{k}$). Beide Linien erscheinen nur
 parallel zum Magnetfeld in dieser Polarisation und sonst linear polarisiert.
 Die $\pi$-Linien hingegen sind linear polarisiert und werden nicht parallel zum
-Magnetfeld abgestrahlt, da es sich hierbei um Dipolstrahlung handelt.\\
+Magnetfeld abgestrahlt, da es sich hierbei um Dipolstrahlung handelt.
 %
 \begin{figure}[htb]
   \centering
@@ -100,9 +105,9 @@ Magnetfeld abgestrahlt, da es sich hierbei um Dipolstrahlung handelt.\\
   \caption{Schematische Darstellung des Versuchsaufbaus \cite{V21}.}
   \label{fig:aufbau}
 \end{figure}
-%
+
 Abbildung~\ref{fig:aufbau} zeigt den schematischen Aufbau der verwendeten
-Apperatur. Eine Spektrallampe strahlt Licht in die Apperatur ein. Aus diesem
+Apparatur. Eine Spektrallampe strahlt Licht in die Apparatur ein. Aus diesem
 Licht wird mit Hilfe eines $\text{D}_1$-Filters und eines Polarisationsfilters
 rechtszirkular polarisiertes $\text{D}_1$-Licht. Der einzige mögliche
 Energieübergang innerhalb der Atome in der Dampfzelle ist derjenige von
@@ -113,19 +118,19 @@ Zeeman-Niveaus des $^2\symup{S}_{\sfrac{1}{2}}$-Niveaus besetzt, sodass im
 Laufe der Zeit das Niveau $^2\symup{S}_{\sfrac{1}{2}}$ (mit
 $\symup{M_J}=+\sfrac{1}{2}$) angereichert und das
 $^2\symup{S}_{\sfrac{1}{2}}$-Niveau (mit $\symup{M_J}=-\sfrac{1}{2}$)
-"leergepumpt" wird. Dies hat eine Umkehr der Bestzung im S-Niveau zur Folge.
-Experimentell beobachten lässt sich diese Entwicklung über die Transparenz des
-Dampfes für Licht. \\
+\enquote{leergepumpt} wird. Dies hat eine Umkehr der Bestzung im S-Niveau zur
+Folge. Experimentell beobachten lässt sich diese Entwicklung über die
+Transparenz des Dampfes für Licht. \\
 Wird Licht (einer bestimmten Energie) von dem Dampf absorbiert, so heißt dies,
 dass Elektronen im Gas angeregt werden und dabei die Photonen absorbieren. Dies
 ist natürlich nur möglich, wenn sich Elektronen in dem unteren Energieniveau
 dieser Anregungen befinden. Je weniger Elektronen sich in diesem Niveau
 befinden, desto unwahrscheinlicher ist eine Absorbtion des Photons und desto
-transparenter erscheint das Gas.\\
+transparenter erscheint das Gas. \\
 Es treten zwei Prozesse zur Abregung, also zur Emission von Photonen aus den
-Gesatomen auf. Bei der \textbf{spontanen Emission} begibt sich ein Elektron auf
+Gasatomen auf. Bei der spontanen Emission begibt sich ein Elektron auf
 ein niedrigeres Energieniveau und gibt dabei ein Photon der Energiedifferenz
-ab. Bei der \textbf{induzierten Emission} verursacht ein eingestrahltes Photon
+ab. Bei der induzierten Emission verursacht ein eingestrahltes Photon
 den beschriebenen Prozess, sodass hierbei zwei Photonen emittiert werden. Diese
 gleichen sich in Energie, Polarisation und Impulsvektor. Welcher dieser beiden
 Prozesse überwiegt, hängt von der Energie der Photonen ab. Die
@@ -137,20 +142,20 @@ Die Energiedifferenzen zwischen den Zeeman-Niveaus ist abhängig von der Stärke
 des angelegten Magnetfeldes:
 %
 \begin{equation}
-  h\nu=g_{\symup{J}}\mu_{\symup{B}}B\symup{\Delta}M_{\symup{J}} \, .
+  h\nu=g_{\symup{J}}\mu_{\symup{B}}B\symup{\Delta}M_{\symup{J}}
   \label{eq:übergangsenergie}
 \end{equation}
 %
-Durch Einschalten des Magnetfeldes und Entstehen der Zeeman-Aufspaltung beginnt das oben
-beschriebene Pumpen durch spontane Emission bis eine Besetzungsumkehrung eintritt. Wenn
-allerdings das Magnetfeld den Wert
+Durch Einschalten des Magnetfeldes und Entstehen der Zeeman-Aufspaltung beginnt
+das oben beschriebene Pumpen durch spontane Emission bis eine
+Besetzungsumkehrung eintritt. Wenn allerdings das Magnetfeld den Wert
 %
 \begin{equation}
   B_m=\frac{4\pi m_0}{e_0g_J}\nu
 \end{equation}
 %
 annimmt setzt induzierte Emission ein, sodass die Besetzungsinversion wieder
-zerfällt. Die Transparenz wird also nachdem sie der 1 zustrebte plötzlich 
+zerfällt. Die Transparenz wird also nachdem sie der Eins zustrebte plötzlich
 wieder kleiner, wenn der oben beschriebene Wert erreicht wird.
 
 \begin{equation}
