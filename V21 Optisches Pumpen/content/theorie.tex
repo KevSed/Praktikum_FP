@@ -118,30 +118,30 @@ Apparatur. Eine Spektrallampe strahlt Licht in die Apparatur ein. Aus diesem
 Licht wird mit Hilfe eines $\text{D}_1$-Filters und eines Polarisationsfilters
 rechtszirkular polarisiertes $\text{D}_1$-Licht. Der einzige mögliche
 Energieübergang innerhalb der Atome in der Dampfzelle ist derjenige von
-$^2\symup{S}_{\sfrac{1}{2}}$ (mit $\symup{M_J}=-\sfrac{1}{2}$) zu
-$^2P_{\sfrac{1}{2}}$ (mit $\symup{M_J}=+\sfrac{1}{2}$), sowie rückwärts durch
+$^2\symup{S}_{\sfrac{1}{2}}$ (mit $M_J=-\sfrac{1}{2}$) zu
+$^2P_{\sfrac{1}{2}}$ (mit $M_J=+\sfrac{1}{2}$), sowie rückwärts durch
 spontane Emission. Beim rückwärtigen Prozess werden allerdings beide
 Zeeman-Niveaus des $^2\symup{S}_{\sfrac{1}{2}}$-Niveaus besetzt, sodass im
 Laufe der Zeit das Niveau $^2\symup{S}_{\sfrac{1}{2}}$ (mit
-$\symup{M_J}=+\sfrac{1}{2}$) angereichert und das
-$^2\symup{S}_{\sfrac{1}{2}}$-Niveau (mit $\symup{M_J}=-\sfrac{1}{2}$)
+$M_J=+\sfrac{1}{2}$) angereichert und das
+$^2\symup{S}_{\sfrac{1}{2}}$-Niveau (mit $M_J=-\sfrac{1}{2}$)
 \enquote{leergepumpt} wird. Dies hat eine Umkehr der Besetzung im S-Niveau zur
 Folge. Experimentell beobachten lässt sich diese Entwicklung über die
-Transparenz des Dampfes für Licht. \\
+Transparenz des Dampfes für Licht.
 %
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.6\textwidth]{figures/transparenz.pdf}
-  \caption{Verlauf der Transparenz der Dampfzelle in Abhängigkeit der Zeit. Das $\symup{M_J}=-\sfrac{1}{2}$-Niveau wird \enquote{leergepumpt}\cite{V21}.}
+  \caption{Verlauf der Transparenz der Dampfzelle in Abhängigkeit der Zeit. Das $M_J=-\sfrac{1}{2}$-Niveau wird \enquote{leergepumpt}\cite{V21}.}
   \label{fig:transparenz}
 \end{figure}
-%
+
 Wird Licht (einer bestimmten Energie) von dem Dampf absorbiert, so heißt dies,
 dass Elektronen im Gas angeregt werden und dabei die Photonen absorbieren. Dies
 ist natürlich nur möglich, wenn sich Elektronen in dem unteren Energieniveau
 dieser Anregungen befinden. Je weniger Elektronen sich in diesem Niveau
 befinden, desto unwahrscheinlicher ist eine Absorbtion des Photons und desto
-transparenter erscheint das Gas, \textcolor{red}{Abbildung~\ref{fig:transparenz}}. \\
+transparenter erscheint das Gas, Abbildung~\ref{fig:transparenz}. \\
 Es treten zwei Prozesse zur Abregung, also zur Emission von Photonen aus den
 Gasatomen auf. Bei der spontanen Emission begibt sich ein Elektron auf
 ein niedrigeres Energieniveau und gibt dabei ein Photon der Energiedifferenz
@@ -157,7 +157,7 @@ Die Energiedifferenzen zwischen den Zeeman-Niveaus ist abhängig von der Stärke
 des angelegten Magnetfeldes:
 %
 \begin{equation}
-  h\nu=g_{\symup{J}}\mu_{\symup{B}}B\symup{\Delta}M_{\symup{J}}
+  h\nu=g_{\symup{J}}\mu_{\symup{B}}B\symup{\Delta}M_J
   \label{eq:übergangsenergie}
 \end{equation}
 %
@@ -171,7 +171,7 @@ Besetzungsumkehrung eintritt. Wenn allerdings das Magnetfeld den Wert
 %
 annimmt setzt induzierte Emission ein, sodass die Besetzungsinversion wieder
 zerfällt. Die Transparenz wird also nachdem sie der Eins zustrebte plötzlich
-wieder kleiner, wenn der oben beschriebene Wert erreicht wird, \textcolor{red}{Abbildung~\ref{fig:transparenz_b}}.
+wieder kleiner, wenn der oben beschriebene Wert erreicht wird, Abbildung~\ref{fig:transparenz_b}.
 %
 \begin{figure}[htb]
   \centering
@@ -184,25 +184,39 @@ wieder kleiner, wenn der oben beschriebene Wert erreicht wird, \textcolor{red}{A
 
 \subsection{Der quadratische Zeeman-Effekt}
 
-\textcolor{red}{Die Aufspaltung der Zeeman-Niveaus verhält sich allerdings nicht für alle Magnetfeldstärken wie in Abbildung~\ref{fig:aufspaltung} dargestellt. Für große Magnetfelder werden höhere Ordnungen in Abhängigkeit des Magnetfeldes relevant, sodass die Energiedifferenz durch
+Die Aufspaltung der Zeeman-Niveaus verhält sich allerdings nicht für alle Magnetfeldstärken wie in Abbildung~\ref{fig:aufspaltung} dargestellt. Für große Magnetfelder werden höhere Ordnungen in Abhängigkeit des Magnetfeldes relevant, sodass die Energiedifferenz durch
 %
 \begin{equation}
-  \upD E = g_F\mu_BB + (g_F\mu_BB)^2\frac{1-2M_F}{\upD E_\text{Hy}} + \mathcal{O}(B^3)
+  \upD E = g_\mathup{F}\mu_BB + (g_\mathup{F}\mu_BB)^2\frac{1-2M_\mathup{F}}{\upD E_\text{Hy}} + \mathcal{O}(B^3)
   \label{eq:quad_zeeman}
 \end{equation}
 %
-beschrieben wird. Dabei ist $\upD E_\text{Hy}$ die Energiedistanz der Hyperfeinstrukturaufspaltung zwischen den Niveaus $F$ und $F+1$. Hier werden nun neben den Wechselwirkungen der magnetischen Momente mit dem äußeren Magnetfeld auch diese zwischen den magnetischen Momenten berücksichtigt.}
+beschrieben wird. Dabei ist $\upD E_\text{Hy}$ die Energiedistanz der Hyperfeinstrukturaufspaltung zwischen den Niveaus $F$ und $F+1$. Hier werden nun neben den Wechselwirkungen der magnetischen Momente mit dem äußeren Magnetfeld auch diese zwischen den magnetischen Momenten berücksichtigt.
 
 \subsection{Transiente Effekte}
 
-\textcolor{red}{Wird die Absorption des Lichtes in Abhängigkeit eines sich schnell ändernden Magnetfeldes $B_\text{RF}$ betrachtet, so treten sogenannte transiente Effekte auf. Bisher wurde das Magnetfeld als konstant und hinreichend lange eingeschaltet betrachtet, sodass keine solcher Effekte auftraten. Um dies zu erreichen, wird die Spule mit einer Rechteckspannung gespeist. An der abfallenden Flanke dieser Rechteckspannung tritt bei der Messung der Transparenz eine gedämpfte Schwingung auf. Dies ist auf die Präzession des magnetischen Momentes des Atoms um das B-Feld zurückzuführen. Eine klassische Untersuchung des Atomspins, der magnetischen Momente und des äußeren Magnetfeldes ergibt, dass $F$ mit der sogenannten Larmor-Frequenz um $B_\text{RF}$ präzediert. Durch Bestmmung der Frequenz dieser Schwingung kann das Isotopenverhältnis im Gas der Dampflampe bestimmt werden, da die Frequenz spezifisch für die einzelnen Isotope ist. Es gilt:
+Wird die Absorption des Lichtes in Abhängigkeit eines sich
+schnell ändernden Magnetfeldes $B_\text{RF}$ betrachtet, so treten sogenannte
+transiente Effekte auf. Bisher wurde das Magnetfeld als konstant und hinreichend
+lange eingeschaltet betrachtet, sodass keine solcher Effekte auftraten. Um dies
+zu erreichen, wird die Spule mit einer Rechteckspannung gespeist. An der
+abfallenden Flanke dieser Rechteckspannung tritt bei der Messung der Transparenz
+eine gedämpfte Schwingung auf. Dies ist auf die Präzession des magnetischen
+Momentes des Atoms um das B-Feld zurückzuführen. Eine klassische Untersuchung
+des Atomspins, der magnetischen Momente und des äußeren Magnetfeldes ergibt,
+dass $F$ mit der sogenannten Larmor-Frequenz um $B_\text{RF}$ präzediert. Durch
+Bestimmung der Frequenz dieser Schwingung kann das Isotopenverhältnis im Gas der
+Dampflampe bestimmt werden, da die Frequenz spezifisch für die einzelnen Isotope
+ist. Es gilt:
 %
 \begin{equation}
   f=\gamma B_\text{RF} \; .
 \end{equation}
 %
-Hierbei ist $\gamma$ das vom Lande-Faktor $g_\text{F}$ abhängige gyromagnetische Verhältnis. Daraus folgt für die Periodendauern der beiden Isotope der Zusammenhang
+Hierbei ist $\gamma$ das vom Landé-Faktor $g_\text{F}$ abhängige gyromagnetische
+Verhältnis. Daraus folgt für die Periodendauern der beiden Isotope der
+Zusammenhang
 %
 \begin{equation}
   \frac{T_{87}}{T_{85}}=\frac{\gamma_{85}}{\gamma_{87}}
-\end{equation}}
+\end{equation}
