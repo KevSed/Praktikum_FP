@@ -85,7 +85,7 @@ def correlatorCalibrationCurve(f, A, f0, Q=10):
     return A /(Q ** 2) * 1 / ((f / f0) ** 2 + (f0 / f) ** 2 + 1 / Q ** 2 - 2)
 
 def durchlasskoeff(U, V_l = 1, U_sin = 150e-3):
-    return U * np.sqrt(2)/(V_l * U_sin**2)
+    return U * 2/(V_l * U_sin**2)
 
 k = 1.38064852e-23 #Boltzmann
 

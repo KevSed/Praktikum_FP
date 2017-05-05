@@ -16,7 +16,7 @@ f, VN, U = np.genfromtxt('data/einfachschaltung_kalibrationsmessung.txt', unpack
 f = 1000 * f
 U = correctSelfNoise(U, VN)
 U = normVoltage(U, VN)
-
+print(U)
 integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
 print('Integral = {}'.format(integral)) #Fehler? Erstmal 2%
 
