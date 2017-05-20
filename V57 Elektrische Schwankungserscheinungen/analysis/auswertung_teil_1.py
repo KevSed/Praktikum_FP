@@ -14,9 +14,9 @@ plt.rc('font', family='serif', size=16)
 
 f, VN, U = np.genfromtxt('data/einfachschaltung_kalibrationsmessung.txt', unpack='True')
 f = 1000 * f
+
 U = correctSelfNoise(U, VN)
 U = normVoltage(U, VN)
-print(U)
 integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
 print('Integral = {}'.format(integral)) #Fehler? Erstmal 2%
 
@@ -44,7 +44,7 @@ U = normVoltage(U, VN)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
-plt.ylabel(r"Spannung"r'\,$U\,/\,\mathrm{V}$')
+plt.ylabel(r"Spannung"r'\,$U^2\,/\,\mathrm{V}$')
 plt.grid()
 params, cov = curve_fit(linearFunction, R, U)
 x = np.linspace(min(R), max(R), 2)
@@ -58,7 +58,7 @@ plt.clf()
 m_w = ufloat(params[0], np.sqrt(cov[0][0]))
 T = ufloat(293, 5) #K
 Δν = ufloat(integral, integral/50)
-k_w = params[0]*1/(4*T*Δν)
+k_w = m_w*1/(4*T*Δν)
 
 print('''
 Frequenzband: Δν = {}
@@ -89,7 +89,7 @@ x = np.linspace(min(R), max(R), 2)
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.plot(x, linearFunction(x, *params), 'b-', label='Lineare Regression')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
-plt.ylabel(r"Spannung"r'\,$U\,/\,\mathrm{V}$')
+plt.ylabel(r"Spannung"r'\,$U^2\,/\,\mathrm{V}$')
 plt.grid()
 plt.legend(loc = 'best')
 plt.tight_layout()
@@ -98,7 +98,7 @@ plt.cla()
 plt.clf()
 
 m_s = ufloat(params[0], np.sqrt(cov[0][0]))
-k_s = params[0]*1/(4*T*Δν)
+k_s = m_s*1/(4*T*Δν)
 
 print('''
 Starker Widerstand:
@@ -152,7 +152,7 @@ U = normVoltage(U, VN, VS=10)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
-plt.ylabel(r"Spannung"r'\,$U\,/\,\mathrm{V}$')
+plt.ylabel(r"Spannung"r'\,$U^2\,/\,\mathrm{V}$')
 plt.grid()
 params, cov = curve_fit(linearFunction, R, U)
 x = np.linspace(min(R), max(R), 2)
@@ -164,7 +164,7 @@ plt.cla()
 plt.clf()
 
 m_w = ufloat(params[0], np.sqrt(cov[0][0]))
-k_w = params[0]*1/(4*T*Δν)
+k_w = m_w*1/(4*T*Δν)
 
 print('''
 Frequenzband: Δν = {}
@@ -193,7 +193,7 @@ U = normVoltage(U, VN, VS=10)
 
 plt.plot(R, U, 'rx', label='Messwerte')
 plt.xlabel(r"Widerstand"r'$\,R\,/\,\mathrm{\Omega}$')
-plt.ylabel(r"Spannung"r'\,$U\,/\,\mathrm{V}$')
+plt.ylabel(r"Spannung"r'\,$U^2\,/\,\mathrm{V}$')
 plt.grid()
 params, cov = curve_fit(linearFunction, R, U)
 x = np.linspace(min(R), max(R), 2)
@@ -205,7 +205,7 @@ plt.cla()
 plt.clf()
 
 m_w = ufloat(params[0], np.sqrt(cov[0][0]))
-k_w = params[0]/(4*T*Δν)
+k_w = m_w/(4*T*Δν)
 
 print('''
 Frequenzband: Δν = {}
