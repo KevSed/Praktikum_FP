@@ -1,2 +1,170 @@
 \section{Auswertung}
 \label{sec:auswertung}
+
+\input{../fehlerrechnung.tex}
+
+\subsection{Kontrastbestimmung}
+%
+Zu Beginn wird das Kontrastmaximum des Sagnac-Interferometers gesucht; die
+Einstellung, bei welcher das erzeugte Interferenzbild seine maximale Schärfe
+besitzt. Dazu werden die maximale und die minimale Stromstärke an der
+Photodiode für verschiedene Winkel des Polarisationsfilters über Variation der
+Ausrichtung des Glasplättchens gemessen. Der Kontrast $K(\varphi)$ lässt sich
+über den Zusammenhang~\eqref{eq:kontrast} berechnen. Er folgt in Abhängigkeit
+des Winkels $\varphi$ einem Verlauf der etwa
+%
+\begin{equation}
+  K(\varphi)=A\cdot\sin(2\varphi)^2
+  \label{eq:kontrast_theo}
+\end{equation}
+%
+entspricht. Die Messdaten und der angepasste Verlauf der
+Funktion~\eqref{eq:kontrast_theo} sind in Abbildung~\ref{fig:kontrast}
+dargestellt. Es folgen für die Maxima des Kontrastes die Winkel
+$\varphi_1=\SI{45}{\degree}$ und $\varphi_2=\SI{135}{\degree}$.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{analysis/kontrast.pdf}
+  \caption{Messwerte für den winkelabhängigen Verlauf des Kontrastes des verwendeten Interferometers, sowie die in \eqref{eq:kontrast_theo} beschriebene Funktion.}
+  \label{fig:kontrast}
+\end{figure}
+
+Das Interferometer wird daher im Weiteren so eingestellt, dass bei
+maximalem Kontrast gemessen wird.
+
+\subsection{Bestimmung des Brechungsindex eines Glasplättchens}
+%
+Der Brechungsindex der Glasplättchen wird über die Zählung der Interferenzmaxima für verschiedene Winkel der Plättchen zum einfallenden Lichtstrahl bestimmt. Dazu werden drei unabhängige Messungen in Schritten von $\SI{10}{\degree}$ durchgeführt. Die jeweils bestimmten Brechungsindices ergeben schließlich den in~\eqref{eq:glas} aufgeführten Wert.
+%
+\begin{equation}
+  n_\text{glas}= 1,24\,\pm\,0,26
+  \label{eq:glas}
+\end{equation}
+%
+Die hier verwendeten Glasplättchen zeigen eine Dicke von $d=\SI{0.5}{\milli\meter}$ und der Laser eine Wellenlänge von $\lambda=\SI{632.99}{\nano\meter}$. Der Zusammenhang für den Brechungsindex folgt damit aus den geometrischen Überlegungen zu
+%
+\begin{equation}
+  n = \frac{1}{1 - \frac{N \cdot \lambda}{(d \cdot (\varphi_2^2 - \varphi_1^2))}}
+\end{equation}
+
+\subsection{Bestimmung des Brechungsindex von Kohlenstoffdioxid und Luft}
+%
+Nun wird das Lichtbrechungsverhalten zweier Gase in Abhängigkeit des Gasdrucks
+untersucht. Dazu werden das Gas Kohlenstoffdioxid sowie das Gasgemisch Luft
+gewählt. In einer Lichtdurchlässigen Kammer lässt sich der Gasdruck mit Hilfe
+einer Pumpe regulieren, sodass der Phasenunterschied reguliert und somit der
+Brechungsindex der Gase über eine Zählung von Interferenzmaxima bestimmt werden
+kann. Die Länge der in diesem Experiment verwendeten Kammer beträgt
+$L=\SI{100.0(1)}{\milli\meter}$~\cite{V64}. Die Messung wird über einen
+Druckbereich von etwa $\SI{50}{\milli\bar}$ bis $\SI{1000}{\milli\bar}$ jeweils
+dreimal durchgeführt. In den Abbildungen~\ref{fig:luft1} - \ref{fig:co2_3} sind die bestimmten
+Brechungsindices in Abhängigkeit des Gasdrucks, sowie linearen Ausgleichsgeraden der in \eqref{eq:regr} dargestellten Form aufgetragen.
+%
+\begin{equation}
+  n(p)=a\cdot p + b
+  \label{eq:regr}
+\end{equation}
+%
+Die Ergebnisse der Ausgleichsrechnungen sind in Tabelle~\ref{tab:lin} aufgetragen.
+
+Aus diesen Messreihen ergeben sich für die linearen Zusammenhänge
+folgende Mittelwerte:
+%
+\begin{align*}
+  n_\text{Luft}(p)=&\SI{2672(8)e-10}{\milli\bar^{-1}}\cdot p + 1 + (2\,\pm\,5)\cdot 10^{-7} \\
+  n_{\symup{CO}_2}(p)=&\SI{398(2)e-9}{\milli\bar^{-1}}\cdot p + 1 + (8\,\pm\,6)\cdot 10^{-6}
+\end{align*}
+%
+Mit Hilfe der bestimmten Parameter und des zur Versuchsdurchführung herrschenden Umgebungsdrucks und der Umgebungstemperatur lässt sich also der Brechungsindex der Gase berechnen. Die nächstgelegene Wetterstation hat zur Versuchsdurchführung einen Luftdruck von $\SI{1018}{\hecto\pascal}$~\cite{wetteronline} verzeichnet. Daraus folgt für die Brechungsindices:
+%
+\begin{align*}
+  n_\text{Luft}(p=\SI{1018}{\milli\bar})=& 1,000\,271\,8\,\pm\,0,000\,000\,5 \\
+  n_{\symup{CO}_2}(p=\SI{1018}{\milli\bar})=& 1,000\,397\,\pm\,0,000\,006
+\end{align*}
+%
+Nach Gleichung~\eqref{eq:näherung} ist der Proportionalitätsfaktor
+der Druckabhängigkeit für Gase mit einem Brechungsindex nahe 1 etwa
+$\frac{3A}{RT}$. Es gilt also
+%
+\begin{equation}
+  a=\frac{3A}{RT},
+\end{equation}
+%
+wobei $a$ die aus der Ausgleichsrechnung bestimmte Steigung ist, $A$ die molare Refraktivität des Mediums beschreibt, $R$ die universelle Gaskonstante und $T$ die Temperatur ist. Somit lässt sich der aus den Messdaten bestimmte Wert für $a$ auf Normalbedingungen umrechnen. Zur Berechnung der Brechungsindices unter Normalbedingungen ($T_0=\SI{15}{\degree\celsius}$, $p=\,1\,\text{atm}$) gilt:
+%
+\begin{align*}
+  a_0=\frac{3A}{RT_0} .
+\end{align*}
+%
+Es folgt also für die Brechungsindices bei Normalbedingungen:
+%
+\begin{align*}
+  n_\text{Luft}(p=\,1\,\text{atm})=& 1,000\,271\,8\,\pm\,0,000\,000\,5 \\
+  n_{\symup{CO}_2}(p=\,1\,\text{atm})=& 1,000\,397\,\pm\,0,000\,006
+\end{align*}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=.7\textwidth]{analysis/Luft1.pdf}
+  \caption{Erste Messung des Brechungsindex von Luft. Aufgetragen sind die aus den Messwerten bestimmten Brechungsindices, sowie die Ausgleichsgerade.}
+  \label{fig:luft1}
+\end{figure}%
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.7\textwidth]{analysis/Luft2.pdf}
+  \caption{Zweite Messung des Brechungsindex von Luft. Aufgetragen sind die aus den Messwerten bestimmten Brechungsindices, sowie die Ausgleichsgerade.}
+  \label{fig:luft2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.7\textwidth]{analysis/Luft3.pdf}
+  \caption{Dritte Messung des Brechungsindex von Luft. Aufgetragen sind die aus den Messwerten bestimmten Brechungsindices, sowie die Ausgleichsgerade.}
+  \label{fig:luft3}
+\end{figure}%
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.7\linewidth]{analysis/CO2_1.pdf}
+  \caption{Erste Messung des Brechungsindex von Kohlenstoffdioxid. Aufgetragen sind die aus den Messwerten bestimmten Brechungsindices, sowie die Ausgleichsgerade.}
+  \label{fig:co2_1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.7\linewidth]{analysis/CO2_2.pdf}
+  \caption{Zweite Messung des Brechungsindex von Kohlenstoffdioxid. Aufgetragen sind die aus den Messwerten bestimmten Brechungsindices, sowie die Ausgleichsgerade.}
+  \label{fig:co2_2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.7\linewidth]{analysis/CO2_3.pdf}
+  \caption{Dritte Messung des Brechungsindex von Kohlenstoffdioxid. Aufgetragen sind die aus den Messwerten bestimmten Brechungsindices, sowie die Ausgleichsgerade.}
+  \label{fig:co2_3}
+\end{figure}
+
+\begin{table}
+  \centering
+  \begin{tabular}{c
+                  S
+                  S}
+    \toprule
+    {\textbf{Luft}} & {a/$\si{\milli\bar^{-1}}$} & {b/1} \\
+    \midrule
+    Messung 1 & 266(2)e-9 & 1.000001(1) \\
+    Messung 2 & 268(2)e-9 & 1.000000(1) \\
+    Messung 3 & 268(2)e-9 & 1.000000(1) \\
+    \midrule
+    {$\symup{\mathbf{CO_2}}$} & {a/$\si{\milli\bar^{-1}}$} & {b/1} \\
+    \midrule
+    Messung 1 & 396(2)e-9 & 1.000000(1) \\
+    Messung 2 & 400(2)e-9 & 1.000000(1) \\
+    Messung 3 & 400(2)e-9 & 1.000000(1) \\
+    \bottomrule
+  \end{tabular}
+\caption{Ergebnisse für die Parameter der linearen Ausgleichsrechnung für die drei Messungen der jeweiligen Gase.}
+  \label{tab:lin}
+\end{table}
