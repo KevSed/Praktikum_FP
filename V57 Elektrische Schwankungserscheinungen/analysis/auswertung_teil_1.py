@@ -64,11 +64,12 @@ print('''
 Frequenzband: Δν = {}
 
 Schwacher Widerstand:
+Faktor für Formel = {} [s/K]
 ----------------------------
 m   = {}+-{} [V^2/R]
 b   = {}+-{} [V^2]
 k_w = {}
-'''.format(Δν, params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
+'''.format(Δν, 1/(4*T*Δν), params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
 
 # Rauschzahl
 # -----------------------------------------------------------------------------
@@ -170,11 +171,12 @@ print('''
 Frequenzband: Δν = {}
 
 Schwacher Widerstand:
+Faktor für Formel = {} [s/K]
 ----------------------------
 m   = {}+-{} [V^2/R]
 b   = {}+-{} [V^2]
 k_w = {}
-'''.format(Δν, params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
+'''.format(Δν, 1/(4*T*Δν), params[0], np.sqrt(cov[0][0]), params[1], np.sqrt(cov[1][1]), k_w))
 
 # Rauschzahl
 # -----------------------------------------------------------------------------

@@ -73,33 +73,34 @@ Gleichspannungsverstärkung von $V_==10$.}
   \centering
   \begin{tabular}{S[table-format=3.0]
                   S[table-format=4.0]
-                  S[table-format=1.3]}
+                  S[table-format=1.3]
+                  S[table-format=2.2]}
     \toprule
-    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} \\
+    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} & {$U_\text{korr}^2/\si{\volt^2}\cdot10^{-15}$} \\
     \midrule
-    50  & 1000 & 0.049 \\
-    102 & 1000 & 0.064 \\
-    152 & 1000 & 0.078 \\
-    207 & 1000 & 0.093 \\
-    251 & 1000 & 0.104 \\
-    303 & 1000 & 0.114 \\
-    353 & 1000 & 0.129 \\
-    404 & 1000 & 0.144 \\
-    451 & 1000 & 0.152 \\
-    501 & 1000 & 0.167 \\
-    555 & 1000 & 0.185 \\
-    605 & 1000 & 0.194 \\
-    652 & 1000 & 0.208 \\
-    704 & 1000 & 0.222 \\
-    752 & 1000 & 0.237 \\
-    807 & 1000 & 0.250 \\
-    855 & 1000 & 0.261 \\
-    908 & 1000 & 0.274 \\
-    949 & 1000 & 0.283 \\
-    995 & 1000 & 0.296 \\
+    50  & 1000 & 0.049 & 1.28 \\
+    102 & 1000 & 0.064 & 2.78 \\
+    152 & 1000 & 0.078 & 4.18 \\
+    207 & 1000 & 0.093 & 5.68 \\
+    251 & 1000 & 0.104 & 6.78 \\
+    303 & 1000 & 0.114 & 7.78 \\
+    353 & 1000 & 0.129 & 9.28 \\
+    404 & 1000 & 0.144 & 10.78 \\
+    451 & 1000 & 0.152 & 11.58 \\
+    501 & 1000 & 0.167 & 13.08 \\
+    555 & 1000 & 0.185 & 14.88 \\
+    605 & 1000 & 0.194 & 15.78 \\
+    652 & 1000 & 0.208 & 17.18 \\
+    704 & 1000 & 0.222 & 18.58 \\
+    752 & 1000 & 0.237 & 20.08 \\
+    807 & 1000 & 0.250 & 21.38 \\
+    855 & 1000 & 0.261 & 22.48 \\
+    908 & 1000 & 0.274 & 23.78 \\
+    949 & 1000 & 0.283 & 24.68 \\
+    995 & 1000 & 0.296 & 25.98 \\
     \bottomrule
   \end{tabular}
-  \caption{Messdaten der Einfachschaltung zur Bestimmung des thermischen Rauschens des schwachen Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
+  \caption{Messdaten, sowie die korrigierten und oben abgebildeten Werte der Einfachschaltung zur Bestimmung des thermischen Rauschens des schwachen Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
   \label{tab:1fach_schwach}
 \end{table}
 
@@ -107,34 +108,35 @@ Gleichspannungsverstärkung von $V_==10$.}
   \centering
   \begin{tabular}{S[table-format=5.0]
                   S[table-format=4.0]
-                  S[table-format=1.3]}
+                  S[table-format=1.3]
+                  S[table-format=2.3]}
     \toprule
-    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} \\
+    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} & {$U_\text{korr}^2/\si{\volt^2}\cdot10^{-13}$} \\
     \midrule
-    1330  & 1000 & 0.384 \\
-    5320  & 1000 & 1.378 \\
-    10240 &  500 & 0.704 \\
-    15030 &  500 & 1.003 \\
-    19600 &  500 & 1.396 \\
-    25100 &  500 & 1.691 \\
-    30800 &  200 & 0.337 \\
-    35100 &  100 & 0.173 \\
-    40600 &  200 & 0.472 \\
-    44700 &  200 & 0.492 \\
-    50700 &  200 & 0.547 \\
-    56300 &  200 & 0.714 \\
-    60000 &  100 & 0.195 \\
-    64800 &  200 & 0.731 \\
-    70100 &  100 & 0.213 \\
-    76600 &  100 & 0.262 \\
-    80200 &  100 & 0.245 \\
-    85700 &  100 & 0.262 \\
-    91700 &  100 & 0.301 \\
-    95200 &  100 & 0.336 \\
-    97300 &  100 & 0.367 \\
+    1330  & 1000 & 0.384 & 0.384 \\
+    5320  & 1000 & 1.378 & 1.378 \\
+    10240 &  500 & 0.704 & 2.816 \\
+    15030 &  500 & 1.003 & 4.012 \\
+    19600 &  500 & 1.396 & 5.584 \\
+    25100 &  500 & 1.691 & 6.764 \\
+    30800 &  200 & 0.337 & 8.425 \\
+    35100 &  100 & 0.173 & 17.300 \\
+    40600 &  200 & 0.472 & 11.800 \\
+    44700 &  200 & 0.492 & 12.300 \\
+    50700 &  200 & 0.547 & 13.675 \\
+    56300 &  200 & 0.714 & 17.850 \\
+    60000 &  100 & 0.195 & 19.500 \\
+    64800 &  200 & 0.731 & 18.275 \\
+    70100 &  100 & 0.213 & 21.300 \\
+    76600 &  100 & 0.262 & 26.200 \\
+    80200 &  100 & 0.245 & 24.500 \\
+    85700 &  100 & 0.262 & 26.200 \\
+    91700 &  100 & 0.301 & 30.100 \\
+    95200 &  100 & 0.336 & 33.600 \\
+    97300 &  100 & 0.367 & 36.700 \\
     \bottomrule
   \end{tabular}
-  \caption{Messdaten der Einfachschaltung zur Bestimmung des thermischen Rauschens des starken Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
+  \caption{Messdaten, sowie die korrigierten und oben abgebildeten Werte der Einfachschaltung zur Bestimmung des thermischen Rauschens des starken Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
   \label{tab:1fach_stark}
 \end{table}
 
@@ -181,33 +183,34 @@ Gleichspannungsverstärkung von $V_==10$.}
   \centering
   \begin{tabular}{S[table-format=3.0]
                   S[table-format=4.0]
-                  S[table-format=1.3]}
+                  S[table-format=1.3]
+                  S[table-format=2.3]}
     \toprule
-    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} \\
+    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} & {$U_\text{korr}^2/\si{\volt^2}\cdot10^{-15}$} \\
     \midrule
-    50  & 1000 & 0.049 \\
-    102 & 1000 & 0.064 \\
-    152 & 1000 & 0.078 \\
-    207 & 1000 & 0.093 \\
-    251 & 1000 & 0.104 \\
-    303 & 1000 & 0.114 \\
-    353 & 1000 & 0.129 \\
-    404 & 1000 & 0.144 \\
-    451 & 1000 & 0.152 \\
-    501 & 1000 & 0.167 \\
-    555 & 1000 & 0.185 \\
-    605 & 1000 & 0.194 \\
-    652 & 1000 & 0.208 \\
-    704 & 1000 & 0.222 \\
-    752 & 1000 & 0.237 \\
-    807 & 1000 & 0.250 \\
-    855 & 1000 & 0.261 \\
-    908 & 1000 & 0.274 \\
-    949 & 1000 & 0.283 \\
-    995 & 1000 & 0.296 \\
+    50  & 1000 & 0.049 & 1.500 \\
+    102 & 1000 & 0.064 & 2.250 \\
+    152 & 1000 & 0.078 & 1.700 \\
+    207 & 1000 & 0.093 & 2.248 \\
+    251 & 1000 & 0.104 & 2.728 \\
+    303 & 1000 & 0.114 & 3.300 \\
+    353 & 1000 & 0.129 & 3.820 \\
+    404 & 1000 & 0.144 & 4.475 \\
+    451 & 1000 & 0.152 & 5.150 \\
+    501 & 1000 & 0.167 & 5.625 \\
+    555 & 1000 & 0.185 & 6.275 \\
+    605 & 1000 & 0.194 & 6.750 \\
+    652 & 1000 & 0.208 & 7.425 \\
+    704 & 1000 & 0.222 & 7.825 \\
+    752 & 1000 & 0.237 & 8.250 \\
+    807 & 1000 & 0.250 & 9.100 \\
+    855 & 1000 & 0.261 & 9.625 \\
+    908 & 1000 & 0.274 & 10.200 \\
+    949 & 1000 & 0.283 & 10.625 \\
+    995 & 1000 & 0.296 & 11.250 \\
     \bottomrule
   \end{tabular}
-  \caption{Messdaten der Korrelatorschaltung zur Bestimmung des thermischen Rauschens des schwachen Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
+  \caption{Messdaten, sowie die korrigierten und oben abgebildeten Werte der Korrelatorschaltung zur Bestimmung des thermischen Rauschens des schwachen Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
   \label{tab:schwach_korr}
 \end{table}
 
@@ -215,34 +218,32 @@ Gleichspannungsverstärkung von $V_==10$.}
   \centering
   \begin{tabular}{S[table-format=5.0]
                   S[table-format=4.0]
-                  S[table-format=1.3]}
+                  S[table-format=1.3]
+                  S[table-format=2.3]}
     \toprule
-    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} \\
+    {$R/\si{\ohm}$} & {$V_{\symup{N}}$} & {$U_{\symup{R}}/\si{\volt}$} & {$U_\text{korr}^2/\si{\volt^2}\cdot10^{-13}$} \\
     \midrule
-    1330  & 1000 & 0.384 \\
-    5320  & 1000 & 1.378 \\
-    10240 &  500 & 0.704 \\
-    15030 &  500 & 1.003 \\
-    19600 &  500 & 1.396 \\
-    25100 &  500 & 1.691 \\
-    30800 &  200 & 0.337 \\
-    35100 &  100 & 0.173 \\
-    40600 &  200 & 0.472 \\
-    44700 &  200 & 0.492 \\
-    50700 &  200 & 0.547 \\
-    56300 &  200 & 0.714 \\
-    60000 &  100 & 0.195 \\
-    64800 &  200 & 0.731 \\
-    70100 &  100 & 0.213 \\
-    76600 &  100 & 0.262 \\
-    80200 &  100 & 0.245 \\
-    85700 &  100 & 0.262 \\
-    91700 &  100 & 0.301 \\
-    95200 &  100 & 0.336 \\
-    97300 &  100 & 0.367 \\
+    5070 & 1000 & 0.384 & 0.543 \\
+    10130 & 1000 & 1.378 & 1.073 \\
+    15120 &  500 & 0.704 & 1.594 \\
+    20000 &  500 & 1.003 & 2.156 \\
+    25000 &  500 & 1.396 & 2.884 \\
+    30000 &  500 & 1.691 & 3.588 \\
+    40100 &  200 & 0.337 & 5.250 \\
+    44900 &  100 & 0.173 & 5.800 \\
+    50300 &  200 & 0.472 & 6.750 \\
+    54900 &  200 & 0.492 & 7.375 \\
+    60300 &  200 & 0.547 & 8.225 \\
+    64900 &  200 & 0.714 & 8.750 \\
+    70200 &  100 & 0.195 & 9.475 \\
+    74900 &  200 & 0.731 & 10.125 \\
+    80300 &  100 & 0.213 & 11.025 \\
+    85100 &  100 & 0.262 & 11.875 \\
+    90100 &  100 & 0.245 & 13.300 \\
+    95200 &  100 & 0.262 & 14.100 \\
     \bottomrule
   \end{tabular}
-  \caption{Messdaten der Korrelatorschaltung zur Bestimmung des thermischen Rauschens des starken Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
+  \caption{Messdaten, sowie die korrigierten und oben abgebildeten Werte der Korrelatorschaltung zur Bestimmung des thermischen Rauschens des starken Widerstandes. Gemessen bei einer Vorverstärkung von $V_V=1000$ und einer Gleichspannungsverstärkung von $V_==10$. Die Fehler der gemessenen Spannungen sind auf $\SI{1}{\percent}$ geschätzt.}
   \label{tab:stark_korr}
 \end{table}
 
