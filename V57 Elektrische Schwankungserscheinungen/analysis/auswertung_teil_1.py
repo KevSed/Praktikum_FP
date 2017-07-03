@@ -127,6 +127,8 @@ integral = np.trapz(1/max(durchlasskoeff(U))*durchlasskoeff(U), f)
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
+print(1/max(durchlasskoeff(U))*durchlasskoeff(U))
+
 plt.plot(f/1000, 1/max(durchlasskoeff(U))*durchlasskoeff(U), 'bx')
 plt.xlabel(r"Frequenz"r'$\,\nu\,/\,\mathrm{kHz}$')
 plt.ylabel(r"Durchlasskoeffizient"r'\,$\beta$')
