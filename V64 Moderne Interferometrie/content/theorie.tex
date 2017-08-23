@@ -102,6 +102,70 @@ ohne Weiteres praktikabel. Ein im Folgenden diskutiertes Verfahren ermöglicht
 die Bestimmung des Brechungsindexes von lichtdurchlässigen, planparallelen
 Festkörpern, wie zum Beispiel eines kleinen Glasplättchens.
 
+Abbildung~\ref{fig:plättchen} zeigt schematisch den Strahlengang des Lichtes in dem
+Glasplättchen. Hierbei wird deutlich, dass die Brechung des Lichtes eine Trajektorie
+$s'$ verursacht, die im Vergleich zum direkten Weg $s$ länger ist. Dies verursacht den
+zur Interferenz benötigten Phasenunterschied. Dieser berechnet sich bei Licht über den
+Zusammenhang
+%
+\begin{equation}
+  \upD\phi=\frac{2\pi}{\lambda_\text{vac}}\upD(n\cdot s)\; .
+\end{equation}
+%
+Er hängt damit von der effektiven Weglänge des Lichtes ab, die wiederum abhängig vom
+Brechungsindex ist. Aus Abbildung~\ref{fig:plättchen} folgen für $s$ und $s'$ die
+geometrischen Zusammenhänge:
+%
+\begin{align}
+  cos(\theta')=&\frac{d}{s'}\quad\Rightarrow\;s'=\frac{d}{cos(\theta')}\\
+  cos(\theta-\theta')=&\frac{s}{s'}\; .
+\end{align}
+%
+Der Phasenunterschied berechnet sich dann für $n_\text{Luft}=1$ und $n_\text{Glas}=n$
+wie folgt:
+%
+\begin{align*}
+  \upD\phi=&\frac{2\pi}{\lambda_\text{vac}}(1\cdot s-n\cdot s') \\
+  =&\frac{2\pi}{\lambda_\text{vac}}(s'\cos(\theta-\theta')-n\frac{d}{\cos{\theta'}}) \\
+  =&\frac{2\pi d}{\lambda_\text{vac}}\left(\frac{\cos{\theta-\theta'}-n}{\cos{\theta'}}\right)
+\end{align*}
+%
+Mit Hilfe des \textsc{Snellius}schen Brechungsgesetzes lässt sich nun einer der Winkel
+eliminieren. Dafür wird zusätzlich angenommen, dass diese Winkel klein sind, sodass
+gilt:
+%
+\begin{equation}
+  n\cdot\theta'=\theta \; .
+\end{equation}
+%
+Damit folgt:
+%
+\begin{equation}
+  \upD\phi=\frac{2\pi d}{\lambda_\text{vac}}\left(\frac{\cos{\theta\frac{n-1}{n}}-n}{\cos{\frac{\theta}{n}}}\right) \; .
+\end{equation}
+%
+Dieser Ausdruck lässt sich nun bis zur zweiten Ordnung um $\theta_0=0$
+Taylor-entwickeln. Damit ergibt sich:
+%
+\begin{equation}
+  \upD\phi\approx\frac{2d\pi}{\lambda_\text{vac}}\left(1-n+\frac{1-n}{2n}\theta^2+\mathcal{O}(\theta^4)\right) \; .
+\end{equation}
+%
+Da in dem Versuchsaufbau zwei Glasplättchen verwendet werden, hängt der
+Phasenunterschied mit der Anzahl $M$ der gemessenen Extrema wie folgt zusammen:
+%
+\begin{equation}
+  M=2\cdot\frac{\upD\phi}{2\pi}
+\end{equation}
+%
+Es folgt für den oben bestimmten Phasenunterschied:
+%
+\begin{equation}
+  M=\frac{2 d}{\lambda_\text{vac}}(1-n+\frac{1-n}{2n}\theta^2)
+\end{equation}
+%
+{\Large [...]}
+
 \textcolor{red}{[Hier fehlt jetzt noch die~\enquote{Herleitung} einer Formel,
 die den Brechnungsindex in Zusammenhang mit der Anzahl an gezählten
 Interferenzmaxima setzt. Die Formel stehen nicht in der Anleitung, da dort von

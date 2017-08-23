@@ -62,7 +62,7 @@ dreimal durchgeführt. In den Abbildungen~\ref{fig:luft1} - \ref{fig:co2_3} sind
 Brechungsindices in Abhängigkeit des Gasdrucks, sowie linearen Ausgleichsgeraden der in \eqref{eq:regr} dargestellten Form aufgetragen.
 %
 \begin{equation}
-  n(p)=a\cdot p + b
+  n^2(p)=a\cdot p + b
   \label{eq:regr}
 \end{equation}
 %
@@ -72,15 +72,19 @@ Aus diesen Messreihen ergeben sich für die linearen Zusammenhänge
 folgende Mittelwerte:
 %
 \begin{align*}
-  n_\text{Luft}(p)=&\SI{2672(8)e-10}{\milli\bar^{-1}}\cdot p + 1 + (2\,\pm\,5)\cdot 10^{-7} \\
-  n_{\symup{CO}_2}(p)=&\SI{398(2)e-9}{\milli\bar^{-1}}\cdot p + 1 + (8\,\pm\,6)\cdot 10^{-6}
+  n^2_\text{Luft}(p)=&\SI{1336(4)e-10}{\milli\bar^{-1}}\cdot p + 1 + (10\,\pm\,30)\cdot 10^{-8} \\
+  n^2_{\symup{CO}_2}(p)=&\SI{199(1)e-9}{\milli\bar^{-1}}\cdot p + 1 + (4\,\pm\,3)\cdot 10^{-6}
 \end{align*}
 %
-Mit Hilfe der bestimmten Parameter und des zur Versuchsdurchführung herrschenden Umgebungsdrucks und der Umgebungstemperatur lässt sich also der Brechungsindex der Gase berechnen. Die nächstgelegene Wetterstation hat zur Versuchsdurchführung einen Luftdruck von $\SI{1018}{\hecto\pascal}$~\cite{wetteronline} verzeichnet. Daraus folgt für die Brechungsindices:
-%
+Mit Hilfe der bestimmten Parameter und des zur Versuchsdurchführung herrschenden
+Umgebungsdrucks und der Umgebungstemperatur lässt sich also der Brechungsindex der Gase
+berechnen. Die nächstgelegene Wetterstation hat zur Versuchsdurchführung einen
+Luftdruck von $\SI{1018}{\hecto\pascal}$~\cite{wetteronline} verzeichnet. Daraus folgt
+für die Brechungsindices:
+%1.0001358907668496
 \begin{align*}
-  n_\text{Luft}(p=\SI{1018}{\milli\bar})=& 1,000\,271\,8\,\pm\,0,000\,000\,5 \\
-  n_{\symup{CO}_2}(p=\SI{1018}{\milli\bar})=& 1,000\,397\,\pm\,0,000\,006
+  n_\text{Luft}(p=\SI{1018}{\milli\bar})=& 1,000\,135\,9\,\pm\,0,000\,000\,3 \\
+  n_{\symup{CO}_2}(p=\SI{1018}{\milli\bar})=& 1,000\,198\,\pm\,0,000\,003
 \end{align*}
 %
 Nach Gleichung~\eqref{eq:näherung} ist der Proportionalitätsfaktor
@@ -94,15 +98,16 @@ $\frac{3A}{RT}$. Es gilt also
 wobei $a$ die aus der Ausgleichsrechnung bestimmte Steigung ist, $A$ die molare Refraktivität des Mediums beschreibt, $R$ die universelle Gaskonstante und $T$ die Temperatur ist. Somit lässt sich der aus den Messdaten bestimmte Wert für $a$ auf Normalbedingungen umrechnen. Zur Berechnung der Brechungsindices unter Normalbedingungen ($T_0=\SI{15}{\degree\celsius}$, $p=\,1\,\text{atm}$) gilt:
 %
 \begin{align*}
-  a_0=\frac{3A}{RT_0} .
+  a_0=\frac{aT}{T_0} .
 \end{align*}
 %
 Es folgt also für die Brechungsindices bei Normalbedingungen:
 %
 \begin{align*}
-  n_\text{Luft}(p=\,1\,\text{atm})=& 1,000\,271\,8\,\pm\,0,000\,000\,5 \\
-  n_{\symup{CO}_2}(p=\,1\,\text{atm})=& 1,000\,397\,\pm\,0,000\,006
+  n_\text{Luft}(p=\,1\,\text{atm})=& 1,000\,223\,7\,\pm\,0,000\,000\,2 \\
+  n_{\symup{CO}_2}(p=\,1\,\text{atm})=& 1,000\,329\,\pm\,0,000\,003
 \end{align*}
+%
 
 \begin{figure}[htb]
   \centering
@@ -152,17 +157,17 @@ Es folgt also für die Brechungsindices bei Normalbedingungen:
                   S
                   S}
     \toprule
-    {\textbf{Luft}} & {a/$\si{\milli\bar^{-1}}$} & {b/1} \\
+    {\textbf{Luft}} & {a/$\si{\milli\bar^{-1}}$} & {(b-1)/1} \\
     \midrule
-    Messung 1 & 266(2)e-9 & 1.000001(1) \\
-    Messung 2 & 268(2)e-9 & 1.000000(1) \\
-    Messung 3 & 268(2)e-9 & 1.000000(1) \\
+    Messung 1 & 1330(8)e-10 & -3(5)e-7 \\
+    Messung 2 & 1339(8)e-10 & 2(5)e-7 \\
+    Messung 3 & 134(1)e-9 & 3(6)e-7 \\
     \midrule
-    {$\symup{\mathbf{CO_2}}$} & {a/$\si{\milli\bar^{-1}}$} & {b/1} \\
+    {$\symup{\mathbf{CO_2}}$} & {a/$\si{\milli\bar^{-1}}$} & {(b-1)/1} \\
     \midrule
-    Messung 1 & 396(2)e-9 & 1.000000(1) \\
-    Messung 2 & 400(2)e-9 & 1.000000(1) \\
-    Messung 3 & 400(2)e-9 & 1.000000(1) \\
+    Messung 1 & 198(1)e-9 & 82(6)e-7 \\
+    Messung 2 & 200(1)e-9 & 17(7)e-7 \\
+    Messung 3 & 200(1)e-9 & 26(7)e-7 \\
     \bottomrule
   \end{tabular}
 \caption{Ergebnisse für die Parameter der linearen Ausgleichsrechnung für die drei Messungen der jeweiligen Gase.}
