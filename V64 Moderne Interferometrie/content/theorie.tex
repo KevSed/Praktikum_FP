@@ -35,7 +35,7 @@ gleiche Wegstrecke durchlaufen.
 Der Kontrast eines Interferometers ist gegeben durch
 \begin{equation}
   K=\frac{I_{\text{max}}-I_{\text{min}}}{I_{\text{max}}+I_{\text{min}}}.
-  \label{eq:kontrast}
+  \label{eq:kontrast1}
 \end{equation}
 Hierbei bezeichnet~$I_{\text{max}}$ die Intensität eines Interferenzmaximums
 und~$I_{\text{min}}$ die Intensität eines Interferenzminimums. Im Idealfall
@@ -49,7 +49,7 @@ durch einen Polarisationswinkel~$\varphi$, einem Phasenwinkel~$\delta$ und einer
 Amplitude~$A$ beträgt der Kontrast
 \begin{equation}
   K=A\lvert\sin\left(2\varphi+\delta\right)\rvert,
-  \label{eq:kontrast}
+  \label{eq:kontrast2}
 \end{equation}
 
 \subsection{Bestimmung des Brechungsindex eines Gases}
@@ -128,14 +128,14 @@ $\overline{AB}$ und $\overline{CD}$ die geometrischen Zusammenhänge
 \end{align}
 Der Phasenunterschied berechnet sich dann für $n_{\text{Luft}}=1$ und
 $n_{\text{Glas}}=n$ zu
-\begin{align*}
+\begin{align}
   \Delta\phi=&\frac{2\pi}{\lambda_{\text{vac}}}(n\cdot\overline{CD}
   -\overline{AB}) \\
   =&\frac{2\pi}{\lambda_{\text{vac}}}\left(n\frac{T}{\cos{\theta'}}
   -\overline{CD}\cos(\theta-\theta')\right) \\
   =&\frac{2\pi T}{\lambda_{\text{vac}}}\left(\frac{n-\cos(\theta-\theta')}
   {\cos\theta'}\right)
-\end{align*}
+\end{align}
 Mit Hilfe des Brechungsgesetzes von Snellius lässt sich nun der Winkel~$\theta'$
 durch den Winkel~$\theta$ ausdrücken. Es gilt demnach
 \begin{equation}
@@ -159,5 +159,6 @@ beobachteten Interferenzmaxima gilt dann
   \frac{\sin\theta_{+}}{n}\right)\right)}-\frac{n-\cos\left(\theta_{-}-\arcsin
   \left(\frac{\sin\theta_{-}}{n}\right)\right)}{\cos\left(\arcsin\left(
   \frac{\sin\theta_{-}}{n}\right)\right)}\right)
+  \label{eq:glasplättchen}
 \end{align}
 wobei nur noch der Drehwinkel~$\theta$ eine unabhängige Variable ist.

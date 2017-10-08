@@ -4,49 +4,86 @@
 \input{../fehlerrechnung.tex}
 
 \subsection{Kontrastbestimmung}
-%
-Zu Beginn wird das Kontrastmaximum des Sagnac-Interferometers gesucht; die
+Zu Beginn wird das Kontrastmaximum des Sagnac-Interferometers gesucht, d.h. die
 Einstellung, bei welcher das erzeugte Interferenzbild seine maximale Schärfe
 besitzt. Dazu werden die maximale und die minimale Stromstärke an der
 Photodiode für verschiedene Winkel des Polarisationsfilters über Variation der
-Ausrichtung des Glasplättchens gemessen. Der Kontrast $K(\varphi)$ lässt sich
-über den Zusammenhang~\eqref{eq:kontrast} berechnen. Er folgt in Abhängigkeit
-des Winkels $\varphi$ einem Verlauf der etwa
-%
-\begin{equation}
-  K(\varphi)=A\cdot\sin(2\varphi)^2
-  \label{eq:kontrast_theo}
-\end{equation}
-%
-entspricht. Die Messdaten und der angepasste Verlauf der
-Funktion~\eqref{eq:kontrast_theo} sind in Abbildung~\ref{fig:kontrast}
-dargestellt. Es folgen für die Maxima des Kontrastes die Winkel
-$\varphi_1=\SI{45}{\degree}$ und $\varphi_2=\SI{135}{\degree}$.
+Ausrichtung des Glasplättchens gemessen. Der Kontrast $K$ lässt sich
+über den Zusammenhang~\eqref{eq:kontrast1} berechnen. Er folgt in Abhängigkeit
+des Winkels $\varphi$ einem Verlauf der Gleichung~\eqref{eq:kontrast2}
+entspricht. Eine Ausgleichsrechnung mit den Messdaten liefert für die Parameter
+\begin{align}
+  A&=\num{0.753(9)} \\
+  \delta&=\num{-0.12(1)}
+\end{align}
+Die Messdaten sind in Tabelle~\ref{tab:kontrast} aufgeführt. Der angepasste
+Verlauf ist zusammen mit den Messdaten in Abbildung~\ref{fig:kontrast}
+dargestellt.
+
+\begin{table}
+  \centering
+  \begin{tabular}{S[table-format=3.0]
+                  S[table-format=3.0]
+                  S[table-format=4.0]
+                  S[table-format=1.3]}
+    \toprule
+    {$\varphi/\si{\degree}$} & {$\U_{\text{min}}/\si{\milli\volt}$} &
+    {$\U_{\text{max}}/\si{\milli\volt}$} & {Kontrast} \\
+    \midrule
+      0 & 458 &  530 & 0.072 \\
+     15 & 400 &  740 & 0.298 \\
+     30 & 270 &  910 & 0.542 \\
+     35 & 206 & 1008 & 0.799 \\
+     40 & 167 & 1022 & 0.722 \\
+     45 & 103 &  923 & 0.490 \\
+     50 & 121 &  848 & 0.125 \\
+     55 & 116 &  827 & 0.303 \\
+     60 & 118 &  732 & 0.637 \\
+     75 & 162 &  474 & 0.745 \\
+     90 & 192 &  247 & 0.651 \\
+    105 & 115 &  215 & 0.407 \\
+    120 &  54 &  244 & 0.081 \\
+    125 &  47 &  249 & 0.660 \\
+    130 &  46 &  302 & 0.719 \\
+    135 &  47 &  322 & 0.750 \\
+    140 &  55 &  373 & 0.753 \\
+    145 &  76 &  412 & 0.682 \\
+    150 &  97 &  459 & 0.735 \\
+    165 & 249 &  591 & 0.742 \\
+    180 & 489 &  576 & 0.688 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Messwerte und berechnete Kontraste.}
+  \label{tab:kontrast}
+\end{table}
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{analysis/kontrast.pdf}
-  \caption{Messwerte für den winkelabhängigen Verlauf des Kontrastes des verwendeten Interferometers, sowie die in \eqref{eq:kontrast_theo} beschriebene Funktion.}
+  \caption{Messwerte für den winkelabhängigen Verlauf des Kontrastes des
+  verwendeten Interferometers, sowie die in \eqref{eq:kontrast2} beschriebene
+  Funktion.}
   \label{fig:kontrast}
 \end{figure}
 
-Das Interferometer wird daher im Weiteren so eingestellt, dass bei
-maximalem Kontrast gemessen wird.
+Hohe Kontraste ergeben sich um die Winkel $\varphi_1=\SI{45}{\degree}$ und
+$\varphi_2=\SI{135}{\degree}$. Das Interferometer wird im Weiteren so
+eingestellt, dass bei hohem Kontrast gemessen wird.
 
-\subsection{Bestimmung des Brechungsindex eines Glasplättchens}
-%
-Der Brechungsindex der Glasplättchen wird über die Zählung der Interferenzmaxima für verschiedene Winkel der Plättchen zum einfallenden Lichtstrahl bestimmt. Dazu werden drei unabhängige Messungen in Schritten von $\SI{10}{\degree}$ durchgeführt. Die jeweils bestimmten Brechungsindices ergeben schließlich den in~\eqref{eq:glas} aufgeführten Wert.
-%
+\subsection{Bestimmung des Brechungsindex von Glas}
+Der Brechungsindex von Glas wird über die Zählung der Interferenzmaxima bei
+gleichmäßiger Rotation des Doppelglashalters um~$\SI{10}{\degree}$ bestimmt.
+Dazu werden zehn unabhängige Messungen durchgeführt. Die im Versuch verwendeten
+Glasplättchen haben eine Dicke von~$T=\SI{1}{\milli\meter}$ und der Laser eine
+Wellenlänge von~$\lambda=\SI{632.8}{\nano\meter}$. Im Mittel
+werden~$\num{34.4(10)}$ Interferenzmaxima gezählt. Mit Hilfe von
+Gleichung~\eqref{eq:glasplättchen} und der Bedingung~$M(\theta=0)=0$ wird mit
+einer Ausgleichsrechnung der Brechungsindex von Glas zu
 \begin{equation}
-  n_\text{glas}= 1,24\,\pm\,0,26
+  n_{\text{Glas}}=\num{1.54(2)}
   \label{eq:glas}
 \end{equation}
-%
-Die hier verwendeten Glasplättchen zeigen eine Dicke von $d=\SI{0.5}{\milli\meter}$ und der Laser eine Wellenlänge von $\lambda=\SI{632.99}{\nano\meter}$. Der Zusammenhang für den Brechungsindex folgt damit aus den geometrischen Überlegungen zu
-%
-\begin{equation}
-  n = \frac{1}{1 - \frac{N \cdot \lambda}{(d \cdot (\varphi_2^2 - \varphi_1^2))}}
-\end{equation}
+bestimmt.
 
 \subsection{Bestimmung des Brechungsindex von Kohlenstoffdioxid und Luft}
 %

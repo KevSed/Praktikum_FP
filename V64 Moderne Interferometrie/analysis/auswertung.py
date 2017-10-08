@@ -6,6 +6,9 @@ from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from uncertainties.umath import *
 
+plt.rc('text', usetex=True)
+plt.rc('font', family='serif', size=16)
+
 # KONSTANTEN
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 p_0 = 1013.25 # mbar
@@ -27,24 +30,34 @@ def contrast(max, min):
 def fit(a, x):
     return a*(np.sin(2*x))**2
 
-params, cov = curve_fit(fit, np.radians(winkel), contrast(U_max, U_min), bounds=(0.8, 0.85))
-a  = params[0]
-a_err = np.sqrt(cov[0][0])
+def fit2(phi, A, delta):
+    return A * abs(np.sin(2 * phi + delta))
+
+print(contrast(U_max, U_min))
+
+params, cov = curve_fit(fit2, np.radians(winkel), contrast(U_max, U_min))
+A = params[0]
+A_err = np.sqrt(cov[0][0])
+delta = params[1]
+delta_err = np.sqrt(cov[1][1])
+
+print(A)
+print(A_err)
+print(delta)
+print(delta_err)
 
 x = np.linspace(0, 180, 10000)
 plt.plot(winkel, contrast(U_max, U_min), 'rx', label='Messwerte')
-plt.plot(x, fit(a, np.radians(x)), label=r'$A\cdot \sin(2x)^2$, A = {:.3f}$\pm${:.3f}'.format(a,a_err))
-plt.xlabel(r'Winkel $\phi$ in °')
+plt.plot(x, fit2(np.radians(x), *params), label='Ausgleichskurve')
+plt.xlabel(r' Winkel $\varphi$ in Grad')
 plt.ylabel('Kontrast')
 plt.ylim(0, 1)
-plt.title('Winkelverteilung des Kontrastes')
 plt.grid()
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout()
 plt.savefig('kontrast.pdf')
 plt.close()
-print('''maxima of the contrast distributed as sin(2x)² at the angles 45° and 135°.
-''')
+
 
 ######################################################################
 # calculate refraction index of the glass slobe from interference
