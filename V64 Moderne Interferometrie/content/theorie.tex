@@ -104,83 +104,60 @@ Festkörpern, wie zum Beispiel eines kleinen Glasplättchens.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.7\textwidth]{figures/glasslab.jpg}
-  \caption{Schematischer Strahlengang des Lichtes am Glasplättchen. Hierbei ist $\alpha=\theta-\theta'$.}
+  \includegraphics[width=0.8\textwidth]{figures/glasplättchen.pdf}
+  \caption{Schematischer Strahlengang des Lichtes an einem Glasplättchen.}
   \label{fig:plättchen}
 \end{figure}
 
-Abbildung~\ref{fig:plättchen} zeigt schematisch den Strahlengang des Lichtes in dem
-Glasplättchen. Hierbei wird deutlich, dass die Brechung des Lichtes eine Trajektorie
-$s'$ verursacht, die im Vergleich zum direkten Weg $s$ länger ist. Dies verursacht den
-zur Interferenz benötigten Phasenunterschied. Dieser berechnet sich bei Licht über den
-Zusammenhang
-%
+Abbildung~\ref{fig:plättchen} zeigt schematisch den Strahlengang des Lichtes in
+einem Glasplättchen der Dicke~$T$. Hierbei wird deutlich, dass die Brechung des
+Lichtes eine Trajektorie $\overline{CD}$ verursacht, die im Vergleich zum
+direkten Weg $\overline{AB}$ länger ist. Dies verursacht den zur Interferenz
+benötigten Phasenunterschied. Dieser berechnet sich über den Zusammenhang
 \begin{equation}
-  \upD\phi=\frac{2\pi}{\lambda_\text{vac}}\upD(n\cdot s)\; .
+  \Delta\phi=\frac{2\pi}{\lambda_{\text{vac}}}\left(n_{\text{Glas}}\cdot
+  \overline{CD}-n_{\text{Luft}}\cdot\overline{AB}\right).
 \end{equation}
-%
-Er hängt damit von der effektiven Weglänge des Lichtes ab, die wiederum abhängig vom
-Brechungsindex ist. Aus Abbildung~\ref{fig:plättchen} folgen für $s$ und $s'$ die
-geometrischen Zusammenhänge:
-%
+Er hängt damit von der effektiven Weglänge des Lichtes ab, die wiederum abhängig
+vom Brechungsindex ist. Aus Abbildung~\ref{fig:plättchen} folgen für
+$\overline{AB}$ und $\overline{CD}$ die geometrischen Zusammenhänge
 \begin{align}
-  cos(\theta')=&\frac{d}{s'}\quad\Rightarrow\;s'=\frac{d}{cos(\theta')}\\
-  cos(\theta-\theta')=&\frac{s}{s'}\; .
+  \cos\theta'=&\frac{T}{\overline{CD}}\quad\Rightarrow\quad\overline{CD}
+  =\frac{T}{\cos\theta'} \\
+  \cos(\theta-\theta')=&\frac{\overline{AB}}{\overline{CD}}
 \end{align}
-%
-Der Phasenunterschied berechnet sich dann für $n_\text{Luft}=1$ und $n_\text{Glas}=n$
-wie folgt:
-%
+Der Phasenunterschied berechnet sich dann für $n_{\text{Luft}}=1$ und
+$n_{\text{Glas}}=n$ zu
 \begin{align*}
-  \upD\phi=&\frac{2\pi}{\lambda_\text{vac}}(1\cdot s-n\cdot s') \\
-  =&\frac{2\pi}{\lambda_\text{vac}}(s'\cos(\theta-\theta')-n\frac{d}{\cos{\theta'}}) \\
-  =&\frac{2\pi d}{\lambda_\text{vac}}\left(\frac{\cos{\theta-\theta'}-n}{\cos{\theta'}}\right)
+  \Delta\phi=&\frac{2\pi}{\lambda_{\text{vac}}}(n\cdot\overline{CD}
+  -\overline{AB}) \\
+  =&\frac{2\pi}{\lambda_{\text{vac}}}\left(n\frac{T}{\cos{\theta'}}
+  -\overline{CD}\cos(\theta-\theta')\right) \\
+  =&\frac{2\pi T}{\lambda_{\text{vac}}}\left(\frac{n-\cos(\theta-\theta')}
+  {\cos\theta'}\right)
 \end{align*}
-%
-Mit Hilfe des \textsc{Snellius}schen Brechungsgesetzes lässt sich nun einer der Winkel
-eliminieren. Dafür wird zusätzlich angenommen, dass diese Winkel klein sind, sodass
-gilt:
-%
+Mit Hilfe des Brechungsgesetzes von Snellius lässt sich nun der Winkel~$\theta'$
+durch den Winkel~$\theta$ ausdrücken. Es gilt demnach
 \begin{equation}
-  n\cdot\theta'=\theta \; .
+  n\cdot\sin\theta'=1\cdot\sin\theta\quad\Rightarrow\quad\theta'
+  =\arcsin\left(\frac{\sin\theta}{n}\right)
 \end{equation}
-%
-Damit folgt:
-%
-\begin{equation}
-  \upD\phi=\frac{2\pi d}{\lambda_\text{vac}}\left(\frac{\cos{\theta\frac{n-1}{n}}-n}{\cos{\frac{\theta}{n}}}\right) \; .
-\end{equation}
-%
-Dieser Ausdruck lässt sich nun bis zur zweiten Ordnung um $\theta_0=0$
-Taylor-entwickeln. Damit ergibt sich:
-%
-\begin{equation}
-  \upD\phi\approx\frac{2d\pi}{\lambda_\text{vac}}\left(1-n+\frac{1-n}{2n}\theta^2+\mathcal{O}(\theta^4)\right) \; .
-\end{equation}
-%
-Da in dem Versuchsaufbau zwei Glasplättchen verwendet werden, hängt der
-Phasenunterschied mit der Anzahl $M$ der gemessenen Extrema wie folgt zusammen:
-%
-\begin{equation}
-  M=2\cdot\frac{\upD\phi}{2\pi}
-\end{equation}
-%
-Es folgt für den oben bestimmten Phasenunterschied:
-%
-\begin{equation}
-  M=\frac{2 d}{\lambda_\text{vac}}(1-n+\frac{1-n}{2n}\theta^2)
-\end{equation}
-%
-{\Large [...]}
-
-\textcolor{red}{[Hier fehlt jetzt noch die~\enquote{Herleitung} einer Formel,
-die den Brechnungsindex in Zusammenhang mit der Anzahl an gezählten
-Interferenzmaxima setzt. Die Formel stehen nicht in der Anleitung, da dort von
-einem einfachen Glasplättchen ausgegangen wird. Wir hatten jedoch ein
-Doppelglasplättchen. Simone/Kevin und Vukan/Lars haben sich für die Auswertung
-jeweils eine Formel hergeleitet. Diese sind jedoch auf den ersten Blick völlig
-unterschiedlich. Lustigerweise scheinen sich beide Formel zur Auswertung zu
-eignen. Wenn du eine gute Formel zur Auswertung gefunden hast, schreibe ich den
-hier noch fehlenden Teil der Theorie. Wenn ich dir bei der Entwicklung der
-Formel irgendwie helfen kann, sag Bescheid, dann könen wir uns dafür
-zusammensetzen.]}
+Im Versuchsaufbau wird anstatt eines einzelnen Glasplättchens ein
+Doppelglashalter verwendet. Dabei handelt es sich um zwei(!) Glasplättchen, die
+sich mit einem festen Winkel von~$\SI{20}{\degree}$ zueinander in jeweils einem
+Teilstrahl befinden und dort gemeinsam rotieren können. Symmetrisiert man das
+System gelten die obigen Formeln
+mit~$\theta\rightarrow\theta_{\pm}=\theta\pm\theta_0$
+und~$\theta_0=\SI{10}{\degree}$ für zwei einzelne Glasplättchen, wobei die
+jeweils berechneten Phasenunterschiede aufgrund der unterschiedlichen
+Lichtlaufrichtung voneinander subtrahiert werden müssen. Für die Anzahl~$M$ der
+beobachteten Interferenzmaxima gilt dann
+\begin{align}
+  M&=\frac{\Delta\Phi}{2\pi} \\
+  &=\frac{T}{\lambda_{\text{vac}}}\left(\frac{n-\cos\left(\theta_{+}
+  -\arcsin\left(\frac{\sin\theta_{+}}{n}\right)\right)}{\cos\left(\arcsin\left(
+  \frac{\sin\theta_{+}}{n}\right)\right)}-\frac{n-\cos\left(\theta_{-}-\arcsin
+  \left(\frac{\sin\theta_{-}}{n}\right)\right)}{\cos\left(\arcsin\left(
+  \frac{\sin\theta_{-}}{n}\right)\right)}\right)
+\end{align}
+wobei nur noch der Drehwinkel~$\theta$ eine unabhängige Variable ist.
