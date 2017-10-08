@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import uncertainties
 from uncertainties import ufloat
+import uncertainties.unumpy as unp
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from uncertainties.umath import *
 
@@ -33,18 +34,11 @@ def fit(a, x):
 def fit2(phi, A, delta):
     return A * abs(np.sin(2 * phi + delta))
 
-print(contrast(U_max, U_min))
-
 params, cov = curve_fit(fit2, np.radians(winkel), contrast(U_max, U_min))
 A = params[0]
 A_err = np.sqrt(cov[0][0])
 delta = params[1]
 delta_err = np.sqrt(cov[1][1])
-
-print(A)
-print(A_err)
-print(delta)
-print(delta_err)
 
 x = np.linspace(0, 180, 10000)
 plt.plot(winkel, contrast(U_max, U_min), 'rx', label='Messwerte')
@@ -63,228 +57,222 @@ plt.close()
 # calculate refraction index of the glass slobe from interference
 # counts for different angles of the glass slobe (10° steps).
 ######################################################################
-
-number, counts = np.genfromtxt('glas.txt', unpack='True')
-phi_1 = number*10
-phi_1 = np.radians(phi_1)
-phi_2 = phi_1 + np.radians(10)
-
+#
+#number, counts = np.genfromtxt('glas.txt', unpack='True')
+#phi_1 = number*10
+#phi_1 = np.radians(phi_1)
+#phi_2 = phi_1 + np.radians(10)
+#
 vac_wavelen = 632.99e-9
-thickness = 0.5e-3
-# ref_index = 1/(1 - counts * vac_wavelen/(thickness * (phi_2**2 - phi_1**2)))
-alpha = counts*vac_wavelen/(2*thickness)
-ref_index = (alpha**2+2*(1-np.cos(phi_1))*(1-alpha))/(2*(1-np.cos(phi_1)-alpha))
-
-print('''
-Refraction index of glass slabs:   {:.4f} ± {:.4f}'''
-      .format(np.mean(ref_index), ref_index.std(ddof = 1)))
-
-######################################################################
-# calculate refraction index of CO2 chamber from interference
+#thickness = 0.5e-3
+## ref_index = 1/(1 - counts * vac_wavelen/(thickness * (phi_2**2 - phi_1**2)))
+#alpha = counts*vac_wavelen/(2*thickness)
+#ref_index = (alpha**2+2*(1-np.cos(phi_1))*(1-alpha))/(2*(1-np.cos(phi_1)-alpha))
+#
+#print('''
+#Refraction index of glass slabs:   {:.4f} ± {:.4f}'''
+#      .format(np.mean(ref_index), ref_index.std(ddof = 1)))
+#
+################################################################################
+# Calculate refraction index of CO2 chamber from interference
 # counts for different pressures of mentioned gas. (50mbar steps)
-######################################################################
+################################################################################
 
-pressure, counts1, counts2, counts3 = np.genfromtxt('CO2.txt', unpack='True')
-xplotlin = np.linspace(pressure[0], pressure[-1], 2)
-length = ufloat(100e-3, 0.1e-3)
+p, M1, M2, M3 = np.genfromtxt('CO2.txt', unpack='True')
+L = ufloat(100e-3, 0.1e-3)
 
-ref_index1 = (counts1 * vac_wavelen / length + 1)**(.5)
-ref_index2 = (counts2 * vac_wavelen / length + 1)**(.5)
-ref_index3 = (counts3 * vac_wavelen / length + 1)**(.5)
+n1 = M1 * vac_wavelen / L + 1
+n2 = M2 * vac_wavelen / L + 1
+n3 = M3 * vac_wavelen / L + 1
 
-ref_index1_err = np.zeros(len(ref_index1))
-ref_index2_err = np.zeros(len(ref_index1))
-ref_index3_err = np.zeros(len(ref_index1))
-refindex1 = np.zeros(len(ref_index1))
-refindex2 = np.zeros(len(ref_index1))
-refindex3 = np.zeros(len(ref_index1))
+n1_err = stds(n1)
+n2_err = stds(n2)
+n3_err = stds(n3)
+n1 = noms(n1)
+n2 = noms(n2)
+n3 = noms(n3)
 
-for i in range(0,len(ref_index1)):
-    ref_index1_err[i] = stds(ref_index1[i])
-    refindex1[i] = noms(ref_index1[i])
-
-for i in range(0,len(ref_index2)):
-    ref_index2_err[i] = stds(ref_index2[i])
-    refindex2[i] = noms(ref_index2[i])
-
-for i in range(0,len(ref_index3)):
-    ref_index3_err[i] = stds(ref_index3[i])
-    refindex3[i] = noms(ref_index3[i])
-
-print('''
+print(
+'''
 Refraction index of CO2:   {:.5f} for (24.7°, 18mbar)
-Refraction index of CO2:   {:.5f} for (24.8°, 4mbar)
-Refraction index of CO2:   {:.5f} for (24.8, 3mbar)'''.format(np.mean(ref_index1),np.mean(ref_index2),np.mean(ref_index3)))
+Refraction index of CO2:   {:.5f} for (24.8°,  4mbar)
+Refraction index of CO2:   {:.5f} for (24.8°,  3mbar)
+'''.format(np.mean(n1), np.mean(n2), np.mean(n3))
+)
 
-
-def lin(a, b, x):
-    return a*x+b
-
-fit1_params, fit1_cov = np.polyfit(pressure, refindex1, 1, cov=True)
+fit1_params, fit1_cov = np.polyfit(p, n1, 1, cov = True)
 errors1 = np.sqrt(np.diag(fit1_cov))
-
-fit2_params, fit2_cov = np.polyfit(pressure, refindex2, 1, cov=True)
+fit2_params, fit2_cov = np.polyfit(p, n2, 1, cov = True)
 errors2 = np.sqrt(np.diag(fit2_cov))
-
-fit3_params, fit3_cov = np.polyfit(pressure, refindex3, 1, cov=True)
+fit3_params, fit3_cov = np.polyfit(p, n3, 1, cov = True)
 errors3 = np.sqrt(np.diag(fit3_cov))
 
-steig = np.array([fit1_params[0], fit2_params[0], fit3_params[0]])
-achse = np.array([fit1_params[1], fit2_params[1], fit3_params[1]])
+m = np.array([fit1_params[0], fit2_params[0], fit3_params[0]])
+b = np.array([fit1_params[1], fit2_params[1], fit3_params[1]])
 
-print('''
+print(
+'''
 Results of the regression for CO2:
-Messung 1: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-Messung 2: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-Messung 3: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-Mean: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-'''.format(fit1_params[0], errors1[0], 1-fit1_params[1], errors1[1], fit2_params[0], errors2[0], 1-fit2_params[1], errors2[1], fit3_params[0], errors3[0], 1-fit3_params[1], errors3[1], np.mean(steig), np.std(steig), 1-np.mean(achse), np.std(achse)))
+Measurement 1: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+Measurement 2: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+Measurement 3: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+Mean: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+'''.format(fit1_params[0], errors1[0], 1 - fit1_params[1], errors1[1],
+           fit2_params[0], errors2[0], 1 - fit2_params[1], errors2[1],
+           fit3_params[0], errors3[0], 1 - fit3_params[1], errors3[1],
+           np.mean(m), np.std(m), 1 - np.mean(b), np.std(b))
+)
 
-m = ufloat(np.mean(steig), np.std(steig))
-b = ufloat(np.mean(achse), np.std(achse))
+m = ufloat(np.mean(m), np.std(m))
+b = ufloat(np.mean(b), np.std(b))
 
-n_norm = m*T/T_0*p_0+b
-#n_norm = m*p_0*((3*A)/(R*T_0))+b
+n_norm = m * T / T_0 * p_0 + b
 
-print('''
+print(
+'''
 Calculated refraction index at 1018hPa:
-CO2: n = {:.8g} ± {:.8g}
-Calculated refraction index at normalconditions:
-CO2: n = {:.8g}
-'''.format(np.mean(steig)*1018+np.mean(achse), np.std(achse)+np.std(steig),n_norm))
+CO2: n = {}
+Calculated refraction index at normal conditions:
+CO2: n = {}
+'''.format(unp.sqrt(m * 1018 + b), unp.sqrt(n_norm))
+)
 
-x = np.linspace(0, 1000, 1000)
-plt.errorbar(pressure, refindex1, 100*ref_index1_err, fmt='x', label=r'Messung 1 (24.7°, 18mbar) Fehler 100fach vergrößert.')
-plt.plot(x, lin(*fit1_params, x), label='Ausgleichsgeraden')
-plt.title(r'Druckverteilung des Brechungsindex von $CO_2$')
-plt.xlabel('Druck p/mbar')
-plt.ylabel('Brechungsindex n')
+def linear(x, m, b):
+    return m * x + b
+
+x = np.linspace(p[0], p[-1], 2)
+
+plt.errorbar(p, n1, 100 * n1_err, fmt = 'x',
+             label = 'Messung 1')
+plt.plot(x, linear(x, *fit1_params), label = 'Ausgleichsgerade')
+plt.xlabel(r'Druck $p$ / mbar')
+plt.ylabel(r'Brechungsindex $n$')
 plt.grid()
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout()
 plt.savefig('CO2_1.pdf')
-
 plt.close()
-plt.errorbar(pressure, refindex2, 100*ref_index2_err, fmt='x', label=r'Messung 2 (24.8°, 4mbar) Fehler 100fach vergrößert.')
-plt.plot(x, lin(*fit2_params, x), label='Ausgleichsgeraden')
-plt.title(r'Druckverteilung des Brechungsindex von $CO_2$')
-plt.xlabel('Druck p/mbar')
-plt.ylabel('Brechungsindex n')
+
+plt.errorbar(p, n2, 100 * n2_err, fmt = 'x',
+             label = 'Messung 2')
+plt.plot(x, linear(x, *fit2_params), label = 'Ausgleichsgerade')
+plt.xlabel(r'Druck $p$ / mbar')
+plt.ylabel(r'Brechungsindex $n$')
 plt.grid()
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout()
 plt.savefig('CO2_2.pdf')
 plt.close()
-plt.errorbar(pressure, refindex3, 100*ref_index3_err, fmt='x', label=r'Messung 3 (24.8, 3mbar) Fehler 100fach vergrößert.')
-plt.plot(x, lin(*fit3_params, x), label='Ausgleichsgeraden')
-plt.title(r'Druckverteilung des Brechungsindex von $CO_2$')
-plt.xlabel('Druck p/mbar')
-plt.ylabel('Brechungsindex n')
+
+plt.errorbar(p, n3, 100 * n3_err, fmt = 'x',
+             label = 'Messung 3')
+plt.plot(x, linear(x, *fit3_params), label = 'Ausgleichsgerade')
+plt.xlabel(r'Druck $p$ / mbar')
+plt.ylabel(r'Brechungsindex $n$')
 plt.grid()
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout()
 plt.savefig('CO2_3.pdf')
 plt.close()
 
-######################################################################
-# calculate refraction index of air chamber from interference
+################################################################################
+# Calculate refraction index of air chamber from interference
 # counts for different pressures of mentioned gas. (50mbar steps)
-######################################################################
+################################################################################
 
-pressure, counts1, counts2, counts3 = np.genfromtxt('luft.txt', unpack='True')
-length = ufloat(100e-3, 0.1e-3)
+p, M1, M2, M3 = np.genfromtxt('luft.txt', unpack='True')
+L = ufloat(100e-3, 0.1e-3)
 
-ref_index1 = (counts1 * vac_wavelen / length + 1)**(.5)
-ref_index2 = (counts2 * vac_wavelen / length + 1)**(.5)
-ref_index3 = (counts3 * vac_wavelen / length + 1)**(.5)
+n1 = M1 * vac_wavelen / L + 1
+n2 = M2 * vac_wavelen / L + 1
+n3 = M3 * vac_wavelen / L + 1
 
-ref_index1_err = np.zeros(len(ref_index1))
-ref_index2_err = np.zeros(len(ref_index1))
-ref_index3_err = np.zeros(len(ref_index1))
-refindex1 = np.zeros(len(ref_index1))
-refindex2 = np.zeros(len(ref_index1))
-refindex3 = np.zeros(len(ref_index1))
+n1_err = stds(n1)
+n2_err = stds(n2)
+n3_err = stds(n3)
+n1 = noms(n1)
+n2 = noms(n2)
+n3 = noms(n3)
 
-for i in range(0,len(ref_index1)):
-    ref_index1_err[i] = stds(ref_index1[i])
-    refindex1[i] = noms(ref_index1[i])
+print(
+'''
+Refraction index of air:   {:.5f} for (24.7°, 18mbar)
+Refraction index of air:   {:.5f} for (24.8°,  4mbar)
+Refraction index of air:   {:.5f} for (24.8°,  3mbar)
+'''.format(np.mean(n1), np.mean(n2), np.mean(n3))
+)
 
-for i in range(0,len(ref_index2)):
-    ref_index2_err[i] = stds(ref_index2[i])
-    refindex2[i] = noms(ref_index2[i])
-
-for i in range(0,len(ref_index3)):
-    ref_index3_err[i] = stds(ref_index3[i])
-    refindex3[i] = noms(ref_index3[i])
-
-fit1_params, fit1_cov = np.polyfit(pressure, refindex1, 1, cov=True)
+fit1_params, fit1_cov = np.polyfit(p, n1, 1, cov = True)
 errors1 = np.sqrt(np.diag(fit1_cov))
-
-fit2_params, fit2_cov = np.polyfit(pressure, refindex2, 1, cov=True)
+fit2_params, fit2_cov = np.polyfit(p, n2, 1, cov = True)
 errors2 = np.sqrt(np.diag(fit2_cov))
-
-fit3_params, fit3_cov = np.polyfit(pressure, refindex3, 1, cov=True)
+fit3_params, fit3_cov = np.polyfit(p, n3, 1, cov = True)
 errors3 = np.sqrt(np.diag(fit3_cov))
 
-steig = np.array([fit1_params[0], fit2_params[0], fit3_params[0]])
-achse = np.array([fit1_params[1], fit2_params[1], fit3_params[1]])
+m = np.array([fit1_params[0], fit2_params[0], fit3_params[0]])
+b = np.array([fit1_params[1], fit2_params[1], fit3_params[1]])
 
-ref_index1 = (counts1 * vac_wavelen / length + 1)**(.5)
-ref_index2 = (counts2 * vac_wavelen / length + 1)**(.5)
-ref_index3 = (counts3 * vac_wavelen / length + 1)**(.5)
+print(
+'''
+Results of the regression for air:
+Measurement 1: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+Measurement 2: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+Measurement 3: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+Mean: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
+'''.format(fit1_params[0], errors1[0], 1 - fit1_params[1], errors1[1],
+           fit2_params[0], errors2[0], 1 - fit2_params[1], errors2[1],
+           fit3_params[0], errors3[0], 1 - fit3_params[1], errors3[1],
+           np.mean(m), np.std(m), 1 - np.mean(b), np.std(b))
+)
 
-print('''
-Refraction index of air:   {:.8f}
-Refraction index of air:   {:.8f}
-Refraction index of air:   {:.8f} '''.format(np.mean(ref_index1),np.mean(ref_index2),np.mean(ref_index3)))
+m = ufloat(np.mean(m), np.std(m))
+b = ufloat(np.mean(b), np.std(b))
 
-print('''
-Results of regression for air:
-Measurement 1: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-Measurement 2: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-Measurement 3: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-Mean: a = {:.5g} ± {:.7g}   b = {:.5g} ± {:.7g}
-'''.format(fit1_params[0], errors1[0], 1-fit1_params[1], errors1[1], fit2_params[0], errors2[0], 1-fit2_params[1], errors2[1], fit3_params[0], errors3[0], 1-fit3_params[1], errors3[1], np.mean(steig), np.std(steig), 1-np.mean(achse), np.std(achse)))
+n_norm = m * T / T_0 * p_0 + b
 
-m = ufloat(np.mean(steig), np.std(steig))
-b = ufloat(np.mean(achse), np.std(achse))
-
-n_norm = m*T/T_0*p_0+b
-
-print('''
+print(
+'''
 Calculated refraction index at 1018hPa:
-Air: n = {:.8g} ± {:.8g}
-Calculated refraction index at normalconditions:
-Air: n = {:.8g}
-'''.format(np.mean(steig)*1018+np.mean(achse), np.std(achse)+np.std(steig),n_norm))
+air: n = {}
+Calculated refraction index at normal conditions:
+air: n = {}
+'''.format(unp.sqrt(m * 1018 + b), unp.sqrt(n_norm))
+)
 
-plt.errorbar(pressure, refindex1, 100*ref_index1_err, fmt='x', markersize=4, elinewidth=1, label=r'Messung 1 Fehler 100fach vergrößert.')
-plt.plot(x, lin(*fit1_params, x), label='Ausgleichsgeraden')
-plt.title(r'Druckverteilung des Brechungsindex von Luft')
-plt.xlabel('Druck p/mbar')
-plt.ylabel('Brechungsindex n')
+def linear(x, m, b):
+    return m * x + b
+
+x = np.linspace(p[0], p[-1], 2)
+
+plt.errorbar(p, n1, 100 * n1_err, fmt = 'x',
+             label = 'Messung 1')
+plt.plot(x, linear(x, *fit1_params), label = 'Ausgleichsgerade')
+plt.xlabel(r'Druck $p$ / mbar')
+plt.ylabel(r'Brechungsindex $n$')
 plt.grid()
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout()
-plt.savefig('Luft1.pdf')
+plt.savefig('Luft_1.pdf')
 plt.close()
-plt.errorbar(pressure, refindex2, 100*ref_index2_err, fmt='x', markersize=4, elinewidth=1, label=r'Messung 2 Fehler 100fach vergrößert.')
-plt.plot(x, lin(*fit2_params, x), label='Ausgleichsgeraden')
-plt.title(r'Druckverteilung des Brechungsindex von Luft')
-plt.xlabel('Druck p/mbar')
-plt.ylabel('Brechungsindex n')
+
+plt.errorbar(p, n2, 100 * n2_err, fmt = 'x',
+             label = 'Messung 2')
+plt.plot(x, linear(x, *fit2_params), label = 'Ausgleichsgerade')
+plt.xlabel(r'Druck $p$ / mbar')
+plt.ylabel(r'Brechungsindex $n$')
 plt.grid()
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout()
-plt.savefig('Luft2.pdf')
+plt.savefig('Luft_2.pdf')
 plt.close()
-plt.errorbar(pressure, refindex3, 100*ref_index3_err, fmt='x', markersize=4, elinewidth=1, label=r'Messung 3 Fehler 100fach vergrößert.')
-plt.plot(x, lin(*fit3_params, x), label='Ausgleichsgeraden')
-plt.title(r'Druckverteilung des Brechungsindex von Luft')
-plt.xlabel('Druck p/mbar')
-plt.ylabel('Brechungsindex n')
+
+plt.errorbar(p, n3, 100 * n3_err, fmt = 'x',
+             label = 'Messung 3')
+plt.plot(x, linear(x, *fit3_params), label = 'Ausgleichsgerade')
+plt.xlabel(r'Druck $p$ / mbar')
+plt.ylabel(r'Brechungsindex $n$')
 plt.grid()
-plt.legend(loc='best')
+plt.legend()
 plt.tight_layout()
-plt.savefig('Luft3.pdf')
+plt.savefig('Luft_3.pdf')
 plt.close()
