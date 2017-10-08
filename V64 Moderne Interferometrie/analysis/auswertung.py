@@ -113,14 +113,14 @@ b = np.array([fit1_params[1], fit2_params[1], fit3_params[1]])
 print(
 '''
 Results of the regression for CO2:
-Measurement 1: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-Measurement 2: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-Measurement 3: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-Mean: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-'''.format(fit1_params[0], errors1[0], 1 - fit1_params[1], errors1[1],
-           fit2_params[0], errors2[0], 1 - fit2_params[1], errors2[1],
-           fit3_params[0], errors3[0], 1 - fit3_params[1], errors3[1],
-           np.mean(m), np.std(m), 1 - np.mean(b), np.std(b))
+Measurement 1: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+Measurement 2: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+Measurement 3: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+Mean: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+'''.format(fit1_params[0], errors1[0], fit1_params[1] - 1, errors1[1],
+           fit2_params[0], errors2[0], fit2_params[1] - 1, errors2[1],
+           fit3_params[0], errors3[0], fit3_params[1] - 1, errors3[1],
+           np.mean(m), np.std(m), np.mean(b) - 1, np.std(b))
 )
 
 m = ufloat(np.mean(m), np.std(m))
@@ -215,14 +215,14 @@ b = np.array([fit1_params[1], fit2_params[1], fit3_params[1]])
 print(
 '''
 Results of the regression for air:
-Measurement 1: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-Measurement 2: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-Measurement 3: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-Mean: a = {:.5g} ± {:.7g}   1 - b = {:.5g} ± {:.7g}
-'''.format(fit1_params[0], errors1[0], 1 - fit1_params[1], errors1[1],
-           fit2_params[0], errors2[0], 1 - fit2_params[1], errors2[1],
-           fit3_params[0], errors3[0], 1 - fit3_params[1], errors3[1],
-           np.mean(m), np.std(m), 1 - np.mean(b), np.std(b))
+Measurement 1: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+Measurement 2: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+Measurement 3: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+Mean: a = {:.5g} ± {:.7g}   b - 1 = {:.5g} ± {:.7g}
+'''.format(fit1_params[0], errors1[0], fit1_params[1] - 1, errors1[1],
+           fit2_params[0], errors2[0], fit2_params[1] - 1, errors2[1],
+           fit3_params[0], errors3[0], fit3_params[1] - 1, errors3[1],
+           np.mean(m), np.std(m), np.mean(b) - 1, np.std(b))
 )
 
 m = ufloat(np.mean(m), np.std(m))
