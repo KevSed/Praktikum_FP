@@ -130,37 +130,56 @@ Tabelle~\ref{tab:params} zusammengetragen.
 \end{table}
 
 Aus den Messreihen ergeben sich für die linearen Zusammenhänge
+%
 \begin{align}
   n_{\text{Luft}}(p)=&\SI{2672(8)e-10}{\milli\bar^{-1}}
   \cdot p+1-\num{2(5)e-7} \\
   n_{\text{CO}_2}(p)=&\SI{398(2)e-9}{\milli\bar^{-1}}
   \cdot p+1-\num{8(6)e-6}
 \end{align}
+%
 Mit Hilfe der bestimmten Parameter und des zur Versuchsdurchführung herrschenden
 Umgebungsdrucks und der Umgebungstemperatur lassen sich die Brechungsindices der
 Gase berechnen. Die nächstgelegene Wetterstation hat zur Versuchsdurchführung
 einen Luftdruck von $\SI{1018}{\hecto\pascal}$~\cite{wetteronline} verzeichnet
 Daraus folgt für die Brechungsindices
+%
 \begin{align}
   n_{\text{Luft}}(p=\SI{1018}{\milli\bar})=&\num{1.0001359(5)} \\
   n_{\text{CO}_2}(p=\SI{1018}{\milli\bar})=&\num{1.0001986(30)}
 \end{align}
+%
 Nach Gleichung~\eqref{eq:näherung} ist der Proportionalitätsfaktor
 der Druckabhängigkeit für Gase mit einem Brechungsindex nahe $1$ etwa
-$\frac{3A}{RT}$. Es gilt also
+$\frac{3A}{RT}$. Allerdings gewurzelt, wird nicht das Quadrat des
+Brechungsindex betrachtet. Allerdings lässt sich die lineare Funktion verkettet
+mit einer Wurzelfunktion in erster Ordnung des Taylor-Polynoms als
+%
+\begin{equation*}
+  n(p)\approx1+\frac{3\mathup{A}}{2\mathup{RT}}\cdot p + \mathcal{O}(p^2)
+\end{equation*}
+%
+darstellen. Es gilt also
+%
 \begin{equation}
-  m=\frac{3A}{RT}
+  m=\frac{3\mathup{A}}{2\mathup{RT}}
 \end{equation}
+%
 wobei $m$ die aus der Ausgleichsrechnung bestimmte Steigung, $A$ die molare
 Refraktivität des Mediums, $R$ die universelle Gaskonstante und $T$ die
 Temperatur ist. Somit lässt sich der aus den Messdaten bestimmte Wert für $m$
 auf Normalbedingungen umrechnen. Zur Berechnung der Brechungsindices unter
+<<<<<<< HEAD
 Normalbedingungen ($T_0=\SI{15}{\celsius}$, $p=1\,\text{atm}$ für Luft,
 $T_0=\SI{0}{\celsius}$, $p=1\,\text{atm}$ für Kohlenstoffdioxid) gilt
+%
+>>>>>>> Auswertung angepasst.
 \begin{equation}
   m_0=\frac{mT}{T_0}
 \end{equation}
-Daraus folgt
+%
+Daraus folgen
+%
 \begin{align}
   n_{\text{Luft}}(T_0=\SI{15}{\celsius}, p=1\,\text{atm})=&\num{1.000280(1)} \\
   n_{\text{CO}_2}(T_0=\SI{0}{\celsius}, p=1\,\text{atm})=&\num{1.000432(6)}
