@@ -1,0 +1,21 @@
+[0] Config.pm:354> INFO - This is Biber 2.6
+[0] Config.pm:357> INFO - Logfile is 'build/main.blg'
+[29] biber:302> INFO - === Di Nov 28, 2017, 15:44:03
+[46] Biber.pm:359> INFO - Reading 'build/main.bcf'
+[117] Biber.pm:823> INFO - Found 1 citekeys in bib section 0
+[129] Biber.pm:3658> INFO - Processing section 0
+[141] Biber.pm:3828> INFO - Looking for bibtex format file '../literature.bib' for section 0
+[142] bibtex.pm:1425> INFO - Decoding LaTeX character macros into UTF-8
+[144] bibtex.pm:1282> INFO - Found BibTeX data source '../literature.bib'
+[147] Biber.pm:3828> INFO - Looking for bibtex format file '../programs.bib' for section 0
+[148] bibtex.pm:1425> INFO - Decoding LaTeX character macros into UTF-8
+[149] bibtex.pm:1282> INFO - Found BibTeX data source '../programs.bib'
+[149] Biber.pm:3828> INFO - Looking for bibtex format file '../manuals.bib' for section 0
+[150] bibtex.pm:1425> INFO - Decoding LaTeX character macros into UTF-8
+[151] bibtex.pm:1282> INFO - Found BibTeX data source '../manuals.bib'
+[164] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[165] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[165] Biber.pm:3487> INFO - Sorting list 'none/global/' of type 'entry' with scheme 'none' and locale 'de-DE'
+[165] Biber.pm:3493> INFO - No sort tailoring available for locale 'de-DE'
+[166] bbl.pm:597> INFO - Writing 'build/main.bbl' with encoding 'UTF-8'
+[166] bbl.pm:701> INFO - Output to build/main.bbl
