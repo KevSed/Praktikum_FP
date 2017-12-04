@@ -15,7 +15,7 @@ Abbildung~\ref{fig:zerfallsschema} zeigt das Zerfallsschema von $\ce{^{137}Cs}$.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.75\textwidth]{figures/Cs137_Zerfallsschema.png}
+  \includegraphics[width=0.75\textwidth]{figures/cs137_Zerfallsschema.png}
   \caption{Zerfallsschema von $\ce{^{137}Cs}$ in $\ce{^{137}Ba}$. Beim Zerfall
   über einen angeregten Zustand des Barium-Kerns wird zusätzlich zum
   $\beta$-Teilchen ein $\gamma$-Quant mit der charakteristischen Energie
@@ -73,8 +73,8 @@ Hilfe die Verteilung verschiedener Materialien in einem nicht einsehbaren Körpe
 bestimmt werden kann.
 
 \subsection{Messung der Absorptionskoeffizienten}
-Im Folgenden wird mit der Matrixschreibweise gearbeitet, sodass sich
-Gleichung~\eqref{eq:gls} schreiben lässt als
+Im Folgenden wird mit der Matrixschreibweise gearbeitet.
+Gleichung~\eqref{eq:gls} lässt sich somit schreiben als
 \begin{equation}
   A\cdot\vec{\mu}=\vec{I}
   \label{eq:gls_matrix}
@@ -98,15 +98,21 @@ besseren Statistik mehr Messungen bzw. Projektionen durchzuführen.
 Abbildung~\ref{fig:projektionen} zeigt die zwölf ausgewählten Projektionen zur
 Untersuchung einer Schicht des Würfels.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/projektionen.pdf}
+  \caption{Darstellung der zwölf gewählten Projektionen für die mittlere
+  $3\times3$ Schicht eines zu untersuchenden Würfels.}
+  \label{fig:projektionen}
+\end{figure}
+
 Zur Berücksichtigung unterschiedlicher Unsicherheiten auf die gemessenen Werte
 von $\vec{I}$ wird Gleichung~\eqref{eq:gls_matrix} modifiziert zu
-\begin{equation}
-  WA\cdot\vec{\mu}=W\vec{I}
-\end{equation}
-mit der Gewichtungsmatrix
-\begin{equation}
+\begin{gather}
+  WA\cdot\vec{\mu}=W\vec{I} \\
+  \intertext{mit der Gewichtungsmatrix}
   W=V[I]^{-1}
-\end{equation}
+\end{gather}
 Die Lösung der Gleichung ist nun gegeben durch
 \begin{equation}
   \vec{\mu}=\left(A^TWA\right)^{-1}\left(A^TW\vec{I}\right)
