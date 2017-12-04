@@ -64,7 +64,8 @@ $I_0$ einem expontiellen Verlauf, der Form
 wobei die $\mu_i$ die Absorptionskoeffizienten verschiedener Materialien und
 $d_i$ deren Dicken bezeichnen. Durch Umstellen der Formel zu
 \begin{equation}
-  \sum_i\mu_id_i=\lg\left(\frac{I_0}{I_j}\right)
+  \sum_i\mu_id_i=\text{ln}\left(\frac{I_0}{I_j}\right)
+  \label{eq:gls}
 \end{equation}
 ergibt sich die Möglichkeit durch die Messung der Intensitäten $I_j$ und bei
 geschickter Wahl der Strahlwege ein Gleichungssystem aufzustellen, mit dessen
@@ -72,3 +73,45 @@ Hilfe die Verteilung verschiedener Materialien in einem nicht einsehbaren Körpe
 bestimmt werden kann.
 
 \subsection{Messung der Absorptionskoeffizienten}
+Im Folgenden wird mit der Matrixschreibweise gearbeitet, sodass sich
+Gleichung~\eqref{eq:gls} schreiben lässt als
+\begin{equation}
+  A\cdot\vec{\mu}=\vec{I}
+  \label{eq:gls_matrix}
+\end{equation}
+Hierbei bezeichnet $\vec{\mu}$ den zu bestimmenden Vektor der
+Absorptionskoeffizienten, $A$ die Matrix, die Information über die Wegstrecken
+enthält und $\vec{I}$ den Vektor der gemessenen Intensitäten gemäß der rechten
+Seite von Gleichung~\eqref{eq:gls}.
+
+Im durchgeführten Versuch wird ein Würfel mit dünner Aluminiumummantelung
+untersucht, der im Inneren aus $3\times3\times3$ gleich großen Teilwürfel
+besteht. Aus Zeitgründen wird nur eine Schicht untersucht, sodass insgesamt neun
+Absorptionskoeffizienten zu bestimmen sind. Der Vektor $\vec{\mu}$ hat demnach
+die Dimension $n=9$. Die Matrix $A$ hat die Dimension $m\times n$, wobei $m$ die
+Dimension des Vektors $\vec{I}$, also die Anzahl der durchgeführten Messungen
+bei unterschiedlichen Projektionen ist. Um das lineare Gleichungssystem mit
+einem klassischen Ansatz lösen zu können, sind mindestens $n$ unterschiedliche
+Projektionen zu wählen, wobei sichergestellt werden muss, dass die resultierende
+Matrix $A$ nicht singulär ist. Es empfiehlt sich jedoch zu Gunsten einer
+besseren Statistik mehr Messungen bzw. Projektionen durchzuführen.
+Abbildung~\ref{fig:projektionen} zeigt die zwölf ausgewählten Projektionen zur
+Untersuchung einer Schicht des Würfels.
+
+Zur Berücksichtigung unterschiedlicher Unsicherheiten auf die gemessenen Werte
+von $\vec{I}$ wird Gleichung~\eqref{eq:gls_matrix} modifiziert zu
+\begin{equation}
+  WA\cdot\vec{\mu}=W\vec{I}
+\end{equation}
+mit der Gewichtungsmatrix
+\begin{equation}
+  W=V[I]^{-1}
+\end{equation}
+Die Lösung der Gleichung ist nun gegeben durch
+\begin{equation}
+  \vec{\mu}=\left(A^TWA\right)^{-1}\left(A^TW\vec{I}\right)
+\end{equation}
+Für die Unsicherheiten ergibt sich
+\begin{equation}
+  V[\mu])\left(A^TWA\right)^{-1}
+\end{equation}
