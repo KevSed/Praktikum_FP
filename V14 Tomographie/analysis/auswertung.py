@@ -5,8 +5,10 @@ import pandas as pd
 np.set_printoptions(precision=4)
 
 # Dateneinlesen
-counts = np.genfromtxt('../data/Leermessung_5.Spe', skip_header=12, skip_footer=16)
-counts_0 = np.genfromtxt('../data/Nullmessung.Spe', skip_header=12, skip_footer=16)
+counts = np.genfromtxt('../data/Leermessung_5.Spe', skip_header=12,
+                       skip_footer=16)
+counts_0 = np.genfromtxt('../data/Nullmessung.Spe', skip_header=12,
+                         skip_footer=16)
 I_l, c_l, t_l = np.genfromtxt('../data/Leermessung.txt', unpack=True)
 I_2, c_2, t_2 = np.genfromtxt('../data/würfel2.txt', unpack=True)
 I_3, c_3, t_3 = np.genfromtxt('../data/würfel3.txt', unpack=True)
@@ -32,23 +34,17 @@ A = np.matrix([[1, 0, 0, 1, 0, 0, 1, 0, 0],
                [0, 0, b, 0, b, 0, b, 0, 0],
                [0, b, 0, b, 0, 0, 0, 0, 0]])
 
-#
-W = np.diag([1, 1, 1, 1, 1])
+# Geoimetriematrix für Würfel 2 (vollständig aus Alu)
+A_2 = np.matrix([[3],
+                [3],
+                [3*b],
+                [3*b]])
 
 
-
-C = np.diag(np.ones(11), -1) + \
-    np.diag(np.array([-1, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -1])) + \
-    np.diag(np.ones(11), 1)
-
-C2 = np.diag(np.ones(4), -1) + \
-    np.diag(np.array([-1, -2, -2, -2, -1])) + \
-    np.diag(np.ones(4), 1)
-
-
-def kleinsteQuadrate(y, A=A, C=C, lamb=0, W=1):
-    a = np.dot(np.dot(np.linalg.inv(np.dot(A.T, np.dot(W,A)) + lamb * np.dot(np.dot(C,A).T, np.dot(C,A) )) , A.T), np.dot(W, y))
-    a_err = np.linalg.inv(np.dot(A.T, np.dot(W,A)))
+def kleinsteQuadrate(y, A, W):
+    temp = np.dot(np.linalg.inv(np.dot(A.T, np.dot(W, A))), A.T)
+    a = np.dot(temp, np.dot(W, y))
+    a_err = np.linalg.inv(np.dot(A.T, np.dot(W, A)))
     return a, np.sqrt(np.diag(a_err))
 
 
@@ -101,7 +97,7 @@ rate_5 = c_5 / t_5
 err_rate_5 = np.sqrt(c_5) / t_5
 
 
-# Mitteln
+# Mitteln für leeren Würfel
 I_leer = np.array(np.zeros(len(rate_5)))
 err_I_leer = np.array(np.zeros(len(rate_5)))
 
@@ -117,6 +113,7 @@ for i in range(len(rate_5)):
         err_I_leer[i] = (err_rate_l[2] + err_rate_l[3]) / 2
 
 # Umrechnen in ln(I_0/N_j)
+# Proj_1 steht für dir Projektionen, die bei Würfel 2 und 3 verwendet wurden
 I_Proj_1 = np.array([I_leer[1], I_leer[4], I_leer[7], I_leer[10]])
 err_I_Proj_1 = np.array([err_I_leer[1], err_I_leer[4], err_I_leer[7], err_I_leer[10]])
 
@@ -130,33 +127,36 @@ err_I_5 = np.sqrt((np.sqrt(c_5) / c_5)**2 + (err_I_leer / I_leer)**2)
 
 
 print('''
+###############################################################
+
       ~~~ Raten der verschiedenen Würfel ~~~
 
-      Leermessung:
+      Leermessung: (Projektionen 5, 6, 11, 8, 9)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
       
-      Leermessung mit Mittelung:
+      Leermessung mit Mittelung: (alle 12 Projektionen)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
       
-      Würfel 2:
+      Würfel 2: (Projektionen 5, 2, 8, 11)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
       
-      Würfel 3:
+      Würfel 3: (Projektionen 5, 2, 8, 11)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
       
-      Würfel 5:
+      Würfel 5: (alle 12 Projektionen)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
 
+###############################################################
       '''
       .format(rate_l, err_rate_l, I_leer, err_I_leer, rate_2, err_rate_2,
               rate_3, err_rate_3, rate_5, err_rate_5))
@@ -178,5 +178,38 @@ print('''
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      '''
-      .format(I_2, err_I_2, I_3, err_I_3, I_5, err_I_5))
+ 
+###############################################################
+'''.format(I_2, err_I_2, I_3, err_I_3, I_5, err_I_5))
+
+# Gewichtungsmatrizen
+W_2 = np.diag(1/err_I_2**2)
+W_3 = np.diag(1/err_I_3**2)
+W_5 = np.diag(1/err_I_5**2)
+
+# Über kleinsteQuadrate mu berechnen
+mu_2, err_mu_2 = kleinsteQuadrate(I_2, W=W_2, A=A_2)
+mu_3, err_mu_3 = kleinsteQuadrate(I_3, W=W_3, A=A_2)
+mu_5, err_mu_5 = kleinsteQuadrate(I_5, W=W_5, A=A)
+
+print(
+    '''
+      ~~~ Absorptionskoeffizienten der verschiedenen Würfel ~~~
+
+      Würfel 2:
+      -----------------------------------------------
+      Werte = {}
+      Fehler = {}
+      
+      Würfel 3:
+      -----------------------------------------------
+      Werte = {}
+      Fehler = {}
+      
+      Würfel 5:
+      -----------------------------------------------
+      Werte = {}
+      Fehler = {}
+    '''.format(mu_2, err_mu_2, mu_3, err_mu_3, mu_5, err_mu_5)
+)
+
