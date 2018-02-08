@@ -1,2 +1,145 @@
 \section{Auswertung}
 \label{sec:auswertung}
+
+\input{../fehlerrechnung.tex}
+
+\subsection{Bestimmung der Grundintensität $I_0$}
+
+Zur Bestimmung der Aktivität der verwendeten Quelle wird zu Beginn eine 
+Messung ohne Würfel durchgeführt. Aus dem so aufgenommenen, in 
+Abbildung~\ref{fig:nullmessung} dargestellten Spektrum wird eine Rate von 
+$I'_0 = 225.4\,\pm\,0.7\:\frac{\text{counts}}{\text{s}}$ bestimmt. Diese 
+folgt aus der Messung von $101383$ counts über $\SI{449.8}{\second}$. Der 
+statistische Poissonfehler ist aufgrund der großen Anzahl an counts 
+$<\SI{1}{\percent}$ und somit vernachlässigbar.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth]{analysis/plots/nullmessung.pdf}
+    \caption{Energieverteilung der Nullmessung ohne Würfel im Strahlengang.}
+    \label{fig:nullmessung}
+\end{figure}
+
+Dieser Wert stellt im weiteren Verlauf der Auswertung den Vergleichswert für 
+die Absorptionen dar. Da sich die zu untersuchenden Würfel allerdings in einem 
+äußeren Aluminiumgehäuse befinden, wird die zusätzliche Absorption durch 
+Messungen leerer Würfel bestimmt. Abbildung~\ref{fig:leermessung} zeigt das 
+Spektrum dieser Messung.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth]{analysis/plots/leermessung.pdf}
+    \caption{Energieverteilung der Leermessung an einem hohlen Aluminiumwürfel.}
+    \label{fig:leermessung}
+\end{figure}
+
+Um die Raten der Leermessungen für alle 12 später benötigten Strahlrichtungen 
+durch den Würfel möglichst exakt zu bestimmen, werden die Messergebnisse der 
+einzelnen Richtungen bei gleicher Weglänge durch den Würfel gemittelt. Dazu 
+werden die Projektionen 5, 6, 8, 9 und 11 vermessen. So ergibt sich der  
+Intensitätsvektor in~\eqref{eq:int} in Reihenfolge der in 
+Abbildung~\ref{fig:projektionen} dargestellten Projektionen I1 - I12, sowohl 
+wie gemessen als auch gemittelt.
+
+\begin{equation}
+	\vec{I}=
+	\begin{pmatrix}
+		- \\
+		- \\
+		- \\
+		- \\
+		200.3\,\pm\,0.6 \\
+		215.7\,\pm\,0.7 \\
+		- \\
+		210.8\,\pm\,0.6 \\
+		217.2\,\pm\,0.6 \\
+		- \\
+		214\,\pm\,0.7 \\
+		-
+	\end{pmatrix}
+	\quad
+	\vec{\tilde{I}}=
+	\begin{pmatrix}
+		208\,\pm\,0.6 \\
+		208\,\pm\,0.6 \\
+		208\,\pm\,0.6 \\
+		208\,\pm\,0.6 \\
+		208\,\pm\,0.6 \\
+		208\,\pm\,0.6 \\
+		214\,\pm\,0.7 \\
+		214\,\pm\,0.6 \\
+		214\,\pm\,0.7 \\
+		214\,\pm\,0.7 \\
+		214\,\pm\,0.6 \\
+		214\,\pm\,0.7
+	\end{pmatrix}
+	\label{eq:int}
+\end{equation}
+
+\subsection{Auswertung der Würfel aus einheitlichem Material}
+
+Die Würfel 2 und 3 bestehen nach Information des Versuches nur aus Würfeln 
+eines Materials. Die Materialien sind Blei (Würfel 2), sowie Messing (Würfel 
+3). Daher können die verschiedenen, vermessenen Projektionen im Sinne eines 
+überbestimmten Gleichungssystems für eine Mittelung verwendet werden. Ebenso 
+kann die Geometriematrix zu einem Vektor in den einzelnen Komponenten 
+aufsummiert werden. Es folgt:
+
+\begin{equation}
+	A=
+	\begin{pmatrix}
+		3 \\
+		3 \\
+		3\cdot\sqrt{2} \\
+		3\cdot\sqrt{2}
+	\end{pmatrix} \; .
+\end{equation}
+
+Diese Matrix beschreibt die Projektionen 2, 5, 8 und 11. Mit Hilfe der 
+Methode der kleinsten Quadrate lassen sich nun die Absorptionskoeffizienten 
+der einzelnen Materialien bestimmen. Es ergeben sich die in 
+Tabelle~\ref{tab:2und3} aufgeführten Ergebnisse.
+
+\begin{table}[htb]
+  \centering
+  \caption{Aus den verschiedenen Projektionen gemittelte Absorptionskoeffizienten der Würfel 2 und 3.}
+  \begin{tabular}{c|
+                  S[table-format=1.4(1)]}
+    \toprule
+    {Objekt} & {Absorptionskoeffizient $\mu$, $\si{\per\centi\meter}$} \\
+		\midrule
+    Würfel 2 & 1.3646(9) \\
+    Würfel 3 & 0.611(4) \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:2und3}
+\end{table}
+
+\subsection{Auswertung des Würfels unbekannten Aufbaus}
+
+Die Messung des Würfels 5 stellt eine Vermessung eines Würfels mit 
+unbekannter innerer Struktur dar. Es ist also weder klar, welche Materialien 
+innerhalb des Würfels vorliegen, noch in welcher Verteilung auf die kleinen 
+inneren Würfel. Durch die Vermessung des Würfels über alle 12 in 
+Abbildung~\ref{fig:projektionen} dargestellten Projektionen lassen sich für 
+jeden der 9 inneren Würfel die Absorptionskoeffizienten bestimmen.
+
+\begin{table}[htb]
+  \centering
+  \caption{Absorptionskoeffizienten einiger Metalle. Die Werte folgen aus den Dichten und Absorptionskoeffizienten der einzelnen Elemente~\cite{koeff}.}
+  \begin{tabular}{c
+                  S[table-format=1.3]
+									S[table-format=2.2]
+									S[table-format=1.3]}
+    \toprule
+    {Material} & {$\sigma$, $\si{\centi\meter\squared\per\gram}$} & {$\rho$, $\si{\gram\per\centi\meter^{3}}$} & {$\mu$, $\si{\per\centi\meter}$} \\
+		\midrule
+    Blei & 0.110 & 11.34 & 1.245 \\
+    Messing & 0.073 & 8.41 & 0.614 \\
+		Eisen & 0.073 & 7.86 & 0.574 \\
+		Aluminium & 0.075 & 2.71 & 0.203 \\
+		Delrin & 0.082 & 1.42 & 0.116 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:lit}
+\end{table}
