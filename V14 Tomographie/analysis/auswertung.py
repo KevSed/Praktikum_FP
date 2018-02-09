@@ -21,6 +21,11 @@ df = pd.DataFrame(n)
 # Geometriematrix
 b = np.sqrt(2)
 
+# A wird ja mit den Absorptionskoeffizienten multipliziert, um dann die Raten
+# auszugeben. Demnach entsprechen die Komponenten der einzelnen Zeilen
+# den Strecken durch die Unter-Würfel, die bei der jeweiligen Projektion
+# durchstrahlt werden. Daher lassen sich die Zeilen bei uniformer Verteilung
+# auch aufsummieren (wie bei Würfel 2 und 3).
 A = np.matrix([[1, 0, 0, 1, 0, 0, 1, 0, 0],
                [0, 1, 0, 0, 1, 0, 0, 1, 0],
                [0, 0, 1, 0, 0, 1, 0, 0, 1],
@@ -34,7 +39,7 @@ A = np.matrix([[1, 0, 0, 1, 0, 0, 1, 0, 0],
                [0, 0, b, 0, b, 0, b, 0, 0],
                [0, b, 0, b, 0, 0, 0, 0, 0]])
 
-# Geoimetriematrix für Würfel 2 (vollständig aus Alu)
+# Geoimetriematrix für Würfel 2 und 3 (vollständig aus einem Material)
 A_2 = np.matrix([[3],
                 [3],
                 [3*b],
