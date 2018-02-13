@@ -120,7 +120,8 @@ for i in range(len(rate_5)):
 # Umrechnen in ln(I_0/N_j)
 # Proj_1 steht für dir Projektionen, die bei Würfel 2 und 3 verwendet wurden
 I_Proj_1 = np.array([I_leer[1], I_leer[4], I_leer[7], I_leer[10]])
-err_I_Proj_1 = np.array([err_I_leer[1], err_I_leer[4], err_I_leer[7], err_I_leer[10]])
+err_I_Proj_1 = np.array([err_I_leer[1],
+                         err_I_leer[4], err_I_leer[7], err_I_leer[10]])
 
 I_2 = np.log(c_2 / I_Proj_1)
 I_3 = np.log(c_3 / I_Proj_1)
@@ -140,22 +141,22 @@ print('''
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Leermessung mit Mittelung: (alle 12 Projektionen)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Würfel 2: (Projektionen 5, 2, 8, 11)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Würfel 3: (Projektionen 5, 2, 8, 11)
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Würfel 5: (alle 12 Projektionen)
       -----------------------------------------------
       Werte = {}
@@ -173,17 +174,17 @@ print('''
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Würfel 3:
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Würfel 5:
       -----------------------------------------------
       Werte = {}
       Fehler = {}
- 
+
 ###############################################################
 '''.format(I_2, err_I_2, I_3, err_I_3, I_5, err_I_5))
 
@@ -205,16 +206,15 @@ print(
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Würfel 3:
       -----------------------------------------------
       Werte = {}
       Fehler = {}
-      
+
       Würfel 5:
       -----------------------------------------------
       Werte = {}
       Fehler = {}
     '''.format(mu_2, err_mu_2, mu_3, err_mu_3, mu_5, err_mu_5)
 )
-
