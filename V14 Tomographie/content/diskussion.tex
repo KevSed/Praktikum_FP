@@ -5,12 +5,12 @@ Die Auswertung der beiden Würfel mit homogenen Materialverteilungen ergab die i
 Tabelle~\ref{tab:2und3} aufgeführten Absorptionskoeffizienten. Vergleicht man 
 diese mit den Literaturwerten in Tabelle~\ref{tab:lit}, so ergeben sich sehr 
 eindeutige Zuordnungen zu den aufgeführten Materialien. Würfel~2 stimmt mit 
-einem bestimmten Koeffizienten von $\mu_2 = \SI{1.3646(9)}{\per\centi\meter}$ 
-sehr gut mit einer Zusammensetzung aus Blei überein. Die Abweichung beträgt
-etwa $\SI{10}{\percent}$. Würfel~3 wies nach Messung einen 
-Absorptionskoeffizienten von $\mu_3 = \SI{0.611(4)}{\per\centi\meter}$ auf.
-Dieser stimmt wiederum sehr gut mit einer Zusammensetzung aus Messing überein. 
-Die Abweichung beträgt hierbei nur etwa $\SI{0.5}{\percent}$.
+einem bestimmten Koeffizienten von $\mu_2 = \SI{0.19(1)}{\per\centi\meter}$ 
+sehr gut mit einer Zusammensetzung aus Aluminium überein. Die Abweichung beträgt
+etwa $\SI{6}{\percent}$. Würfel~3 wies nach Messung einen 
+Absorptionskoeffizienten von $\mu_3 = \SI{1.04(6)}{\per\centi\meter}$ auf.
+Dieser stimmt wiederum am besten mit einer Zusammensetzung aus Blei überein. 
+Die Abweichung beträgt hierbei etwa $\SI{16.5}{\percent}$.
 
 \begin{table}[htb]
   \centering
@@ -40,20 +40,31 @@ Teilwürfeln schließen.
   \caption{Aus den verschiedenen Absorptionskoeffizienten bestimmte Zusammensetzung der Teilwürfel von Würfel 5.}
   \begin{tabular}{c|
                   S[table-format=1.4(1)]
+                  S
                   c}
     \toprule
-    {Teilwürfel} & {Absorptionskoeffizient $\mu$, $\si{\per\centi\meter}$} & {Material} \\
+    {Teilwürfel} & {Absorptionskoeffizient $\mu$, $\si{\per\centi\meter}$} & {Abweichung, $\si{\percent}$} & {Material} \\
 	\midrule
-    1 &  1.3646(9) & Blei \\
-    2 &  0.611(4)  & Blei \\
-    3 &  0.611(4)  & Blei \\
-    4 &  0.611(4)  & Blei \\
-    5 &  0.611(4)  & Blei \\
-    6 &  0.611(4)  & Blei \\
-    7 &  0.611(4)  & Blei \\
-    8 &  0.611(4)  & Blei \\
-    9 &  0.611(4)  & Blei \\ 
+    1 &  0.35(8) & 72.4 & Aluminium \\
+    2 &  0.72(6) & 17.3 & Messing \\
+    3 &  0.31(8) & 52.7 & Aluminium \\
+    4 &  0.06(6) & 48.3 & Delrin/Luft \\
+    5 &  1.09(8) & 12.5 & Blei \\
+    6 &  0.15(6) & 26.1 & Aluminium \\
+    7 &  0.14(8) & 31.0 & Aluminium \\
+    8 &  0.28(6) & 37.9 & Aluminium \\
+    9 &  0.12(8) & 3.4 & Delrin \\
     \bottomrule
   \end{tabular}
   \label{tab:ergebnisse5}
 \end{table}
+
+Diese Schuatzung stellt allerdings lediglich eine Verknüpfung des bestimmten 
+Absorptionskoeffizienten mit dem nächsten Wert eines oben aufgeführten 
+Materials dar.
+Dabei sind die Abweichungen von den Literaturwerten allerdings durchweg recht 
+hoch. Außerdem sind die statistischen Fehler der einzelnen Messungen bereits 
+ziemlich groß und reichen wie etwa im Fall von Teilwürfel~4 an den Nominalwert.
+Hier zeigt sich wohl im Vergleich zu den Vermessungen der ersten beiden Würfel, 
+dass der Unterschied in der Statistik, bzw. das Verwenden eines überbestimmten 
+Gleichungssystems den Fehler deutlich vermindert.
