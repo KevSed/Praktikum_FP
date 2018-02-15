@@ -46,7 +46,7 @@ A_2 = np.matrix([[3],
                 [3*b]])
 
 
-def kleinsteQuadrate(y, A, W):
+def kleinsteQuadrate(y, W, A):
     temp = np.dot(np.linalg.inv(np.dot(A.T, np.dot(W, A))), A.T)
     a = np.dot(temp, np.dot(W, y))
     a_err = np.linalg.inv(np.dot(A.T, np.dot(W, A)))
@@ -123,13 +123,13 @@ I_Proj_1 = np.array([I_leer[1], I_leer[4], I_leer[7], I_leer[10]])
 err_I_Proj_1 = np.array([err_I_leer[1],
                          err_I_leer[4], err_I_leer[7], err_I_leer[10]])
 
-I_2 = np.log(c_2 / I_Proj_1)
-I_3 = np.log(c_3 / I_Proj_1)
-I_5 = np.log(c_5 / I_leer)
+I_2 = np.log(I_Proj_1 / rate_2)
+I_3 = np.log(I_Proj_1 / rate_3)
+I_5 = np.log(I_leer / rate_5)
 
-err_I_2 = np.sqrt((np.sqrt(c_2) / c_2)**2 + (err_I_Proj_1 / I_Proj_1)**2)
-err_I_3 = np.sqrt((np.sqrt(c_3) / c_3)**2 + (err_I_Proj_1 / I_Proj_1)**2)
-err_I_5 = np.sqrt((np.sqrt(c_5) / c_5)**2 + (err_I_leer / I_leer)**2)
+err_I_2 = np.sqrt((np.sqrt(rate_2) / rate_2)**2 + (err_I_Proj_1 / I_Proj_1)**2)
+err_I_3 = np.sqrt((np.sqrt(rate_3) / rate_3)**2 + (err_I_Proj_1 / I_Proj_1)**2)
+err_I_5 = np.sqrt((np.sqrt(rate_5) / rate_5)**2 + (err_I_leer / I_leer)**2)
 
 
 print('''
