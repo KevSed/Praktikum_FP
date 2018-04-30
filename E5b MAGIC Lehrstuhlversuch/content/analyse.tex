@@ -1,27 +1,90 @@
-\section{Analyse des Krebsnebels}
+\section{Stereoskopische Analyse des Krebsnebels}
 \label{sec:analyse}
 
-\subsection{Ablauf einer stereoskopischen MAGIC Analyse}
+\subsection{Datenselektion und -rekonstruktion}
 
 Abbildung~\ref{fig:analysischain} zeigt den typischen Ablauf einer
-stereoskopischen Analyse mit MAGIC Daten. Die hierzu verwendeten einzelnen
-Softwarepakete sind eingebettet in das MARS Framework. In einem ersten Schritt
-werden die Rohdaten der beiden Teleskope einzeln vorprozessiert. Dazu gehören
-die Zeit- und Ladungskalibrierung der einzelnen Pixel der Kamera (sorcerer),
-sowie das image cleaning und die Parametrisierung des Kamerabildes (star).
-Im Anschluss daran werden die Daten der Teleskope durch die Software superstar
-kombiniert und Stereoparameter berechnet. 
-
+stereoskopischen Analyse mit MAGIC Daten. Die hierzu verwendeten Programme sind
+eingebettet in das MARS Softwarepaket. In einem ersten Schritt durchlaufen die
+Rohdaten der beiden Teleskope eine Vorprozessierung. Dazu gehören die Zeit- und
+Ladungskalibrierung der einzelnen Pixel der Kamera mit dem Programm
+\textit{sorcerer}, sowie das image cleaning [deutsches Wort...?] und die
+Parametrisierung des Kamerabildes mit dem Programm \textit{star}. Im
+Anschluss daran werden die Daten der Teleskope durch die Software
+\textit{superstar} kombiniert und Stereoparameter für die weitere Analyse
+berechnet.
 \begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{figures/analysischain.png}
-  \caption{Ablauf einer typischen stereoskopischen Analyse. Zunächst werden die
-  Rohdaten der beiden Teleskope einzeln vorprozessiert und dann durch die
-  Software superstar kombiniert. [...]}
+  \caption{Ablauf einer typischen stereoskopischen Analyse mit MAGIC Daten.}
   % Referenz: MAGIC wiki
   \label{fig:analysischain}
 \end{figure}
+In einem nächsten Schritt findet die Datenselektion statt. Der Schritt ist
+wichtig, um sicherzustellen, dass die verwendeten Daten vergleichbar und
+nicht durch äußere Einflüsse verfälscht sind. Somit dient die Selektion in
+erster Linie der Qualitätssicherung der Daten. Für die weitere Analyse werden
+nur Daten weiterverwendet, die den folgenden Kriterien genügen:
+\begin{itemize}
+  \item ...
+  \item ...
+  \item ...
+\end{itemize}
+[...Begründung für die Wahl der Kriterien...]
 
-\subsection{Wahl der Analyseparameter}
+In einem nächsten Schritt wird das Programm \textit{coach} (Compressed Osteria
+Alias Computation of the Hadroness parameter) verwendet, um Modelle für die
+\begin{enumerate}
+  \item Separation von Gamma- und Hadronenstrahlung
+  \item Energieabschätzung
+  \item Positionsrekonstruktion
+\end{enumerate}
+aufzustellen. Dies ist notwendig, um [...]. Zur Klassifikation wird ein
+\textit{random forest} verwendet. Dieser wird trainiert mit einem Teil des
+Datensatzes und einem Monte Carlo generierten Datensatz, der auf Grundlage eines
+Modells generiert wurde, welches durch Gammastrahlung induzierte Teilchenschauer
+beschreibt. Um die Trennkraft des Klassifizierers zu testen wird der Monte
+Carlo Datensatz zu Beginn in einen Test- und einen Trainingsdatensatz
+aufgeteilt. Somit ist es möglich mit einem Teil des Datensatzes den
+Klassifizierer zu trainieren und diesen dann auf dem Testdatensatz zu testen.
+In der durchgeführten Analyse wurde der Klassifizierer mit folgenden
+Einstellungen trainiert:
+\begin{itemize}
+  \item ...
+  \item ...
+  \item ...
+\end{itemize}
+[...Erklärung der Parameter...]
+Für die Energierekonstruktion werden sogenannte \textit{lookup tables}
+generiert, durch die eine Zuordnung erfolgt. [...?]
 
-\subsection{Ergebnisse}
+Nachdem die Modelle erstellt wurden, werden diese mit dem Programm
+\textit{melibea} auf den vollständigen Datensatz angewendet. Mit dem nun fertig
+präparierten Datensatz können nun im letzten Analyseschritt Physikresultate
+produziert werden.
+
+\subsection{Ergebnisse der Analyse}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/caspar_flux_skymap.pdf}
+  \caption{Eine Caption.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/odie_thetasquared.pdf}
+  \caption{Eine Caption.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/flute_lichtkurve.pdf}
+  \caption{Eine Caption.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/combunfold_energyspectrum.pdf}
+  \caption{Eine Caption.}
+\end{figure}
