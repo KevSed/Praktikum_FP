@@ -37,11 +37,14 @@ nicht durch äußere Einflüsse verfälscht sind. Somit dient die Selektion der
 Qualitätssicherung der Daten. Für die weitere Analyse werden nur Daten
 weiterverwendet, die den folgenden Kriterien genügen:
 \begin{itemize}
-  \item ...
-  \item ...
-  \item ...
+  \item $\SI{5}{\degree}<\text{Zenitwinkel}<\SI{35}{\degree}$
+  \item $\SI{-180}{\degree}<\text{Azimuthwinkel}<\SI{360}{\degree}$
+  \item Maximale Bevölkung: \SI{35}{\percent}
 \end{itemize}
-[...Begründung für die Wahl der Kriterien...]
+Dabei sind der minimal und maximal zulässige Zenit- bzw. Azimuthwinkel durch die
+Begrenzung durch das Teleskop gegeben. Die Schnitte dienen dazu fehlerhafte
+Daten herauszufiltern. Die Wahl einer maximalen Bewölkung zum Zeitpunkt der
+Messung sichert die Vergleichbarkeit der genommenen Daten.
 
 Als nächstes wird das Programm \textit{coach} (Compressed Osteria Alias
 Computation of the Hadroness parameter) verwendet, um Modelle für die
@@ -104,20 +107,62 @@ dass der Krebsnebel für das Teleskop eine Punktquelle darstellt.
   \label{fig:skyplot}
 \end{figure}
 
+Abbildung~\ref{fig:detectionplot} zeigt den sogenannten \textit{detection plot}.
+Hierbei ist die Anzahl der detektierten Photonen aufgetragen gegen den Abstand
+zum Mittelpunkt der Quelle. Als Maß für den Abstand wird typischerweise
+der eingeschlossene Winkel $\theta$ zum Quadrat gewählt, unter dem relativ zum
+Mittelpunkt der Quelle gemessen wird. Es zeigt sich ein stark von Null
+abfallender Verlauf. Zur Erstellung der Abbildung wurde das Programm
+\textit{odie} verwendet. In einem nächten Schritt kann nun die Signifkanz der
+Quelle über dem gemessenen Untergrund bestimmt werden. Dabei wird der Schnitt
+auf $\theta^2$ so gewählt, dass die Signifikanz maximiert wird. Es ergibt sich
+eine erwartete hohe Signifikanz von $\num{69.83}\sigma$ mit einem $\theta^2$
+Schnitt sehr nahe bei Null, wodurch die Punktförmigkeit der Quelle für das
+Teleskop nochmal deutlich wird.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/odie_thetasquared.pdf}
-  \caption{Eine Caption.}
+  \caption{Anzahl gemessener Photonen in Abhängigkeit vom Abstand zum
+  Quellmittelpunkt. Es zeigt sich eine hohe Signifikanz der Quelle über dem
+  gemessenen Untergrund.}
+  \label{fig:detectionplot}
 \end{figure}
+
+Der mit der Software \textit{flute} berechnete Fluss von Photonen mit einer
+Energie größer als \SI{300}{\giga\electronvolt} aufgetragen gegen den
+Beobachtungszeitpunkt ist in der sogennaten Lichtkurve in
+Abbildung~\ref{fig:lichtkurve} zu sehen. Es zeigt sich, dass der gemessene Fluss
+zu allen Zeitpunkten im Rahmen der Fehler gut mit dem Referenzwert für den
+Krebsnebel übereinstimmt. Schwankungen zwischen den gemessenen Werte können
+durch unterschiedliche Randbedingungen, wie zum Beispiel das Wetter erklärt
+werden; unterschiedlich große statistische Fehler der Werte durch
+unterschiedlich lange Beobachtungszeiträume und damit einhergehender
+unterschiedlicher Datenmenge.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/flute_lichtkurve.pdf}
-  \caption{Eine Caption.}
+  \caption{Fluss von Elektronen mit Energien größer als
+  \SI{300}{\giga\electronvolt} aufgetragen gegen den Beobachtungszeitpunkt. Eine
+  gute Übereinstimmung mit dem Referenzwert ist im Rahmen der Fehler zu
+  erkennen.}
+  \label{fig:lichtkurve}
 \end{figure}
+
+Zuletzt wird noch die spektrale Energieverteilung aus den Daten mit Hilfe des
+Programms \textit{combunfold} bestimmt. Da die gemessene Verteilung durch
+Akzeptanz- und Verzerrungseffekte des Teleskops nicht der tatsächlichen
+Verteilung entspricht muss diese erst durch Entfaltung berechnet werden. Dies
+geschieht in Bins der Energie. Wie in Abbildung~\ref{fig:entfaltung} zu sehen,
+stimmt das entfaltete Energiespektrum gut mit zwei anderen Referenzmessungen von
+MAGIC überein.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/combunfold_energyspectrum.pdf}
-  \caption{Eine Caption.}
+  \caption{Entfaltetes Energiespektrum aufgetragen in Bins der Energie. Unter
+  Berücksichtigung der statistischen Unsicherheiten sind die Messwerte
+  kompatibel mit Referenzmessungen.}
+  \label{fig:entfaltung}
 \end{figure}
