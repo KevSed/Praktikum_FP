@@ -14,8 +14,8 @@ Kamerabildes mit dem Programm \textit{star}. Beim Image Cleaning wird Rauschen
 aus dem Kamerabild entfernt, indem nur die Pixel der Kamera berücksichtigt
 werden, die eine bestimmte Signalstärke gemessen haben. Dabei ist die geforderte
 Signalstärke auch davon abhängig, ob Pixel in direkter Nachbarschaft
-berücksichtigt worden sind. Nach der Reinigng des Kamerabildes wird die
-detektierte Form durch Größen, wie zum Beispiel den Schwerpunkt, die Länge und
+berücksichtigt worden sind. Nach der Reinigung des Kamerabildes wird das
+Schauerbild durch Größen, wie zum Beispiel den Schwerpunkt, die Länge und
 Breite und den Abstand des Schwerpunktes zum anvisierten Ziel parametrisiert.
 Im Anschluss daran werden die Daten der Teleskope durch die Software
 \textit{superstar} kombiniert und Stereoparameter für die weitere Analyse
@@ -39,26 +39,34 @@ weiterverwendet, die den folgenden Kriterien genügen:
 \begin{itemize}
   \item $\SI{5}{\degree}<\text{Zenitwinkel}<\SI{35}{\degree}$
   \item $\SI{-180}{\degree}<\text{Azimuthwinkel}<\SI{360}{\degree}$
-  \item Maximale Bevölkung: \SI{35}{\percent}
+  \item Maximale Bewölkung: \SI{35}{\percent}
 \end{itemize}
 Dabei sind der minimal und maximal zulässige Zenit- bzw. Azimuthwinkel durch die
 Begrenzung durch das Teleskop gegeben. Die Schnitte dienen dazu fehlerhafte
 Daten herauszufiltern. Die Wahl einer maximalen Bewölkung zum Zeitpunkt der
-Messung sichert die Vergleichbarkeit der genommenen Daten.
+Messung sichert die Vergleichbarkeit und Qualität der genommenen Daten.
 
 Als nächstes wird das Programm \textit{coach} (Compressed Osteria Alias
 Computation of the Hadroness parameter) verwendet, um Modelle für die
 \begin{enumerate}
-  \item Separation von Gamma- und Hadronenstrahlung,
+  \item Separation von Gamma- und Hadronenschauern,
   \item Energieabschätzung und
   \item Positionsrekonstruktion
 \end{enumerate}
 aufzustellen. Dies ist notwendig, um das beobachtete Signal klassifizieren zu
-können. Die Unterscheidung von Gamma- und Hadronenstrahlung ist möglich, da die
-Wahrscheinlichkeit für die Interaktion eines Hadrons mit den Molekülen der
-Atmosphäre kleiner ist als die elektromagnetische Interaktion von Gammastrahlung
-mit dieser. Daraus resultierend fliegen Hadronen in einem Schauer weiter und der
-Schauer ist weiter gefächert als eine elektromagnetischer Schauer.
+können. Die Unterscheidung von Gamma- und Hadronenschauern ist möglich, da die
+Prozesse in den Kamneras sehr unterschiedliche Topologien zeigen. Hadronen, die
+in die Atmosphäre eindringen wechselwirken sehr wahrscheinlich zunächst hadronisch.
+Die entstehenden leichteren Hadronen zerfallen anschließend, bis sich Pionen, also
+die leichtesten Hadronen bilden. Dabei fächert sich der Schauer im Vergleich zu
+Photonenschauern erheblich auf. Die große Pionenzahl in hadronischen Schauern sorgt
+des Weiteren dafür, dass sehr viele Myonen entstehen, welche sich in den Kameras als
+kreisrunde Schauer niederschlagen.
+Gammaschauer hingegen wechselwirken beinahe ausschließlich elektromagnetisch durch
+Streuung sowie Paarbildung. Die Wahrscheinlichkeit für die Paarbildung von Myonen
+ist dabei vernachlässigbar gegen die der Bildung von Elektronen. Durch die fehlende
+Erzeugung vieler Hadronen sind Gammaschauer außerdem deutlich in Richtung Gesamtimpuls
+geboostet. \\
 Abbildung~\ref{fig:gamma_hadron} zeigt den Unterschied der Form eines
 hadronischen und eines elektromagnetischen Schauers. Zur Klassifikation wird ein
 \textit{random forest} verwendet. Dieser wird trainiert mit einem Teil des
@@ -91,9 +99,9 @@ produziert werden.
 \subsection{Ergebnisse der Analyse}
 
 Abbildung~\ref{fig:skyplot} (auch \textit{skyplot} genannt) zeigt den mit dem
-Programm \textit{casper} berechneten relativen Fluss aufgetragen gegen die
+Programm \textit{caspar} berechneten relativen Fluss aufgetragen gegen die
 Position am Himmel. Die eingezeichnete \textit{point spread function} (PSF)
-veranschaulicht, die Detektorantwort des Teleskops auf eine punktförmige Quelle
+veranschaulicht die Detektorantwort des Teleskops auf eine punktförmige Quelle
 am Himmel und ist somit ein Maß für die Auflösung des Teleskops. Es zeigt sich,
 dass der Krebsnebel für das Teleskop eine Punktquelle darstellt.
 
@@ -133,12 +141,13 @@ Der mit der Software \textit{flute} berechnete Fluss von Photonen mit einer
 Energie größer als \SI{300}{\giga\electronvolt} aufgetragen gegen den
 Beobachtungszeitpunkt ist in der sogennaten Lichtkurve in
 Abbildung~\ref{fig:lichtkurve} zu sehen. Es zeigt sich, dass der gemessene Fluss
-zu allen Zeitpunkten im Rahmen der Fehler gut mit dem Referenzwert für den
-Krebsnebel übereinstimmt. Schwankungen zwischen den gemessenen Werte können
-durch unterschiedliche Randbedingungen, wie zum Beispiel das Wetter erklärt
+zu allen Zeitpunkten im Rahmen der Fehler nicht signifikant vom zeitlichen
+Mittelwert abweicht. Schwankungen zwischen den gemessenen Werten können
+auch durch unterschiedliche Randbedingungen, wie zum Beispiel das Wetter erklärt
 werden; unterschiedlich große statistische Fehler der Werte durch
 unterschiedlich lange Beobachtungszeiträume und damit einhergehender
-unterschiedlicher Datenmenge.
+unterschiedlicher Datenmengen. Längere Zeiträume ohne Messpunkte deuten auf
+sehr schlechte Wetterkonditionen oder Mondnächte hin.
 
 \begin{figure}
   \centering
