@@ -50,7 +50,7 @@ tables:
 
 
 .DELETE_ON_ERROR:
-Abgabe.pdf: main.tex | build
+Abgabe.pdf: main.tex content/*.tex | build
 	@TEXINPUTS="$(call translate,build:)" lualatex \
 	  --output-directory=build \
 	  --interaction=nonstopmode \
