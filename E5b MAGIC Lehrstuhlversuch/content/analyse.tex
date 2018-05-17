@@ -14,12 +14,12 @@ Kamerabildes mit dem Programm \textit{star}. Beim Image Cleaning wird Rauschen
 aus dem Kamerabild entfernt, indem nur die Pixel der Kamera berücksichtigt
 werden, die eine bestimmte Signalstärke gemessen haben. Dabei ist die geforderte
 Signalstärke auch davon abhängig, ob Pixel in direkter Nachbarschaft
-berücksichtigt worden sind. Nach der Reinigung des Kamerabildes wird das
-Schauerbild durch Größen, wie zum Beispiel den Schwerpunkt, die Länge und
-Breite und den Abstand des Schwerpunktes zum anvisierten Ziel parametrisiert.
-Im Anschluss daran werden die Daten der Teleskope durch die Software
-\textit{superstar} kombiniert und Stereoparameter für die weitere Analyse
-berechnet.
+berücksichtigt worden sind. Nach der Reinigung des Kamerabildes kann das
+Schauerbild durch eine Ellipse beschrieben werden, die durch Größen, wie zum
+Beispiel den Schwerpunkt, die Länge und Breite und den Abstand des Schwerpunktes
+zum anvisierten Ziel parametrisiert wird. Im Anschluss daran werden die Daten
+der Teleskope durch die Software \textit{superstar} kombiniert und
+Stereoparameter für die weitere Analyse berechnet.
 
 \begin{figure}[H]
   \centering
@@ -53,9 +53,10 @@ Computation of the Hadroness parameter) verwendet, um Modelle für die
   \item Energieabschätzung und
   \item Positionsrekonstruktion
 \end{enumerate}
-aufzustellen. Dies ist notwendig, um das beobachtete Signal klassifizieren zu
-können. Die Unterscheidung von Gamma- und Hadronenschauern ist möglich, da die
-Prozesse in den Kamneras sehr unterschiedliche Topologien zeigen. Hadronen, die
+aufzustellen. Dies ist notwendig, um das beobachtete Signal klassifizieren bzw.
+rekonstruieren zu können. Die Unterscheidung von Gamma- und Hadronenschauern
+erfolgt mit Techniken des \textit{maschine learning}, da die Prozesse in den
+Kameras sehr ähnliche Topologien zeigen. Hadronen, die
 in die Atmosphäre eindringen wechselwirken sehr wahrscheinlich zunächst hadronisch.
 Die entstehenden leichteren Hadronen zerfallen anschließend, bis sich Pionen, also
 die leichtesten Hadronen bilden. Dabei fächert sich der Schauer im Vergleich zu
@@ -69,13 +70,15 @@ Erzeugung vieler Hadronen sind Gammaschauer außerdem deutlich in Richtung Gesam
 geboostet. \\
 Abbildung~\ref{fig:gamma_hadron} zeigt den Unterschied der Form eines
 hadronischen und eines elektromagnetischen Schauers. Zur Klassifikation wird ein
-\textit{random forest} verwendet. Dieser wird trainiert mit einem Teil des
-Datensatzes und einem Monte Carlo generierten Datensatz, der auf Grundlage eines
-Modells generiert wurde, welches durch Gammastrahlung induzierte Teilchenschauer
-beschreibt. Um die Trennkraft des Klassifizierers zu testen wird der Monte
-Carlo Datensatz zu Beginn in einen Test- und einen Trainingsdatensatz
-aufgeteilt. Somit ist es möglich mit einem Teil des Datensatzes den
-Klassifizierer zu trainieren und mit dem anderen Teil zu testen.
+\textit{random forest} verwendet. Dieser wird trainiert mit Off-Daten, die an
+einer Stelle am Himmel aufgenommen wurden, an dem kein Signal der Quelle
+erwartet wird und somit als Nullmessung dienen und einem Monte Carlo generierten
+Datensatz, der auf Grundlage eines Modells generiert wurde, welches durch
+Gammastrahlung induzierte Teilchenschauer beschreibt. Um die Trennkraft des
+Klassifizierers zu testen wird der Monte Carlo Datensatz zu Beginn in einen
+Test- und einen Trainingsdatensatz aufgeteilt. Somit ist es möglich mit einem
+Teil des Datensatzes den Klassifizierer zu trainieren und mit dem anderen Teil
+zu testen.
 
 \begin{figure}
   \centering
@@ -110,16 +113,16 @@ dass der Krebsnebel für das Teleskop eine Punktquelle darstellt.
   \includegraphics[width=0.8\textwidth]{figures/caspar_flux_skymap.pdf}
   \caption{Veranschaulichung des relativen Flusses in Abhängigkeit von der
   Position am Himmel. Die eingezeichnete Ellipse stellt die
-  \textit{point spread function} (PSF) und ist ein Maß für die Auflösung des
+  \textit{point spread function} (PSF) dar und ist ein Maß für die Auflösung des
   Teleskops.}
   \label{fig:skyplot}
 \end{figure}
 
 Abbildung~\ref{fig:detectionplot} zeigt den sogenannten \textit{detection plot}.
 Hierbei ist die Anzahl der detektierten Photonen aufgetragen gegen den Abstand
-zum Mittelpunkt der Quelle. Als Maß für den Abstand wird typischerweise
-der eingeschlossene Winkel $\theta$ zum Quadrat gewählt, unter dem relativ zum
-Mittelpunkt der Quelle gemessen wird. Es zeigt sich ein stark von Null
+zur anvisierten Position. Als Maß für den Abstand wird typischerweise
+der eingeschlossene Winkel $\theta$ zum Quadrat gewählt, unter dem relativ zur
+anvisierten Position gemessen wird. Es zeigt sich ein stark von Null
 abfallender Verlauf. Zur Erstellung der Abbildung wurde das Programm
 \textit{odie} verwendet. In einem nächten Schritt kann nun die Signifkanz der
 Quelle über dem gemessenen Untergrund bestimmt werden. Dabei wird der Schnitt
@@ -146,13 +149,14 @@ Mittelwert abweicht. Schwankungen zwischen den gemessenen Werten können
 auch durch unterschiedliche Randbedingungen, wie zum Beispiel das Wetter erklärt
 werden; unterschiedlich große statistische Fehler der Werte durch
 unterschiedlich lange Beobachtungszeiträume und damit einhergehender
-unterschiedlicher Datenmengen. Längere Zeiträume ohne Messpunkte deuten auf
-sehr schlechte Wetterkonditionen oder Mondnächte hin.
+unterschiedlicher Datenmengen. Längere Zeiträume ohne Messpunkte können dadurch
+erklärt werden, dass der Krebsnebel im Zeitraum November / Dezember an einem für
+das MAGIC Teleskop nicht sichtbaren Teil des Nachthimmels steht.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/flute_lichtkurve.pdf}
-  \caption{Fluss von Elektronen mit Energien größer als
+  \caption{Fluss von Photonen mit Energien größer als
   \SI{300}{\giga\electronvolt} aufgetragen gegen den Beobachtungszeitpunkt. Eine
   gute Übereinstimmung mit dem Referenzwert ist im Rahmen der Fehler zu
   erkennen.}
