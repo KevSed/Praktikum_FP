@@ -41,10 +41,10 @@ weiterverwendet, die den folgenden Kriterien genügen:
   \item $\SI{-180}{\degree}<\text{Azimuthwinkel}<\SI{360}{\degree}$
   \item Maximale Bewölkung: \SI{35}{\percent}
 \end{itemize}
-Dabei sind der minimal und maximal zulässige Zenit- bzw. Azimuthwinkel durch die
-Begrenzung durch das Teleskop gegeben. Die Schnitte dienen dazu fehlerhafte
-Daten herauszufiltern. Die Wahl einer maximalen Bewölkung zum Zeitpunkt der
-Messung sichert die Vergleichbarkeit und Qualität der genommenen Daten.
+Dabei sind der minimal und maximal zulässige Zenitwinkel so gewählt, dass sie zu
+simulierten Daten passen, die im nächsten Schritt verwendet werden. Die Wahl
+einer maximalen Bewölkung zum Zeitpunkt der Messung sichert die Vergleichbarkeit
+und Qualität der genommenen Daten.
 
 Als nächstes wird das Programm \textit{coach} (Compressed Osteria Alias
 Computation of the Hadroness parameter) verwendet, um Modelle für die
@@ -56,18 +56,18 @@ Computation of the Hadroness parameter) verwendet, um Modelle für die
 aufzustellen. Dies ist notwendig, um das beobachtete Signal klassifizieren bzw.
 rekonstruieren zu können. Die Unterscheidung von Gamma- und Hadronenschauern
 erfolgt mit Techniken des \textit{maschine learning}, da die Prozesse in den
-Kameras sehr ähnliche Topologien zeigen. Hadronen, die
-in die Atmosphäre eindringen wechselwirken sehr wahrscheinlich zunächst hadronisch.
-Die entstehenden leichteren Hadronen zerfallen anschließend, bis sich Pionen, also
-die leichtesten Hadronen bilden. Dabei fächert sich der Schauer im Vergleich zu
-Photonenschauern erheblich auf. Die große Pionenzahl in hadronischen Schauern sorgt
-des Weiteren dafür, dass sehr viele Myonen entstehen, welche sich in den Kameras als
-kreisrunde Schauer niederschlagen.
-Gammaschauer hingegen wechselwirken beinahe ausschließlich elektromagnetisch durch
-Streuung sowie Paarbildung. Die Wahrscheinlichkeit für die Paarbildung von Myonen
-ist dabei vernachlässigbar gegen die der Bildung von Elektronen. Durch die fehlende
-Erzeugung vieler Hadronen sind Gammaschauer außerdem deutlich in Richtung Gesamtimpuls
-geboostet. \\
+Kameras sehr ähnliche Topologien zeigen. Bei hadronischen Schauern sind Hadronen
+in die Teilchenwechselwirkungen involviert. Die entstehenden leichteren Hadronen
+zerfallen anschließend, bis sich Pionen, also die leichtesten Hadronen bilden.
+Dabei fächert sich der Schauer im Vergleich zu Photonenschauern erheblich auf.
+Die große Pionenzahl in hadronischen Schauern sorgt des Weiteren dafür, dass
+sehr viele Myonen entstehen, welche sich in den Kameras als kreisrunde Schauer
+niederschlagen.
+Gammaschauer hingegen wechselwirken beinahe ausschließlich elektromagnetisch
+durch Streuung sowie Paarbildung. Die Wahrscheinlichkeit für die Paarbildung von
+Myonen ist dabei vernachlässigbar gegen die der Bildung von Elektronen. Durch
+die fehlende Erzeugung vieler Hadronen sind Gammaschauer außerdem deutlich in
+Richtung Gesamtimpuls geboostet. \\
 Abbildung~\ref{fig:gamma_hadron} zeigt den Unterschied der Form eines
 hadronischen und eines elektromagnetischen Schauers. Zur Klassifikation wird ein
 \textit{random forest} verwendet. Dieser wird trainiert mit Off-Daten, die an
@@ -92,7 +92,9 @@ zu testen.
 
 Für die Energierekonstruktion werden sogenannte \textit{lookup tables} (LUTs)
 generiert, durch die eine Abschätzung der Energie aufgrund der Korrelation
-zwischen den Bildparametern und der Stärke des Signals erfolgt.
+zwischen den Bildparametern und der Stärke des Signals erfolgt. Die
+Richtungsrekonstruktion erfolgt ebenfalls durch das Anwenden eines vorher
+trainierten \textit{random forest}.
 
 Nachdem die Modelle erstellt wurden, werden diese mit dem Programm
 \textit{melibea} auf den vollständigen Datensatz angewendet. Mit dem nun fertig
@@ -120,15 +122,15 @@ dass der Krebsnebel für das Teleskop eine Punktquelle darstellt.
 
 Abbildung~\ref{fig:detectionplot} zeigt den sogenannten \textit{detection plot}.
 Hierbei ist die Anzahl der detektierten Photonen aufgetragen gegen den Abstand
-zur anvisierten Position. Als Maß für den Abstand wird typischerweise
-der eingeschlossene Winkel $\theta$ zum Quadrat gewählt, unter dem relativ zur
-anvisierten Position gemessen wird. Es zeigt sich ein stark von Null
-abfallender Verlauf. Zur Erstellung der Abbildung wurde das Programm
-\textit{odie} verwendet. In einem nächten Schritt kann nun die Signifkanz der
-Quelle über dem gemessenen Untergrund bestimmt werden. Dabei wird der Schnitt
-auf $\theta^2$ so gewählt, dass die Signifikanz maximiert wird. Es ergibt sich
-eine erwartete hohe Signifikanz von $\num{69.83}\sigma$ mit einem $\theta^2$
-Schnitt sehr nahe bei Null, wodurch die Punktförmigkeit der Quelle für das
+zur anvisierten Position. Als Maß für den Abstand wird typischerweise der
+eingeschlossene Winkel $\theta$ zum Quadrat gewählt, unter dem relativ zur
+anvisierten Position gemessen wird. Es zeigt sich ein stark abfallender Verlauf.
+Zur Erstellung der Abbildung wurde das Programm \textit{odie} verwendet. In
+einem nächten Schritt kann nun die Signifkanz der Quelle über dem gemessenen
+Untergrund bestimmt werden. Dabei wird der Schnitt auf $\theta^2$ so gewählt,
+dass die Signifikanz maximiert wird. Es ergibt sich eine erwartete hohe
+Signifikanz von $\num{69.83}\sigma$ mit einem $\theta^2$ Schnitt bei
+$\SI{0.009}{deg\squared}$, wodurch die Punktförmigkeit der Quelle für das
 Teleskop nochmal deutlich wird.
 
 \begin{figure}[H]
