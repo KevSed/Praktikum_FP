@@ -42,7 +42,7 @@ data:
 # 	TEXINPUTS="$(call translate,$(pwd):)" python pc/plot.py
 # 	@echo
 
-graphics:
+figures:
 	@mkdir -p graphics
 
 tables:
@@ -50,7 +50,7 @@ tables:
 
 
 .DELETE_ON_ERROR:
-Abgabe.pdf: main.tex content/*.tex | build
+Abgabe.pdf: main.tex content/*.tex figures/*.pdf | build
 	@TEXINPUTS="$(call translate,build:)" lualatex \
 	  --output-directory=build \
 	  --interaction=nonstopmode \
