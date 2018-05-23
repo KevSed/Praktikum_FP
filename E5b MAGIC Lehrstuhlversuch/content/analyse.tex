@@ -54,15 +54,18 @@ Computation of the Hadroness parameter) verwendet, um Modelle für die
   \item Positionsrekonstruktion
 \end{enumerate}
 aufzustellen. Dies ist notwendig, um das beobachtete Signal klassifizieren bzw.
-rekonstruieren zu können. Die Unterscheidung von Gamma- und Hadronenschauern
-erfolgt mit Techniken des \textit{maschine learning}, da die Prozesse in den
+rekonstruieren zu können. Das Cherenkov Licht, das die Teleskope messen,
+entsteht, wenn sich geladene Teilchen in einem Medium schneller bewegen als
+Licht es in diesem Medium tut. Es entstehen dann Lichtblitze - also Photonen -
+deren Abstrahlungswinkel abhängig von der Geschwindigkeit des geladenen
+Teilchens ist. Cherenkov Strahlung kann sowohl durch kosmische Gammastrahlung,
+bzw. deren Schauerprodukte, als auch durch kosmische Hadronen erzeugt werden.
+Für die Analyse ist die Unterscheidung der Quelle entscheidend. Sie erfolgt mit
+Techniken des \textit{machine learning}, da die Prozesse in den
 Kameras sehr ähnliche Topologien zeigen. Bei hadronischen Schauern sind Hadronen
 in die Teilchenwechselwirkungen involviert. Die entstehenden leichteren Hadronen
 zerfallen anschließend, bis sich Pionen, also die leichtesten Hadronen bilden.
 Dabei fächert sich der Schauer im Vergleich zu Photonenschauern erheblich auf.
-Die große Pionenzahl in hadronischen Schauern sorgt des Weiteren dafür, dass
-sehr viele Myonen entstehen, welche sich in den Kameras als kreisrunde Schauer
-niederschlagen.
 Gammaschauer hingegen wechselwirken beinahe ausschließlich elektromagnetisch
 durch Streuung sowie Paarbildung. Die Wahrscheinlichkeit für die Paarbildung von
 Myonen ist dabei vernachlässigbar gegen die der Bildung von Elektronen. Durch
@@ -103,11 +106,49 @@ produziert werden.
 
 \subsection{Ergebnisse der Analyse}
 
+Abbildung~\ref{fig:detectionplot} zeigt den sogenannten \textit{detection plot}.
+Hierbei ist die Anzahl der detektierten Photonen aufgetragen gegen den Abstand
+zur anvisierten Position. Als Maß für den Abstand wird typischerweise der
+eingeschlossene Winkel $\theta$ zum Quadrat gewählt, unter dem relativ zur
+anvisierten Position gemessen wird. Es zeigt sich ein stark abfallender Verlauf.
+Zur Erstellung der Abbildung wurde das Programm \textit{odie} verwendet. In
+einem nächten Schritt kann nun die Signifkanz der Quelle über dem gemessenen
+Untergrund bestimmt werden. Dazu wird der Bereich in $\theta^2$ eingeschränkt.
+Der dafür verwendete Schnitt folgt unter der Annahme, dass die Unsicherheiten
+auf Signal- und Untergrundereignisse gleich sind aus
+%
+\begin{equation}
+    \frac{\theta^2}{\sigma^2} = 2.51286^2-38.2\log\left(1-\text{e}^{-2.85(N_{\text{off}(<1\sigma_\text{PSF})}/\alpha)^{0.114}}\right) \, .
+\end{equation}
+%
+Die Berechnung übernimmt auch hier das Programm \textit{odie}. Es ergibt sich
+eine erwartete hohe Signifikanz von $\num{71.5}\sigma$ mit einem $\theta^2$
+Schnitt bei $\SI{0.0103}{deg\squared}$, wodurch die Punktförmigkeit der Quelle
+für das Teleskop nochmal deutlich wird.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/odie_thetasquared.pdf}
+  \caption{Anzahl gemessener Photonen in Abhängigkeit vom Abstand zum
+  Quellmittelpunkt. Es zeigt sich eine hohe Signifikanz der Quelle über dem
+  gemessenen Untergrund.}
+  \label{fig:detectionplot}
+\end{figure}
+
+Die Ergebnisse der Berechnungen mit \textit{odie} lauten:
+%
+\begin{align*}
+    \texttt{psf40} &= 0.042 \\
+    \texttt{psftailfract} &= 0.551 \\
+    \texttt{psfaccuracy} &= 0.191
+\end{align*}
+%
 Abbildung~\ref{fig:skyplot} (auch \textit{skyplot} genannt) zeigt den mit dem
 Programm \textit{caspar} berechneten relativen Fluss aufgetragen gegen die
 Position am Himmel. Die eingezeichnete \textit{point spread function} (PSF)
 veranschaulicht die Detektorantwort des Teleskops auf eine punktförmige Quelle
-am Himmel und ist somit ein Maß für die Auflösung des Teleskops. Es zeigt sich,
+am Himmel und ist somit ein Maß für die Auflösung des Teleskops. Sie ergibt
+sich aus den oben aufgeführten Berechnungen mit \textit{odie}. Es zeigt sich,
 dass der Krebsnebel für das Teleskop eine Punktquelle darstellt.
 
 \begin{figure}[H]
@@ -118,28 +159,6 @@ dass der Krebsnebel für das Teleskop eine Punktquelle darstellt.
   \textit{point spread function} (PSF) dar und ist ein Maß für die Auflösung des
   Teleskops.}
   \label{fig:skyplot}
-\end{figure}
-
-Abbildung~\ref{fig:detectionplot} zeigt den sogenannten \textit{detection plot}.
-Hierbei ist die Anzahl der detektierten Photonen aufgetragen gegen den Abstand
-zur anvisierten Position. Als Maß für den Abstand wird typischerweise der
-eingeschlossene Winkel $\theta$ zum Quadrat gewählt, unter dem relativ zur
-anvisierten Position gemessen wird. Es zeigt sich ein stark abfallender Verlauf.
-Zur Erstellung der Abbildung wurde das Programm \textit{odie} verwendet. In
-einem nächten Schritt kann nun die Signifkanz der Quelle über dem gemessenen
-Untergrund bestimmt werden. Dabei wird der Schnitt auf $\theta^2$ so gewählt,
-dass die Signifikanz maximiert wird. Es ergibt sich eine erwartete hohe
-Signifikanz von $\num{69.83}\sigma$ mit einem $\theta^2$ Schnitt bei
-$\SI{0.009}{deg\squared}$, wodurch die Punktförmigkeit der Quelle für das
-Teleskop nochmal deutlich wird.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/odie_thetasquared.pdf}
-  \caption{Anzahl gemessener Photonen in Abhängigkeit vom Abstand zum
-  Quellmittelpunkt. Es zeigt sich eine hohe Signifikanz der Quelle über dem
-  gemessenen Untergrund.}
-  \label{fig:detectionplot}
 \end{figure}
 
 Der mit der Software \textit{flute} berechnete Fluss von Photonen mit einer
