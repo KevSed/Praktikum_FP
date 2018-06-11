@@ -1,4 +1,4 @@
-all: latex
+all: plots latex
 
 latex: FORCE | build
 	@lualatex --halt-on-error --interaction=nonstopmode --output-directory=build --draftmode main.tex
@@ -13,7 +13,7 @@ build:
 clean:
 	@rm -rf build/
 
-python:
+plots:
 	@python analysis/verzoegerung.py
 	@python analysis/kalibrierung.py
 	@python analysis/spektrum.py
